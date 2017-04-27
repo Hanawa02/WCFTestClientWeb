@@ -1,0 +1,2457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeMovimentacaoTabGenImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreMovimentacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="DadosDaMovimentacao" nillable="true" type="q1:DadosDaMovimentacaoEntrada" />
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="DadosDosFuncionariosDaMovimentacao" nillable="true" type="q2:ArrayOfDadosDoFuncionarioDaMovimentacaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreMovimentacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="CadastreMovimentacaoResult" nillable="true" type="q3:ArrayOfDadosDaInconsistenciaDaMovimentacao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeMovimentacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="DadosDaMovimentacao" nillable="true" type="q4:DadosDaMovimentacaoEntrada" />
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="DadosDosFuncionariosDaMovimentacao" nillable="true" type="q5:ArrayOfDadosDoFuncionarioDaMovimentacaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeMovimentacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDeMovimentacaoResult" nillable="true" type="q6:ArrayOfDadosDaInconsistenciaDaMovimentacao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDeMovimentacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoDaEmpresaParaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="DadosDosFuncionariosDaMovimentacao" nillable="true" type="q7:ArrayOfDadosDoFuncionarioDaMovimentacaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDeMovimentacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasNaoImpeditivasDeMovimentacaoResult" nillable="true" type="q8:ArrayOfDadosDaInconsistenciaDaMovimentacao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteTiposAtivosParaMovimentacoes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="tiposDeMovimentacao" nillable="true" type="q9:TiposDeMovimentacaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteTiposAtivosParaMovimentacoesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ConsulteTiposAtivosParaMovimentacoesResult" nillable="true" type="q10:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosDoFuncionarioParaMovimentacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="dadosDoFuncionarioParaMovimentacaoEntrada" nillable="true" type="q11:DadosDoFuncionarioParaMovimentacaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosDoFuncionarioParaMovimentacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDadosDoFuncionarioParaMovimentacaoResult" nillable="true" type="q12:DadosDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteSeFuncionarioEstaEmExcecaoSalarial">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="funcionarioEstaEmExcecaoSalarialEntrada" nillable="true" type="q13:FuncionarioEstaEmExcecaoSalarialEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteSeFuncionarioEstaEmExcecaoSalarialResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="ConsulteSeFuncionarioEstaEmExcecaoSalarialResult" nillable="true" type="q14:FuncionarioEstaEmExcecaoSalarial" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEnquadramentoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="enquadramentoDoFuncionarioEntrada" nillable="true" type="q15:EnquadramentoDoFuncionarioEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEnquadramentoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ConsulteEnquadramentoDoFuncionarioResult" nillable="true" type="q16:EnquadramentoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicoesParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="posicaoParaCadastrarFuncionariosEntrada" nillable="true" type="q17:PosicoesParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicoesParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="ConsultePosicoesParaCadastrarFuncionariosResult" nillable="true" type="q18:ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCargosDeEntidadesParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="cargosDeEntidadesParaCadastrarFuncionariosEntrada" nillable="true" type="q19:CargosDeEntidadesParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCargosDeEntidadesParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="ConsulteCargosDeEntidadesParaCadastrarFuncionariosResult" nillable="true" type="q20:ArrayOfCargoParaCadastrarFuncionarios" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="tabelasEFaixasSalariaisDoCargoParaFuncionarios" nillable="true" type="q21:TabelasEFaixasSalariaisDoCargoParaFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosResult" nillable="true" type="q22:ArrayOfTabelaSalarialParaCadastrarFuncionarios" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNiveisDaTabelaSalarialParaFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="niveisDaTabelaSalarialParaFuncionarios" nillable="true" type="q23:NiveisDaTabelaSalarialParaFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNiveisDaTabelaSalarialParaFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="lg.com.br/svc/dto" minOccurs="0" name="ConsulteNiveisDaTabelaSalarialParaFuncionariosResult" nillable="true" type="q24:ArrayOfNivelSalarial" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNiveisSalariaisDoFPW">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="lg.com.br/svc/dto" minOccurs="0" name="nivelSalarial" nillable="true" type="q25:NivelSalarialFPWEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNiveisSalariaisDoFPWResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q26="lg.com.br/svc/dto" minOccurs="0" name="ConsulteNiveisSalariaisDoFPWResult" nillable="true" type="q26:ArrayOfNivelSalarialFPW" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q27="lg.com.br/svc/dto" minOccurs="0" name="LotacoesDeEntidadesParaCadastrarFuncionarios" nillable="true" type="q27:LotacoesDeEntidadesParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q28="lg.com.br/svc/dto" minOccurs="0" name="ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosResult" nillable="true" type="q28:ArrayOfRetornoCodigoEDescricaoGenericolong" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q29="lg.com.br/svc/dto" minOccurs="0" name="CentrosDeCustosDeEntidadesParaCadastrarEntrada" nillable="true" type="q29:CentrosDeCustosDeEntidadesParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q30="lg.com.br/svc/dto" minOccurs="0" name="ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosResult" nillable="true" type="q30:ArrayOfCentroDeCusto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q31="lg.com.br/svc/dto" minOccurs="0" name="gruposHierarquicosDeEntidadesParaCadastrarFuncionarios" nillable="true" type="q31:GruposHierarquicosDeEntidadesParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q32="lg.com.br/svc/dto" minOccurs="0" name="ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosResult" nillable="true" type="q32:ArrayOfRetornoCodigoEDescricaoGenericostring" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteGruposDeMotivosDeMovimentacoes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q33="lg.com.br/svc/dto" minOccurs="0" name="motivos" nillable="true" type="q33:GruposDeMotivosDeMovimentacoesEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteGruposDeMotivosDeMovimentacoesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q34="lg.com.br/svc/dto" minOccurs="0" name="ConsulteGruposDeMotivosDeMovimentacoesResult" nillable="true" type="q34:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHorarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q35="lg.com.br/svc/dto" minOccurs="0" name="horariosDeEntidadesParaCadastrarFuncionarios" nillable="true" type="q35:HorariosParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHorariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q36="lg.com.br/svc/dto" minOccurs="0" name="ConsulteHorariosResult" nillable="true" type="q36:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNaturezasProfissionais">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q37="lg.com.br/svc/dto" minOccurs="0" name="parametroNaturezasProfissionais" nillable="true" type="q37:NaturezasProfissionaisParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNaturezasProfissionaisResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q38="lg.com.br/svc/dto" minOccurs="0" name="ConsulteNaturezasProfissionaisResult" nillable="true" type="q38:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q39="lg.com.br/svc/dto" minOccurs="0" name="LocalDeTrabalhoParaCadastrarFuncionarios" nillable="true" type="q39:LocaisDeTrabalhosParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q40="lg.com.br/svc/dto" minOccurs="0" name="ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosResult" nillable="true" type="q40:ArrayOfRetornoCodigoEDescricaoGenericostring" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q41="lg.com.br/svc/dto" minOccurs="0" name="SindicatoParaCadastrarFuncionarios" nillable="true" type="q41:SindicatosDeEntidadesParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q42="lg.com.br/svc/dto" minOccurs="0" name="ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosResult" nillable="true" type="q42:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteClassificacoesDeNecessidadesEspeciais">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q43="lg.com.br/svc/dto" minOccurs="0" name="classificacoesDeNecessidadesEspeciaisEntrada" nillable="true" type="q43:ClassificacoesDeNecessidadesEspeciaisEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteClassificacoesDeNecessidadesEspeciaisResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q44="lg.com.br/svc/dto" minOccurs="0" name="ConsulteClassificacoesDeNecessidadesEspeciaisResult" nillable="true" type="q44:ArrayOfNecessidadeEspecial" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOutrasOcorrencias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q45="lg.com.br/svc/dto" minOccurs="0" name="outraOcorrencia" nillable="true" type="q45:OutrasOcorrenciasParaCadastrarFuncionariosEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOutrasOcorrenciasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q46="lg.com.br/svc/dto" minOccurs="0" name="ConsulteOutrasOcorrenciasResult" nillable="true" type="q46:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="DadosDaMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoTipoDeMovimentacao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CompararSalarioComPisoDoSindicato" type="xsd:boolean" />
+          <xsd:element name="DataDaMovimentacao" type="xsd:dateTime" />
+          <xsd:element name="DescricaoDaMovimentacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ObservacaoDaMovimentacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDaMovimentacaoEntrada" nillable="true" type="tns:DadosDaMovimentacaoEntrada" />
+      <xsd:complexType name="ArrayOfDadosDoFuncionarioDaMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="DadosDoFuncionarioDaMovimentacaoEntrada" nillable="true" type="tns:DadosDoFuncionarioDaMovimentacaoEntrada" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDadosDoFuncionarioDaMovimentacaoEntrada" nillable="true" type="tns:ArrayOfDadosDoFuncionarioDaMovimentacaoEntrada" />
+      <xsd:complexType name="DadosDoFuncionarioDaMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AgenteNocivo_Atual" nillable="true" type="tns:EnumAgenteNocivo" />
+          <xsd:element minOccurs="0" name="AgenteNocivo_Proximo" nillable="true" type="tns:EnumAgenteNocivo" />
+          <xsd:element minOccurs="0" name="CargoComissionado_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CargoComissionado_Atual_TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CargoComissionado_Desvincular" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoComissionado_ManterTabelaSalarialAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoComissionado_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CargoComissionado_Proximo_TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_Atual_TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_ConsiderarFuncionariosEmExcecaoAoCargoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_ConsiderarFuncionariosEnquadradosAoCargoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_ManterTabelaSalarialAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CargoEfetivo_Proximo_TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CentroDeCusto_Atual_Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CentroDeCusto_ConsiderarFuncionariosEmExcecaoAoCentroDeCustoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CentroDeCusto_ConsiderarFuncionariosEnquadradosAoCentroDeCustoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CentroDeCusto_Desvincular" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CentroDeCusto_Proximo_Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Atual_CodigoDaAgencia" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Atual_CodigoDoBanco" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Atual_NumeroDaConta" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Atual_TipoDeConta" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Proximo_CodigoDaAgencia" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Proximo_CodigoDoBanco" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Proximo_NumeroDaConta" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DadosBancarios_Proximo_TipoDeConta" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="FPW_AtualizarPlanilhaDeEventos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_CargoComissionado_AtualizarFichaCadastral" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_CargoComissionado_GerarOcorrenciaDeAlteracaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_CargoEfetivo_AtualizarFichaCadastral" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_CargoEfetivo_GerarOcorrenciaDeAlteracaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_NaoReajustarReducaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_NivelComissionado_AtualizarFichaCadastral" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_NivelComissionado_GerarOcorrenciaSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_NivelDoCargoComissionado_Atual" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FPW_NivelDoCargoComissionado_Proximo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FPW_NivelDoCargoEfetivo_Atual" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FPW_NivelDoCargoEfetivo_Proximo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FPW_NivelEfetivo_AtualizarFichaCadastral" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FPW_NivelEfetivo_GerarOcorrenciaSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FaixaSalarialComissionado_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="FaixaSalarialComissionado_Proxima_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="FaixaSalarialEfetivo_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="FaixaSalarialEfetivo_Proxima_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="GrupoDoMotivoDeMovimentacao_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico_Atual_Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico_ConsiderarFuncionariosEmExcecaoAoGrupoHierarquicoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico_ConsiderarFuncionariosEnquadradosAoGrupoHierarquicoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico_Proximo_Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Horario_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Horario_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="LocalDeTrabalho_Atual_Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="LocalDeTrabalho_Desvincular" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="LocalDeTrabalho_Proximo_Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Lotacao_Atual_Codigo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Lotacao_ConsiderarFuncionariosEmExcecaoALotacaoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Lotacao_ConsiderarFuncionariosEnquadradosALotacaoDaPosicao" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Lotacao_Proxima_Codigo" type="xsd:long" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NaturezaProfissional_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NaturezaProfissional_Proxima_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NivelSalarialComissionado_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NivelSalarialComissionado_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NivelSalarialEfetivo_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NivelSalarialEfetivo_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="OutrasOcorrencias" nillable="true" type="tns:ArrayOfDadosOutrasOcorrenciasDaMovimentacaoEntrada" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_CodigoDaClassificacao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_Tipo" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_TiposMultiplos_Auditiva" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_TiposMultiplos_Fisico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_TiposMultiplos_Intelectual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_TiposMultiplos_Mental" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_TiposMultiplos_Reabilitado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Atual_TiposMultiplos_Visual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_CodigoDaClassificacao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_Tipo" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_TiposMultiplos_Auditiva" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_TiposMultiplos_Fisico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_TiposMultiplos_Intelectual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_TiposMultiplos_Mental" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_TiposMultiplos_Reabilitado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais_Proximo_TiposMultiplos_Visual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Posicao_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Posicao_ManterCargoAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Posicao_ManterCentroDeCustoAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Posicao_ManterGrupoHierarquicoAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Posicao_ManterLotacaoAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Posicao_Proxima_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ReformarOcorrencias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ReformarOcorrencias_TipoDeReforma" nillable="true" type="tns:EnumTipoDeReforma" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_AcrescimoDeReajusteLinear" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_Atual" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_ConsiderarFuncionariosEmExcecaoEmRelacaoAoSeuNivelSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_ConsiderarFuncionariosEnquadradosEmRelacaoAoSeuNivelSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_PercentualDeReajusteLinear" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_Proximo" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_ReajustarSalarioIgual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioComissionado_TipoDeReajuste" nillable="true" type="tns:EnumTipoDeReajuste" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_AcrescimoDeReajusteLinear" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_Atual" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_ConsiderarFuncionariosEmExcecaoEmRelacaoAoSeuNivelSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_ConsiderarFuncionariosEnquadradosEmRelacaoAoSeuNivelSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_PercentualDeReajusteLinear" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_Proximo" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_ReajustarSalarioIgual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo_TipoDeReajuste" nillable="true" type="tns:EnumTipoDeReajuste" />
+          <xsd:element minOccurs="0" name="SindicatoProfissionalLiberal_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="SindicatoProfissionalLiberal_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Sindicato_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Sindicato_Proximo_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TabelaSalarialComissionado_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TabelaSalarialComissionado_EnquadrarFuncionarioEmExcecaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TabelaSalarialComissionado_ManterSalarioAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TabelaSalarialComissionado_Proxima_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TabelaSalarialEfetivo_Atual_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TabelaSalarialEfetivo_EnquadrarFuncionarioEmExcecaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TabelaSalarialEfetivo_ManterSalarioAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TabelaSalarialEfetivo_Proxima_Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="SindicatoProfissionalLiberal_Atual_PossuiFiliacaoSindical" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SindicatoProfissionalLiberal_Proximo_PossuiFiliacaoSindical" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Sindicato_Atual_PossuiFiliacaoSindical" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Sindicato_Proximo_PossuiFiliacaoSindical" nillable="true" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDoFuncionarioDaMovimentacaoEntrada" nillable="true" type="tns:DadosDoFuncionarioDaMovimentacaoEntrada" />
+      <xsd:simpleType name="EnumAgenteNocivo">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="SEM_EXPOSICAO_AGENTE_NOCIVO" />
+          <xsd:enumeration value="NAO_EXPOSTO_AGENTE_NOCIVO" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_15ANOS_SERVICO" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_20ANOS_SERVICO" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_25ANOS_SERVICO" />
+          <xsd:enumeration value="NAO_EXPOSTO_AGENTE_NOCIVO_MULTIPLOS_VINCULOS" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_15ANOS_SERVICO_MULTIPLOS_VINCULOS" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_20ANOS_SERVICO_MULTIPLOS_VINCULOS" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_25ANOS_SERVICO_MULTIPLOS_VINCULOS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumAgenteNocivo" nillable="true" type="tns:EnumAgenteNocivo" />
+      <xsd:simpleType name="EnumTipoDeSalario">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="MENSAL" />
+          <xsd:enumeration value="QUINZENAL" />
+          <xsd:enumeration value="SEMANAL" />
+          <xsd:enumeration value="DIARIO" />
+          <xsd:enumeration value="HORARIO" />
+          <xsd:enumeration value="TAREFA" />
+          <xsd:enumeration value="OUTROS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+      <xsd:complexType name="ArrayOfDadosOutrasOcorrenciasDaMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="DadosOutrasOcorrenciasDaMovimentacaoEntrada" nillable="true" type="tns:DadosOutrasOcorrenciasDaMovimentacaoEntrada" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDadosOutrasOcorrenciasDaMovimentacaoEntrada" nillable="true" type="tns:ArrayOfDadosOutrasOcorrenciasDaMovimentacaoEntrada" />
+      <xsd:complexType name="DadosOutrasOcorrenciasDaMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataFinal" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosOutrasOcorrenciasDaMovimentacaoEntrada" nillable="true" type="tns:DadosOutrasOcorrenciasDaMovimentacaoEntrada" />
+      <xsd:simpleType name="EnumTipoNecessidadeEspecial">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="FISICA" />
+          <xsd:enumeration value="AUDITIVA" />
+          <xsd:enumeration value="VISUAL" />
+          <xsd:enumeration value="MENTAL" />
+          <xsd:enumeration value="MULTIPLA" />
+          <xsd:enumeration value="REABILITADO" />
+          <xsd:enumeration value="INTELECTUAL" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoNecessidadeEspecial" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+      <xsd:simpleType name="EnumTipoDeReforma">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="InserirEAtualizar" />
+          <xsd:enumeration value="InserirEReformar" />
+          <xsd:enumeration value="InserirEGerar2Ocor" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoDeReforma" nillable="true" type="tns:EnumTipoDeReforma" />
+      <xsd:simpleType name="EnumTipoDeReajuste">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Informado" />
+          <xsd:enumeration value="Linear" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoDeReajuste" nillable="true" type="tns:EnumTipoDeReajuste" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ArrayOfDadosDaInconsistenciaDaMovimentacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="DadosDaInconsistenciaDaMovimentacao" nillable="true" type="tns:DadosDaInconsistenciaDaMovimentacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDadosDaInconsistenciaDaMovimentacao" nillable="true" type="tns:ArrayOfDadosDaInconsistenciaDaMovimentacao" />
+      <xsd:complexType name="DadosDaInconsistenciaDaMovimentacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ItemDaMovimentacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MatriculaIDFuncionario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MotivoInconsistencia" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeFuncionario" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDaInconsistenciaDaMovimentacao" nillable="true" type="tns:DadosDaInconsistenciaDaMovimentacao" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="TiposDeMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TiposDeMovimentacaoEntrada" nillable="true" type="tns:TiposDeMovimentacaoEntrada" />
+      <xsd:complexType name="ArrayOfRetornoCodigoEDescricaoGenericoint">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="RetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfRetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericoint">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+      <xsd:complexType name="DadosDoFuncionarioParaMovimentacaoEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="DataDaMovimentacao" type="xsd:dateTime" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDoFuncionarioParaMovimentacaoEntrada" nillable="true" type="tns:DadosDoFuncionarioParaMovimentacaoEntrada" />
+      <xsd:complexType name="DadosDoFuncionario">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Agencia" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="AgenteNocivo" nillable="true" type="tns:EnumAgenteNocivo" />
+          <xsd:element minOccurs="0" name="Banco" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="CargoComissionado" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+          <xsd:element minOccurs="0" name="CargoEfetivo" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+          <xsd:element minOccurs="0" name="CentroDeCusto" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="ClassificacaoDaNecessidadeEspecial" nillable="true" type="tns:ClassificacaoNecessidadeEspecial" />
+          <xsd:element minOccurs="0" name="DescricaoTiposDeNecessidadesEspeciaisMultiplas" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="IDUnico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="LocalDeTrabalhoParaCadastrarFuncionarios" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="Lotacao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+          <xsd:element minOccurs="0" name="Matricula" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NaturezaProfissional" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="NivelSalarialComissionado" nillable="true" type="tns:NivelSalarial" />
+          <xsd:element minOccurs="0" name="NivelSalarialComissionadoDoFPW" nillable="true" type="tns:NivelSalarial" />
+          <xsd:element minOccurs="0" name="NivelSalarialEfetivo" nillable="true" type="tns:NivelSalarial" />
+          <xsd:element minOccurs="0" name="NivelSalarialEfetivoDoFPW" nillable="true" type="tns:NivelSalarial" />
+          <xsd:element minOccurs="0" name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumeroContaCorrente" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OperadorPodeVerOSalarioComissionado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="OperadorPodeVerOSalarioEfetivo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorDeNecessidadesEspeciais" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Posicao" nillable="true" type="tns:PosicaoEEntidadesDoFuncionario" />
+          <xsd:element minOccurs="0" name="SalarioComissionado" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioEfetivo" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="Sindicato" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="SindicatoProfissionalLiberal" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="TabelaEFaixaSalarialComissionada" nillable="true" type="tns:TabelaEFaixaSalarialDoFuncionario" />
+          <xsd:element minOccurs="0" name="TabelaEFaixaSalarialEfetiva" nillable="true" type="tns:TabelaEFaixaSalarialDoFuncionario" />
+          <xsd:element minOccurs="0" name="TipoContaCorrente" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TipoDaNecessidadeEspecial" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+          <xsd:element minOccurs="0" name="TiposDeNecessidadesEspeciaisMultiplas" nillable="true" type="tns:DadosNecessidadeMultipla" />
+          <xsd:element minOccurs="0" name="PossuiFiliacaoSindical" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PossuiFiliacaoSindicalProfissionalLiberal" nillable="true" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDoFuncionario" nillable="true" type="tns:DadosDoFuncionario" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericostring">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" nillable="true" type="xsd:string" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericostring" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+      <xsd:complexType name="CargoParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PermiteExcecaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="UtilizaTabelaSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizaTabelaSalarialAtrelada" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CargoParaCadastrarFuncionarios" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+      <xsd:complexType name="ClassificacaoNecessidadeEspecial">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ClassificacaoNecessidadeEspecial" nillable="true" type="tns:ClassificacaoNecessidadeEspecial" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericolong">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:long" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericolong" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+      <xsd:complexType name="NivelSalarial">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaFaixa" type="xsd:int" />
+          <xsd:element name="CodigoDoNivel" type="xsd:int" />
+          <xsd:element name="DescricaoDoNivel" nillable="true" type="xsd:string" />
+          <xsd:element name="OrdemDoNivel" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Valor" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NivelSalarial" nillable="true" type="tns:NivelSalarial" />
+      <xsd:complexType name="PosicaoEEntidadesDoFuncionario">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoDaLotacaoDaPosicao" type="xsd:long" />
+          <xsd:element minOccurs="0" name="CodigoDoCentroDeCustoDaPosicao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoGrupoHierarquicoDaPosicao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DadosDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="DadosDoCargoDaPosicao" nillable="true" type="tns:CargoParaFiltro" />
+          <xsd:element minOccurs="0" name="FuncionarioEmExcecaoNaLotacao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FuncionarioEmExcecaoNoCargo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FuncionarioEmExcecaoNoCentroDeCusto" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FuncionarioEmExcecaoNoGrupoHierarquico" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PosicaoEEntidadesDoFuncionario" nillable="true" type="tns:PosicaoEEntidadesDoFuncionario" />
+      <xsd:complexType name="CargoParaFiltro">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CargoParaFiltro" nillable="true" type="tns:CargoParaFiltro" />
+      <xsd:complexType name="TabelaEFaixaSalarialDoFuncionario">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FaixaSalarial" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TabelaEFaixaSalarialDoFuncionario" nillable="true" type="tns:TabelaEFaixaSalarialDoFuncionario" />
+      <xsd:complexType name="DadosNecessidadeMultipla">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Auditiva" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Fisico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Mental" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Reabilitado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Visual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Intelectual" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosNecessidadeMultipla" nillable="true" type="tns:DadosNecessidadeMultipla" />
+      <xsd:complexType name="FuncionarioEstaEmExcecaoSalarialEntrada">
+        <xsd:sequence>
+          <xsd:element name="Empresa" type="xsd:int" />
+          <xsd:element name="Matricula" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FuncionarioEstaEmExcecaoSalarialEntrada" nillable="true" type="tns:FuncionarioEstaEmExcecaoSalarialEntrada" />
+      <xsd:complexType name="FuncionarioEstaEmExcecaoSalarial">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SalarioComissionadoEstaEmExcecao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioEfetivoEstaEmExcecao" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FuncionarioEstaEmExcecaoSalarial" nillable="true" type="tns:FuncionarioEstaEmExcecaoSalarial" />
+      <xsd:complexType name="EnquadramentoDoFuncionarioEntrada">
+        <xsd:sequence>
+          <xsd:element name="Empresa" type="xsd:int" />
+          <xsd:element name="Matricula" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EnquadramentoDoFuncionarioEntrada" nillable="true" type="tns:EnquadramentoDoFuncionarioEntrada" />
+      <xsd:complexType name="EnquadramentoDoFuncionario">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DescricaoNivelPontoEnquadramento" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PosicaoFuncionarioFaixaTabela" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PosicaoFuncionarioNivelEnquadramento" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RemuneracaoCalculada" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="ValorPontoEnquadramento" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EnquadramentoDoFuncionario" nillable="true" type="tns:EnquadramentoDoFuncionario" />
+      <xsd:complexType name="PosicoesParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquicoDoGestor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MatriculaDoFuncionarioParaVerificarVagaProgramada" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NivelLotacao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RetornarInclusivePosicoesComGrupoHierarquicoDoGestor" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CodigoDaLotacao" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="ConsiderarLotacoesDeNiveisInferiores" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="QuantidadeDePosicoesRetornadas" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RetornarSomentePosicoesForaDoGrupoHierarquicoDoGestor" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CodigoDoCargo" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TipoDasPosicoes" nillable="true" type="tns:EnumTipoPosicao" />
+          <xsd:element minOccurs="0" name="TipoDeSalarioDoCargo" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CodigoDoCentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NivelDosGruposHierarquicos" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PosicoesParaCadastrarFuncionariosEntrada" nillable="true" type="tns:PosicoesParaCadastrarFuncionariosEntrada" />
+      <xsd:simpleType name="EnumTipoPosicao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="OFICIAL">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TEMPORARIA">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESTAGIARIOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="AFASTADOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="EXCESSO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="EXTRA">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TEMPORARIOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoPosicao" nillable="true" type="tns:EnumTipoPosicao" />
+      <xsd:complexType name="ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PosicaoEEntidadesParaCadastrarFuncionarios" nillable="true" type="tns:PosicaoEEntidadesParaCadastrarFuncionarios" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios" nillable="true" type="tns:ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios" />
+      <xsd:complexType name="PosicaoEEntidadesParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CargoDaPosicao" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+          <xsd:element minOccurs="0" name="CentroDeCustoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="DadosDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="GrupoHierarquicoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="LotacaoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PosicaoEEntidadesParaCadastrarFuncionarios" nillable="true" type="tns:PosicaoEEntidadesParaCadastrarFuncionarios" />
+      <xsd:complexType name="CargosDeEntidadesParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeGruposHierarquicos" nillable="true" type="q47:ArrayOfstring" />
+          <xsd:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeLotacoes" nillable="true" type="q48:ArrayOflong" />
+          <xsd:element minOccurs="0" name="MatriculaDoFuncionarioParaVerificarVagaProgramada" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RetornarSomenteCargosComVagasDisponiveis" nillable="true" type="xsd:boolean" />
+          <xsd:element name="TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="TipoDoCargo" nillable="true" type="tns:EnumTipoCargo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CargosDeEntidadesParaCadastrarFuncionariosEntrada" nillable="true" type="tns:CargosDeEntidadesParaCadastrarFuncionariosEntrada" />
+      <xsd:simpleType name="EnumTipoCargo">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="CARGO_EFETIVO" />
+          <xsd:enumeration value="CARGO_COMISSIONADO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoCargo" nillable="true" type="tns:EnumTipoCargo" />
+      <xsd:complexType name="ArrayOfCargoParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CargoParaCadastrarFuncionarios" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCargoParaCadastrarFuncionarios" nillable="true" type="tns:ArrayOfCargoParaCadastrarFuncionarios" />
+      <xsd:complexType name="TabelasEFaixasSalariaisDoCargoParaFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaLotacao" type="xsd:long" />
+          <xsd:element name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TabelasEFaixasSalariaisDoCargoParaFuncionariosEntrada" nillable="true" type="tns:TabelasEFaixasSalariaisDoCargoParaFuncionariosEntrada" />
+      <xsd:complexType name="ArrayOfTabelaSalarialParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TabelaSalarialParaCadastrarFuncionarios" nillable="true" type="tns:TabelaSalarialParaCadastrarFuncionarios" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfTabelaSalarialParaCadastrarFuncionarios" nillable="true" type="tns:ArrayOfTabelaSalarialParaCadastrarFuncionarios" />
+      <xsd:complexType name="TabelaSalarialParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataDeVigencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FaixaSalarial" nillable="true" type="tns:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TabelaSalarialParaCadastrarFuncionarios" nillable="true" type="tns:TabelaSalarialParaCadastrarFuncionarios" />
+      <xsd:complexType name="NiveisDaTabelaSalarialParaFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaFaixaSalarial" type="xsd:int" />
+          <xsd:element name="CodigoDaTabela" type="xsd:int" />
+          <xsd:element name="DataDeVigenciaDaTabela" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NiveisDaTabelaSalarialParaFuncionariosEntrada" nillable="true" type="tns:NiveisDaTabelaSalarialParaFuncionariosEntrada" />
+      <xsd:complexType name="ArrayOfNivelSalarial">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="NivelSalarial" nillable="true" type="tns:NivelSalarial" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNivelSalarial" nillable="true" type="tns:ArrayOfNivelSalarial" />
+      <xsd:complexType name="NivelSalarialFPWEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoCargo" type="xsd:int" />
+          <xsd:element name="Empresa" type="xsd:int" />
+          <xsd:element name="TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NivelSalarialFPWEntrada" nillable="true" type="tns:NivelSalarialFPWEntrada" />
+      <xsd:complexType name="ArrayOfNivelSalarialFPW">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="NivelSalarialFPW" nillable="true" type="tns:NivelSalarialFPW" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNivelSalarialFPW" nillable="true" type="tns:ArrayOfNivelSalarialFPW" />
+      <xsd:complexType name="NivelSalarialFPW">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Nivel" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Valor" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NivelSalarialFPW" nillable="true" type="tns:NivelSalarialFPW" />
+      <xsd:complexType name="LotacoesDeEntidadesParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoLotacao" type="xsd:long" />
+          <xsd:element minOccurs="0" name="CodigoTabelaSalarial" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DescricaoLotacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Empresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ListaDeCargos" nillable="true" type="tns:ArrayOfCargoParaFiltro" />
+          <xsd:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeCentrosDeCustos" nillable="true" type="q49:ArrayOfstring" />
+          <xsd:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeSindicatos" nillable="true" type="q50:ArrayOfint" />
+          <xsd:element minOccurs="0" name="NivelLotacao" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LotacoesDeEntidadesParaCadastrarFuncionariosEntrada" nillable="true" type="tns:LotacoesDeEntidadesParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="ArrayOfCargoParaFiltro">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CargoParaFiltro" nillable="true" type="tns:CargoParaFiltro" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCargoParaFiltro" nillable="true" type="tns:ArrayOfCargoParaFiltro" />
+      <xsd:complexType name="ArrayOfRetornoCodigoEDescricaoGenericolong">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="RetornoCodigoEDescricaoGenericolong" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfRetornoCodigoEDescricaoGenericolong" nillable="true" type="tns:ArrayOfRetornoCodigoEDescricaoGenericolong" />
+      <xsd:complexType name="CentrosDeCustosDeEntidadesParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" nillable="true" type="xsd:string" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeGruposHierarquicos" nillable="true" type="q51:ArrayOfstring" />
+          <xsd:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeLotacoes" nillable="true" type="q52:ArrayOflong" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CentrosDeCustosDeEntidadesParaCadastrarFuncionariosEntrada" nillable="true" type="tns:CentrosDeCustosDeEntidadesParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="ArrayOfCentroDeCusto">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CentroDeCusto" nillable="true" type="tns:CentroDeCusto" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCentroDeCusto" nillable="true" type="tns:ArrayOfCentroDeCusto" />
+      <xsd:complexType name="CentroDeCusto">
+        <xsd:sequence>
+          <xsd:element name="Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoAlternativo" nillable="true" type="xsd:string" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="PermiteCadastrarFuncionario" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CentroDeCusto" nillable="true" type="tns:CentroDeCusto" />
+      <xsd:complexType name="GruposHierarquicosDeEntidadesParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquicoGestor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoTabelaSalarial" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DescricaoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element name="Empresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ListaDeCargos" nillable="true" type="tns:ArrayOfCargoParaFiltro" />
+          <xsd:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeCentrosDeCustos" nillable="true" type="q53:ArrayOfstring" />
+          <xsd:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeSindicatos" nillable="true" type="q54:ArrayOfint" />
+          <xsd:element minOccurs="0" name="NivelGrupoHierarquico" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RetornarInclusiveOGrupoHierarquicoDoGestor" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GruposHierarquicosDeEntidadesParaCadastrarFuncionariosEntrada" nillable="true" type="tns:GruposHierarquicosDeEntidadesParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="ArrayOfRetornoCodigoEDescricaoGenericostring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="RetornoCodigoEDescricaoGenericostring" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfRetornoCodigoEDescricaoGenericostring" nillable="true" type="tns:ArrayOfRetornoCodigoEDescricaoGenericostring" />
+      <xsd:complexType name="GruposDeMotivosDeMovimentacoesEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GruposDeMotivosDeMovimentacoesEntrada" nillable="true" type="tns:GruposDeMotivosDeMovimentacoesEntrada" />
+      <xsd:complexType name="HorariosParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="Empresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HorariosParaCadastrarFuncionariosEntrada" nillable="true" type="tns:HorariosParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="NaturezasProfissionaisParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="Empresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NaturezasProfissionaisParaCadastrarFuncionariosEntrada" nillable="true" type="tns:NaturezasProfissionaisParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="LocaisDeTrabalhosParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" nillable="true" type="xsd:string" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LocaisDeTrabalhosParaCadastrarFuncionariosEntrada" nillable="true" type="tns:LocaisDeTrabalhosParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="SindicatosDeEntidadesParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="ConsultarSindicatosParaProfissionalLiberal" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeGruposHierarquicos" nillable="true" type="q55:ArrayOfstring" />
+          <xsd:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeLotacoes" nillable="true" type="q56:ArrayOflong" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SindicatosDeEntidadesParaCadastrarFuncionariosEntrada" nillable="true" type="tns:SindicatosDeEntidadesParaCadastrarFuncionariosEntrada" />
+      <xsd:complexType name="ClassificacoesDeNecessidadesEspeciaisEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="TipoDeNecessidadeEspecial" type="tns:EnumTipoNecessidadeEspecial" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ClassificacoesDeNecessidadesEspeciaisEntrada" nillable="true" type="tns:ClassificacoesDeNecessidadesEspeciaisEntrada" />
+      <xsd:complexType name="ArrayOfNecessidadeEspecial">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="NecessidadeEspecial" nillable="true" type="tns:NecessidadeEspecial" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNecessidadeEspecial" nillable="true" type="tns:ArrayOfNecessidadeEspecial" />
+      <xsd:complexType name="NecessidadeEspecial">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ClassificacaoNecessidadeEspecial" nillable="true" type="tns:ClassificacaoNecessidadeEspecial" />
+          <xsd:element minOccurs="0" name="TipoNecessidadeEspecial" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NecessidadeEspecial" nillable="true" type="tns:NecessidadeEspecial" />
+      <xsd:complexType name="OutrasOcorrenciasParaCadastrarFuncionariosEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="Empresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OutrasOcorrenciasParaCadastrarFuncionariosEntrada" nillable="true" type="tns:OutrasOcorrenciasParaCadastrarFuncionariosEntrada" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xsd:complexType name="ArrayOflong">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="long" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOflong" nillable="true" type="tns:ArrayOflong" />
+      <xsd:complexType name="ArrayOfint">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="int" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreMovimentacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InputMessage_Headers">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q57:LGContextoAmbiente" />
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="LGAutenticacao" element="q58:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreMovimentacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_CadastreMovimentacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeMovimentacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InputMessage_Headers">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q63:LGContextoAmbiente" />
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="LGAutenticacao" element="q64:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeMovimentacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDeMovimentacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InputMessage_Headers">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q69:LGContextoAmbiente" />
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="LGAutenticacao" element="q70:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDeMovimentacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteTiposAtivosParaMovimentacoes" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InputMessage_Headers">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q75:LGContextoAmbiente" />
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="LGAutenticacao" element="q76:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteTiposAtivosParaMovimentacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="detail" element="q77:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="detail" element="q78:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosDoFuncionarioParaMovimentacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InputMessage_Headers">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q81:LGContextoAmbiente" />
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="LGAutenticacao" element="q82:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosDoFuncionarioParaMovimentacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="detail" element="q83:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="detail" element="q84:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteSeFuncionarioEstaEmExcecaoSalarial" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InputMessage_Headers">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q87:LGContextoAmbiente" />
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="LGAutenticacao" element="q88:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteSeFuncionarioEstaEmExcecaoSalarialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="detail" element="q89:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="detail" element="q90:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="detail" element="q91:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="detail" element="q92:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEnquadramentoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q93:LGContextoAmbiente" />
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="LGAutenticacao" element="q94:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEnquadramentoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="detail" element="q95:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="detail" element="q96:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="detail" element="q97:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="detail" element="q98:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicoesParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q99:LGContextoAmbiente" />
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="LGAutenticacao" element="q100:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicoesParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q101="lg.com.br/svc/dto" name="detail" element="q101:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q102="lg.com.br/svc/dto" name="detail" element="q102:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q103="lg.com.br/svc/dto" name="detail" element="q103:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q104="lg.com.br/svc/dto" name="detail" element="q104:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCargosDeEntidadesParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q105="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q105:LGContextoAmbiente" />
+    <wsdl:part xmlns:q106="lg.com.br/svc/dto" name="LGAutenticacao" element="q106:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCargosDeEntidadesParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q107="lg.com.br/svc/dto" name="detail" element="q107:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q108="lg.com.br/svc/dto" name="detail" element="q108:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q109="lg.com.br/svc/dto" name="detail" element="q109:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q110="lg.com.br/svc/dto" name="detail" element="q110:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q111="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q111:LGContextoAmbiente" />
+    <wsdl:part xmlns:q112="lg.com.br/svc/dto" name="LGAutenticacao" element="q112:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q113="lg.com.br/svc/dto" name="detail" element="q113:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q114="lg.com.br/svc/dto" name="detail" element="q114:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q115="lg.com.br/svc/dto" name="detail" element="q115:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q116="lg.com.br/svc/dto" name="detail" element="q116:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNiveisDaTabelaSalarialParaFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q117="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q117:LGContextoAmbiente" />
+    <wsdl:part xmlns:q118="lg.com.br/svc/dto" name="LGAutenticacao" element="q118:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNiveisDaTabelaSalarialParaFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q119="lg.com.br/svc/dto" name="detail" element="q119:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q120="lg.com.br/svc/dto" name="detail" element="q120:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q121="lg.com.br/svc/dto" name="detail" element="q121:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q122="lg.com.br/svc/dto" name="detail" element="q122:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNiveisSalariaisDoFPW" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InputMessage_Headers">
+    <wsdl:part xmlns:q123="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q123:LGContextoAmbiente" />
+    <wsdl:part xmlns:q124="lg.com.br/svc/dto" name="LGAutenticacao" element="q124:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNiveisSalariaisDoFPWResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q125="lg.com.br/svc/dto" name="detail" element="q125:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q126="lg.com.br/svc/dto" name="detail" element="q126:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q127="lg.com.br/svc/dto" name="detail" element="q127:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q128="lg.com.br/svc/dto" name="detail" element="q128:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q129="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q129:LGContextoAmbiente" />
+    <wsdl:part xmlns:q130="lg.com.br/svc/dto" name="LGAutenticacao" element="q130:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q131="lg.com.br/svc/dto" name="detail" element="q131:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q132="lg.com.br/svc/dto" name="detail" element="q132:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q133="lg.com.br/svc/dto" name="detail" element="q133:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q134="lg.com.br/svc/dto" name="detail" element="q134:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q135="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q135:LGContextoAmbiente" />
+    <wsdl:part xmlns:q136="lg.com.br/svc/dto" name="LGAutenticacao" element="q136:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q137="lg.com.br/svc/dto" name="detail" element="q137:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q138="lg.com.br/svc/dto" name="detail" element="q138:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q139="lg.com.br/svc/dto" name="detail" element="q139:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q140="lg.com.br/svc/dto" name="detail" element="q140:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q141="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q141:LGContextoAmbiente" />
+    <wsdl:part xmlns:q142="lg.com.br/svc/dto" name="LGAutenticacao" element="q142:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q143="lg.com.br/svc/dto" name="detail" element="q143:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q144="lg.com.br/svc/dto" name="detail" element="q144:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q145="lg.com.br/svc/dto" name="detail" element="q145:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q146="lg.com.br/svc/dto" name="detail" element="q146:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteGruposDeMotivosDeMovimentacoes" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InputMessage_Headers">
+    <wsdl:part xmlns:q147="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q147:LGContextoAmbiente" />
+    <wsdl:part xmlns:q148="lg.com.br/svc/dto" name="LGAutenticacao" element="q148:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteGruposDeMotivosDeMovimentacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q149="lg.com.br/svc/dto" name="detail" element="q149:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q150="lg.com.br/svc/dto" name="detail" element="q150:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q151="lg.com.br/svc/dto" name="detail" element="q151:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q152="lg.com.br/svc/dto" name="detail" element="q152:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHorarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_InputMessage_Headers">
+    <wsdl:part xmlns:q153="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q153:LGContextoAmbiente" />
+    <wsdl:part xmlns:q154="lg.com.br/svc/dto" name="LGAutenticacao" element="q154:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHorariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q155="lg.com.br/svc/dto" name="detail" element="q155:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q156="lg.com.br/svc/dto" name="detail" element="q156:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q157="lg.com.br/svc/dto" name="detail" element="q157:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteHorarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q158="lg.com.br/svc/dto" name="detail" element="q158:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNaturezasProfissionais" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InputMessage_Headers">
+    <wsdl:part xmlns:q159="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q159:LGContextoAmbiente" />
+    <wsdl:part xmlns:q160="lg.com.br/svc/dto" name="LGAutenticacao" element="q160:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNaturezasProfissionaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q161="lg.com.br/svc/dto" name="detail" element="q161:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q162="lg.com.br/svc/dto" name="detail" element="q162:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q163="lg.com.br/svc/dto" name="detail" element="q163:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q164="lg.com.br/svc/dto" name="detail" element="q164:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q165="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q165:LGContextoAmbiente" />
+    <wsdl:part xmlns:q166="lg.com.br/svc/dto" name="LGAutenticacao" element="q166:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q167="lg.com.br/svc/dto" name="detail" element="q167:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q168="lg.com.br/svc/dto" name="detail" element="q168:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q169="lg.com.br/svc/dto" name="detail" element="q169:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q170="lg.com.br/svc/dto" name="detail" element="q170:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q171="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q171:LGContextoAmbiente" />
+    <wsdl:part xmlns:q172="lg.com.br/svc/dto" name="LGAutenticacao" element="q172:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q173="lg.com.br/svc/dto" name="detail" element="q173:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q174="lg.com.br/svc/dto" name="detail" element="q174:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q175="lg.com.br/svc/dto" name="detail" element="q175:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q176="lg.com.br/svc/dto" name="detail" element="q176:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteClassificacoesDeNecessidadesEspeciais" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InputMessage_Headers">
+    <wsdl:part xmlns:q177="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q177:LGContextoAmbiente" />
+    <wsdl:part xmlns:q178="lg.com.br/svc/dto" name="LGAutenticacao" element="q178:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteClassificacoesDeNecessidadesEspeciaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q179="lg.com.br/svc/dto" name="detail" element="q179:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q180="lg.com.br/svc/dto" name="detail" element="q180:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q181="lg.com.br/svc/dto" name="detail" element="q181:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q182="lg.com.br/svc/dto" name="detail" element="q182:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOutrasOcorrencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InputMessage_Headers">
+    <wsdl:part xmlns:q183="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q183:LGContextoAmbiente" />
+    <wsdl:part xmlns:q184="lg.com.br/svc/dto" name="LGAutenticacao" element="q184:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOutrasOcorrenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q185="lg.com.br/svc/dto" name="detail" element="q185:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q186="lg.com.br/svc/dto" name="detail" element="q186:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q187="lg.com.br/svc/dto" name="detail" element="q187:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q188="lg.com.br/svc/dto" name="detail" element="q188:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeMovimentacaoTabGen">
+    <wsdl:documentation>
+      <summary>Serviços para realização de movimentações dos módulos Cargos e Salários e Tabelas Genéricas.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreMovimentacao">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro da movimentação para os funcionários, bem como o cadastro das ocorrências dos conceitos informados, além das validações das respectivas inconsistências impeditivas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacao" message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacaoResponse" message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeMovimentacao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das inconsistências impeditivas para o cadastro da movimentação para os funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacao" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacaoResponse" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDeMovimentacao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das inconsistências não impeditivas para o cadastro da movimentação para os funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacao" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacaoResponse" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteTiposAtivosParaMovimentacoes">
+      <wsdl:documentation>
+        <summary>Consulta os tipos ativos de movimentação</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoes" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoesResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosDoFuncionarioParaMovimentacao">
+      <wsdl:documentation>
+        <summary>Consulta os dados de um determinado funcionário conforme o contexto da data informada para realização da movimentação</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacaoResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteSeFuncionarioEstaEmExcecaoSalarial">
+      <wsdl:documentation>
+        <summary>Consulta se um determinado funcionário está em exceção salarial (salário X nível da sua tabela salarial), para os cargos efetivo e comissionado, considerando apenas funcionários que possuem nível salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarial" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarialResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarialListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarialInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarialFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarialFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEnquadramentoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Consulta os dados de enquadramento de um determinado funcionário, referente à sua tabela salarial e à remuneração mensal calculada conforme eventos parametrizados</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionario" message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionarioResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicoesParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta as posições disponíveis para cadastrar funcionários, seus respectivos cargos e sua utilização de tabelas salariais, e também suas entidades (lotação, centro de custo e grupo hierárquico) conforme parametrização de utilização</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCargosDeEntidadesParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta os cargos disponíveis para cadastrar funcionários, bem com sua utilização de tabelas salariais, considerando também suas associações com as entidades lotação e grupo hierárquico</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta as tabelas e faixas salariais associadas a um determinado cargo, considerando suas associações com as entidades lotação e grupo hierárquico</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNiveisDaTabelaSalarialParaFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta os níveis salariais de uma determinada tabela e faixa salarial, bem como seus respectivos valores</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNiveisSalariaisDoFPW">
+      <wsdl:documentation>
+        <summary>Consulta os níveis salariais de um determinado cargo do FPw, bem como seus respectivos valores</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPW" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPWResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPWInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPWListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPWFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPWFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta as lotações disponíveis para cadastrar funcionários, considerando suas associações com as entidades cargo, centro de custo, sindicato e tabela salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta os centros de custos disponíveis para cadastrar funcionários, considerando suas associações com as entidades lotação e grupo hierárquico</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta os grupos hierárquicos disponíveis para cadastrar funcionários, considerando suas associações com as entidades cargo, centro de custo, sindicato e tabela salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteGruposDeMotivosDeMovimentacoes">
+      <wsdl:documentation>
+        <summary>Consulta os grupos de motivos de movimentações</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoes" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoesResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteHorarios">
+      <wsdl:documentation>
+        <summary>Consulta os horários para cadastrar funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNaturezasProfissionais">
+      <wsdl:documentation>
+        <summary>Consulta as naturezas profissionais para cadastrar funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionais" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionaisResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionaisListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionaisInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionaisFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionaisFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta os locais de trabalho para cadastrar funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios">
+      <wsdl:documentation>
+        <summary>Consulta os sindicatos disponíveis para cadastrar funcionários, considerando suas associações com as entidades lotação e grupo hierárquico</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteClassificacoesDeNecessidadesEspeciais">
+      <wsdl:documentation>
+        <summary>Consulta as classificações de necessidades especiais para cadastrar funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciais" message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciaisResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciaisInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciaisListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciaisFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciaisFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOutrasOcorrencias">
+      <wsdl:documentation>
+        <summary>Consulta outras ocorrências para funcionários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrencias" message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrenciasResponse" message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrenciasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrenciasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrenciasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrenciasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeMovimentacaoTabGen" type="tns:ServicoDeMovimentacaoTabGen">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreMovimentacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/CadastreMovimentacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_CadastreMovimentacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeMovimentacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasImpeditivasDeMovimentacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasImpeditivasDeMovimentacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDeMovimentacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ValideInconsistenciasNaoImpeditivasDeMovimentacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ValideInconsistenciasNaoImpeditivasDeMovimentacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteTiposAtivosParaMovimentacoes">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTiposAtivosParaMovimentacoes" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteTiposAtivosParaMovimentacoes_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosDoFuncionarioParaMovimentacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteDadosDoFuncionarioParaMovimentacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteDadosDoFuncionarioParaMovimentacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteSeFuncionarioEstaEmExcecaoSalarial">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSeFuncionarioEstaEmExcecaoSalarial" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteSeFuncionarioEstaEmExcecaoSalarial_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEnquadramentoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteEnquadramentoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteEnquadramentoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicoesParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsultePosicoesParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsultePosicoesParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCargosDeEntidadesParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCargosDeEntidadesParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteCargosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteTabelasEFaixasSalariaisDoCargoParaFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNiveisDaTabelaSalarialParaFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisDaTabelaSalarialParaFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisDaTabelaSalarialParaFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNiveisSalariaisDoFPW">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNiveisSalariaisDoFPW" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteNiveisSalariaisDoFPW_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteLotacoesDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteCentrosDeCustosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposHierarquicosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteGruposDeMotivosDeMovimentacoes">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteGruposDeMotivosDeMovimentacoes" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteGruposDeMotivosDeMovimentacoes_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteHorarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteHorarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteHorarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNaturezasProfissionais">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteNaturezasProfissionais" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteNaturezasProfissionais_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteLocaisDeTrabalhosParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteSindicatosDeEntidadesParaCadastrarFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteClassificacoesDeNecessidadesEspeciais">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteClassificacoesDeNecessidadesEspeciais" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteClassificacoesDeNecessidadesEspeciais_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOutrasOcorrencias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeMovimentacaoTabGen/ConsulteOutrasOcorrencias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeMovimentacaoTabGen_ConsulteOutrasOcorrencias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeMovimentacaoTabGenImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeMovimentacaoTabGen" binding="tns:LGBasicHttp_ServicoDeMovimentacaoTabGen">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodemovimentacaotabgen" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

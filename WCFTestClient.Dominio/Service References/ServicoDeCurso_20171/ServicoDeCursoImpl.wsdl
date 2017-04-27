@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeCursoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="InsiraFuncionarioNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteFuncionarioListaDeEspera" nillable="true" type="q1:ParticipanteFuncionarioListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraFuncionarioNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraCandidatoNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteCandidatoListaDeEspera" nillable="true" type="q2:ParticipanteCandidatoListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraCandidatoNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraTerceiroNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteTerceiro" nillable="true" type="q3:ParticipanteTerceiroListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraTerceiroNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaFuncionarioDaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteFuncionarioListaDeEspera" nillable="true" type="q4:ParticipanteFuncionarioListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaFuncionarioDaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaCandidatoDaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteCandidatoListaDeEspera" nillable="true" type="q5:ParticipanteCandidatoListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaCandidatoDaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaTerceiroDaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteTerceiro" nillable="true" type="q6:ParticipanteTerceiroListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaTerceiroDaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeFuncionarioNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteFuncionarioListaDeEspera" nillable="true" type="q7:ParticipanteFuncionarioListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeFuncionarioNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeCandidatoNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteCandidatoListaDeEspera" nillable="true" type="q8:ParticipanteCandidatoListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeCandidatoNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeTerceiroNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteTerceiro" nillable="true" type="q9:ParticipanteTerceiroListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeTerceiroNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideExclusaoDeFuncionarioNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteFuncionarioListaDeEspera" nillable="true" type="q10:ParticipanteFuncionarioListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideExclusaoDeFuncionarioNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideExclusaoDeCandidatoNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteCandidatoListaDeEspera" nillable="true" type="q11:ParticipanteCandidatoListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideExclusaoDeCandidatoNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideExclusaoDeTerceiroNaListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ParticipanteTerceiro" nillable="true" type="q12:ParticipanteTerceiroListaDeEspera" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideExclusaoDeTerceiroNaListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeCurso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="CursoConsultaDescricao" nillable="true" type="q13:CursoConsultaDescricao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeCursoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeCursoResult" nillable="true" type="q14:ArrayOfCursoConsulta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCurso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="CursoConsultaCodigo" nillable="true" type="q15:CursoConsultaCodigo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCursoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ConsulteCursoResult" nillable="true" type="q16:DadosCurso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="ParticipanteFuncionarioListaDeEspera">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="Matricula" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteFuncionarioListaDeEspera" nillable="true" type="tns:ParticipanteFuncionarioListaDeEspera" />
+      <xsd:complexType name="Curso">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ParticipanteCandidatoListaDeEspera">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteCandidatoListaDeEspera" nillable="true" type="tns:ParticipanteCandidatoListaDeEspera" />
+      <xsd:complexType name="ParticipanteTerceiroListaDeEspera">
+        <xsd:sequence>
+          <xsd:element name="CPF" type="xsd:double" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="NumeroDoContrato" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteTerceiroListaDeEspera" nillable="true" type="tns:ParticipanteTerceiroListaDeEspera" />
+      <xsd:complexType name="CursoConsultaDescricao">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CursoConsultaDescricao" nillable="true" type="tns:CursoConsultaDescricao" />
+      <xsd:complexType name="ArrayOfCursoConsulta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CursoConsulta" nillable="true" type="tns:CursoConsulta" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCursoConsulta" nillable="true" type="tns:ArrayOfCursoConsulta" />
+      <xsd:complexType name="CursoConsulta">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CursoConsulta" nillable="true" type="tns:CursoConsulta" />
+      <xsd:complexType name="CursoConsultaCodigo">
+        <xsd:sequence>
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CursoConsultaCodigo" nillable="true" type="tns:CursoConsultaCodigo" />
+      <xsd:complexType name="DadosCurso">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="ConteudoProgramatico" nillable="true" type="xsd:string" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="GrupoDoCurso" nillable="true" type="tns:GrupoCurso" />
+          <xsd:element name="PrazoDeValidade" nillable="true" type="xsd:string" />
+          <xsd:element name="Status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosCurso" nillable="true" type="tns:DadosCurso" />
+      <xsd:complexType name="GrupoCurso">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GrupoCurso" nillable="true" type="tns:GrupoCurso" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraFuncionarioNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q17:LGContextoAmbiente" />
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGAutenticacao" element="q18:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraFuncionarioNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraCandidatoNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q23:LGContextoAmbiente" />
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGAutenticacao" element="q24:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraCandidatoNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraCandidatoNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraTerceiroNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q29:LGContextoAmbiente" />
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="LGAutenticacao" element="q30:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraTerceiroNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="detail" element="q31:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_InsiraTerceiroNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaFuncionarioDaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q35:LGContextoAmbiente" />
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGAutenticacao" element="q36:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaFuncionarioDaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaCandidatoDaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q41:LGContextoAmbiente" />
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="LGAutenticacao" element="q42:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaCandidatoDaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaTerceiroDaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q47:LGContextoAmbiente" />
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="LGAutenticacao" element="q48:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaTerceiroDaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeFuncionarioNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q53:LGContextoAmbiente" />
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="LGAutenticacao" element="q54:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeFuncionarioNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeCandidatoNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q59:LGContextoAmbiente" />
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="LGAutenticacao" element="q60:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeCandidatoNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeTerceiroNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q65:LGContextoAmbiente" />
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="LGAutenticacao" element="q66:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeTerceiroNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideExclusaoDeFuncionarioNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q71:LGContextoAmbiente" />
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="LGAutenticacao" element="q72:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideExclusaoDeFuncionarioNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideExclusaoDeCandidatoNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q77:LGContextoAmbiente" />
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="LGAutenticacao" element="q78:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideExclusaoDeCandidatoNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideExclusaoDeTerceiroNaListaDeEspera" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InputMessage_Headers">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q83:LGContextoAmbiente" />
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="LGAutenticacao" element="q84:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideExclusaoDeTerceiroNaListaDeEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeCurso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_InputMessage_Headers">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q89:LGContextoAmbiente" />
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="LGAutenticacao" element="q90:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="detail" element="q91:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="detail" element="q92:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteListaDeCurso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="detail" element="q94:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCurso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_InputMessage_Headers">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q95:LGContextoAmbiente" />
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="LGAutenticacao" element="q96:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="detail" element="q97:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="detail" element="q98:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="detail" element="q99:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCurso_ConsulteCurso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="detail" element="q100:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeCurso">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar a manutenção de Cursos</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="InsiraFuncionarioNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Insere o participante do tipo funcionário na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEspera" message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEsperaResponse" message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraCandidatoNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Insere o participante do tipo candidato na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEspera" message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEsperaResponse" message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraTerceiroNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Insere o participante do tipo terceiro na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEspera" message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEsperaResponse" message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaFuncionarioDaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Remove o participante do tipo funcionário na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEspera" message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEsperaResponse" message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaCandidatoDaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Remove o participante do tipo candidato na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEspera" message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEsperaResponse" message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaTerceiroDaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Remove o participante do tipo terceiro na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEspera" message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEsperaResponse" message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeFuncionarioNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Valida os dados para a inclusão de um participante do tipo funcionário na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEspera" message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEsperaResponse" message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeCandidatoNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Valida os dados para a inclusão de um participante do tipo candidato na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEspera" message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEsperaResponse" message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeTerceiroNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Valida os dados para a inclusão de um participante do tipo terceiro na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEspera" message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEsperaResponse" message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideExclusaoDeFuncionarioNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Valida os dados para a exclusão de um participante do tipo funcionário na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEspera" message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEsperaResponse" message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideExclusaoDeCandidatoNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Valida os dados para a exclusão de um participante do tipo candidato na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEspera" message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEsperaResponse" message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideExclusaoDeTerceiroNaListaDeEspera">
+      <wsdl:documentation>
+        <summary>Valida os dados para a exclusão de um participante do tipo terceiro na lista de espera do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEspera" message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEsperaResponse" message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEsperaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEsperaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEsperaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEsperaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeCurso">
+      <wsdl:documentation>
+        <summary>Consulta lista de cursos identificado pelo parâmetro código da empresa e descrição do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCurso" message="tns:ServicoDeCurso_ConsulteListaDeCurso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCursoResponse" message="tns:ServicoDeCurso_ConsulteListaDeCurso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCursoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ConsulteListaDeCurso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCursoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ConsulteListaDeCurso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCursoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ConsulteListaDeCurso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCursoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ConsulteListaDeCurso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCurso">
+      <wsdl:documentation>
+        <summary>Consulta dados de um curso identificado pelo parâmetro código da empresa e código do curso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteCurso" message="tns:ServicoDeCurso_ConsulteCurso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteCursoResponse" message="tns:ServicoDeCurso_ConsulteCurso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteCursoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCurso_ConsulteCurso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteCursoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCurso_ConsulteCurso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteCursoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCurso_ConsulteCurso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCurso/ConsulteCursoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCurso_ConsulteCurso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeCurso" type="tns:ServicoDeCurso">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsiraFuncionarioNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/InsiraFuncionarioNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_InsiraFuncionarioNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraCandidatoNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/InsiraCandidatoNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_InsiraCandidatoNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraTerceiroNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/InsiraTerceiroNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_InsiraTerceiroNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaFuncionarioDaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ExcluaFuncionarioDaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ExcluaFuncionarioDaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaCandidatoDaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ExcluaCandidatoDaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ExcluaCandidatoDaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaTerceiroDaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ExcluaTerceiroDaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ExcluaTerceiroDaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeFuncionarioNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeFuncionarioNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ValideInclusaoDeFuncionarioNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeCandidatoNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeCandidatoNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ValideInclusaoDeCandidatoNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeTerceiroNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ValideInclusaoDeTerceiroNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ValideInclusaoDeTerceiroNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideExclusaoDeFuncionarioNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeFuncionarioNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ValideExclusaoDeFuncionarioNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideExclusaoDeCandidatoNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeCandidatoNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ValideExclusaoDeCandidatoNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideExclusaoDeTerceiroNaListaDeEspera">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ValideExclusaoDeTerceiroNaListaDeEspera" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ValideExclusaoDeTerceiroNaListaDeEspera_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeCurso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ConsulteListaDeCurso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ConsulteListaDeCurso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ConsulteListaDeCurso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCurso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCurso/ConsulteCurso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCurso_ConsulteCurso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCurso_ConsulteCurso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeCursoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeCurso" binding="tns:LGBasicHttp_ServicoDeCurso">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodecurso" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

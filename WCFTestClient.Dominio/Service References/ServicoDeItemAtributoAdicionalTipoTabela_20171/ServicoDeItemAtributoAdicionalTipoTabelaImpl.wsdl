@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeItemAtributoAdicionalTipoTabelaImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreItemAtributoAdicional">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ItemAtributoAdcional" nillable="true" type="q1:ItemAtributoAdicionalTipoTabela" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreItemAtributoAdicionalResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeItemAtributoAdicional">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ItemAtributoAdcional" nillable="true" type="q2:ItemAtributoAdicionalTipoTabela" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeItemAtributoAdicionalResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaItemAtributoAdicional">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ItemAtributoAdcional_exclusao" nillable="true" type="q3:ItemAtributoAdicionalTipoTabela_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaItemAtributoAdicionalResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteItemAtributoAdicional">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoAtributoAdicionalTipoTabela" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoItem" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteItemAtributoAdicionalResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteItemAtributoAdicionalResult" nillable="true" type="q4:ItemAtributoAdicionalTipoTabela" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="ItemAtributoAdicionalTipoTabela">
+        <xsd:sequence>
+          <xsd:element name="CodigoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoItem" type="xsd:int" />
+          <xsd:element name="DescricaoItem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ItemAtributoAdicionalTipoTabela" nillable="true" type="tns:ItemAtributoAdicionalTipoTabela" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ItemAtributoAdicionalTipoTabela_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoItem" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ItemAtributoAdicionalTipoTabela_Exclusao" nillable="true" type="tns:ItemAtributoAdicionalTipoTabela_Exclusao" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreItemAtributoAdicional" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InputMessage_Headers">
+    <wsdl:part xmlns:q5="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q5:LGContextoAmbiente" />
+    <wsdl:part xmlns:q6="lg.com.br/svc/dto" name="LGAutenticacao" element="q6:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreItemAtributoAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="detail" element="q7:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="detail" element="q8:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="detail" element="q9:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="detail" element="q10:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeItemAtributoAdicional" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InputMessage_Headers">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q11:LGContextoAmbiente" />
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="LGAutenticacao" element="q12:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeItemAtributoAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="detail" element="q16:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaItemAtributoAdicional" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InputMessage_Headers">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q17:LGContextoAmbiente" />
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGAutenticacao" element="q18:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaItemAtributoAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteItemAtributoAdicional" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InputMessage_Headers">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q23:LGContextoAmbiente" />
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGAutenticacao" element="q24:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteItemAtributoAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeItemAtributoAdicionalTipoTabela">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção de Item Atributo Adcional Tipo Tabela.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreItemAtributoAdicional">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de Atributo Adicional.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicional" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicionalResponse" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicionalListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicionalInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicionalFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicionalFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeItemAtributoAdicional">
+      <wsdl:documentation>
+        <summary>Operação de atualização de Atributo Adicional.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicional" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicionalResponse" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicionalInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicionalListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicionalFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicionalFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaItemAtributoAdicional">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de Atributo Adicional.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicional" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicionalResponse" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicionalListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicionalInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicionalFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicionalFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteItemAtributoAdicional">
+      <wsdl:documentation>
+        <summary>Consulta os dados do Item de Atributo Adicional do Tipo Tabela</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicional" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicionalResponse" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicionalInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicionalListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicionalFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicionalFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeItemAtributoAdicionalTipoTabela" type="tns:ServicoDeItemAtributoAdicionalTipoTabela">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreItemAtributoAdicional">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/CadastreItemAtributoAdicional" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_CadastreItemAtributoAdicional_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeItemAtributoAdicional">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/AtualizeItemAtributoAdicional" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_AtualizeItemAtributoAdicional_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaItemAtributoAdicional">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ExcluaItemAtributoAdicional" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ExcluaItemAtributoAdicional_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteItemAtributoAdicional">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeItemAtributoAdicionalTipoTabela/ConsulteItemAtributoAdicional" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeItemAtributoAdicionalTipoTabela_ConsulteItemAtributoAdicional_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeItemAtributoAdicionalTipoTabelaImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeItemAtributoAdicionalTipoTabela" binding="tns:LGBasicHttp_ServicoDeItemAtributoAdicionalTipoTabela">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeitematributoadicionaltipotabela" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

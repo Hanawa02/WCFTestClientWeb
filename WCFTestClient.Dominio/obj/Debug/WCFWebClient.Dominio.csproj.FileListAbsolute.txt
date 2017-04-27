@@ -1,0 +1,5 @@
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Dominio\bin\Debug\WCFTestClient.Dominio.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Dominio\bin\Debug\WCFTestClient.Dominio.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Dominio\obj\Debug\ResolveAssemblyReference.cache
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Dominio\obj\Debug\WCFTestClient.Dominio.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Dominio\obj\Debug\WCFTestClient.Dominio.pdb

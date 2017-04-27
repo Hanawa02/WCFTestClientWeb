@@ -1,0 +1,2430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeOcorrenciaDeRecessoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="AltereOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ParametroRecessoFuncionario" nillable="true" type="q1:ParametroDeRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="DadosDoRecesso" nillable="true" type="q2:Recesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="AltereOcorrenciaDeRecesso_V2Result" nillable="true" type="q3:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CalculeDataDoPagamento">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q4:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CalculeDataDoPagamentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CalculeDataDoPagamentoResult" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDiasDeGozo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q5:FuncionarioRecesso" />
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="PeriodoAquisitivo" nillable="true" type="q6:PeriodoAquisitivo" />
+            <xsd:element minOccurs="0" name="NumeroDeFaltasInjustificadas" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDiasDeGozoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ConsulteDiasDeGozoResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteFaltasInjustificadas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q7:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialPeridoDeGozo" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteFaltasInjustificadasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ConsulteFaltasInjustificadasResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNumeroDeAvos">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q8:FuncionarioRecesso" />
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="PeriodoAquisitivo" nillable="true" type="q9:PeriodoAquisitivo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteNumeroDeAvosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ConsulteNumeroDeAvosResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="DadosParaObterOcorRecesso" nillable="true" type="q10:DadosParaObterOcorRecesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="ConsulteOcorrenciaDeRecessoResult" nillable="true" type="q11:InformacoesDaOcorRecesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePeriodoAquisitivoEPeriodoDeFruicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q12:FuncionarioRecesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePeriodoAquisitivoEPeriodoDeFruicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="ConsultePeriodoAquisitivoEPeriodoDeFruicaoResult" nillable="true" type="q13:ArrayOfPeriodoAquisitivoEFruicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePeriodoDeGozo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q14:FuncionarioRecesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePeriodoDeGozoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ConsultePeriodoDeGozoResult" nillable="true" type="q15:ArrayOfPeriodoDeGozo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="DadosExclusaoRecessoFuncionario" nillable="true" type="q16:DadosExclusaoRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q17:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="ExcluaOcorrenciaDeRecesso_V2Result" nillable="true" type="q18:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="ParametroRecessoFuncionario" nillable="true" type="q19:ParametroDeRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="DadosDoRecesso" nillable="true" type="q20:Recesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="InsiraOcorrenciaDeRecesso_V2Result" nillable="true" type="q21:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaDadosParaCadastroDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q22:FuncionarioRecesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaDadosParaCadastroDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaDadosParaCadastroDeRecessoResult" nillable="true" type="q23:ArrayOfDadosRecessoParaCadastro" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaDataDoPagamento">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q24:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaDataDoPagamentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ObtenhaDataDoPagamentoResult" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaDataFimPeriodoDeGozo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q25:FuncionarioRecesso" />
+            <xsd:element xmlns:q26="lg.com.br/svc/dto" minOccurs="0" name="PeriodoAquisitivo" nillable="true" type="q26:PeriodoAquisitivo" />
+            <xsd:element xmlns:q27="lg.com.br/svc/dto" minOccurs="0" name="ParametrosDeCalculoDaDataFinalPeriodoDeGozo" nillable="true" type="q27:ParametrosDeCalculoDaDataFinalPeriodoDeGozo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaDataFimPeriodoDeGozoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ObtenhaDataFimPeriodoDeGozoResult" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaNumeroDaUltimaParcela">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q28="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q28:FuncionarioRecesso" />
+            <xsd:element xmlns:q29="lg.com.br/svc/dto" minOccurs="0" name="PeriodoAquisitivo" nillable="true" type="q29:PeriodoAquisitivo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaNumeroDaUltimaParcelaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ObtenhaNumeroDaUltimaParcelaResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaRecessos">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaRecessosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q30="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaRecessosResult" nillable="true" type="q30:ArrayOfInformacoesDaOcorRecesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q31="lg.com.br/svc/dto" minOccurs="0" name="ParametroRecessoFuncionario" nillable="true" type="q31:ParametroDeRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q32="lg.com.br/svc/dto" minOccurs="0" name="DadosDoRecesso" nillable="true" type="q32:Recesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q33="lg.com.br/svc/dto" minOccurs="0" name="ValideInclusaoDeRecesso_V2Result" nillable="true" type="q33:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q34="lg.com.br/svc/dto" minOccurs="0" name="ParametroRecessoFuncionario" nillable="true" type="q34:ParametroDeRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q35="lg.com.br/svc/dto" minOccurs="0" name="DadosDoRecesso" nillable="true" type="q35:Recesso" />
+            <xsd:element xmlns:q36="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ListaDeOcorrenciasDesconsiderar" nillable="true" type="q36:ArrayOfNullableOfdateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q37="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Result" nillable="true" type="q37:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q38="lg.com.br/svc/dto" minOccurs="0" name="DadosExclusaoRecessoFuncionario" nillable="true" type="q38:DadosExclusaoRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q39="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q39:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q40="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Result" nillable="true" type="q40:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q41="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q41:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataDePagamento" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResult" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q42="lg.com.br/svc/dto" minOccurs="0" name="DadosDoRecesso" nillable="true" type="q42:Recesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q43="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Result" nillable="true" type="q43:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q44="lg.com.br/svc/dto" minOccurs="0" name="ParametroRecessoFuncionario" nillable="true" type="q44:ParametroDeRecessoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaInclusaoDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ValideRegrasNaoImpeditivasDaInclusaoDeRecessoResult" nillable="true" type="q45:ArrayOfstring" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q46="lg.com.br/svc/dto" minOccurs="0" name="DadosDoRecesso" nillable="true" type="q46:Recesso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q47="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2Result" nillable="true" type="q47:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q48="lg.com.br/svc/dto" minOccurs="0" name="EmpresaRecesso" nillable="true" type="q48:EmpresaRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialDoPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoResult" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q49="lg.com.br/svc/dto" minOccurs="0" name="FuncionarioRecesso" nillable="true" type="q49:FuncionarioRecesso" />
+            <xsd:element minOccurs="0" name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q50="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Result" nillable="true" type="q50:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="ParametroDeRecessoFuncionario">
+        <xsd:sequence>
+          <xsd:element name="DataDoPagamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoAquisitivo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="Funcionario" nillable="true" type="tns:FuncionarioRecesso" />
+          <xsd:element name="OpcoesDeInclusaoRecesso" nillable="true" type="tns:OpcoesDeInclusaoRecesso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametroDeRecessoFuncionario" nillable="true" type="tns:ParametroDeRecessoFuncionario" />
+      <xsd:complexType name="FuncionarioRecesso">
+        <xsd:sequence>
+          <xsd:element name="EmpresaRecesso" nillable="true" type="tns:EmpresaRecesso" />
+          <xsd:element name="Matricula" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FuncionarioRecesso" nillable="true" type="tns:FuncionarioRecesso" />
+      <xsd:complexType name="EmpresaRecesso">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EmpresaRecesso" nillable="true" type="tns:EmpresaRecesso" />
+      <xsd:complexType name="OpcoesDeInclusaoRecesso">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaSituacao" type="xsd:int" />
+          <xsd:element name="DiasDeGozo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DiasDesconsiderar" type="xsd:int" />
+          <xsd:element name="ExcluirValoresDasFolhasTipoMensal" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FaltasInjustificadas" type="xsd:int" />
+          <xsd:element name="NaoEfetivarCasoExistaValoresMensaisCalculados" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RecessoParcelado" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OpcoesDeInclusaoRecesso" nillable="true" type="tns:OpcoesDeInclusaoRecesso" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="Recesso">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoSituacao" type="xsd:int" />
+          <xsd:element name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoAquisitivo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataPagamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DeveExcluirValoresDasFolhasTipoMensal" type="xsd:boolean" />
+          <xsd:element name="DeveNaoEfetivarCasoExistaValoresMensaisCalculados" type="xsd:boolean" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="QuantidadeDeDiasDeGozo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDiasAhDesconsiderar" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeFaltasInjustificadas" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RecessoEhParcelado" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Recesso" nillable="true" type="tns:Recesso" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+      <xsd:complexType name="PeriodoAquisitivo">
+        <xsd:sequence>
+          <xsd:element name="DataFinal" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicial" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PeriodoAquisitivo" nillable="true" type="tns:PeriodoAquisitivo" />
+      <xsd:complexType name="DadosParaObterOcorRecesso">
+        <xsd:sequence>
+          <xsd:element name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="FuncionarioRecesso" nillable="true" type="tns:FuncionarioRecesso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosParaObterOcorRecesso" nillable="true" type="tns:DadosParaObterOcorRecesso" />
+      <xsd:complexType name="InformacoesDaOcorRecesso">
+        <xsd:sequence>
+          <xsd:element name="DataDoPagamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DiasADesconsiderar" type="xsd:int" />
+          <xsd:element name="DiasDeGozo" type="xsd:int" />
+          <xsd:element name="FaltasInjustificadas" type="xsd:int" />
+          <xsd:element name="FuncionarioRecesso" nillable="true" type="tns:FuncionarioRecesso" />
+          <xsd:element name="NumeroParcela" type="xsd:int" />
+          <xsd:element name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="PeriodoAquisitivo" nillable="true" type="tns:PeriodoAquisitivo" />
+          <xsd:element name="PeriodoDeGozo" nillable="true" type="tns:PeriodoDeGozo" />
+          <xsd:element name="PeriodoFruicao" nillable="true" type="tns:PeriodoAquisitivo" />
+          <xsd:element name="RecessoParcela" type="xsd:boolean" />
+          <xsd:element name="Situacao" nillable="true" type="tns:SituacaoRecesso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InformacoesDaOcorRecesso" nillable="true" type="tns:InformacoesDaOcorRecesso" />
+      <xsd:complexType name="PeriodoDeGozo">
+        <xsd:sequence>
+          <xsd:element name="DataFinal" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicial" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PeriodoDeGozo" nillable="true" type="tns:PeriodoDeGozo" />
+      <xsd:complexType name="SituacaoRecesso">
+        <xsd:sequence>
+          <xsd:element name="CodigoSituacao" type="xsd:int" />
+          <xsd:element name="DescricaoSituacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SituacaoRecesso" nillable="true" type="tns:SituacaoRecesso" />
+      <xsd:complexType name="ArrayOfPeriodoAquisitivoEFruicao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PeriodoAquisitivoEFruicao" nillable="true" type="tns:PeriodoAquisitivoEFruicao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfPeriodoAquisitivoEFruicao" nillable="true" type="tns:ArrayOfPeriodoAquisitivoEFruicao" />
+      <xsd:complexType name="PeriodoAquisitivoEFruicao">
+        <xsd:sequence>
+          <xsd:element name="Atual" type="xsd:boolean" />
+          <xsd:element name="PeriodoAquisitivo" nillable="true" type="tns:PeriodoAquisitivo" />
+          <xsd:element name="Usufruido" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PeriodoAquisitivoEFruicao" nillable="true" type="tns:PeriodoAquisitivoEFruicao" />
+      <xsd:complexType name="ArrayOfPeriodoDeGozo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PeriodoDeGozo" nillable="true" type="tns:PeriodoDeGozo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfPeriodoDeGozo" nillable="true" type="tns:ArrayOfPeriodoDeGozo" />
+      <xsd:complexType name="DadosExclusaoRecessoFuncionario">
+        <xsd:sequence>
+          <xsd:element name="DataInicialPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="FuncionarioRecesso" nillable="true" type="tns:FuncionarioRecesso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosExclusaoRecessoFuncionario" nillable="true" type="tns:DadosExclusaoRecessoFuncionario" />
+      <xsd:complexType name="ArrayOfDadosRecessoParaCadastro">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="DadosRecessoParaCadastro" nillable="true" type="tns:DadosRecessoParaCadastro" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDadosRecessoParaCadastro" nillable="true" type="tns:ArrayOfDadosRecessoParaCadastro" />
+      <xsd:complexType name="DadosRecessoParaCadastro">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataFimPeriodoAquisitivo" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataFimPeriodoFruicao" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataInicioPeriodoAquisitivo" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataInicioPeriodoFruicao" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DiasDeDireito" type="xsd:int" />
+          <xsd:element minOccurs="0" name="FaltasInjustificadas" type="xsd:int" />
+          <xsd:element minOccurs="0" name="IndicadorPeriodoAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NumeroDaParcela" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosRecessoParaCadastro" nillable="true" type="tns:DadosRecessoParaCadastro" />
+      <xsd:complexType name="ParametrosDeCalculoDaDataFinalPeriodoDeGozo">
+        <xsd:sequence>
+          <xsd:element name="DiasADesconsiderar" type="xsd:int" />
+          <xsd:element name="DiasDeGozo" type="xsd:int" />
+          <xsd:element name="NumeroDeFaltasInjustificadas" type="xsd:int" />
+          <xsd:element name="PeriodoInicialDiasDeGozo" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametrosDeCalculoDaDataFinalPeriodoDeGozo" nillable="true" type="tns:ParametrosDeCalculoDaDataFinalPeriodoDeGozo" />
+      <xsd:complexType name="ArrayOfInformacoesDaOcorRecesso">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InformacoesDaOcorRecesso" nillable="true" type="tns:InformacoesDaOcorRecesso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInformacoesDaOcorRecesso" nillable="true" type="tns:ArrayOfInformacoesDaOcorRecesso" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System">
+      <xsd:complexType name="ArrayOfNullableOfdateTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="dateTime" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNullableOfdateTime" nillable="true" type="tns:ArrayOfNullableOfdateTime" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltereOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q51:LGContextoAmbiente" />
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="LGAutenticacao" element="q52:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltereOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltereOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q57:LGContextoAmbiente" />
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="LGAutenticacao" element="q58:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltereOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculeDataDoPagamento" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InputMessage_Headers">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q63:LGContextoAmbiente" />
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="LGAutenticacao" element="q64:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculeDataDoPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDiasDeGozo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InputMessage_Headers">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q69:LGContextoAmbiente" />
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="LGAutenticacao" element="q70:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDiasDeGozoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteFaltasInjustificadas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InputMessage_Headers">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q75:LGContextoAmbiente" />
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="LGAutenticacao" element="q76:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteFaltasInjustificadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="detail" element="q77:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="detail" element="q78:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNumeroDeAvos" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InputMessage_Headers">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q81:LGContextoAmbiente" />
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="LGAutenticacao" element="q82:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteNumeroDeAvosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="detail" element="q83:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="detail" element="q84:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q87:LGContextoAmbiente" />
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="LGAutenticacao" element="q88:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="detail" element="q89:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="detail" element="q90:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="detail" element="q91:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="detail" element="q92:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePeriodoAquisitivoEPeriodoDeFruicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InputMessage_Headers">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q93:LGContextoAmbiente" />
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="LGAutenticacao" element="q94:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePeriodoAquisitivoEPeriodoDeFruicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="detail" element="q95:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="detail" element="q96:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="detail" element="q97:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="detail" element="q98:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePeriodoDeGozo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InputMessage_Headers">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q99:LGContextoAmbiente" />
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="LGAutenticacao" element="q100:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePeriodoDeGozoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q101="lg.com.br/svc/dto" name="detail" element="q101:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q102="lg.com.br/svc/dto" name="detail" element="q102:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q103="lg.com.br/svc/dto" name="detail" element="q103:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q104="lg.com.br/svc/dto" name="detail" element="q104:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q105="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q105:LGContextoAmbiente" />
+    <wsdl:part xmlns:q106="lg.com.br/svc/dto" name="LGAutenticacao" element="q106:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q107="lg.com.br/svc/dto" name="detail" element="q107:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q108="lg.com.br/svc/dto" name="detail" element="q108:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q109="lg.com.br/svc/dto" name="detail" element="q109:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q110="lg.com.br/svc/dto" name="detail" element="q110:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q111="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q111:LGContextoAmbiente" />
+    <wsdl:part xmlns:q112="lg.com.br/svc/dto" name="LGAutenticacao" element="q112:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q113="lg.com.br/svc/dto" name="detail" element="q113:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q114="lg.com.br/svc/dto" name="detail" element="q114:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q115="lg.com.br/svc/dto" name="detail" element="q115:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q116="lg.com.br/svc/dto" name="detail" element="q116:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q117="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q117:LGContextoAmbiente" />
+    <wsdl:part xmlns:q118="lg.com.br/svc/dto" name="LGAutenticacao" element="q118:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q119="lg.com.br/svc/dto" name="detail" element="q119:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q120="lg.com.br/svc/dto" name="detail" element="q120:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q121="lg.com.br/svc/dto" name="detail" element="q121:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q122="lg.com.br/svc/dto" name="detail" element="q122:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q123="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q123:LGContextoAmbiente" />
+    <wsdl:part xmlns:q124="lg.com.br/svc/dto" name="LGAutenticacao" element="q124:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q125="lg.com.br/svc/dto" name="detail" element="q125:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q126="lg.com.br/svc/dto" name="detail" element="q126:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q127="lg.com.br/svc/dto" name="detail" element="q127:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q128="lg.com.br/svc/dto" name="detail" element="q128:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaDadosParaCadastroDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q129="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q129:LGContextoAmbiente" />
+    <wsdl:part xmlns:q130="lg.com.br/svc/dto" name="LGAutenticacao" element="q130:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaDadosParaCadastroDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q131="lg.com.br/svc/dto" name="detail" element="q131:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q132="lg.com.br/svc/dto" name="detail" element="q132:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q133="lg.com.br/svc/dto" name="detail" element="q133:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q134="lg.com.br/svc/dto" name="detail" element="q134:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaDataDoPagamento" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InputMessage_Headers">
+    <wsdl:part xmlns:q135="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q135:LGContextoAmbiente" />
+    <wsdl:part xmlns:q136="lg.com.br/svc/dto" name="LGAutenticacao" element="q136:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaDataDoPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q137="lg.com.br/svc/dto" name="detail" element="q137:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q138="lg.com.br/svc/dto" name="detail" element="q138:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q139="lg.com.br/svc/dto" name="detail" element="q139:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q140="lg.com.br/svc/dto" name="detail" element="q140:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaDataFimPeriodoDeGozo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InputMessage_Headers">
+    <wsdl:part xmlns:q141="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q141:LGContextoAmbiente" />
+    <wsdl:part xmlns:q142="lg.com.br/svc/dto" name="LGAutenticacao" element="q142:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaDataFimPeriodoDeGozoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q143="lg.com.br/svc/dto" name="detail" element="q143:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q144="lg.com.br/svc/dto" name="detail" element="q144:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q145="lg.com.br/svc/dto" name="detail" element="q145:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q146="lg.com.br/svc/dto" name="detail" element="q146:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaNumeroDaUltimaParcela" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InputMessage_Headers">
+    <wsdl:part xmlns:q147="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q147:LGContextoAmbiente" />
+    <wsdl:part xmlns:q148="lg.com.br/svc/dto" name="LGAutenticacao" element="q148:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaNumeroDaUltimaParcelaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q149="lg.com.br/svc/dto" name="detail" element="q149:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q150="lg.com.br/svc/dto" name="detail" element="q150:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q151="lg.com.br/svc/dto" name="detail" element="q151:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q152="lg.com.br/svc/dto" name="detail" element="q152:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaRecessos" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InputMessage_Headers">
+    <wsdl:part xmlns:q153="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q153:LGContextoAmbiente" />
+    <wsdl:part xmlns:q154="lg.com.br/svc/dto" name="LGAutenticacao" element="q154:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaRecessosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q155="lg.com.br/svc/dto" name="detail" element="q155:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q156="lg.com.br/svc/dto" name="detail" element="q156:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q157="lg.com.br/svc/dto" name="detail" element="q157:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q158="lg.com.br/svc/dto" name="detail" element="q158:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q159="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q159:LGContextoAmbiente" />
+    <wsdl:part xmlns:q160="lg.com.br/svc/dto" name="LGAutenticacao" element="q160:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q161="lg.com.br/svc/dto" name="detail" element="q161:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q162="lg.com.br/svc/dto" name="detail" element="q162:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q163="lg.com.br/svc/dto" name="detail" element="q163:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q164="lg.com.br/svc/dto" name="detail" element="q164:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q165="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q165:LGContextoAmbiente" />
+    <wsdl:part xmlns:q166="lg.com.br/svc/dto" name="LGAutenticacao" element="q166:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q167="lg.com.br/svc/dto" name="detail" element="q167:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q168="lg.com.br/svc/dto" name="detail" element="q168:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q169="lg.com.br/svc/dto" name="detail" element="q169:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q170="lg.com.br/svc/dto" name="detail" element="q170:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q171="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q171:LGContextoAmbiente" />
+    <wsdl:part xmlns:q172="lg.com.br/svc/dto" name="LGAutenticacao" element="q172:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q173="lg.com.br/svc/dto" name="detail" element="q173:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q174="lg.com.br/svc/dto" name="detail" element="q174:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q175="lg.com.br/svc/dto" name="detail" element="q175:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q176="lg.com.br/svc/dto" name="detail" element="q176:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q177="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q177:LGContextoAmbiente" />
+    <wsdl:part xmlns:q178="lg.com.br/svc/dto" name="LGAutenticacao" element="q178:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q179="lg.com.br/svc/dto" name="detail" element="q179:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q180="lg.com.br/svc/dto" name="detail" element="q180:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q181="lg.com.br/svc/dto" name="detail" element="q181:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q182="lg.com.br/svc/dto" name="detail" element="q182:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q183="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q183:LGContextoAmbiente" />
+    <wsdl:part xmlns:q184="lg.com.br/svc/dto" name="LGAutenticacao" element="q184:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q185="lg.com.br/svc/dto" name="detail" element="q185:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q186="lg.com.br/svc/dto" name="detail" element="q186:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q187="lg.com.br/svc/dto" name="detail" element="q187:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q188="lg.com.br/svc/dto" name="detail" element="q188:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q189="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q189:LGContextoAmbiente" />
+    <wsdl:part xmlns:q190="lg.com.br/svc/dto" name="LGAutenticacao" element="q190:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q191="lg.com.br/svc/dto" name="detail" element="q191:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q192="lg.com.br/svc/dto" name="detail" element="q192:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q193="lg.com.br/svc/dto" name="detail" element="q193:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q194="lg.com.br/svc/dto" name="detail" element="q194:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q195="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q195:LGContextoAmbiente" />
+    <wsdl:part xmlns:q196="lg.com.br/svc/dto" name="LGAutenticacao" element="q196:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q197="lg.com.br/svc/dto" name="detail" element="q197:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q198="lg.com.br/svc/dto" name="detail" element="q198:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q199="lg.com.br/svc/dto" name="detail" element="q199:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q200="lg.com.br/svc/dto" name="detail" element="q200:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q201="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q201:LGContextoAmbiente" />
+    <wsdl:part xmlns:q202="lg.com.br/svc/dto" name="LGAutenticacao" element="q202:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q203="lg.com.br/svc/dto" name="detail" element="q203:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q204="lg.com.br/svc/dto" name="detail" element="q204:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q205="lg.com.br/svc/dto" name="detail" element="q205:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q206="lg.com.br/svc/dto" name="detail" element="q206:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaInclusaoDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q207="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q207:LGContextoAmbiente" />
+    <wsdl:part xmlns:q208="lg.com.br/svc/dto" name="LGAutenticacao" element="q208:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaInclusaoDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q209="lg.com.br/svc/dto" name="detail" element="q209:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q210="lg.com.br/svc/dto" name="detail" element="q210:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q211="lg.com.br/svc/dto" name="detail" element="q211:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q212="lg.com.br/svc/dto" name="detail" element="q212:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q213="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q213:LGContextoAmbiente" />
+    <wsdl:part xmlns:q214="lg.com.br/svc/dto" name="LGAutenticacao" element="q214:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q215="lg.com.br/svc/dto" name="detail" element="q215:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q216="lg.com.br/svc/dto" name="detail" element="q216:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q217="lg.com.br/svc/dto" name="detail" element="q217:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q218="lg.com.br/svc/dto" name="detail" element="q218:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage_Headers">
+    <wsdl:part xmlns:q219="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q219:LGContextoAmbiente" />
+    <wsdl:part xmlns:q220="lg.com.br/svc/dto" name="LGAutenticacao" element="q220:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q221="lg.com.br/svc/dto" name="detail" element="q221:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q222="lg.com.br/svc/dto" name="detail" element="q222:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q223="lg.com.br/svc/dto" name="detail" element="q223:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q224="lg.com.br/svc/dto" name="detail" element="q224:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q225="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q225:LGContextoAmbiente" />
+    <wsdl:part xmlns:q226="lg.com.br/svc/dto" name="LGAutenticacao" element="q226:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q227="lg.com.br/svc/dto" name="detail" element="q227:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q228="lg.com.br/svc/dto" name="detail" element="q228:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q229="lg.com.br/svc/dto" name="detail" element="q229:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q230="lg.com.br/svc/dto" name="detail" element="q230:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeOcorrenciaDeRecesso">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar a manutenção de recesso</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="AltereOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Alteração de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltereOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Alteração de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculeDataDoPagamento">
+      <wsdl:documentation>
+        <summary>Calcula próxima data em dia útil anterior a data de inicio do gozo do recesso.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamento" message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamentoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamentoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamentoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamentoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamentoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDiasDeGozo">
+      <wsdl:documentation>
+        <summary>Consulta dias de gozo</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozo" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteFaltasInjustificadas">
+      <wsdl:documentation>
+        <summary>Consulta faltas injutificadas do funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadas" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadasResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNumeroDeAvos">
+      <wsdl:documentation>
+        <summary>Consulta o numero de avos</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvos" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvosResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Consulta a ocorrência de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePeriodoAquisitivoEPeriodoDeFruicao">
+      <wsdl:documentation>
+        <summary>Consulta periodo aquisitivo e período de fruição</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicaoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePeriodoDeGozo">
+      <wsdl:documentation>
+        <summary>Calcule o periódo de gozo</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozo" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Exclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Exclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Inclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Realiza as validações impeditivas para a inclusão de um novo recesso e, caso nenhuma inconsistência seja encontrada, insere o novo recesso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaDadosParaCadastroDeRecesso">
+      <wsdl:documentation>
+        <summary>Obtem dados para cadastro.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaDataDoPagamento">
+      <wsdl:documentation>
+        <summary>Calcule a data de pagamento</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamento" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamentoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamentoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamentoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamentoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamentoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaDataFimPeriodoDeGozo">
+      <wsdl:documentation>
+        <summary>Calcule a data final do período de gozo</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozo" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaNumeroDaUltimaParcela">
+      <wsdl:documentation>
+        <summary>Calcule o numero de parcelas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcela" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcelaResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcelaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcelaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcelaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcelaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaRecessos">
+      <wsdl:documentation>
+        <summary>Consultar a lista de recessos cadastradas na funcionalidade</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessos" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessosResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeRecesso">
+      <wsdl:documentation>
+        <summary>Valida a inclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Realiza as validações impeditivas para a inclusão de um novo recesso</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Alteração de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Alteração de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Valida regras impeditivas da Exclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Valida regras  impeditivas da Exclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Alteração de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Valida regras não impeditivas da Inclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso">
+      <wsdl:documentation>
+        <summary>Valida regras não impeditivas da Inclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Valida regras não impeditivas da Inclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso">
+      <wsdl:documentation>
+        <summary>Valida regras impeditivas da Exclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoResponse" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecessoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2">
+      <wsdl:documentation>
+        <summary>Valida regras não impeditivas da Exclusão de recesso do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2Response" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeOcorrenciaDeRecesso" type="tns:ServicoDeOcorrenciaDeRecesso">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AltereOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltereOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/AltereOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_AltereOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CalculeDataDoPagamento">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/CalculeDataDoPagamento" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_CalculeDataDoPagamento_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDiasDeGozo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteDiasDeGozo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteDiasDeGozo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteFaltasInjustificadas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteFaltasInjustificadas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteFaltasInjustificadas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteNumeroDeAvos">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteNumeroDeAvos" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteNumeroDeAvos_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsulteOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsulteOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePeriodoAquisitivoEPeriodoDeFruicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoAquisitivoEPeriodoDeFruicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoAquisitivoEPeriodoDeFruicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePeriodoDeGozo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ConsultePeriodoDeGozo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ConsultePeriodoDeGozo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ExcluaOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ExcluaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/InsiraOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_InsiraOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaDadosParaCadastroDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDadosParaCadastroDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDadosParaCadastroDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaDataDoPagamento">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataDoPagamento" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataDoPagamento_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaDataFimPeriodoDeGozo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaDataFimPeriodoDeGozo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaDataFimPeriodoDeGozo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaNumeroDaUltimaParcela">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaNumeroDaUltimaParcela" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaNumeroDaUltimaParcela_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaRecessos">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ObtenhaRecessos" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ObtenhaRecessos_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideInclusaoDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideInclusaoDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaAlteracaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaInclusaoDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaDeRecesso/ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaDeRecesso_ValideRegrasNaoImpeditivasDaExclusaoDaOcorrenciaDeRecesso_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeOcorrenciaDeRecessoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeOcorrenciaDeRecesso" binding="tns:LGBasicHttp_ServicoDeOcorrenciaDeRecesso">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeocorrenciaderecesso" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

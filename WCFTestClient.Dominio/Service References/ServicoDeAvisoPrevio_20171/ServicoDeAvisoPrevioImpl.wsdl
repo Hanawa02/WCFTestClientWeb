@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeAvisoPrevioImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="Cadastre">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="AvisoPrevio" nillable="true" type="q1:AvisoPrevio" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CalculeDataDePrevisaoDaRescisao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DataAvisoPrevio" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="TipoAvisoPrevio" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CalculeDataDePrevisaoDaRescisaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CalculeDataDePrevisaoDaRescisaoResult" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="AvisoPrevio" nillable="true" type="q2:AvisoPrevio" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroResult" nillable="true" type="q3:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeTipos">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="Empresa" type="xsd:short" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeTiposResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeTiposResult" nillable="true" type="q4:ArrayOfTipoAvisoPrevio" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaCadastro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="AvisoPrevio" nillable="true" type="q5:AvisoPrevio" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaCadastroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasParaCadastroResult" nillable="true" type="q6:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOcorrencias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="IndicadorDeAvisoPrevioAtivo" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOcorrenciasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="ConsulteOcorrenciasResult" nillable="true" type="q7:ArrayOfAvisoPrevioConsulta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="AvisoPrevio">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DataAvisoPrevio" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataPrevisaoRescisao" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Empresa" type="xsd:short" />
+          <xsd:element minOccurs="0" name="Matricula" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TipoAvisoPrevio" type="xsd:short" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvisoPrevio" nillable="true" type="tns:AvisoPrevio" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+      <xsd:complexType name="ArrayOfTipoAvisoPrevio">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TipoAvisoPrevio" nillable="true" type="tns:TipoAvisoPrevio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfTipoAvisoPrevio" nillable="true" type="tns:ArrayOfTipoAvisoPrevio" />
+      <xsd:complexType name="TipoAvisoPrevio">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RetornoCodigoEDescricaoGenericoint">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="TipoAvisoPrevio" nillable="true" type="tns:TipoAvisoPrevio" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericoint">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+      <xsd:complexType name="ArrayOfAvisoPrevioConsulta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AvisoPrevioConsulta" nillable="true" type="tns:AvisoPrevioConsulta" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfAvisoPrevioConsulta" nillable="true" type="tns:ArrayOfAvisoPrevioConsulta" />
+      <xsd:complexType name="AvisoPrevioConsulta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AvisoPrevio" nillable="true" type="tns:AvisoPrevio" />
+          <xsd:element minOccurs="0" name="DadosCancelamentoAvisoPrevio" nillable="true" type="tns:AvisoPrevioCancelamento" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvisoPrevioConsulta" nillable="true" type="tns:AvisoPrevioConsulta" />
+      <xsd:complexType name="AvisoPrevioCancelamento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DataAvisoPrevio" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataCancelamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Empresa" type="xsd:short" />
+          <xsd:element minOccurs="0" name="Matricula" type="xsd:int" />
+          <xsd:element minOccurs="0" name="MotivoCancelamento" type="xsd:short" />
+          <xsd:element minOccurs="0" name="ObservacaoCancelamento" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvisoPrevioCancelamento" nillable="true" type="tns:AvisoPrevioCancelamento" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cadastre" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_InputMessage_Headers">
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q8:LGContextoAmbiente" />
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="LGAutenticacao" element="q9:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="detail" element="q10:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="detail" element="q11:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="detail" element="q12:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_Cadastre_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculeDataDePrevisaoDaRescisao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InputMessage_Headers">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q14:LGContextoAmbiente" />
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="LGAutenticacao" element="q15:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculeDataDePrevisaoDaRescisaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="detail" element="q16:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="detail" element="q17:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="detail" element="q18:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q20:LGContextoAmbiente" />
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="LGAutenticacao" element="q21:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="detail" element="q24:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeTipos" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_InputMessage_Headers">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q26:LGContextoAmbiente" />
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="LGAutenticacao" element="q27:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeTiposResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteListaDeTipos_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="detail" element="q31:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q32:LGContextoAmbiente" />
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="LGAutenticacao" element="q33:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOcorrencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_InputMessage_Headers">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q38:LGContextoAmbiente" />
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="LGAutenticacao" element="q39:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOcorrenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvisoPrevio_ConsulteOcorrencias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeAvisoPrevio">
+    <wsdl:documentation>
+      <summary>Serviço responsável por manter ocorrência de aviso prévio.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="Cadastre">
+      <wsdl:documentation>
+        <summary>Cadastra o aviso prévio do funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/Cadastre" message="tns:ServicoDeAvisoPrevio_Cadastre_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CadastreResponse" message="tns:ServicoDeAvisoPrevio_Cadastre_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CadastreListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvisoPrevio_Cadastre_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CadastreInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvisoPrevio_Cadastre_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CadastreFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvisoPrevio_Cadastre_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CadastreFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvisoPrevio_Cadastre_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculeDataDePrevisaoDaRescisao">
+      <wsdl:documentation>
+        <summary>Calcula a data de rescisão.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisao" message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisaoResponse" message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastro">
+      <wsdl:documentation>
+        <summary>Valida as regras impeditivas para o cadastro do aviso prévio do funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastro" message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastroResponse" message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeTipos">
+      <wsdl:documentation>
+        <summary>Consulta a lista de tipos de avisos prévios.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTipos" message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTiposResponse" message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTiposInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTiposListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTiposFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTiposFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaCadastro">
+      <wsdl:documentation>
+        <summary>Valida as regras não impeditivas para o cadastro do aviso prévio do funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastro" message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastroResponse" message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOcorrencias">
+      <wsdl:documentation>
+        <summary>Consulta ocorrencias</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrencias" message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrenciasResponse" message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrenciasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrenciasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrenciasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrenciasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeAvisoPrevio" type="tns:ServicoDeAvisoPrevio">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Cadastre">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvisoPrevio/Cadastre" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvisoPrevio_Cadastre_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvisoPrevio_Cadastre_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CalculeDataDePrevisaoDaRescisao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvisoPrevio/CalculeDataDePrevisaoDaRescisao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvisoPrevio_CalculeDataDePrevisaoDaRescisao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasImpeditivasParaCadastro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeTipos">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteListaDeTipos" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ConsulteListaDeTipos_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaCadastro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvisoPrevio/ValideRegrasNaoImpeditivasParaCadastro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOcorrencias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvisoPrevio/ConsulteOcorrencias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvisoPrevio_ConsulteOcorrencias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeAvisoPrevioImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeAvisoPrevio" binding="tns:LGBasicHttp_ServicoDeAvisoPrevio">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeavisoprevio" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

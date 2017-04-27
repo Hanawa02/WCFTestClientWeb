@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeConfiguracaoFpwImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ObtenhaConfiguracaoDeSistemaGenteRecebe">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaConfiguracaoDeSistemaGenteRecebeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaConfiguracaoDeSistemaGenteRecebeResult" nillable="true" type="q1:ConfiguracoesDeSistema" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ConfiguracoesDeSistema">
+        <xsd:sequence>
+          <xsd:element name="Calculo" nillable="true" type="tns:ConfiguracoesDeSistemaCalculo" />
+          <xsd:element name="Dependente" nillable="true" type="tns:ConfiguracoesDeSistemaDependente" />
+          <xsd:element name="FichaCadastral" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastral" />
+          <xsd:element name="GrupoHierarquico" nillable="true" type="tns:ConfiguracoesDeSistemaGrupoHierarquico" />
+          <xsd:element name="IdUnico" nillable="true" type="tns:ConfiguracoesDeSistemaIdUnico" />
+          <xsd:element name="Ocorrencia" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrencia" />
+          <xsd:element name="Outras" nillable="true" type="tns:ConfiguracoesDeSistemaOutras" />
+          <xsd:element name="RetornoAoContexto" nillable="true" type="tns:ConfiguracoesDeSistemaRetornoAoContexto" />
+          <xsd:element name="Pensionista" nillable="true" type="tns:ConfiguracoesDeSistemaPensionista" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistema" nillable="true" type="tns:ConfiguracoesDeSistema" />
+      <xsd:complexType name="ConfiguracoesDeSistemaCalculo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ApresentarComoSugestaoAtualizacaoDaReferenciaAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="HabilitarUsoDeFolhasRetificadoras" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PermitirAtualizacoesDeDadosDasReferenciasRetroativasParaReferenciaAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PermitirCalculoRetroativoRescisaoSomenteNaDataRescisao" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaCalculo" nillable="true" type="tns:ConfiguracoesDeSistemaCalculo" />
+      <xsd:complexType name="ConfiguracoesDeSistemaDependente">
+        <xsd:sequence>
+          <xsd:element name="ObrigarPreenchimento" nillable="true" type="tns:ConfiguracoesDeSistemaDependenteObrigarPreenchimento" />
+          <xsd:element name="RestricaoVerificacao" nillable="true" type="tns:ConfiguracoesDeSistemaDependenteRestricaoVerificacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaDependente" nillable="true" type="tns:ConfiguracoesDeSistemaDependente" />
+      <xsd:complexType name="ConfiguracoesDeSistemaDependenteObrigarPreenchimento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CpfParaDependentesComIdadeIgualOuSuperiorDezoitoAnos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IdadeParaCPFDoDependente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="MatriculaDaCertidaoComNumeroDaDnvParaDependentesNascidosAno2010" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NumeroCns" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaDependenteObrigarPreenchimento" nillable="true" type="tns:ConfiguracoesDeSistemaDependenteObrigarPreenchimento" />
+      <xsd:complexType name="ConfiguracoesDeSistemaDependenteRestricaoVerificacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeMatriculaDaCertidaoParaDependentesAssociadosMesmaMatriculaDoFuncinario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeNumeroDaDnvParaDependentesAssociadosMesmaMatriculaDoFuncionario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDoNumeroDoCnsParaDependentesAssociadosMesmaMatriculaDoFuncionario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ManterDependenciaDeIRParaDependentesComMenosDeVinteEDoisOuVinteECincoAnosESejamUniversitariosOuTecnico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VerificarExistenciaDeDependentesComMesmaMatriculaDaCertidaoNumeroDaDnvApenasEmpresaLogada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VerificarExistenciaDeDependentesComMesmoNumeroDoCnsApenasEmpresaLogada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeCpfEntreDependentesDoFuncionario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirQueDependenteUtilizeMesmoCpfDoFuncionario" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaDependenteRestricaoVerificacao" nillable="true" type="tns:ConfiguracoesDeSistemaDependenteRestricaoVerificacao" />
+      <xsd:complexType name="ConfiguracoesDeSistemaFichaCadastral">
+        <xsd:sequence>
+          <xsd:element name="CargosObterCBOSindicatoAPartirDe" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoCargoComissionado" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoEnderecamento" nillable="true" type="xsd:string" />
+          <xsd:element name="Matricula" nillable="true" type="xsd:string" />
+          <xsd:element name="NaoPermitirAlteracao" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastralNaoPermitirAlteracao" />
+          <xsd:element name="ObrigarPreenchimento" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastralObrigarPreenchimento" />
+          <xsd:element name="RestricaoVerificacao" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastralRestricaoVerificacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaFichaCadastral" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastral" />
+      <xsd:complexType name="ConfiguracoesDeSistemaFichaCadastralNaoPermitirAlteracao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributosAdicionais" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoComissionado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoEfetivo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CentroDeCusto" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DadosDoContratoDeExperiencia" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DadosDoPagamentoBcoAgCC" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Horario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Lotacao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaturezaProfissional" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PortadorNecessidadeEspecial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ResidenteDomiciliadoNoExterior" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Sindicato" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SindicatoProfissionalLiberal" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaFichaCadastralNaoPermitirAlteracao" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastralNaoPermitirAlteracao" />
+      <xsd:complexType name="ConfiguracoesDeSistemaFichaCadastralObrigarPreenchimento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CNS" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CPF" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CargoComissionado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CentroDeCusto" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CertificadoDeAlistamentoMilitar" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ClassificacaoDeNecessidadeEspecial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DadosPagamento" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DataNaturalizacaoEstrangeiro" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DataUniaoEstavel" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EstrangeiroCasadoComBrasileira" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EstrangeiroPossuiFilhosComBrasileira" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrupoHierarquico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicativoAdmissao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaturezaProfissional" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NumeroDoTituloDeEleitor" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="OrgaoResponsavel" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PIS" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RacaCor" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SalarioContratual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Sindicato" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TipoAdmissaoESocial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TipoDeNecessidadeEspecial" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaFichaCadastralObrigarPreenchimento" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastralObrigarPreenchimento" />
+      <xsd:complexType name="ConfiguracoesDeSistemaFichaCadastralRestricaoVerificacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeCpfParaFuncionariosNaoRescindidos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeMatriculaDaCertidaoDeNascimentoParaFuncionariosNaoRescindidos" type="xsd:boolean" />
+          <xsd:element name="ImpedirDuplicidadeDeNumeroCnsParaFuncionariosNaoRescindidos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeNumeroDnvDaCertidaoParaFuncionariosNaoRescindidos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDePisParaFuncionariosNaoRescindidos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeRicParaFuncionariosNaoRescindidos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaoAplicarAssociacaoDeEntidadesPorLotacaoGhParaSindicatoProfissionalLiberal" type="xsd:boolean" />
+          <xsd:element name="NaoGerarNumeroDrtSequencialPorLotacaoMatrizFilialParaVinculos8205" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaoPermitirAlteracaoDePeriodoAquisitivoDeFerias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaoPermitirDataDeAdmissaoAnteriorAReferencia" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaoPermitirDuplicidadeDeDadosBancariosParaFuncionariosNaoRescindidosNaEmpresaLogada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizarNumeroDrtSequencialPorLotacaoMatrizFilial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VerificarExistenciaDeFuncionarioComMesmoCpfPisApenasNaEmpresaLogada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VerificarExistenciaDeFuncionariosComMesmaMatriculaDaCertidaoNumeroDnvApenasNaEmpresaLogada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VerificarExistenciaDeFuncionariosNaoRescindidosComMesmoNumeroDeCnsApenasNaEmpresaLogada" type="xsd:boolean" />
+          <xsd:element name="VerificarExistenciaDeFuncionariosNaoRescindidosComMesmoRicApenasNaEmpresaLogada" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaFichaCadastralRestricaoVerificacao" nillable="true" type="tns:ConfiguracoesDeSistemaFichaCadastralRestricaoVerificacao" />
+      <xsd:complexType name="ConfiguracoesDeSistemaGrupoHierarquico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AplicarHerancaDeNiveisNaSucessaoDeGestaoDoGrupoHierarquico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Empresas" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaEmpresaGrupoHierarquico" />
+          <xsd:element minOccurs="0" name="GrupoDeEmpresas" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" />
+          <xsd:element minOccurs="0" name="PermitirInformarFuncionarioRelacionadoDeQualquerEmpresa" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquico" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaGrupoHierarquico" nillable="true" type="tns:ConfiguracoesDeSistemaGrupoHierarquico" />
+      <xsd:complexType name="ArrayOfConfiguracoesDeSistemaEmpresaGrupoHierarquico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ConfiguracoesDeSistemaEmpresaGrupoHierarquico" nillable="true" type="tns:ConfiguracoesDeSistemaEmpresaGrupoHierarquico" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfConfiguracoesDeSistemaEmpresaGrupoHierarquico" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaEmpresaGrupoHierarquico" />
+      <xsd:complexType name="ConfiguracoesDeSistemaEmpresaGrupoHierarquico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaEmpresaGrupoHierarquico" nillable="true" type="tns:ConfiguracoesDeSistemaEmpresaGrupoHierarquico" />
+      <xsd:complexType name="ArrayOfConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" nillable="true" type="tns:ConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" />
+      <xsd:complexType name="ConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="NomeDoGrupoDeEmpresas" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SomenteSincronizarGruposHierarquicos" nillable="true" type="tns:ConfiguracoesDeSistemaSomenteSincronizarGruposHierarquicos" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" nillable="true" type="tns:ConfiguracoesDeSistemaGrupoHierarquicoGrupoDeEmpresas" />
+      <xsd:complexType name="ConfiguracoesDeSistemaSomenteSincronizarGruposHierarquicos">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="EmpresasAssociadas" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaEmpresaGrupoHierarquico" />
+          <xsd:element minOccurs="0" name="NivelAssociado" nillable="true" type="tns:ConfiguracoesDeSistemaNivelHierarquico" />
+          <xsd:element minOccurs="0" name="SomenteSincronizarGruposHierarquicosCujoNivelEhMenorOuIgualA" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas" nillable="true" type="tns:ConfiguracoesDeSistemaUtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaSomenteSincronizarGruposHierarquicos" nillable="true" type="tns:ConfiguracoesDeSistemaSomenteSincronizarGruposHierarquicos" />
+      <xsd:complexType name="ConfiguracoesDeSistemaNivelHierarquico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaNivelHierarquico" nillable="true" type="tns:ConfiguracoesDeSistemaNivelHierarquico" />
+      <xsd:complexType name="ConfiguracoesDeSistemaUtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AplicarHerancaDeNiveisNaSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaUtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas" nillable="true" type="tns:ConfiguracoesDeSistemaUtilizarConceitoDeSucessaoDeGestaoDoGrupoHierarquicoNoGrupoDeEmpresas" />
+      <xsd:complexType name="ConfiguracoesDeSistemaIdUnico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="IdDeterminadoAutomaticamentePeloSistema" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="MascaraParaEdicaoDoId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MascaraParaImpressaoDoId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UsarIdUnicoParaFuncionario" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaIdUnico" nillable="true" type="tns:ConfiguracoesDeSistemaIdUnico" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrencia">
+        <xsd:sequence>
+          <xsd:element name="OcorrenciaDeAfastamento" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAfastamento" />
+          <xsd:element name="OcorrenciaDeAvisoPrevio" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAvisoPrevio" />
+          <xsd:element name="OcorrenciaDeRescisao" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeRescisao" />
+          <xsd:element name="OcorrenciaDeTransferenciaEntreEmpresas" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeTransferenciaEntreEmpresas" />
+          <xsd:element name="OcorrenciaFerias" nillable="true" type="tns:ConfiguracoesDeSistemaFerias" />
+          <xsd:element name="OcorrenciaRecesso" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeRecesso" />
+          <xsd:element name="OcorrenciasConfiguracoesGerais" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciasConfiguracoesGerais" />
+          <xsd:element name="OcorrenciasNasFuncionalidadesAbaixoImpedirCadastrarAlterarExcluirQuandoHouverBloqueioDe" nillable="true" type="tns:OcorrenciasNasFuncionalidadesAbaixoImpedirCadastrarAlterarExcluirQuandoHouverBloqueioDe" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrencia" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrencia" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeAfastamento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="OcorrenciaDeAfastamentoConsiderarContagemDeSessentaDias" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarContagemDeSessentaDias" />
+          <xsd:element minOccurs="0" name="OcorrenciaDeAfastamentoConsiderarNaProrragacao" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarNaProrragacao" />
+          <xsd:element minOccurs="0" name="VigenciaDeDiasDeAuxilioDoenca" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeAfastamento" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAfastamento" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarContagemDeSessentaDias">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ApartirDaDataDeInicioDoAfastamento" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ApartirDaDataDeRetornoAoTrabalho" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarContagemDeSessentaDias" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarContagemDeSessentaDias" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarNaProrragacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="NaVigenciaDaProrrogacaoDoAfastamento" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaVigenciaDoPrimeiroAfastamento" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarNaProrragacao" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAfastamentoConsiderarNaProrragacao" />
+      <xsd:complexType name="ArrayOfConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" nillable="true" type="tns:ConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" nillable="true" type="tns:ArrayOfConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" />
+      <xsd:complexType name="ConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca">
+        <xsd:sequence>
+          <xsd:element name="DataInicio" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="QuantidadeMaximaDeDias" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" nillable="true" type="tns:ConfiguracoesDeSistemaDadosListaVigenciaDiasAuxilioDoenca" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeAvisoPrevio">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PermitirChoqueDeOcorrenciaDeAvisoPrevioComAfastamentoOuLicenca" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PermitirChoqueDeOcorrenciaDeAvisoPrevioComFeriasFeriasColetivas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeAvisoPrevio" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeAvisoPrevio" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeRescisao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PossibilitarPreenchimentoAutomaticoDosDadosDaEmpresaSucessoraNaTransferenciaDeEntradaParaEmpresaDeDestino" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeRescisao" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeRescisao" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeTransferenciaEntreEmpresas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AplicarAsRestricoesExistentesNaFichaCadastralCadastroDependentesDuranteTransferenciaEntreEmpresas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeTransferenciaEntreEmpresas" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeTransferenciaEntreEmpresas" />
+      <xsd:complexType name="ConfiguracoesDeSistemaFerias">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DataDePagamentoDoisDiasUteisAntesDoInicioDasFerias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaoAlterarPeriodoAquisitivoParaFeriasColetivasParaFuncionariosComMenosDeUmAnoDeEmpresa" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NaoConsiderarSabadosComoDiaUtilNaDeterminacaoDaDataDePagamento" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PermitirAlterarDiasDeDireitoDaFuncionalidadeDeFeriasColetivas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaFerias" nillable="true" type="tns:ConfiguracoesDeSistemaFerias" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciaDeRecesso">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PermitirFaltasInjustificadasDescontadasDiasDeDireito" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciaDeRecesso" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciaDeRecesso" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOcorrenciasConfiguracoesGerais">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DesconsiderarOcorrenciasProgramadasNoCalculoDeFolhaDePagamentoDeRescisaoSimulada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="OcorrenciaDeRescisaoTotalizarLancamentosFuturosDoFuncionario" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOcorrenciasConfiguracoesGerais" nillable="true" type="tns:ConfiguracoesDeSistemaOcorrenciasConfiguracoesGerais" />
+      <xsd:complexType name="OcorrenciasNasFuncionalidadesAbaixoImpedirCadastrarAlterarExcluirQuandoHouverBloqueioDe">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AfastamentoLicenca" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EventosHistoricos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Ferias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="FeriasColetivas" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Recesso" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Rescisao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RescisaoComplementar" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OcorrenciasNasFuncionalidadesAbaixoImpedirCadastrarAlterarExcluirQuandoHouverBloqueioDe" nillable="true" type="tns:OcorrenciasNasFuncionalidadesAbaixoImpedirCadastrarAlterarExcluirQuandoHouverBloqueioDe" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOutras">
+        <xsd:sequence>
+          <xsd:element name="Anexos" nillable="true" type="tns:ConfiguracoesDeSistemaAnexos" />
+          <xsd:element name="ConfiguracoesGerais" nillable="true" type="tns:ConfiguracoesDeSistemaConfiguracoesGerais" />
+          <xsd:element name="ConsultaFichaCadastral" nillable="true" type="tns:ConfiguracoesDeSistemaConsultaFichaCadastral" />
+          <xsd:element name="Esocial" nillable="true" type="tns:ConfiguracoesDeSistemaEsocial" />
+          <xsd:element name="EventosPorFuncionarioProgramacaoDeEventos" nillable="true" type="tns:ConfiguracoesDeSistemaEventosPorFuncionarioProgramacaoDeEventos" />
+          <xsd:element name="ImportacaoExportacaoDeTabelas" nillable="true" type="tns:ConfiguracoesDeSistemaImportacaoExportacaoDeTabelas" />
+          <xsd:element name="InformarAsDatasDePagamentoPorLotacao" nillable="true" type="tns:ConfiguracoesDeSistemaInformarAsDatasDePagamentoPorLotacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOutras" nillable="true" type="tns:ConfiguracoesDeSistemaOutras" />
+      <xsd:complexType name="ConfiguracoesDeSistemaAnexos">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TamanhoMaximoPorArquivo" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaAnexos" nillable="true" type="tns:ConfiguracoesDeSistemaAnexos" />
+      <xsd:complexType name="ConfiguracoesDeSistemaConfiguracoesGerais">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CalculoDaFolhaExibirOpcaoDesprezarFuncionariosJaCalculados" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ConsultaSQL" nillable="true" type="tns:ConfiguracoesDeSistemaOutrasConsultaSQL" />
+          <xsd:element minOccurs="0" name="GfipUsarCadastroDeTomadoresDeServicos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeCompromissoDePagamentoDeFavorecidoParaOLayoutDoBancoHsbcCnabDuzentosEquarenta" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirViradaDeReferenciaQuandoCompetenciaDeCalculoNaoTiverBloqueada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="MudancaDeReferenciaNaoExibirOpcaoMudarReferenciaDeTodasAsEmpresas" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NovidadesDaVersaoExibirApenasParaSupervisorDeModulo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ObrigarPreenchimentoDasInformacoesRelacionadasAoHorarioDeTrabalhoQuandoNaoForRegidoArtigoSessentaEdoisDaClt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ObrigarPreenchimentoDoCpfParaPensionistaMaiorOuIgualADezoitoAnos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PermitirExcluirRelacionamentoCasoTodosOsFuncionariosRelacionadosEstejamRescindidos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TabelaDeEventosNaoOrdenarEventosPeCatorzeQuandoOpcaoConsideraValoresAindaNaoGravadosEmValoresMensaisParaFolha" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TermoDeRescisaoAplicarRestricaoDeVisibilidadeDeEventos" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaConfiguracoesGerais" nillable="true" type="tns:ConfiguracoesDeSistemaConfiguracoesGerais" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOutrasConsultaSQL">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ConsultaSqlPermitirExecucaoCadastroDeConsultaSqlApenasParaAsTabelasCadastradas" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="PermitirSelecionarVesaoAnalisadorSQL" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizarNovoAnalisadorSQLParaGeracaoDasConsultas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOutrasConsultaSQL" nillable="true" type="tns:ConfiguracoesDeSistemaOutrasConsultaSQL" />
+      <xsd:complexType name="ConfiguracoesDeSistemaConsultaFichaCadastral">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="FolhaParaPesquisarComponentesDeSalario" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaConsultaFichaCadastral" nillable="true" type="tns:ConfiguracoesDeSistemaConsultaFichaCadastral" />
+      <xsd:complexType name="ConfiguracoesDeSistemaEsocial">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DefinirAutomaticamenteEstruturaDeEmpregadorEstabelecimentoLotacao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="InformadosEmLotacaoDeNivelSuperior" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="InformadosNoProprioRegistroDaObra" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaEsocial" nillable="true" type="tns:ConfiguracoesDeSistemaEsocial" />
+      <xsd:complexType name="ConfiguracoesDeSistemaEventosPorFuncionarioProgramacaoDeEventos">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="IndicadorDePermanencia" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaEventosPorFuncionarioProgramacaoDeEventos" nillable="true" type="tns:ConfiguracoesDeSistemaEventosPorFuncionarioProgramacaoDeEventos" />
+      <xsd:complexType name="ConfiguracoesDeSistemaImportacaoExportacaoDeTabelas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AplicarAsRestricoesDeVisibilidadeFichaCadastralCadastroDeDependentes" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VincularPermissaoParaImportacaoExportacaoDeDadosDoOperadorParaRotinasDeCadastroDeRespectivasTabelas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaImportacaoExportacaoDeTabelas" nillable="true" type="tns:ConfiguracoesDeSistemaImportacaoExportacaoDeTabelas" />
+      <xsd:complexType name="ConfiguracoesDeSistemaInformarAsDatasDePagamentoPorLotacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InformarAsDatasDePagamentoPorLotacao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="NivelDeLotacaoParaConfiguracaoDeDatas" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaInformarAsDatasDePagamentoPorLotacao" nillable="true" type="tns:ConfiguracoesDeSistemaInformarAsDatasDePagamentoPorLotacao" />
+      <xsd:complexType name="ConfiguracoesDeSistemaRetornoAoContexto">
+        <xsd:sequence>
+          <xsd:element name="DadosParaAgendamentoDeAtualizacao" nillable="true" type="tns:ConfiguracoesDeSistemaDadosParaAgendamentoDeAtualizacao" />
+          <xsd:element name="IntervaloDeDadosJaProcessados" nillable="true" type="tns:ConfiguracoesDeSistemaIntervaloDeDadosJaProcessados" />
+          <xsd:element name="OpcoesDeAtualizacaoDeDados" nillable="true" type="tns:ConfiguracoesDeSistemaOpcoesDeAtualizacaoDeDados" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaRetornoAoContexto" nillable="true" type="tns:ConfiguracoesDeSistemaRetornoAoContexto" />
+      <xsd:complexType name="ConfiguracoesDeSistemaDadosParaAgendamentoDeAtualizacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AgendarParaTodasAsEmpresas" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CaminhoDoArquivoDeExecucaoDoAgendamento" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CaminhoDoArquivoDeLogDaAtualizacaoAgendada" nillable="true" type="xsd:string" />
+          <xsd:element name="DadosParaLoginFpw" nillable="true" type="tns:ConfiguracoesDeSistemaDadosParaLoginFpw" />
+          <xsd:element name="Executar" nillable="true" type="tns:ConfiguracoesDeSistemaExecutar" />
+          <xsd:element minOccurs="0" name="NomeDoIpOuServidor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Usuario" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaDadosParaAgendamentoDeAtualizacao" nillable="true" type="tns:ConfiguracoesDeSistemaDadosParaAgendamentoDeAtualizacao" />
+      <xsd:complexType name="ConfiguracoesDeSistemaDadosParaLoginFpw">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoOperador" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaDadosParaLoginFpw" nillable="true" type="tns:ConfiguracoesDeSistemaDadosParaLoginFpw" />
+      <xsd:complexType name="ConfiguracoesDeSistemaExecutar">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="HoraDeInicio" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NoPrimeiroDiaDeCadaMes" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Semanalmente" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="SemanalmenteValor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TodoDia" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TodoDiaValor" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaExecutar" nillable="true" type="tns:ConfiguracoesDeSistemaExecutar" />
+      <xsd:complexType name="ConfiguracoesDeSistemaIntervaloDeDadosJaProcessados">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DataFinal" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataInicial" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaIntervaloDeDadosJaProcessados" nillable="true" type="tns:ConfiguracoesDeSistemaIntervaloDeDadosJaProcessados" />
+      <xsd:complexType name="ConfiguracoesDeSistemaOpcoesDeAtualizacaoDeDados">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Agendada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Manual" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaOpcoesDeAtualizacaoDeDados" nillable="true" type="tns:ConfiguracoesDeSistemaOpcoesDeAtualizacaoDeDados" />
+      <xsd:complexType name="ConfiguracoesDeSistemaPensionista">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="IdadeDoPensionsistaQueObrigaPreenchimentoDoCpf" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ImpedirDuplicidadeDeCpfEntrePensionistasDoFuncionario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ImpedirQuePensionistaUtilizeMesmoCpfDoFuncionario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ObrigarPreenchimentoDoCpfParaPensionista" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConfiguracoesDeSistemaPensionista" nillable="true" type="tns:ConfiguracoesDeSistemaPensionista" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaConfiguracaoDeSistemaGenteRecebe" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InputMessage_Headers">
+    <wsdl:part xmlns:q2="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q2:LGContextoAmbiente" />
+    <wsdl:part xmlns:q3="lg.com.br/svc/dto" name="LGAutenticacao" element="q3:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaConfiguracaoDeSistemaGenteRecebeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q4="lg.com.br/svc/dto" name="detail" element="q4:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q5="lg.com.br/svc/dto" name="detail" element="q5:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q6="lg.com.br/svc/dto" name="detail" element="q6:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="detail" element="q7:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeConfiguracaoFpw">
+    <wsdl:documentation>
+      <summary>Serviço responsável pelas configurações de sistema do FPw</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ObtenhaConfiguracaoDeSistemaGenteRecebe">
+      <wsdl:documentation>
+        <summary>Obtém as configurações de sistema do FPw</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebe" message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebeResponse" message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebeInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebeListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebeFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebeFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeConfiguracaoFpw" type="tns:ServicoDeConfiguracaoFpw">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenhaConfiguracaoDeSistemaGenteRecebe">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeConfiguracaoFpw/ObtenhaConfiguracaoDeSistemaGenteRecebe" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeConfiguracaoFpw_ObtenhaConfiguracaoDeSistemaGenteRecebe_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeConfiguracaoFpwImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeConfiguracaoFpw" binding="tns:LGBasicHttp_ServicoDeConfiguracaoFpw">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeconfiguracaofpw" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

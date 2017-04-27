@@ -1,0 +1,15 @@
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\WCFTestClient.Infra.Data.Repository.dll.config
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\WCFTestClient.Infra.Data.Repository.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\WCFTestClient.Infra.Data.Repository.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\EntityFramework.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\WCFTestClient.Dominio.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\WCFTestClient.Dominio.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\EntityFramework.xml
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\obj\Debug\ResolveAssemblyReference.cache
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\obj\Debug\WCFWebClient.Infra.Data.Repository.Migrations.Inicial.resources
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\obj\Debug\GenerateResource.read.1.tlog
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\obj\Debug\GenerateResource.write.1.tlog
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\obj\Debug\WCFTestClient.Infra.Data.Repository.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Data.Repository\obj\Debug\WCFTestClient.Infra.Data.Repository.pdb

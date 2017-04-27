@@ -1,0 +1,55 @@
+<script>
+    $(function () {
+        $('.botao-adicionar-item').click(function () {
+            var elemento_primogenito = $(this).parent().parent().children().get(1);
+
+            var elemento = $(elemento_primogenito).clone(true);
+
+            elemento.addClass("elemento-passivo-de-exclusao");
+
+            console.log("ELEMENTO:");
+
+            console.log(elemento_primogenito);
+
+            console.log("FIM ELEMENTO");
+
+            var botao = $(this).parent();
+
+            var elementos_a_remover = $(elemento).find('.elemento-passivo-de-exclusao');
+
+            var inputs = elemento.find('input');
+
+            var nome_base_generico = $(elemento_primogenito).prev().get(0).innerHTML;
+
+            var nome_base = nome_base_generico.replace(" :", "");
+
+            nome_base = nome_base.replace(/\n/g, "");
+
+            nome_base = nome_base.replace(/ /g, "");
+
+            console.log(nome_base);
+
+            inputs.each(function () {
+                var nome_Input = $(this).attr("name");
+
+                var posicao_contador = nome_Input.lastIndexOf(nome_base + "|Item") + (nome_base + "|Item").length;
+
+                var nome_contador = nome_Input.substring(0, (posicao_contador));
+                 
+                var contador = $(elemento_primogenito).parent().children().length - 2;
+
+                var nome_elemento = nome_Input.substring(0, (posicao_contador)) + contador + nome_Input.substring(posicao_contador, nome_Input.length);
+
+                $(this).attr("name", nome_elemento);
+            });
+
+            $(elemento).find("input").val('');
+
+            botao.before(elemento);
+
+            elementos_a_remover.each(function () {
+                $(this).remove();
+            });
+        });
+    }); 
+</script>

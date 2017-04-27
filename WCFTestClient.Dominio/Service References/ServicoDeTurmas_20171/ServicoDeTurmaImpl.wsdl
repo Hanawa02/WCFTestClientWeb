@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeTurmaImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ConsulteTurma">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ConsulteTurmaPorCodigo" nillable="true" type="q1:TurmaPorCodigo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteTurmaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ConsulteTurmaResult" nillable="true" type="q2:DadosTurma" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeTurma">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ConsulteTurmaPorDescricao" nillable="true" type="q3:TurmaPorDescricao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeTurmaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeTurmaResult" nillable="true" type="q4:ArrayOfTurma" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteFuncionarioPorCodigo" nillable="true" type="q5:ParticipanteFuncionarioPorCodigo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteDoTipoFuncionarioResult" nillable="true" type="q6:ParticipanteFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteFuncionarioPorDescricao" nillable="true" type="q7:ParticipanteFuncionarioPorNome" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeParticipanteDoTipoFuncionarioResult" nillable="true" type="q8:ArrayOfParticipanteFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteCandidatoPorCodigo" nillable="true" type="q9:ParticipanteCandidatoPorCodigo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteDoTipoCandidatoResult" nillable="true" type="q10:ParticipanteCandidato" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteCandidatoPorDescricao" nillable="true" type="q11:ParticipanteCandidatoPorDescricao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeParticipanteDoTipoCandidatoResult" nillable="true" type="q12:ArrayOfParticipanteCandidato" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteConvidadoPorCodigo" nillable="true" type="q13:ParticipanteConvidadoPorCodigo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteDoTipoConvidadoResult" nillable="true" type="q14:ParticipanteConvidado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteConvidadoPorDescricao" nillable="true" type="q15:ParticipanteConvidadoPorDescricao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeParticipanteDoTipoConvidadoResult" nillable="true" type="q16:ArrayOfParticipanteConvidado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteTerceiroPorCPF" nillable="true" type="q17:ParticipanteTerceiroPorCPF" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParticipanteDoTipoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteDoTipoTerceiroResult" nillable="true" type="q18:ParticipanteTerceiro" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParticipanteTerceiroPorDescricao" nillable="true" type="q19:ParticipanteTerceiroPorDescricao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeParticipanteDoTipoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeParticipanteDoTipoTerceiroResult" nillable="true" type="q20:ArrayOfParticipanteTerceiro" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteAtributoAdicionalDaTurma">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="ConsultaAtributoAdicionalDaTurmaPorCodigo" nillable="true" type="q21:AtributoAdicionalDaTurmaPorCodigo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteAtributoAdicionalDaTurmaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="ConsulteAtributoAdicionalDaTurmaResult" nillable="true" type="q22:AtributoAdicionalDaTurma" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeAtributoAdicionalDaTurma">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="ConsultaAtributoAdicionalDaTurma" nillable="true" type="q23:DadosParaConsultaAtributoAdicionalDaTurma" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeAtributoAdicionalDaTurmaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeAtributoAdicionalDaTurmaResult" nillable="true" type="q24:ArrayOfAtributoAdicionalDaTurma" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="TurmaPorCodigo">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TurmaPorCodigo" nillable="true" type="tns:TurmaPorCodigo" />
+      <xsd:complexType name="Curso">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="DadosTurma">
+        <xsd:sequence>
+          <xsd:element name="CargaHorariaHoras" nillable="true" type="xsd:string" />
+          <xsd:element name="CargaHorariaMinutos" nillable="true" type="xsd:string" />
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:CursoConsulta" />
+          <xsd:element name="Custo" type="xsd:double" />
+          <xsd:element name="DataDeInicio" nillable="true" type="xsd:string" />
+          <xsd:element name="DataDeTermino" nillable="true" type="xsd:string" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="EntidadePromotoraDoCursoParaTurma" nillable="true" type="tns:EntidadePromotoraCursoTurma" />
+          <xsd:element name="HorarioDeInicio" nillable="true" type="xsd:string" />
+          <xsd:element name="HorarioDeTermino" nillable="true" type="xsd:string" />
+          <xsd:element name="InstrutorDaTurma" nillable="true" type="tns:ArrayOfInstrutorTurma" />
+          <xsd:element name="Local" nillable="true" type="xsd:string" />
+          <xsd:element name="NaturezaDaTurma" nillable="true" type="xsd:string" />
+          <xsd:element name="NumeroDeVagas" type="xsd:int" />
+          <xsd:element name="SalaDeTreinamentoPrincipal" nillable="true" type="xsd:string" />
+          <xsd:element name="Status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosTurma" nillable="true" type="tns:DadosTurma" />
+      <xsd:complexType name="CursoConsulta">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CursoConsulta" nillable="true" type="tns:CursoConsulta" />
+      <xsd:complexType name="EntidadePromotoraCursoTurma">
+        <xsd:sequence>
+          <xsd:element name="CodigoEntidadePromotoraDoCursoParaTurma" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoEntidadePromotoraDoCursoParaTurma" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EntidadePromotoraCursoTurma" nillable="true" type="tns:EntidadePromotoraCursoTurma" />
+      <xsd:complexType name="ArrayOfInstrutorTurma">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InstrutorTurma" nillable="true" type="tns:InstrutorTurma" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInstrutorTurma" nillable="true" type="tns:ArrayOfInstrutorTurma" />
+      <xsd:complexType name="InstrutorTurma">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InstrutorTurma" nillable="true" type="tns:InstrutorTurma" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="TurmaPorDescricao">
+        <xsd:sequence>
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Status" type="tns:EnumStatusDaTurma" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TurmaPorDescricao" nillable="true" type="tns:TurmaPorDescricao" />
+      <xsd:simpleType name="EnumStatusDaTurma">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="INDIFERENTE" />
+          <xsd:enumeration value="ATIVO" />
+          <xsd:enumeration value="INATIVO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumStatusDaTurma" nillable="true" type="tns:EnumStatusDaTurma" />
+      <xsd:complexType name="ArrayOfTurma">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Turma" nillable="true" type="tns:Turma" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfTurma" nillable="true" type="tns:ArrayOfTurma" />
+      <xsd:complexType name="Turma">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Turma" nillable="true" type="tns:Turma" />
+      <xsd:complexType name="ParticipanteFuncionarioPorCodigo">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="Matricula" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteFuncionarioPorCodigo" nillable="true" type="tns:ParticipanteFuncionarioPorCodigo" />
+      <xsd:complexType name="ParticipanteFuncionario">
+        <xsd:sequence>
+          <xsd:element name="Cargo" nillable="true" type="xsd:string" />
+          <xsd:element name="CentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Frequencia" nillable="true" type="xsd:string" />
+          <xsd:element name="ID" nillable="true" type="xsd:string" />
+          <xsd:element name="Lotacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Matricula" nillable="true" type="xsd:string" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element name="NotaMedia" nillable="true" type="xsd:string" />
+          <xsd:element name="Status" nillable="true" type="xsd:string" />
+          <xsd:element name="TipoDoParticipante" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteFuncionario" nillable="true" type="tns:ParticipanteFuncionario" />
+      <xsd:complexType name="ParticipanteFuncionarioPorNome">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element minOccurs="0" name="Nome" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteFuncionarioPorNome" nillable="true" type="tns:ParticipanteFuncionarioPorNome" />
+      <xsd:complexType name="ArrayOfParticipanteFuncionario">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ParticipanteFuncionario" nillable="true" type="tns:ParticipanteFuncionario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfParticipanteFuncionario" nillable="true" type="tns:ArrayOfParticipanteFuncionario" />
+      <xsd:complexType name="ParticipanteCandidatoPorCodigo">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteCandidatoPorCodigo" nillable="true" type="tns:ParticipanteCandidatoPorCodigo" />
+      <xsd:complexType name="ParticipanteCandidato">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Frequencia" nillable="true" type="xsd:string" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element name="NotaMedia" nillable="true" type="xsd:string" />
+          <xsd:element name="Status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteCandidato" nillable="true" type="tns:ParticipanteCandidato" />
+      <xsd:complexType name="ParticipanteCandidatoPorDescricao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element minOccurs="0" name="Nome" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteCandidatoPorDescricao" nillable="true" type="tns:ParticipanteCandidatoPorDescricao" />
+      <xsd:complexType name="ArrayOfParticipanteCandidato">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ParticipanteCandidato" nillable="true" type="tns:ParticipanteCandidato" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfParticipanteCandidato" nillable="true" type="tns:ArrayOfParticipanteCandidato" />
+      <xsd:complexType name="ParticipanteConvidadoPorCodigo">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteConvidadoPorCodigo" nillable="true" type="tns:ParticipanteConvidadoPorCodigo" />
+      <xsd:complexType name="ParticipanteConvidado">
+        <xsd:sequence>
+          <xsd:element name="CentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Frequencia" nillable="true" type="xsd:string" />
+          <xsd:element name="Lotacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element name="NotaMedia" nillable="true" type="xsd:string" />
+          <xsd:element name="Status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteConvidado" nillable="true" type="tns:ParticipanteConvidado" />
+      <xsd:complexType name="ParticipanteConvidadoPorDescricao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element minOccurs="0" name="Nome" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteConvidadoPorDescricao" nillable="true" type="tns:ParticipanteConvidadoPorDescricao" />
+      <xsd:complexType name="ArrayOfParticipanteConvidado">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ParticipanteConvidado" nillable="true" type="tns:ParticipanteConvidado" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfParticipanteConvidado" nillable="true" type="tns:ArrayOfParticipanteConvidado" />
+      <xsd:complexType name="ParticipanteTerceiroPorCPF">
+        <xsd:sequence>
+          <xsd:element name="CPF" type="xsd:double" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="NumeroDoContrato" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteTerceiroPorCPF" nillable="true" type="tns:ParticipanteTerceiroPorCPF" />
+      <xsd:complexType name="ParticipanteTerceiro">
+        <xsd:sequence>
+          <xsd:element name="CPF" type="xsd:double" />
+          <xsd:element name="Cargo" nillable="true" type="xsd:string" />
+          <xsd:element name="CentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element name="Frequencia" type="xsd:double" />
+          <xsd:element name="ID" type="xsd:int" />
+          <xsd:element name="Lotacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element name="NotaMedia" type="xsd:double" />
+          <xsd:element name="NumeroDoContrato" nillable="true" type="xsd:string" />
+          <xsd:element name="Status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteTerceiro" nillable="true" type="tns:ParticipanteTerceiro" />
+      <xsd:complexType name="ParticipanteTerceiroPorDescricao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element minOccurs="0" name="Nome" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteTerceiroPorDescricao" nillable="true" type="tns:ParticipanteTerceiroPorDescricao" />
+      <xsd:complexType name="ArrayOfParticipanteTerceiro">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ParticipanteTerceiro" nillable="true" type="tns:ParticipanteTerceiro" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfParticipanteTerceiro" nillable="true" type="tns:ArrayOfParticipanteTerceiro" />
+      <xsd:complexType name="AtributoAdicionalDaTurmaPorCodigo">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AtributoAdicionalDaTurmaPorCodigo" nillable="true" type="tns:AtributoAdicionalDaTurmaPorCodigo" />
+      <xsd:complexType name="AtributoAdicionalDaTurma">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="Valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AtributoAdicionalDaTurma" nillable="true" type="tns:AtributoAdicionalDaTurma" />
+      <xsd:complexType name="DadosParaConsultaAtributoAdicionalDaTurma">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosParaConsultaAtributoAdicionalDaTurma" nillable="true" type="tns:DadosParaConsultaAtributoAdicionalDaTurma" />
+      <xsd:complexType name="ArrayOfAtributoAdicionalDaTurma">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AtributoAdicionalDaTurma" nillable="true" type="tns:AtributoAdicionalDaTurma" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfAtributoAdicionalDaTurma" nillable="true" type="tns:ArrayOfAtributoAdicionalDaTurma" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteTurma" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_InputMessage_Headers">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q25:LGContextoAmbiente" />
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="LGAutenticacao" element="q26:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteTurma_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeTurma" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_InputMessage_Headers">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q31:LGContextoAmbiente" />
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="LGAutenticacao" element="q32:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeTurma_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q37:LGContextoAmbiente" />
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="LGAutenticacao" element="q38:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q43:LGContextoAmbiente" />
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="LGAutenticacao" element="q44:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="detail" element="q47:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="detail" element="q48:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q49:LGContextoAmbiente" />
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="LGAutenticacao" element="q50:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q55:LGContextoAmbiente" />
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="LGAutenticacao" element="q56:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q61:LGContextoAmbiente" />
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="LGAutenticacao" element="q62:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q67:LGContextoAmbiente" />
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="LGAutenticacao" element="q68:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q73:LGContextoAmbiente" />
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="LGAutenticacao" element="q74:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParticipanteDoTipoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="detail" element="q77:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="detail" element="q78:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q79:LGContextoAmbiente" />
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="LGAutenticacao" element="q80:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeParticipanteDoTipoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="detail" element="q83:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="detail" element="q84:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteAtributoAdicionalDaTurma" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InputMessage_Headers">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q85:LGContextoAmbiente" />
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="LGAutenticacao" element="q86:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteAtributoAdicionalDaTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="detail" element="q89:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="detail" element="q90:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeAtributoAdicionalDaTurma" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InputMessage_Headers">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q91:LGContextoAmbiente" />
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="LGAutenticacao" element="q92:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeAtributoAdicionalDaTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="detail" element="q94:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="detail" element="q95:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="detail" element="q96:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeTurmas">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar a manutenção de turmas</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ConsulteTurma">
+      <wsdl:documentation>
+        <summary>Consulta lista de Turma identificado pelo curso e código da turma.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteTurma" message="tns:ServicoDeTurmas_ConsulteTurma_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteTurmaResponse" message="tns:ServicoDeTurmas_ConsulteTurma_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteTurmaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteTurma_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteTurmaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteTurma_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteTurmaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteTurma_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteTurmaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteTurma_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeTurma">
+      <wsdl:documentation>
+        <summary>Consulta os dados de uma Turma identificadas pelos de curso e descrição da turma</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurma" message="tns:ServicoDeTurmas_ConsulteListaDeTurma_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurmaResponse" message="tns:ServicoDeTurmas_ConsulteListaDeTurma_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurmaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteListaDeTurma_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurmaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteListaDeTurma_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurmaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteListaDeTurma_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurmaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteListaDeTurma_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoFuncionario">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo funcionario identificado pelo curso, turma e Matricula do funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionario" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionarioResponse" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoFuncionario">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo funcionario identificado pelo curso, turma e Matricula do funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionario" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionarioResponse" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoCandidato">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo Candidato identificado pelo curso, turma e Código do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidato" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidatoResponse" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoCandidato">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo Candidato identificado pelo curso, turma e descrição do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidato" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidatoResponse" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoConvidado">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo Convidado identificado pelo curso, turma e Código do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidado" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidadoResponse" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoConvidado">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo Convidado identificado pelo curso, turma e descrição do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidado" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidadoResponse" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoTerceiro">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo terceiro identificado pelo curso, turma, CPF e numero do contrato do terceiro</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiro" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiroResponse" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoTerceiro">
+      <wsdl:documentation>
+        <summary>Consulta os dados do participante do tipo Terceiro identificado pelo curso, turma e descrição do terceiro</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiro" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiroResponse" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteAtributoAdicionalDaTurma">
+      <wsdl:documentation>
+        <summary>Consulta os dados do Atributo da turma</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurma" message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurmaResponse" message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurmaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurmaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurmaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurmaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeAtributoAdicionalDaTurma">
+      <wsdl:documentation>
+        <summary>Consulta os atributos da turma</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurma" message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurmaResponse" message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurmaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurmaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurmaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurmaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeTurmas" type="tns:ServicoDeTurmas">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsulteTurma">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteTurma" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteTurma_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteTurma_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeTurma">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeTurma" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeTurma_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeTurma_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteParticipanteDoTipoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteParticipanteDoTipoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteParticipanteDoTipoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeParticipanteDoTipoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeParticipanteDoTipoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeParticipanteDoTipoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteAtributoAdicionalDaTurma">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteAtributoAdicionalDaTurma" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteAtributoAdicionalDaTurma_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeAtributoAdicionalDaTurma">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTurmas/ConsulteListaDeAtributoAdicionalDaTurma" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTurmas_ConsulteListaDeAtributoAdicionalDaTurma_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeTurmaImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeTurmas" binding="tns:LGBasicHttp_ServicoDeTurmas">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeturmas" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

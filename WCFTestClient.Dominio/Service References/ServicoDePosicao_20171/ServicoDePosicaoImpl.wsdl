@@ -1,0 +1,2176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDePosicaoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastrePosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="Posicao" nillable="true" type="q1:Posicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastrePosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="CadastrePosicaoResult" nillable="true" type="q2:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizePosicaoSemFuncionarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="Posicao_Alteracao" nillable="true" type="q3:Posicao_Alteracao" />
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="OpcaoAlteracao" type="q4:EnumOpcaoAlteracaoPosicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizePosicaoSemFuncionariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="AtualizePosicaoSemFuncionariosResult" nillable="true" type="q5:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoPosicao" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DescricaoPosicao" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ConsultePosicaoResult" nillable="true" type="q6:ArrayOfPosicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicoesEEntidades">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="dadosDePosicoesEEntidadesEntrada" nillable="true" type="q7:DadosDePosicoesEEntidadesEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicoesEEntidadesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ConsultePosicoesEEntidadesResult" nillable="true" type="q8:ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDoCadastroPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="Posicao" nillable="true" type="q9:Posicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDoCadastroPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDoCadastroPosicaoResult" nillable="true" type="q10:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDoCadastroPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="Posicao" nillable="true" type="q11:Posicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoResult" nillable="true" type="q12:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDaAlteracaoPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="Posicao" nillable="true" type="q13:Posicao_Alteracao" />
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="OpcaoAlteracao" type="q14:EnumOpcaoAlteracaoPosicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDaAlteracaoPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDaAlteracaoPosicaoResult" nillable="true" type="q15:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="Posicao" nillable="true" type="q16:Posicao_Alteracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoResult" nillable="true" type="q17:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteAtributosAdicionaisDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoPosicao" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteAtributosAdicionaisDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="ConsulteAtributosAdicionaisDaPosicaoResult" nillable="true" type="q18:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteMotivosParaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoMotivo" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DescricaoMotivo" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteMotivosParaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="ConsulteMotivosParaPosicaoResult" nillable="true" type="q19:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaProximoCodigoPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaProximoCodigoPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ObtenhaProximoCodigoPosicaoResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHabilidadesDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHabilidadesDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="ConsulteHabilidadesDaPosicaoResult" nillable="true" type="q20:ArrayOfHabilidadePosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteIdiomasDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteIdiomasDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="ConsulteIdiomasDaPosicaoResult" nillable="true" type="q21:ArrayOfIdiomaPosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteFormacoesDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteFormacoesDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="ConsulteFormacoesDaPosicaoResult" nillable="true" type="q22:ArrayOfFormacaoPosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCursosDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCursosDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="ConsulteCursosDaPosicaoResult" nillable="true" type="q23:ArrayOfCursoPosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDescricoesResumidaEDetalhadaDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+            <xsd:element minOccurs="0" name="RetornarCHA" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDescricoesResumidaEDetalhadaDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDescricoesResumidaEDetalhadaDaPosicaoResult" nillable="true" type="q24:DadosDescricoesResumidaEDetalhadaDaPosicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="lg.com.br/svc/dto" minOccurs="0" name="DadosAlteracaoDasDescricoesDaPosicaoEntrada" nillable="true" type="q25:DadosAlteracaoDasDescricoesDaPosicaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q26="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoResult" nillable="true" type="q26:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ModifiqueDescricaoResumidaEDetalhadaDaPosicao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q27="lg.com.br/svc/dto" minOccurs="0" name="DadosAlteracaoDasDescricoesDaPosicaoEntrada" nillable="true" type="q27:DadosAlteracaoDasDescricoesDaPosicaoEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ModifiqueDescricaoResumidaEDetalhadaDaPosicaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q28="lg.com.br/svc/dto" minOccurs="0" name="ModifiqueDescricaoResumidaEDetalhadaDaPosicaoResult" nillable="true" type="q28:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q29="lg.com.br/svc/dto" minOccurs="0" name="DadosParaCriacaoDePosicaoTemporaria" nillable="true" type="q29:DadosParaCriacaoDePosicaoTemporariaEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q30="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaResult" nillable="true" type="q30:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CriePosicaoTemporaria">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q31="lg.com.br/svc/dto" minOccurs="0" name="DadosParaCriacaoDePosicaoTemporaria" nillable="true" type="q31:DadosParaCriacaoDePosicaoTemporariaEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CriePosicaoTemporariaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q32="lg.com.br/svc/dto" minOccurs="0" name="CriePosicaoTemporariaResult" nillable="true" type="q32:DadosDePosicaoTemporariaCriada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicoesTemporarias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q33="lg.com.br/svc/dto" minOccurs="0" name="DadosConsultePosicoesTemporariaDeOficialEntrada" nillable="true" type="q33:DadosDePosicoesTemporariasEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultePosicoesTemporariasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q34="lg.com.br/svc/dto" minOccurs="0" name="ConsultePosicoesTemporariasResult" nillable="true" type="q34:ArrayOfDadosDePosicoesEEntidadesRetorno" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="Posicao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AnosDeExperiencia" type="xsd:int" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoBooleano" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalBooleano" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoCaractere" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalCaractere" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoData" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalData" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoDecimal" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalDecimal" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoNumerico" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalNumerico" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoTabela" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalTabela" />
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoMotivo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoFaixa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoLotacao" type="xsd:long" />
+          <xsd:element minOccurs="0" name="CodigoPosicaoSuperior" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTabelaSalarial" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataFinal" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataFinalPrevista" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataInicial" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataParaDescongelamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDaLotacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDetalhada" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoCargo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoCentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoMotivo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoFaixa" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoResumida" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoTabelaSalarial" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EhComposicaoUnica" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EhPosicaoChave" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EhPosicaoCongelada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrauDeInstrucao" nillable="true" type="tns:EnumGrauDeInstrucao" />
+          <xsd:element minOccurs="0" name="Identificacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumeroDeVagas" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDeFuncionariosAtivos" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Status" nillable="true" type="tns:EnumStatus" />
+          <xsd:element minOccurs="0" name="Tipo" nillable="true" type="tns:EnumTipoPosicao" />
+          <xsd:element minOccurs="0" name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Posicao" nillable="true" type="tns:Posicao" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalBooleano">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalBooleano" nillable="true" type="tns:ValorDeAtributoAdicionalBooleano" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalBooleano" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalBooleano" />
+      <xsd:complexType name="ValorDeAtributoAdicionalBooleano">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalBooleano" nillable="true" type="tns:ValorDeAtributoAdicionalBooleano" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalCaractere">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalCaractere" nillable="true" type="tns:ValorDeAtributoAdicionalCaractere" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalCaractere" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalCaractere" />
+      <xsd:complexType name="ValorDeAtributoAdicionalCaractere">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalCaractere" nillable="true" type="tns:ValorDeAtributoAdicionalCaractere" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalData" nillable="true" type="tns:ValorDeAtributoAdicionalData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalData" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalData" />
+      <xsd:complexType name="ValorDeAtributoAdicionalData">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalData" nillable="true" type="tns:ValorDeAtributoAdicionalData" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalDecimal">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalDecimal" nillable="true" type="tns:ValorDeAtributoAdicionalDecimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalDecimal" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalDecimal" />
+      <xsd:complexType name="ValorDeAtributoAdicionalDecimal">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalDecimal" nillable="true" type="tns:ValorDeAtributoAdicionalDecimal" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalNumerico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalNumerico" nillable="true" type="tns:ValorDeAtributoAdicionalNumerico" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalNumerico" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalNumerico" />
+      <xsd:complexType name="ValorDeAtributoAdicionalNumerico">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalNumerico" nillable="true" type="tns:ValorDeAtributoAdicionalNumerico" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalTabela">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalTabela" nillable="true" type="tns:ValorDeAtributoAdicionalTabela" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalTabela" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalTabela" />
+      <xsd:complexType name="ValorDeAtributoAdicionalTabela">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="CodigoDoElementoDaTabela" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalTabela" nillable="true" type="tns:ValorDeAtributoAdicionalTabela" />
+      <xsd:simpleType name="EnumGrauDeInstrucao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ANALFABETO" />
+          <xsd:enumeration value="QUARTA_SERIE_INCOMPLETA" />
+          <xsd:enumeration value="QUARTA_SERIE_COMPLETA" />
+          <xsd:enumeration value="ENSINO_FUNDAMENTAL_INCOMPLETO" />
+          <xsd:enumeration value="ENSINO_FUNDAMENTAL_COMPLETO" />
+          <xsd:enumeration value="ENSINO_MEDIO_INCOMPLETO" />
+          <xsd:enumeration value="ENSINO_MEDIO_COMPLETO" />
+          <xsd:enumeration value="EDUCACAO_SUPERIOR_INCOMPLETA" />
+          <xsd:enumeration value="EDUCACAO_SUPERIOR_COMPLETA" />
+          <xsd:enumeration value="POS_GRADUACAO" />
+          <xsd:enumeration value="DOUTORADO" />
+          <xsd:enumeration value="SEGUNDO_GRAU_TECNICO_INCOMPLETO" />
+          <xsd:enumeration value="SEGUNDO_GRAU_TECNICO_COMPLETO" />
+          <xsd:enumeration value="MESTRADO" />
+          <xsd:enumeration value="POS_DOUTORADO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumGrauDeInstrucao" nillable="true" type="tns:EnumGrauDeInstrucao" />
+      <xsd:simpleType name="EnumStatus">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ATIVO" />
+          <xsd:enumeration value="INATIVO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumStatus" nillable="true" type="tns:EnumStatus" />
+      <xsd:simpleType name="EnumTipoPosicao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="OFICIAL">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TEMPORARIA">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESTAGIARIOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="AFASTADOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="EXCESSO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="EXTRA">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TEMPORARIOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoPosicao" nillable="true" type="tns:EnumTipoPosicao" />
+      <xsd:simpleType name="EnumTipoDeSalario">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="MENSAL" />
+          <xsd:enumeration value="QUINZENAL" />
+          <xsd:enumeration value="SEMANAL" />
+          <xsd:enumeration value="DIARIO" />
+          <xsd:enumeration value="HORARIO" />
+          <xsd:enumeration value="TAREFA" />
+          <xsd:enumeration value="OUTROS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="Posicao_Alteracao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AnosDeExperiencia" type="xsd:int" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoBooleano" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalBooleano" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoCaractere" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalCaractere" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoData" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalData" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoDecimal" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalDecimal" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoNumerico" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalNumerico" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoTabela" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalTabela" />
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoAtributoTabela" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoAtributoTabelaAtual" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCargoAtual" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoCentroDeCustoAtual" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoMotivo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoFaixa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoFaixaAtual" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquicoAtual" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoLotacao" type="xsd:long" />
+          <xsd:element minOccurs="0" name="CodigoLotacaoAtual" type="xsd:long" />
+          <xsd:element minOccurs="0" name="CodigoPosicaoSuperior" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoPosicaoSuperiorAtual" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTabela" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTabelaAtual" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataAlteracao" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataFinal" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataFinalAtual" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataFinalPrevista" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataFinalPrevistaAtual" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataInicial" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataParaDescongelamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDetalhada" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoResumida" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EhComposicaoUnica" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EhComposicaoUnicaAtual" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EhPosicaoChave" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="EhPosicaoCongelada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrauDeInstrucao" nillable="true" type="tns:EnumGrauDeInstrucao" />
+          <xsd:element minOccurs="0" name="Identificacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificacaoAtual" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumeroDeVagas" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NumeroDeVagasAtual" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacoes" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ReformarOcorrencias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ReplicarAlteracoesParaPosicoesTemporarias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Status" nillable="true" type="tns:EnumStatus" />
+          <xsd:element minOccurs="0" name="StatusAtual" nillable="true" type="tns:EnumStatus" />
+          <xsd:element minOccurs="0" name="TabelaEhAtrelada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TabelaEhAtreladaAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Tipo" nillable="true" type="tns:EnumTipoPosicao" />
+          <xsd:element minOccurs="0" name="TipoAtual" nillable="true" type="tns:EnumTipoPosicao" />
+          <xsd:element minOccurs="0" name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="TipoSalarioAtual" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Posicao_Alteracao" nillable="true" type="tns:Posicao_Alteracao" />
+      <xsd:simpleType name="EnumOpcaoAlteracaoPosicao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="DADOS_GERAIS" />
+          <xsd:enumeration value="LOTACAO" />
+          <xsd:enumeration value="CARGO" />
+          <xsd:enumeration value="GRUPO_HIERARQUICO" />
+          <xsd:enumeration value="CENTRO_DE_CUSTO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumOpcaoAlteracaoPosicao" nillable="true" type="tns:EnumOpcaoAlteracaoPosicao" />
+      <xsd:complexType name="ArrayOfPosicao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Posicao" nillable="true" type="tns:Posicao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfPosicao" nillable="true" type="tns:ArrayOfPosicao" />
+      <xsd:complexType name="DadosDePosicoesEEntidadesEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoGrupoHierarquicoDoGestor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDaPosicao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RetornarInclusivePosicoesComGrupoHierarquicoDoGestor" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RetornarSomentePosicoesAtivas" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RetornarSomentePosicoesComVagasDisponiveis" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RetornarSomentePosicoesDescongeladas" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RetornarSomentePosicoesSemFuncionariosAtivos" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CodigoDaLotacao" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="ConsiderarLotacoesDeNiveisInferiores" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="QuantidadeDePosicoesRetornadas" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RetornarSomentePosicoesForaDoGrupoHierarquicoDoGestor" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="CodigoDoCargo" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TipoDasPosicoes" nillable="true" type="tns:EnumTipoPosicao" />
+          <xsd:element minOccurs="0" name="TipoDeSalarioDoCargo" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CodigoDoCentroDeCusto" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoGrupoHierarquico" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NivelDosGruposHierarquicos" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDePosicoesEEntidadesEntrada" nillable="true" type="tns:DadosDePosicoesEEntidadesEntrada" />
+      <xsd:complexType name="ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PosicaoEEntidadesParaCadastrarFuncionarios" nillable="true" type="tns:PosicaoEEntidadesParaCadastrarFuncionarios" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios" nillable="true" type="tns:ArrayOfPosicaoEEntidadesParaCadastrarFuncionarios" />
+      <xsd:complexType name="PosicaoEEntidadesParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CargoDaPosicao" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+          <xsd:element minOccurs="0" name="CentroDeCustoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="DadosDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="GrupoHierarquicoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="LotacaoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PosicaoEEntidadesParaCadastrarFuncionarios" nillable="true" type="tns:PosicaoEEntidadesParaCadastrarFuncionarios" />
+      <xsd:complexType name="CargoParaCadastrarFuncionarios">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PermiteExcecaoSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="UtilizaTabelaSalarial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="UtilizaTabelaSalarialAtrelada" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CargoParaCadastrarFuncionarios" nillable="true" type="tns:CargoParaCadastrarFuncionarios" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericostring">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" nillable="true" type="xsd:string" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericostring" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericoint">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericolong">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:long" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericolong" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+      <xsd:complexType name="AtributosAdicionais">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoBooleano" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalBooleano" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoCaractere" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalCaractere" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoData" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalData" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoDecimal" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalDecimal" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoNumerico" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalNumerico" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoTabela" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalTabela" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AtributosAdicionais" nillable="true" type="tns:AtributosAdicionais" />
+      <xsd:complexType name="ArrayOfRetornoCodigoEDescricaoGenericoint">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="RetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfRetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:ArrayOfRetornoCodigoEDescricaoGenericoint" />
+      <xsd:complexType name="ArrayOfHabilidadePosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="HabilidadePosicaoOuCargoRH" nillable="true" type="tns:HabilidadePosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfHabilidadePosicaoOuCargoRH" nillable="true" type="tns:ArrayOfHabilidadePosicaoOuCargoRH" />
+      <xsd:complexType name="HabilidadePosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaHabilidade" type="xsd:int" />
+          <xsd:element name="CodigoDoGrupoDaHabilidade" type="xsd:int" />
+          <xsd:element name="CodigoDoNivelDaHabilidade" type="xsd:int" />
+          <xsd:element name="DescricaoDaHabilidade" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoGrupoDaHabilidade" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoNivelDaHabilidade" nillable="true" type="xsd:string" />
+          <xsd:element name="OrdemDoNivelDaHabilidade" type="xsd:int" />
+          <xsd:element name="PesoDaHabilidade" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HabilidadePosicaoOuCargoRH" nillable="true" type="tns:HabilidadePosicaoOuCargoRH" />
+      <xsd:complexType name="ArrayOfIdiomaPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="IdiomaPosicaoOuCargoRH" nillable="true" type="tns:IdiomaPosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfIdiomaPosicaoOuCargoRH" nillable="true" type="tns:ArrayOfIdiomaPosicaoOuCargoRH" />
+      <xsd:complexType name="IdiomaPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoIdioma" type="xsd:int" />
+          <xsd:element name="CodigoDoNivelDoIdioma" type="xsd:int" />
+          <xsd:element name="DescricaoDoIdioma" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoNivelDoIdioma" nillable="true" type="xsd:string" />
+          <xsd:element name="OrdemDoNivelDoIdioma" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="IdiomaPosicaoOuCargoRH" nillable="true" type="tns:IdiomaPosicaoOuCargoRH" />
+      <xsd:complexType name="ArrayOfFormacaoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="FormacaoPosicaoOuCargoRH" nillable="true" type="tns:FormacaoPosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFormacaoPosicaoOuCargoRH" nillable="true" type="tns:ArrayOfFormacaoPosicaoOuCargoRH" />
+      <xsd:complexType name="FormacaoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaFormacao" type="xsd:int" />
+          <xsd:element name="CodigoDoTipoDeFormacao" type="xsd:int" />
+          <xsd:element name="DescricaoDaFormacao" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoTipoDeFormacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FormacaoPosicaoOuCargoRH" nillable="true" type="tns:FormacaoPosicaoOuCargoRH" />
+      <xsd:complexType name="ArrayOfCursoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CursoPosicaoOuCargoRH" nillable="true" type="tns:CursoPosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCursoPosicaoOuCargoRH" nillable="true" type="tns:ArrayOfCursoPosicaoOuCargoRH" />
+      <xsd:complexType name="CursoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoCurso" type="xsd:int" />
+          <xsd:element name="DescricaoDoCurso" nillable="true" type="xsd:string" />
+          <xsd:element name="ValidadeDoCurso" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CursoPosicaoOuCargoRH" nillable="true" type="tns:CursoPosicaoOuCargoRH" />
+      <xsd:complexType name="DadosDescricoesResumidaEDetalhadaDaPosicao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DadosCursosDaPosicao" nillable="true" type="tns:ArrayOfCursoPosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="DadosFormacoesDaPosicao" nillable="true" type="tns:ArrayOfFormacaoPosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="DadosHabilidadesDaPosicao" nillable="true" type="tns:ArrayOfHabilidadePosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="DadosIdiomasDaPosicao" nillable="true" type="tns:ArrayOfIdiomaPosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="DescricaoDaPosicao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDetalhada" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoResumida" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDescricoesResumidaEDetalhadaDaPosicao" nillable="true" type="tns:DadosDescricoesResumidaEDetalhadaDaPosicao" />
+      <xsd:complexType name="DadosAlteracaoDasDescricoesDaPosicaoEntrada">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaPosicao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DescricaoDetalhada" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoResumida" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosAlteracaoDasDescricoesDaPosicaoEntrada" nillable="true" type="tns:DadosAlteracaoDasDescricoesDaPosicaoEntrada" />
+      <xsd:complexType name="DadosParaCriacaoDePosicaoTemporariaEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaPosicaoOficial" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataInicialDaPosicaoTemporaria" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DescricaoDaPosicaoTemporaria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TransferirFuncionarios" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosParaCriacaoDePosicaoTemporariaEntrada" nillable="true" type="tns:DadosParaCriacaoDePosicaoTemporariaEntrada" />
+      <xsd:complexType name="DadosDePosicaoTemporariaCriada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaPosicaoTemporaria" type="xsd:int" />
+          <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDePosicaoTemporariaCriada" nillable="true" type="tns:DadosDePosicaoTemporariaCriada" />
+      <xsd:complexType name="DadosDePosicoesTemporariasEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaPosicaoOficial" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CompararComposicaoComOficial" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="RetornarComposicao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="VerificarVagas" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDePosicoesTemporariasEntrada" nillable="true" type="tns:DadosDePosicoesTemporariasEntrada" />
+      <xsd:complexType name="ArrayOfDadosDePosicoesEEntidadesRetorno">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="DadosDePosicoesEEntidadesRetorno" nillable="true" type="tns:DadosDePosicoesEEntidadesRetorno" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDadosDePosicoesEEntidadesRetorno" nillable="true" type="tns:ArrayOfDadosDePosicoesEEntidadesRetorno" />
+      <xsd:complexType name="DadosDePosicoesEEntidadesRetorno">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CargoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="Cargo_TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+          <xsd:element minOccurs="0" name="CentroDeCustoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="ComposicaoEstaConformeSuaOficial" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="GrupoHierarquicoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericostring" />
+          <xsd:element minOccurs="0" name="LotacaoDaPosicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericolong" />
+          <xsd:element minOccurs="0" name="Posicao" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+          <xsd:element minOccurs="0" name="Posicao_NumeroDeVagasCadastradas" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDeVagasDisponiveis" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDeVagasOcupadas" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDeVagasProgramadas" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDePosicoesEEntidadesRetorno" nillable="true" type="tns:DadosDePosicoesEEntidadesRetorno" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrePosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q35:LGContextoAmbiente" />
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGAutenticacao" element="q36:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrePosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CadastrePosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizePosicaoSemFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_InputMessage_Headers">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q41:LGContextoAmbiente" />
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="LGAutenticacao" element="q42:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizePosicaoSemFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_AtualizePosicaoSemFuncionarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q47:LGContextoAmbiente" />
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="LGAutenticacao" element="q48:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicoesEEntidades" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_InputMessage_Headers">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q53:LGContextoAmbiente" />
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="LGAutenticacao" element="q54:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicoesEEntidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesEEntidades_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDoCadastroPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q59:LGContextoAmbiente" />
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="LGAutenticacao" element="q60:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDoCadastroPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDoCadastroPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q65:LGContextoAmbiente" />
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="LGAutenticacao" element="q66:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDaAlteracaoPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q71:LGContextoAmbiente" />
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="LGAutenticacao" element="q72:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDaAlteracaoPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q77:LGContextoAmbiente" />
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="LGAutenticacao" element="q78:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteAtributosAdicionaisDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q83:LGContextoAmbiente" />
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="LGAutenticacao" element="q84:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteAtributosAdicionaisDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteMotivosParaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q89:LGContextoAmbiente" />
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="LGAutenticacao" element="q90:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteMotivosParaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="detail" element="q91:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="detail" element="q92:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteMotivosParaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="detail" element="q94:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaProximoCodigoPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q95:LGContextoAmbiente" />
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="LGAutenticacao" element="q96:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaProximoCodigoPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="detail" element="q97:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="detail" element="q98:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="detail" element="q99:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ObtenhaProximoCodigoPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="detail" element="q100:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHabilidadesDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q101="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q101:LGContextoAmbiente" />
+    <wsdl:part xmlns:q102="lg.com.br/svc/dto" name="LGAutenticacao" element="q102:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHabilidadesDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q103="lg.com.br/svc/dto" name="detail" element="q103:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q104="lg.com.br/svc/dto" name="detail" element="q104:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q105="lg.com.br/svc/dto" name="detail" element="q105:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteHabilidadesDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q106="lg.com.br/svc/dto" name="detail" element="q106:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteIdiomasDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q107="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q107:LGContextoAmbiente" />
+    <wsdl:part xmlns:q108="lg.com.br/svc/dto" name="LGAutenticacao" element="q108:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteIdiomasDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q109="lg.com.br/svc/dto" name="detail" element="q109:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q110="lg.com.br/svc/dto" name="detail" element="q110:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q111="lg.com.br/svc/dto" name="detail" element="q111:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteIdiomasDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q112="lg.com.br/svc/dto" name="detail" element="q112:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteFormacoesDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q113="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q113:LGContextoAmbiente" />
+    <wsdl:part xmlns:q114="lg.com.br/svc/dto" name="LGAutenticacao" element="q114:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteFormacoesDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q115="lg.com.br/svc/dto" name="detail" element="q115:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q116="lg.com.br/svc/dto" name="detail" element="q116:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q117="lg.com.br/svc/dto" name="detail" element="q117:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteFormacoesDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q118="lg.com.br/svc/dto" name="detail" element="q118:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCursosDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q119="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q119:LGContextoAmbiente" />
+    <wsdl:part xmlns:q120="lg.com.br/svc/dto" name="LGAutenticacao" element="q120:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCursosDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q121="lg.com.br/svc/dto" name="detail" element="q121:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q122="lg.com.br/svc/dto" name="detail" element="q122:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q123="lg.com.br/svc/dto" name="detail" element="q123:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteCursosDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q124="lg.com.br/svc/dto" name="detail" element="q124:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDescricoesResumidaEDetalhadaDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q125="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q125:LGContextoAmbiente" />
+    <wsdl:part xmlns:q126="lg.com.br/svc/dto" name="LGAutenticacao" element="q126:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDescricoesResumidaEDetalhadaDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q127="lg.com.br/svc/dto" name="detail" element="q127:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q128="lg.com.br/svc/dto" name="detail" element="q128:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q129="lg.com.br/svc/dto" name="detail" element="q129:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q130="lg.com.br/svc/dto" name="detail" element="q130:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q131="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q131:LGContextoAmbiente" />
+    <wsdl:part xmlns:q132="lg.com.br/svc/dto" name="LGAutenticacao" element="q132:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q133="lg.com.br/svc/dto" name="detail" element="q133:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q134="lg.com.br/svc/dto" name="detail" element="q134:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q135="lg.com.br/svc/dto" name="detail" element="q135:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q136="lg.com.br/svc/dto" name="detail" element="q136:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifiqueDescricaoResumidaEDetalhadaDaPosicao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InputMessage_Headers">
+    <wsdl:part xmlns:q137="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q137:LGContextoAmbiente" />
+    <wsdl:part xmlns:q138="lg.com.br/svc/dto" name="LGAutenticacao" element="q138:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifiqueDescricaoResumidaEDetalhadaDaPosicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q139="lg.com.br/svc/dto" name="detail" element="q139:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q140="lg.com.br/svc/dto" name="detail" element="q140:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q141="lg.com.br/svc/dto" name="detail" element="q141:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q142="lg.com.br/svc/dto" name="detail" element="q142:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InputMessage_Headers">
+    <wsdl:part xmlns:q143="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q143:LGContextoAmbiente" />
+    <wsdl:part xmlns:q144="lg.com.br/svc/dto" name="LGAutenticacao" element="q144:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q145="lg.com.br/svc/dto" name="detail" element="q145:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q146="lg.com.br/svc/dto" name="detail" element="q146:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q147="lg.com.br/svc/dto" name="detail" element="q147:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q148="lg.com.br/svc/dto" name="detail" element="q148:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:CriePosicaoTemporaria" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_InputMessage_Headers">
+    <wsdl:part xmlns:q149="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q149:LGContextoAmbiente" />
+    <wsdl:part xmlns:q150="lg.com.br/svc/dto" name="LGAutenticacao" element="q150:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CriePosicaoTemporariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q151="lg.com.br/svc/dto" name="detail" element="q151:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q152="lg.com.br/svc/dto" name="detail" element="q152:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q153="lg.com.br/svc/dto" name="detail" element="q153:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_CriePosicaoTemporaria_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q154="lg.com.br/svc/dto" name="detail" element="q154:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicoesTemporarias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_InputMessage_Headers">
+    <wsdl:part xmlns:q155="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q155:LGContextoAmbiente" />
+    <wsdl:part xmlns:q156="lg.com.br/svc/dto" name="LGAutenticacao" element="q156:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultePosicoesTemporariasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q157="lg.com.br/svc/dto" name="detail" element="q157:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q158="lg.com.br/svc/dto" name="detail" element="q158:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q159="lg.com.br/svc/dto" name="detail" element="q159:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDePosicao_ConsultePosicoesTemporarias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q160="lg.com.br/svc/dto" name="detail" element="q160:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDePosicao">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção da Posição.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastrePosicao">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/CadastrePosicao" message="tns:ServicoDePosicao_CadastrePosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/CadastrePosicaoResponse" message="tns:ServicoDePosicao_CadastrePosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CadastrePosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_CadastrePosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CadastrePosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_CadastrePosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CadastrePosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_CadastrePosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CadastrePosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_CadastrePosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizePosicaoSemFuncionarios">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de uma posição. Caso a posição possua funcionários ativos cadastrados e a empresa não permita desvínculo entre os dados das posições, não será permitido atualizar suas entidades.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionarios" message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionariosResponse" message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicao">
+      <wsdl:documentation>
+        <summary>Consulta os dados de posições conforme parâmetros informados.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicao" message="tns:ServicoDePosicao_ConsultePosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicaoResponse" message="tns:ServicoDePosicao_ConsultePosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsultePosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsultePosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsultePosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsultePosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicoesEEntidades">
+      <wsdl:documentation>
+        <summary>Consulta os dados das posições e suas entidades conforme parâmetros informados.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidades" message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidadesResponse" message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidadesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidadesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidadesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidadesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDoCadastroPosicao">
+      <wsdl:documentation>
+        <summary>Realiza as validações de inconsistências impeditivas para cadastrar uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicaoResponse" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDoCadastroPosicao">
+      <wsdl:documentation>
+        <summary>Realiza as validações de inconsistências não impeditivas para cadastrar uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicao" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoResponse" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDaAlteracaoPosicao">
+      <wsdl:documentation>
+        <summary>Valida as inconsistências impeditivas da atualização dos dados de uma posição. Caso a posição possua funcionários ativos cadastrados e a empresa não permita desvínculo entre os dados das posições, não será permitido atualizar suas entidades.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicaoResponse" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao">
+      <wsdl:documentation>
+        <summary>Realiza as validações de inconsistências não impeditivas para alteração de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoResponse" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteAtributosAdicionaisDaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta os atributos adicionais de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicao" message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteMotivosParaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta os motivos para cadastrar posições.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicao" message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaProximoCodigoPosicao">
+      <wsdl:documentation>
+        <summary>Consulta o próximo código disponível para cadastrar uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicao" message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicaoResponse" message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteHabilidadesDaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta as habilidades de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicao" message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteIdiomasDaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta os idiomas de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicao" message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteFormacoesDaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta as formações de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicao" message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCursosDaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta os cursos de uma posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicao" message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDescricoesResumidaEDetalhadaDaPosicao">
+      <wsdl:documentation>
+        <summary>Consulta as descrições resumida e detalhada de uma  posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicao" message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicaoResponse" message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das inconsistências impeditivas para a alteração das descrições resumida e detalhada da posição.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoResponse" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifiqueDescricaoResumidaEDetalhadaDaPosicao">
+      <wsdl:documentation>
+        <summary>Modifica as descrições resumida e detalhada da posição, após realizar as validações das inconsistências impeditivas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicao" message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicaoResponse" message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria">
+      <wsdl:documentation>
+        <summary>Realiza as validações das inconsistências impeditivas para a criação de uma posição temporária a partir de uma posição oficial.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaResponse" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporariaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CriePosicaoTemporaria">
+      <wsdl:documentation>
+        <summary>Cria uma posição temporária a partir de uma posição oficial, após realizar as validações das inconsistências impeditivas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporaria" message="tns:ServicoDePosicao_CriePosicaoTemporaria_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporariaResponse" message="tns:ServicoDePosicao_CriePosicaoTemporaria_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporariaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_CriePosicaoTemporaria_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporariaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_CriePosicaoTemporaria_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporariaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_CriePosicaoTemporaria_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporariaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_CriePosicaoTemporaria_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicoesTemporarias">
+      <wsdl:documentation>
+        <summary>Consultar dados de posições temporárias criadas à partir de uma posição oficial.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporarias" message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporariasResponse" message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporariasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporariasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporariasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporariasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDePosicao" type="tns:ServicoDePosicao">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastrePosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/CadastrePosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_CadastrePosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_CadastrePosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizePosicaoSemFuncionarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/AtualizePosicaoSemFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_AtualizePosicaoSemFuncionarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsultePosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsultePosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsultePosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicoesEEntidades">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesEEntidades" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsultePosicoesEEntidades_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDoCadastroPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDoCadastroPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDoCadastroPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDoCadastroPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDoCadastroPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDoCadastroPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDaAlteracaoPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDaAlteracaoPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDaAlteracaoPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasNaoImpeditivasDaAlteracaoPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteAtributosAdicionaisDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteAtributosAdicionaisDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteAtributosAdicionaisDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteMotivosParaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteMotivosParaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteMotivosParaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaProximoCodigoPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ObtenhaProximoCodigoPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ObtenhaProximoCodigoPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteHabilidadesDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteHabilidadesDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteHabilidadesDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteIdiomasDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteIdiomasDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteIdiomasDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteFormacoesDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteFormacoesDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteFormacoesDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCursosDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteCursosDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteCursosDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDescricoesResumidaEDetalhadaDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsulteDescricoesResumidaEDetalhadaDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsulteDescricoesResumidaEDetalhadaDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiqueDescricaoResumidaEDetalhadaDaPosicao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ModifiqueDescricaoResumidaEDetalhadaDaPosicao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ModifiqueDescricaoResumidaEDetalhadaDaPosicao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ValideInconsistenciasImpeditivasParaCriarPosicaoTemporaria_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CriePosicaoTemporaria">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/CriePosicaoTemporaria" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_CriePosicaoTemporaria_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_CriePosicaoTemporaria_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultePosicoesTemporarias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDePosicao/ConsultePosicoesTemporarias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDePosicao_ConsultePosicoesTemporarias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDePosicaoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDePosicao" binding="tns:LGBasicHttp_ServicoDePosicao">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeposicao" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

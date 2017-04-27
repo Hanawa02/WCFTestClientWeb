@@ -1,0 +1,1429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeFeriasImp" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="DadosFerias" nillable="true" type="q1:DadosFerias_Inclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="DadosFerias" nillable="true" type="q2:DadosFerias_Modificacao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RemovaFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="DadosFerias" nillable="true" type="q3:DadosFerias_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RemovaFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreFeriasColetivas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="DadosFeriasColetivas" nillable="true" type="q4:DadosFeriasColetivas" />
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ParametrosDeSelecao" nillable="true" type="q5:ParametrosDeSelecao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreFeriasColetivasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeFeriasColetivas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="DadosFeriasColetivas" nillable="true" type="q6:DadosFeriasColetivas" />
+            <xsd:element minOccurs="0" name="Matricula" type="xsd:int" />
+            <xsd:element minOccurs="0" name="FaltasInjustificadas" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeFeriasColetivasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RemovaFeriasColetivas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="DadosFeriasColetivas" nillable="true" type="q7:DadosFeriasColetivas_Exclusao" />
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ParametrosDeSelecao" nillable="true" type="q8:ParametrosDeSelecao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RemovaFeriasColetivasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeEstornoFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="Parametro" nillable="true" type="q9:ParametroFeriasEstorno" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeEstornoFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDeEstornoFeriasResult" nillable="true" type="q10:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDeEstornoFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="Parametro" nillable="true" type="q11:ParametroFeriasEstorno" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDeEstornoFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasNaoImpeditivasDeEstornoFeriasResult" nillable="true" type="q12:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="ObjetoFerias" nillable="true" type="q13:Ferias" />
+            <xsd:element xmlns:q14="http://schemas.datacontract.org/2004/07/LGInventarioDeServicos.Basicos.Enumeradores" minOccurs="0" name="ProcessoElementar" type="q14:EnumTipoProcessoElementar" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDeFeriasResult" nillable="true" type="q15:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDeFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ObjetoFerias" nillable="true" type="q16:Ferias" />
+            <xsd:element xmlns:q17="http://schemas.datacontract.org/2004/07/LGInventarioDeServicos.Basicos.Enumeradores" minOccurs="0" name="ProcessoElementar" type="q17:EnumTipoProcessoElementar" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasNaoImpeditivasDeFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasNaoImpeditivasDeFeriasResult" nillable="true" type="q18:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosDeFeriasAnteriores">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="ObjetoParametro" nillable="true" type="q19:ParametroFeriasConsulta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosDeFeriasAnterioresResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDadosDeFeriasAnterioresResult" nillable="true" type="q20:ArrayOfFerias" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosDeFeriasPosteriores">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="ObjetoParametro" nillable="true" type="q21:ParametroFeriasConsulta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosDeFeriasPosterioresResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDadosDeFeriasPosterioresResult" nillable="true" type="q22:ArrayOfFerias" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="DadosParaValidacao" nillable="true" type="q23:DTOValidacaoFerias" />
+            <xsd:element xmlns:q24="http://schemas.datacontract.org/2004/07/LGInventarioDeServicos.Basicos.Enumeradores" minOccurs="0" name="ProcessoElementar" type="q24:EnumTipoProcessoElementar" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasResult" nillable="true" type="q25:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="DadosFerias_Inclusao">
+        <xsd:sequence>
+          <xsd:element name="AbonoPecuniario" type="xsd:boolean" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaSituacaoDeFeriasDoFuncionario" type="xsd:int" />
+          <xsd:element name="CodigoFolhaProcessada" nillable="true" type="xsd:int" />
+          <xsd:element name="DataFimPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoAquisitivo" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoDeGozo" type="xsd:dateTime" />
+          <xsd:element name="DataPagamento" type="xsd:dateTime" />
+          <xsd:element name="DiasAbono" nillable="true" type="xsd:int" />
+          <xsd:element name="DiasAhDesconsiderar" type="xsd:int" />
+          <xsd:element name="DiasGozo" nillable="true" type="xsd:int" />
+          <xsd:element name="ExcValFolTipoMes" type="xsd:boolean" />
+          <xsd:element name="FaltasInjustificadas" type="xsd:int" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+          <xsd:element name="Metade13Salario" type="xsd:boolean" />
+          <xsd:element name="NaoEfetivarFerValMesCalc" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Parcela" nillable="true" type="xsd:int" />
+          <xsd:element name="Parcelamento" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosFerias_Inclusao" nillable="true" type="tns:DadosFerias_Inclusao" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="DadosFerias_Modificacao">
+        <xsd:sequence>
+          <xsd:element name="AbonoPecuniario" type="xsd:boolean" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaSituacaoDeFeriasDoFuncionario" type="xsd:int" />
+          <xsd:element name="CodigoFolhaProcessada" nillable="true" type="xsd:int" />
+          <xsd:element name="DataFimPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoAquisitivo" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoDeGozo" type="xsd:dateTime" />
+          <xsd:element name="DataPagamento" type="xsd:dateTime" />
+          <xsd:element name="DiasAbono" nillable="true" type="xsd:int" />
+          <xsd:element name="DiasAhDesconsiderar" type="xsd:int" />
+          <xsd:element name="DiasGozo" nillable="true" type="xsd:int" />
+          <xsd:element name="ExcValFolTipoMes" type="xsd:boolean" />
+          <xsd:element name="FaltasInjustificadas" type="xsd:int" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+          <xsd:element name="Metade13Salario" type="xsd:boolean" />
+          <xsd:element name="NaoEfetivarFerValMesCalc" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Parcela" nillable="true" type="xsd:int" />
+          <xsd:element name="Parcelamento" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosFerias_Modificacao" nillable="true" type="tns:DadosFerias_Modificacao" />
+      <xsd:complexType name="DadosFerias_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoFolhaProcessada" nillable="true" type="xsd:int" />
+          <xsd:element name="DataInicioPeriodoAquisitivo" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoDeGozo" type="xsd:dateTime" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosFerias_Exclusao" nillable="true" type="tns:DadosFerias_Exclusao" />
+      <xsd:complexType name="DadosFeriasColetivas">
+        <xsd:sequence>
+          <xsd:element name="AbonoPecuniario" type="xsd:boolean" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaSituacaoDeFeriasDoFuncionario" type="xsd:int" />
+          <xsd:element name="CodigoFolhaProcessada" type="xsd:int" />
+          <xsd:element name="DataFimPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioPeriodoDeGozo" type="xsd:dateTime" />
+          <xsd:element name="DataPagamento" type="xsd:dateTime" />
+          <xsd:element name="DiasAbono" nillable="true" type="xsd:int" />
+          <xsd:element name="DiasAhDesconsiderar" type="xsd:int" />
+          <xsd:element name="DiasGozo" nillable="true" type="xsd:int" />
+          <xsd:element name="Metade13Salario" type="xsd:boolean" />
+          <xsd:element name="NaoGerarLicencaRemunerada" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="Parcela" nillable="true" type="xsd:int" />
+          <xsd:element name="Parcelamento" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosFeriasColetivas" nillable="true" type="tns:DadosFeriasColetivas" />
+      <xsd:complexType name="ParametrosDeSelecao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CargosEhOutros" nillable="true" type="tns:PSCargosEhOutros" />
+          <xsd:element minOccurs="0" name="Funcionarios" nillable="true" type="tns:PSFuncionarios" />
+          <xsd:element minOccurs="0" name="GruposHierarquicos" nillable="true" type="tns:PSGruposHierarquicos" />
+          <xsd:element minOccurs="0" name="Lotacoes" nillable="true" type="tns:PSLotacoes" />
+          <xsd:element minOccurs="0" name="VinculosEhOutros" nillable="true" type="tns:PSVinculosEhOutros" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametrosDeSelecao" nillable="true" type="tns:ParametrosDeSelecao" />
+      <xsd:complexType name="PSCargosEhOutros">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ListaDeCargos" nillable="true" type="tns:ArrayOfPSCargos" />
+          <xsd:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeCentrosDeCustos" nillable="true" type="q26:ArrayOfstring" />
+          <xsd:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeSindicatos" nillable="true" type="q27:ArrayOfint" />
+          <xsd:element name="TipoCargo" nillable="true" type="tns:EnumTipoCargo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PSCargosEhOutros" nillable="true" type="tns:PSCargosEhOutros" />
+      <xsd:complexType name="ArrayOfPSCargos">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PSCargos" nillable="true" type="tns:PSCargos" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfPSCargos" nillable="true" type="tns:ArrayOfPSCargos" />
+      <xsd:complexType name="PSCargos">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="TipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PSCargos" nillable="true" type="tns:PSCargos" />
+      <xsd:simpleType name="EnumTipoDeSalario">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="MENSAL" />
+          <xsd:enumeration value="QUINZENAL" />
+          <xsd:enumeration value="SEMANAL" />
+          <xsd:enumeration value="DIARIO" />
+          <xsd:enumeration value="HORARIO" />
+          <xsd:enumeration value="TAREFA" />
+          <xsd:enumeration value="OUTROS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+      <xsd:simpleType name="EnumTipoCargo">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="CARGO_EFETIVO" />
+          <xsd:enumeration value="CARGO_COMISSIONADO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoCargo" nillable="true" type="tns:EnumTipoCargo" />
+      <xsd:complexType name="PSFuncionarios">
+        <xsd:sequence>
+          <xsd:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Matriculas" nillable="true" type="q28:ArrayOfint" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PSFuncionarios" nillable="true" type="tns:PSFuncionarios" />
+      <xsd:complexType name="PSGruposHierarquicos">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoFinalDoIntervaloDeGruposHierarquicos" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoInicialDoIntervaloDeGruposHierarquicos" nillable="true" type="xsd:string" />
+          <xsd:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeGruposHierarquicos" nillable="true" type="q29:ArrayOfstring" />
+          <xsd:element name="TipoSelecaoParaGrupoHierarquico" nillable="true" type="tns:EnumTipoSelecaoParaGrupoHierarquico" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PSGruposHierarquicos" nillable="true" type="tns:PSGruposHierarquicos" />
+      <xsd:simpleType name="EnumTipoSelecaoParaGrupoHierarquico">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="INTERVALO_GRUPOS_HIERARQUICOS" />
+          <xsd:enumeration value="LISTA_GRUPOS_HIERARQUICOS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoSelecaoParaGrupoHierarquico" nillable="true" type="tns:EnumTipoSelecaoParaGrupoHierarquico" />
+      <xsd:complexType name="PSLotacoes">
+        <xsd:sequence>
+          <xsd:element name="CodigoFinalDoIntervaloDeLotacoes" type="xsd:long" />
+          <xsd:element name="CodigoInicialDoIntervaloDeLotacoes" type="xsd:long" />
+          <xsd:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeLotacoes" nillable="true" type="q30:ArrayOflong" />
+          <xsd:element name="TipoSelecaoParaLotacao" nillable="true" type="tns:EnumTipoSelecaoParaLotacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PSLotacoes" nillable="true" type="tns:PSLotacoes" />
+      <xsd:simpleType name="EnumTipoSelecaoParaLotacao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="INTERVALO_LOTACOES" />
+          <xsd:enumeration value="LISTA_LOTACOES" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoSelecaoParaLotacao" nillable="true" type="tns:EnumTipoSelecaoParaLotacao" />
+      <xsd:complexType name="PSVinculosEhOutros">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ListaDeAgentesNocivos" nillable="true" type="tns:ArrayOfEnumAgenteNocivo" />
+          <xsd:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeCodigosDeNaturezasProfissionais" nillable="true" type="q31:ArrayOfint" />
+          <xsd:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaDeCodigosDeOrgaosResponsaveis" nillable="true" type="q32:ArrayOfint" />
+          <xsd:element minOccurs="0" name="ListaDeVinculosEmpregaticios" nillable="true" type="tns:ArrayOfEnumVinculoEmpregaticio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PSVinculosEhOutros" nillable="true" type="tns:PSVinculosEhOutros" />
+      <xsd:complexType name="ArrayOfEnumAgenteNocivo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EnumAgenteNocivo" type="tns:EnumAgenteNocivo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfEnumAgenteNocivo" nillable="true" type="tns:ArrayOfEnumAgenteNocivo" />
+      <xsd:simpleType name="EnumAgenteNocivo">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="SEM_EXPOSICAO_AGENTE_NOCIVO" />
+          <xsd:enumeration value="NAO_EXPOSTO_AGENTE_NOCIVO" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_15ANOS_SERVICO" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_20ANOS_SERVICO" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_25ANOS_SERVICO" />
+          <xsd:enumeration value="NAO_EXPOSTO_AGENTE_NOCIVO_MULTIPLOS_VINCULOS" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_15ANOS_SERVICO_MULTIPLOS_VINCULOS" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_20ANOS_SERVICO_MULTIPLOS_VINCULOS" />
+          <xsd:enumeration value="EXPOSTO_AGENTE_NOCIVO_APOSENTADO_25ANOS_SERVICO_MULTIPLOS_VINCULOS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumAgenteNocivo" nillable="true" type="tns:EnumAgenteNocivo" />
+      <xsd:complexType name="ArrayOfEnumVinculoEmpregaticio">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EnumVinculoEmpregaticio" type="tns:EnumVinculoEmpregaticio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfEnumVinculoEmpregaticio" nillable="true" type="tns:ArrayOfEnumVinculoEmpregaticio" />
+      <xsd:simpleType name="EnumVinculoEmpregaticio">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="CONTRATO_PRAZO_INDET_CLT_TRAB_URBANO_EMPREGADOR_PESSOA_JURIDICA" />
+          <xsd:enumeration value="CONTRATO_PRAZO_INDET_CLT_TRAB_URBANO_EMPREGADOR_PESSOA_FISICA" />
+          <xsd:enumeration value="CONTRATO_PRAZO_INDET_CLT_TRAB_RURAL_EMPREGADOR_PESSOA_JURIDICA" />
+          <xsd:enumeration value="CONTRATO_PRAZO_INDET_CLT_TRAB_RURAL_EMPREGADOR_PESSOA_FISICA" />
+          <xsd:enumeration value="SERVIDOR_REGIDO_REGIME_JURIDICO_UNICO_MILITAR" />
+          <xsd:enumeration value="SERVIDOR_PUBLICO_NAO_EFETIVO_DEMISSIVEL_NAO_REGIDO_CLT" />
+          <xsd:enumeration value="TRABALHADOR_AVULSO_DEPOSITO_FGTS_LEI_548068" />
+          <xsd:enumeration value="TRABALHADOR_TEMPORARIO" />
+          <xsd:enumeration value="CONTRATO_PRAZO_DETERM_CLT_TRAB_URBANO_EMPREGADOR_PESSOA_JURIDICA" />
+          <xsd:enumeration value="CONTRATO_PRAZO_DETERM_CLT_TRAB_URBANO_EMPREGADOR_PESSOA_FISICA" />
+          <xsd:enumeration value="CONTRATO_PRAZO_DETERM_CLT_TRAB_RURAL_EMPREGADOR_PESSOA_JURIDICA" />
+          <xsd:enumeration value="CONTRATO_PRAZO_DETERM_CLT_TRAB_RURAL_EMPREGADOR_PESSOA_FISICA" />
+          <xsd:enumeration value="DIRETOR_SEM_VINCULO_EMPRESA_OPTOU_RECOLHIMENTO_FGTS" />
+          <xsd:enumeration value="ESTAGIARIO" />
+          <xsd:enumeration value="DIRETOR_SEM_VINCULO_EMPREGATICIO" />
+          <xsd:enumeration value="CONTRATO_PRAZO_DETERM_LEI_960198" />
+          <xsd:enumeration value="MENOR_APRENDIZ" />
+          <xsd:enumeration value="TRABALHADOR_SEM_RGPS_COM_FGTS_EXPATRIADO" />
+          <xsd:enumeration value="MENOR_AUTORIZADO_PELA_JUSTICA" />
+          <xsd:enumeration value="COOPERADO" />
+          <xsd:enumeration value="AGENTE_POLITICO" />
+          <xsd:enumeration value="COOPERADO_ARQ_PREV_PRIVADA_COD_IRRF_0561" />
+          <xsd:enumeration value="CONTRATO_TRABALHO_PRAZO_DETERM_REGIDO_LEI_ESTADUAL" />
+          <xsd:enumeration value="CONTRATO_TRABALHO_PRAZO_DETERM_REGIDO_LEI_MUNICIPAL" />
+          <xsd:enumeration value="DOMESTICO" />
+          <xsd:enumeration value="DIRIGENTE_SINDICAL_MAGISTRADO" />
+          <xsd:enumeration value="CONTRATO_DE_TRABALHO_POR_TEMPO_DETERMINADO_LEI_874593" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumVinculoEmpregaticio" nillable="true" type="tns:EnumVinculoEmpregaticio" />
+      <xsd:complexType name="DadosFeriasColetivas_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoFolhaProcessada" type="xsd:int" />
+          <xsd:element name="DataInicioPeriodoDeGozo" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosFeriasColetivas_Exclusao" nillable="true" type="tns:DadosFeriasColetivas_Exclusao" />
+      <xsd:complexType name="ParametroFeriasEstorno">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="DataInicioPeriodoDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametroFeriasEstorno" nillable="true" type="tns:ParametroFeriasEstorno" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+      <xsd:complexType name="Ferias">
+        <xsd:sequence>
+          <xsd:element name="DataDePagamento" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataFimDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataFimDoPeriodoDeAquisicao" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataFimDoPeriodoDeAquisicaoAtual" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataFimDoPeriodoDeFruicao" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioDeGozo" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioDoPeriodoDeAquisicao" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioDoPeriodoDeAquisicaoAtual" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicioDoPeriodoDeFruicao" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DiasADesconsiderar" type="xsd:int" />
+          <xsd:element name="DiasDeAbonoPecuniario" type="xsd:int" />
+          <xsd:element name="DiasDeGozo" type="xsd:int" />
+          <xsd:element name="EmpresaCodigo" type="xsd:int" />
+          <xsd:element name="ExcluirValoresDasFollhasTipoMensal" type="xsd:boolean" />
+          <xsd:element name="FaltasInjustificadas" type="xsd:int" />
+          <xsd:element name="FuncionarioMatricula" type="xsd:int" />
+          <xsd:element name="FuncionarioNome" nillable="true" type="xsd:string" />
+          <xsd:element name="FuncionarioSituacaoAtual" nillable="true" type="tns:Situacao" />
+          <xsd:element name="IndicadorDeAbonoPecuniario" type="xsd:boolean" />
+          <xsd:element name="IndicadorDeParcelamento" type="xsd:boolean" />
+          <xsd:element name="Metade13Salario" type="xsd:boolean" />
+          <xsd:element name="NaoEfetivarFeriasCasoExistamValoresMensaisCalculados" type="xsd:boolean" />
+          <xsd:element name="NumeroDaParcela" type="xsd:int" />
+          <xsd:element name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="SituacaoFerias" nillable="true" type="tns:Situacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Ferias" nillable="true" type="tns:Ferias" />
+      <xsd:complexType name="Situacao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="TipoSituacao" nillable="true" type="tns:EnumTipoSituacao" />
+          <xsd:element name="DescricaoSituacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Situacao" nillable="true" type="tns:Situacao" />
+      <xsd:simpleType name="EnumTipoSituacao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ATIVIDADE_NORMAL" />
+          <xsd:enumeration value="FERIAS" />
+          <xsd:enumeration value="AFASTAMENTO" />
+          <xsd:enumeration value="RESCISAO" />
+          <xsd:enumeration value="RECESSO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoSituacao" nillable="true" type="tns:EnumTipoSituacao" />
+      <xsd:complexType name="ParametroFeriasConsulta">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="DataConsulta" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DeveConsisderarOcorrenciaComDataDeConsulta" type="xsd:boolean" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametroFeriasConsulta" nillable="true" type="tns:ParametroFeriasConsulta" />
+      <xsd:complexType name="ArrayOfFerias">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Ferias" nillable="true" type="tns:Ferias" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFerias" nillable="true" type="tns:ArrayOfFerias" />
+      <xsd:complexType name="DTOValidacaoFerias">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DataDeInicioDaOcorrencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element xmlns:q33="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="DatasADesconsiderar" nillable="true" type="q33:ArrayOfNullableOfdateTime" />
+          <xsd:element minOccurs="0" name="InformacoesDasFerias" nillable="true" type="tns:Ferias" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DTOValidacaoFerias" nillable="true" type="tns:DTOValidacaoFerias" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xsd:complexType name="ArrayOfint">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="int" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+      <xsd:complexType name="ArrayOflong">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="long" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOflong" nillable="true" type="tns:ArrayOflong" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System">
+      <xsd:complexType name="ArrayOfNullableOfdateTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="dateTime" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNullableOfdateTime" nillable="true" type="tns:ArrayOfNullableOfdateTime" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LGInventarioDeServicos.Basicos.Enumeradores" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LGInventarioDeServicos.Basicos.Enumeradores">
+      <xsd:simpleType name="EnumTipoProcessoElementar">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Cadastrar">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Modificar">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Excluir">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoProcessoElementar" nillable="true" type="tns:EnumTipoProcessoElementar" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q34:LGContextoAmbiente" />
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="LGAutenticacao" element="q35:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q40:LGContextoAmbiente" />
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="LGAutenticacao" element="q41:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovaFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q46:LGContextoAmbiente" />
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="LGAutenticacao" element="q47:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovaFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="detail" element="q48:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreFeriasColetivas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_InputMessage_Headers">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q52:LGContextoAmbiente" />
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="LGAutenticacao" element="q53:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreFeriasColetivasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_CadastreFeriasColetivas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeFeriasColetivas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_InputMessage_Headers">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q58:LGContextoAmbiente" />
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="LGAutenticacao" element="q59:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeFeriasColetivasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_AtualizeFeriasColetivas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovaFeriasColetivas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_InputMessage_Headers">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q64:LGContextoAmbiente" />
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="LGAutenticacao" element="q65:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovaFeriasColetivasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_RemovaFeriasColetivas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeEstornoFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q70:LGContextoAmbiente" />
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="LGAutenticacao" element="q71:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeEstornoFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDeEstornoFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q76:LGContextoAmbiente" />
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="LGAutenticacao" element="q77:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDeEstornoFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="detail" element="q78:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q82:LGContextoAmbiente" />
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="LGAutenticacao" element="q83:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="detail" element="q84:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDeFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q88:LGContextoAmbiente" />
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="LGAutenticacao" element="q89:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasNaoImpeditivasDeFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="detail" element="q90:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="detail" element="q91:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="detail" element="q92:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosDeFeriasAnteriores" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InputMessage_Headers">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q94:LGContextoAmbiente" />
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="LGAutenticacao" element="q95:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosDeFeriasAnterioresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="detail" element="q96:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="detail" element="q97:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="detail" element="q98:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="detail" element="q99:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosDeFeriasPosteriores" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InputMessage_Headers">
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q100:LGContextoAmbiente" />
+    <wsdl:part xmlns:q101="lg.com.br/svc/dto" name="LGAutenticacao" element="q101:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosDeFeriasPosterioresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q102="lg.com.br/svc/dto" name="detail" element="q102:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q103="lg.com.br/svc/dto" name="detail" element="q103:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q104="lg.com.br/svc/dto" name="detail" element="q104:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q105="lg.com.br/svc/dto" name="detail" element="q105:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InputMessage_Headers">
+    <wsdl:part xmlns:q106="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q106:LGContextoAmbiente" />
+    <wsdl:part xmlns:q107="lg.com.br/svc/dto" name="LGAutenticacao" element="q107:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q108="lg.com.br/svc/dto" name="detail" element="q108:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q109="lg.com.br/svc/dto" name="detail" element="q109:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q110="lg.com.br/svc/dto" name="detail" element="q110:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q111="lg.com.br/svc/dto" name="detail" element="q111:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeFerias">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar ocorrência de férias</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreFerias">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de uma ocorrência de férias de um Funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFerias" message="tns:ServicoDeFerias_CadastreFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasResponse" message="tns:ServicoDeFerias_CadastreFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_CadastreFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_CadastreFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_CadastreFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_CadastreFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeFerias">
+      <wsdl:documentation>
+        <summary>Realiza a atulização de uma ocorrência de férias de um Funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFerias" message="tns:ServicoDeFerias_AtualizeFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasResponse" message="tns:ServicoDeFerias_AtualizeFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_AtualizeFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_AtualizeFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_AtualizeFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_AtualizeFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovaFerias">
+      <wsdl:documentation>
+        <summary>Estorna o cadastro de uma ocorrência de férias de um Funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFerias" message="tns:ServicoDeFerias_RemovaFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasResponse" message="tns:ServicoDeFerias_RemovaFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_RemovaFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_RemovaFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_RemovaFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_RemovaFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreFeriasColetivas">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de uma ocorrência de férias coletivas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivas" message="tns:ServicoDeFerias_CadastreFeriasColetivas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivasResponse" message="tns:ServicoDeFerias_CadastreFeriasColetivas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_CadastreFeriasColetivas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_CadastreFeriasColetivas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_CadastreFeriasColetivas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_CadastreFeriasColetivas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeFeriasColetivas">
+      <wsdl:documentation>
+        <summary>Realiza a atulização de uma ocorrência de férias coletivas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivas" message="tns:ServicoDeFerias_AtualizeFeriasColetivas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivasResponse" message="tns:ServicoDeFerias_AtualizeFeriasColetivas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_AtualizeFeriasColetivas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_AtualizeFeriasColetivas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_AtualizeFeriasColetivas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_AtualizeFeriasColetivas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovaFeriasColetivas">
+      <wsdl:documentation>
+        <summary>Estorna o cadastro de uma ocorrência de férias coletivas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivas" message="tns:ServicoDeFerias_RemovaFeriasColetivas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivasResponse" message="tns:ServicoDeFerias_RemovaFeriasColetivas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_RemovaFeriasColetivas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_RemovaFeriasColetivas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_RemovaFeriasColetivas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_RemovaFeriasColetivas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeEstornoFerias">
+      <wsdl:documentation>
+        <summary>Obtenha as iconsistências impeditivas do estorno de férias.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFerias" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFeriasResponse" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDeEstornoFerias">
+      <wsdl:documentation>
+        <summary>Obtenha as iconsistências não impeditivas do estorno de férias.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFerias" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFeriasResponse" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeFerias">
+      <wsdl:documentation>
+        <summary>Obtenha as iconsistências impeditivas de férias.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFerias" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFeriasResponse" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDeFerias">
+      <wsdl:documentation>
+        <summary>Obtenha as iconsistências impeditivas de férias.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFerias" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFeriasResponse" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosDeFeriasAnteriores">
+      <wsdl:documentation>
+        <summary>Obtenha uma lista com os dados da ocorrência de férias anteriores a data informada como parâmetro.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnteriores" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnterioresResponse" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnterioresInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnterioresListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnterioresFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnterioresFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosDeFeriasPosteriores">
+      <wsdl:documentation>
+        <summary>Obtenha uma lista com os dados da ocorrência de férias posterior a data informada como parâmetro.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosteriores" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosterioresResponse" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosterioresInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosterioresListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosterioresFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosterioresFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias">
+      <wsdl:documentation>
+        <summary>Obtenha as iconsistências impeditivas de férias.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasResponse" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFeriasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeFerias" type="tns:ServicoDeFerias">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/CadastreFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_CadastreFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_CadastreFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/AtualizeFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_AtualizeFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_AtualizeFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemovaFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/RemovaFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_RemovaFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_RemovaFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreFeriasColetivas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/CadastreFeriasColetivas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_CadastreFeriasColetivas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_CadastreFeriasColetivas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeFeriasColetivas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/AtualizeFeriasColetivas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_AtualizeFeriasColetivas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_AtualizeFeriasColetivas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemovaFeriasColetivas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/RemovaFeriasColetivas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_RemovaFeriasColetivas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_RemovaFeriasColetivas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeEstornoFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeEstornoFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeEstornoFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDeEstornoFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeEstornoFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeEstornoFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDeFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDeFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasNaoImpeditivasDeFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasNaoImpeditivasDeFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasNaoImpeditivasDeFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosDeFeriasAnteriores">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasAnteriores" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ConsulteDadosDeFeriasAnteriores_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosDeFeriasPosteriores">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ConsulteDadosDeFeriasPosteriores" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ConsulteDadosDeFeriasPosteriores_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeFerias/ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeFerias_ValideInconsistenciasImpeditivasDescosiderandoOcorrDeFerias_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeFeriasImp">
+    <wsdl:port name="LGBasicHttp_ServicoDeFerias" binding="tns:LGBasicHttp_ServicoDeFerias">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeferias" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

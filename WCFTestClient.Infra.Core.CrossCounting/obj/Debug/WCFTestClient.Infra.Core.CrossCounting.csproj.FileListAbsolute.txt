@@ -1,0 +1,18 @@
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb

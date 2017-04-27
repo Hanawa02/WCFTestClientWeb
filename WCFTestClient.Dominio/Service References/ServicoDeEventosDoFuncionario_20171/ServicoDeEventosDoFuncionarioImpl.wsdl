@@ -1,0 +1,2342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeEventosDoFuncionarioImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreEventoFixoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioFixo" nillable="true" type="q1:EventoDoFuncionarioFixo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoFixoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoPorPrazoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="EventosDoFuncionarioPorPrazo" nillable="true" type="q2:EventosDoFuncionarioPorPrazo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoPorPrazoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoPorDataDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioPorData" nillable="true" type="q3:EventoDoFuncionarioPorData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoPorDataDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoFixoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioFixo" nillable="true" type="q4:EventoDoFuncionarioFixo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoFixoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoPorPrazoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="EventosDoFuncionarioPorPrazo" nillable="true" type="q5:EventosDoFuncionarioPorPrazo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoPorPrazoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoPorDataDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioPorData" nillable="true" type="q6:EventoDoFuncionarioPorData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoPorDataDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaEventoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionario_Exclusao" nillable="true" type="q7:EventoDoFuncionario_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaEventoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExisteEventoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoEvento" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExisteEventoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ExisteEventoDoFuncionarioResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoRetroativoFixoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q8:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoRetroativoFixoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoRetroativoPorPrazoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q9:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="QuantidadeDeParcelasRealizadas" type="xsd:int" />
+            <xsd:element minOccurs="0" name="QuantidadeTotalDeParcelas" type="xsd:int" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoRetroativoPorPrazoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoRetroativoPorDataDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q10:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="DataInicio" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="DataFim" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEventoRetroativoPorDataDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoRetroativoFixoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q11:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoRetroativoFixoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoRetroativoPorPrazoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q12:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="QuantidadeDeParcelasRealizadas" type="xsd:int" />
+            <xsd:element minOccurs="0" name="QuantidadeTotalDeParcelas" type="xsd:int" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoRetroativoPorPrazoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoRetroativoPorDataDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q13:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="DataInicio" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="DataFim" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEventoRetroativoPorDataDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaEventoRetroativo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionario" nillable="true" type="q14:EventoRetroativoDoFuncionario_Exclusao" />
+            <xsd:element minOccurs="0" name="RetornarAlertasInformativos" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaEventoRetroativoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueInconsistenciasImpeditivasEventoPorData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q15:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="DataInicio" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="DataFim" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueInconsistenciasImpeditivasEventoPorDataResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueInconsistenciasImpeditivasEventoFixo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionario" nillable="true" type="q16:EventoRetroativoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueInconsistenciasImpeditivasEventoFixoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueInconsistenciasImpeditivasEventoPorPrazo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q17:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="QuantidadeDeParcelasRealizadas" type="xsd:int" />
+            <xsd:element minOccurs="0" name="QuantidadeTotalDeParcelas" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueInconsistenciasImpeditivasEventoPorPrazoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueIncosistenciasNaoImpeditivasEventoPorData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q18:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="DataInicio" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="DataFim" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueIncosistenciasNaoImpeditivasEventoPorDataResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueIncosistenciasNaoImpeditivasEventoFixo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionario" nillable="true" type="q19:EventoRetroativoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueIncosistenciasNaoImpeditivasEventoFixoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="EventoRetroativoDoFuncionario" nillable="true" type="q20:EventoRetroativoDoFuncionario" />
+            <xsd:element minOccurs="0" name="QuantidadeDeParcelasRealizadas" type="xsd:int" />
+            <xsd:element minOccurs="0" name="QuantidadeTotalDeParcelas" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueAtualizacaoDeValoresDaReferenciaAtual">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DeveAtualizarReferenciaAtual" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerifiqueAtualizacaoDeValoresDaReferenciaAtualResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEvento">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoFolha" type="xsd:short" />
+            <xsd:element minOccurs="0" name="CodigoSituacao" type="xsd:short" />
+            <xsd:element minOccurs="0" name="DataReferenciaRetroativa" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEventoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="ConsulteEventoResult" nillable="true" type="q21:ArrayOfEventoRetorno" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEventosPorFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoFolha" type="xsd:short" />
+            <xsd:element minOccurs="0" name="CodigoSituacao" type="xsd:short" />
+            <xsd:element minOccurs="0" name="DataReferenciaLancamento" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEventosPorFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="ConsulteEventosPorFuncionarioResult" nillable="true" type="q22:ArrayOfDadosEvento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroEventoFixo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioFixo" nillable="true" type="q23:EventoDoFuncionarioFixo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroEventoFixoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroEventoFixoResult" nillable="true" type="q24:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoEventoFixo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioFixo" nillable="true" type="q25:EventoDoFuncionarioFixo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoEventoFixoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q26="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoEventoFixoResult" nillable="true" type="q26:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroEventoPorData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q27="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioPorData" nillable="true" type="q27:EventoDoFuncionarioPorData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroEventoPorDataResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q28="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroEventoPorDataResult" nillable="true" type="q28:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoEventoPorData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q29="lg.com.br/svc/dto" minOccurs="0" name="EventoDoFuncionarioPorData" nillable="true" type="q29:EventoDoFuncionarioPorData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoEventoPorDataResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q30="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoEventoPorDataResult" nillable="true" type="q30:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroEventoPorPrazo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q31="lg.com.br/svc/dto" minOccurs="0" name="EventosDoFuncionarioPorPrazo" nillable="true" type="q31:EventosDoFuncionarioPorPrazo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroEventoPorPrazoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q32="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroEventoPorPrazoResult" nillable="true" type="q32:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q33="lg.com.br/svc/dto" minOccurs="0" name="EventosDoFuncionarioPorPrazo" nillable="true" type="q33:EventosDoFuncionarioPorPrazo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q34="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoResult" nillable="true" type="q34:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="EventoDoFuncionarioFixo">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element minOccurs="0" name="IDDofuncionario" nillable="true" type="xsd:string" />
+          <xsd:element name="MatriculaDofuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ValorDoEvento" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventoDoFuncionarioFixo" nillable="true" type="tns:EventoDoFuncionarioFixo" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="EventosDoFuncionarioPorPrazo">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element minOccurs="0" name="IDDofuncionario" nillable="true" type="xsd:string" />
+          <xsd:element name="MatriculaDofuncionario" type="xsd:int" />
+          <xsd:element name="QuantidadeRealizadasDeParcelas" nillable="true" type="xsd:int" />
+          <xsd:element name="QuantidadeTotalDeParcelas" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ValorDoEvento" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventosDoFuncionarioPorPrazo" nillable="true" type="tns:EventosDoFuncionarioPorPrazo" />
+      <xsd:complexType name="EventoDoFuncionarioPorData">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element name="DataFinal" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataInicial" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="IDDofuncionario" nillable="true" type="xsd:string" />
+          <xsd:element name="MatriculaDofuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ValorDoEvento" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventoDoFuncionarioPorData" nillable="true" type="tns:EventoDoFuncionarioPorData" />
+      <xsd:complexType name="EventoDoFuncionario_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element minOccurs="0" name="IDDoFuncionario" nillable="true" type="xsd:string" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventoDoFuncionario_Exclusao" nillable="true" type="tns:EventoDoFuncionario_Exclusao" />
+      <xsd:complexType name="EventoRetroativoDoFuncionario">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaFolha" type="xsd:int" />
+          <xsd:element name="CodigoDaSituacao" type="xsd:int" />
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element name="DataReferencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DeveAtualizarReferenciaAtual" type="xsd:boolean" />
+          <xsd:element name="MatriculaDofuncionario" type="xsd:int" />
+          <xsd:element name="ValorDoEvento" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventoRetroativoDoFuncionario" nillable="true" type="tns:EventoRetroativoDoFuncionario" />
+      <xsd:complexType name="EventoRetroativoDoFuncionario_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaFolha" type="xsd:int" />
+          <xsd:element name="CodigoDaSituacao" type="xsd:int" />
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element name="DataReferencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="MatriculaDofuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventoRetroativoDoFuncionario_Exclusao" nillable="true" type="tns:EventoRetroativoDoFuncionario_Exclusao" />
+      <xsd:complexType name="ArrayOfEventoRetorno">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EventoRetorno" nillable="true" type="tns:EventoRetorno" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfEventoRetorno" nillable="true" type="tns:ArrayOfEventoRetorno" />
+      <xsd:complexType name="EventoRetorno">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element name="DescricaoEvento" nillable="true" type="xsd:string" />
+          <xsd:element name="Forma" nillable="true" type="xsd:string" />
+          <xsd:element name="QuantidaRealizadadeOuDataInicio" nillable="true" type="xsd:string" />
+          <xsd:element name="QuantidaTotalOuDataFim" nillable="true" type="xsd:string" />
+          <xsd:element name="ValorDoEvento" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EventoRetorno" nillable="true" type="tns:EventoRetorno" />
+      <xsd:complexType name="ArrayOfDadosEvento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="DadosEvento" nillable="true" type="tns:DadosEvento" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfDadosEvento" nillable="true" type="tns:ArrayOfDadosEvento" />
+      <xsd:complexType name="DadosEvento">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoEvento" type="xsd:int" />
+          <xsd:element name="DescricaoEvento" nillable="true" type="xsd:string" />
+          <xsd:element name="DeterminacaoDoEvento" nillable="true" type="xsd:string" />
+          <xsd:element name="IndicadorDoEvento" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="QuantidadeRealizadaOuDataInicio" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="QuantidadeTotalOuDataFim" nillable="true" type="xsd:string" />
+          <xsd:element name="TipoDoEvento" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ValorDoEvento" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosEvento" nillable="true" type="tns:DadosEvento" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoFixoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q35:LGContextoAmbiente" />
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGAutenticacao" element="q36:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoFixoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoPorPrazoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q41:LGContextoAmbiente" />
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="LGAutenticacao" element="q42:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoPorPrazoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoPorDataDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q47:LGContextoAmbiente" />
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="LGAutenticacao" element="q48:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoPorDataDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoFixoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q53:LGContextoAmbiente" />
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="LGAutenticacao" element="q54:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoFixoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoPorPrazoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q59:LGContextoAmbiente" />
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="LGAutenticacao" element="q60:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoPorPrazoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoPorDataDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q65:LGContextoAmbiente" />
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="LGAutenticacao" element="q66:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoPorDataDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaEventoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q71:LGContextoAmbiente" />
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="LGAutenticacao" element="q72:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaEventoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteEventoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q77:LGContextoAmbiente" />
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="LGAutenticacao" element="q78:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteEventoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoRetroativoFixoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q83:LGContextoAmbiente" />
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="LGAutenticacao" element="q84:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoRetroativoFixoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoRetroativoPorPrazoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q89:LGContextoAmbiente" />
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="LGAutenticacao" element="q90:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoRetroativoPorPrazoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="detail" element="q91:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="detail" element="q92:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="detail" element="q94:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoRetroativoPorDataDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q95:LGContextoAmbiente" />
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="LGAutenticacao" element="q96:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEventoRetroativoPorDataDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="detail" element="q97:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="detail" element="q98:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="detail" element="q99:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="detail" element="q100:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoRetroativoFixoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q101="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q101:LGContextoAmbiente" />
+    <wsdl:part xmlns:q102="lg.com.br/svc/dto" name="LGAutenticacao" element="q102:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoRetroativoFixoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q103="lg.com.br/svc/dto" name="detail" element="q103:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q104="lg.com.br/svc/dto" name="detail" element="q104:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q105="lg.com.br/svc/dto" name="detail" element="q105:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q106="lg.com.br/svc/dto" name="detail" element="q106:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoRetroativoPorPrazoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q107="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q107:LGContextoAmbiente" />
+    <wsdl:part xmlns:q108="lg.com.br/svc/dto" name="LGAutenticacao" element="q108:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoRetroativoPorPrazoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q109="lg.com.br/svc/dto" name="detail" element="q109:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q110="lg.com.br/svc/dto" name="detail" element="q110:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q111="lg.com.br/svc/dto" name="detail" element="q111:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q112="lg.com.br/svc/dto" name="detail" element="q112:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoRetroativoPorDataDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q113="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q113:LGContextoAmbiente" />
+    <wsdl:part xmlns:q114="lg.com.br/svc/dto" name="LGAutenticacao" element="q114:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEventoRetroativoPorDataDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q115="lg.com.br/svc/dto" name="detail" element="q115:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q116="lg.com.br/svc/dto" name="detail" element="q116:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q117="lg.com.br/svc/dto" name="detail" element="q117:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q118="lg.com.br/svc/dto" name="detail" element="q118:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaEventoRetroativo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InputMessage_Headers">
+    <wsdl:part xmlns:q119="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q119:LGContextoAmbiente" />
+    <wsdl:part xmlns:q120="lg.com.br/svc/dto" name="LGAutenticacao" element="q120:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaEventoRetroativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q121="lg.com.br/svc/dto" name="detail" element="q121:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q122="lg.com.br/svc/dto" name="detail" element="q122:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q123="lg.com.br/svc/dto" name="detail" element="q123:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q124="lg.com.br/svc/dto" name="detail" element="q124:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueInconsistenciasImpeditivasEventoPorData" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InputMessage_Headers">
+    <wsdl:part xmlns:q125="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q125:LGContextoAmbiente" />
+    <wsdl:part xmlns:q126="lg.com.br/svc/dto" name="LGAutenticacao" element="q126:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueInconsistenciasImpeditivasEventoPorDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q127="lg.com.br/svc/dto" name="detail" element="q127:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q128="lg.com.br/svc/dto" name="detail" element="q128:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q129="lg.com.br/svc/dto" name="detail" element="q129:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q130="lg.com.br/svc/dto" name="detail" element="q130:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueInconsistenciasImpeditivasEventoFixo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InputMessage_Headers">
+    <wsdl:part xmlns:q131="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q131:LGContextoAmbiente" />
+    <wsdl:part xmlns:q132="lg.com.br/svc/dto" name="LGAutenticacao" element="q132:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueInconsistenciasImpeditivasEventoFixoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q133="lg.com.br/svc/dto" name="detail" element="q133:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q134="lg.com.br/svc/dto" name="detail" element="q134:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q135="lg.com.br/svc/dto" name="detail" element="q135:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q136="lg.com.br/svc/dto" name="detail" element="q136:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueInconsistenciasImpeditivasEventoPorPrazo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InputMessage_Headers">
+    <wsdl:part xmlns:q137="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q137:LGContextoAmbiente" />
+    <wsdl:part xmlns:q138="lg.com.br/svc/dto" name="LGAutenticacao" element="q138:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueInconsistenciasImpeditivasEventoPorPrazoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q139="lg.com.br/svc/dto" name="detail" element="q139:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q140="lg.com.br/svc/dto" name="detail" element="q140:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q141="lg.com.br/svc/dto" name="detail" element="q141:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q142="lg.com.br/svc/dto" name="detail" element="q142:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueIncosistenciasNaoImpeditivasEventoPorData" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InputMessage_Headers">
+    <wsdl:part xmlns:q143="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q143:LGContextoAmbiente" />
+    <wsdl:part xmlns:q144="lg.com.br/svc/dto" name="LGAutenticacao" element="q144:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueIncosistenciasNaoImpeditivasEventoPorDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q145="lg.com.br/svc/dto" name="detail" element="q145:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q146="lg.com.br/svc/dto" name="detail" element="q146:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q147="lg.com.br/svc/dto" name="detail" element="q147:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q148="lg.com.br/svc/dto" name="detail" element="q148:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueIncosistenciasNaoImpeditivasEventoFixo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InputMessage_Headers">
+    <wsdl:part xmlns:q149="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q149:LGContextoAmbiente" />
+    <wsdl:part xmlns:q150="lg.com.br/svc/dto" name="LGAutenticacao" element="q150:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueIncosistenciasNaoImpeditivasEventoFixoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q151="lg.com.br/svc/dto" name="detail" element="q151:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q152="lg.com.br/svc/dto" name="detail" element="q152:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q153="lg.com.br/svc/dto" name="detail" element="q153:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q154="lg.com.br/svc/dto" name="detail" element="q154:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InputMessage_Headers">
+    <wsdl:part xmlns:q155="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q155:LGContextoAmbiente" />
+    <wsdl:part xmlns:q156="lg.com.br/svc/dto" name="LGAutenticacao" element="q156:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q157="lg.com.br/svc/dto" name="detail" element="q157:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q158="lg.com.br/svc/dto" name="detail" element="q158:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q159="lg.com.br/svc/dto" name="detail" element="q159:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q160="lg.com.br/svc/dto" name="detail" element="q160:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueAtualizacaoDeValoresDaReferenciaAtual" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InputMessage_Headers">
+    <wsdl:part xmlns:q161="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q161:LGContextoAmbiente" />
+    <wsdl:part xmlns:q162="lg.com.br/svc/dto" name="LGAutenticacao" element="q162:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifiqueAtualizacaoDeValoresDaReferenciaAtualResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q163="lg.com.br/svc/dto" name="detail" element="q163:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q164="lg.com.br/svc/dto" name="detail" element="q164:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q165="lg.com.br/svc/dto" name="detail" element="q165:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q166="lg.com.br/svc/dto" name="detail" element="q166:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEvento" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_InputMessage_Headers">
+    <wsdl:part xmlns:q167="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q167:LGContextoAmbiente" />
+    <wsdl:part xmlns:q168="lg.com.br/svc/dto" name="LGAutenticacao" element="q168:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEventoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q169="lg.com.br/svc/dto" name="detail" element="q169:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q170="lg.com.br/svc/dto" name="detail" element="q170:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q171="lg.com.br/svc/dto" name="detail" element="q171:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEvento_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q172="lg.com.br/svc/dto" name="detail" element="q172:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEventosPorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q173="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q173:LGContextoAmbiente" />
+    <wsdl:part xmlns:q174="lg.com.br/svc/dto" name="LGAutenticacao" element="q174:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEventosPorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q175="lg.com.br/svc/dto" name="detail" element="q175:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q176="lg.com.br/svc/dto" name="detail" element="q176:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q177="lg.com.br/svc/dto" name="detail" element="q177:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q178="lg.com.br/svc/dto" name="detail" element="q178:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroEventoFixo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InputMessage_Headers">
+    <wsdl:part xmlns:q179="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q179:LGContextoAmbiente" />
+    <wsdl:part xmlns:q180="lg.com.br/svc/dto" name="LGAutenticacao" element="q180:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroEventoFixoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q181="lg.com.br/svc/dto" name="detail" element="q181:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q182="lg.com.br/svc/dto" name="detail" element="q182:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q183="lg.com.br/svc/dto" name="detail" element="q183:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q184="lg.com.br/svc/dto" name="detail" element="q184:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoEventoFixo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InputMessage_Headers">
+    <wsdl:part xmlns:q185="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q185:LGContextoAmbiente" />
+    <wsdl:part xmlns:q186="lg.com.br/svc/dto" name="LGAutenticacao" element="q186:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoEventoFixoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q187="lg.com.br/svc/dto" name="detail" element="q187:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q188="lg.com.br/svc/dto" name="detail" element="q188:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q189="lg.com.br/svc/dto" name="detail" element="q189:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q190="lg.com.br/svc/dto" name="detail" element="q190:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroEventoPorData" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InputMessage_Headers">
+    <wsdl:part xmlns:q191="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q191:LGContextoAmbiente" />
+    <wsdl:part xmlns:q192="lg.com.br/svc/dto" name="LGAutenticacao" element="q192:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroEventoPorDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q193="lg.com.br/svc/dto" name="detail" element="q193:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q194="lg.com.br/svc/dto" name="detail" element="q194:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q195="lg.com.br/svc/dto" name="detail" element="q195:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q196="lg.com.br/svc/dto" name="detail" element="q196:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoEventoPorData" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InputMessage_Headers">
+    <wsdl:part xmlns:q197="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q197:LGContextoAmbiente" />
+    <wsdl:part xmlns:q198="lg.com.br/svc/dto" name="LGAutenticacao" element="q198:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoEventoPorDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q199="lg.com.br/svc/dto" name="detail" element="q199:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q200="lg.com.br/svc/dto" name="detail" element="q200:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q201="lg.com.br/svc/dto" name="detail" element="q201:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q202="lg.com.br/svc/dto" name="detail" element="q202:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroEventoPorPrazo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InputMessage_Headers">
+    <wsdl:part xmlns:q203="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q203:LGContextoAmbiente" />
+    <wsdl:part xmlns:q204="lg.com.br/svc/dto" name="LGAutenticacao" element="q204:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroEventoPorPrazoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q205="lg.com.br/svc/dto" name="detail" element="q205:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q206="lg.com.br/svc/dto" name="detail" element="q206:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q207="lg.com.br/svc/dto" name="detail" element="q207:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q208="lg.com.br/svc/dto" name="detail" element="q208:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InputMessage_Headers">
+    <wsdl:part xmlns:q209="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q209:LGContextoAmbiente" />
+    <wsdl:part xmlns:q210="lg.com.br/svc/dto" name="LGAutenticacao" element="q210:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q211="lg.com.br/svc/dto" name="detail" element="q211:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q212="lg.com.br/svc/dto" name="detail" element="q212:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q213="lg.com.br/svc/dto" name="detail" element="q213:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q214="lg.com.br/svc/dto" name="detail" element="q214:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeEventosDoFuncionario">
+    <wsdl:documentation>
+      <summary>Serviço responsável por cadastrar e consultar eventos por funcionario.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreEventoFixoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um evento fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoPorPrazoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um evento por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoPorDataDoFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um evento entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoFixoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um evento fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoPorPrazoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um evento por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoPorDataDoFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um evento entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaEventoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de um evento por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteEventoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Verifica se o evento existe</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoRetroativoFixoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um evento retroativo fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoRetroativoPorPrazoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um evento retroativo por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoRetroativoPorDataDoFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um evento retroativo entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoRetroativoFixoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um evento retroativo fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoRetroativoPorPrazoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um evento retroativo por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoRetroativoPorDataDoFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um evento retroativo entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionario" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaEventoRetroativo">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de um evento retroativo entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativo" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativoResponse" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueInconsistenciasImpeditivasEventoPorData">
+      <wsdl:documentation>
+        <summary>Verifica as inconsistências impeditivas para um evento retroativo entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorData" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorDataResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorDataInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorDataListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorDataFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorDataFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueInconsistenciasImpeditivasEventoFixo">
+      <wsdl:documentation>
+        <summary>Verifica as inconsistências impeditivas para um evento retroativo fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixo" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixoResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueInconsistenciasImpeditivasEventoPorPrazo">
+      <wsdl:documentation>
+        <summary>Verifica as inconsistências impeditivas para um evento retroativo por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazo" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazoResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueIncosistenciasNaoImpeditivasEventoPorData">
+      <wsdl:documentation>
+        <summary>Verifica as inconsistências não impeditivas para um evento retroativo entre datas por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorData" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorDataResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorDataListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorDataInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorDataFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorDataFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueIncosistenciasNaoImpeditivasEventoFixo">
+      <wsdl:documentation>
+        <summary>Verifica as inconsistências não impeditivas para um evento retroativo fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixo" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixoResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo">
+      <wsdl:documentation>
+        <summary>Verifica as inconsistências não impeditivas para um evento retroativo por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueAtualizacaoDeValoresDaReferenciaAtual">
+      <wsdl:documentation>
+        <summary>Verifica se deve atualizar os valores da referência atual</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtual" message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtualResponse" message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtualListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtualInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtualFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtualFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEvento">
+      <wsdl:documentation>
+        <summary>Consulta evento</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEvento" message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventoResponse" message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEventosPorFuncionario">
+      <wsdl:documentation>
+        <summary>Consulta de evento por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionario" message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionarioResponse" message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroEventoFixo">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para cadastro de um evento fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixo" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixoResponse" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoEventoFixo">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para a atualização de um evento fixo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixo" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixoResponse" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroEventoPorData">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para cadastro de um evento por data do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorData" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorDataResponse" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorDataInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorDataListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorDataFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorDataFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoEventoPorData">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para a atualização de um evento por data do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorData" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorDataResponse" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorDataInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorDataListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorDataFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorDataFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroEventoPorPrazo">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para cadastro de um evento por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazo" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazoResponse" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para a atualização de um evento por prazo do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoResponse" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeEventosDoFuncionario" type="tns:ServicoDeEventosDoFuncionario">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreEventoFixoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoFixoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoFixoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoPorPrazoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorPrazoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorPrazoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoPorDataDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoPorDataDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoPorDataDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoFixoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoFixoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoFixoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoPorPrazoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorPrazoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorPrazoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoPorDataDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoPorDataDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoPorDataDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaEventoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteEventoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExisteEventoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ExisteEventoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoRetroativoFixoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoFixoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoFixoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoRetroativoPorPrazoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorPrazoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorPrazoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEventoRetroativoPorDataDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/AtualizeEventoRetroativoPorDataDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_AtualizeEventoRetroativoPorDataDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoRetroativoFixoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoFixoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoFixoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoRetroativoPorPrazoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorPrazoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorPrazoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreEventoRetroativoPorDataDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/CadastreEventoRetroativoPorDataDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_CadastreEventoRetroativoPorDataDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaEventoRetroativo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ExcluaEventoRetroativo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ExcluaEventoRetroativo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueInconsistenciasImpeditivasEventoPorData">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorData" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorData_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueInconsistenciasImpeditivasEventoFixo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoFixo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoFixo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueInconsistenciasImpeditivasEventoPorPrazo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueInconsistenciasImpeditivasEventoPorPrazo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueInconsistenciasImpeditivasEventoPorPrazo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueIncosistenciasNaoImpeditivasEventoPorData">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorData" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorData_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueIncosistenciasNaoImpeditivasEventoFixo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoFixo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoFixo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueIncosistenciasNaoImpeditivasEventoPorPrazo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VerifiqueAtualizacaoDeValoresDaReferenciaAtual">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/VerifiqueAtualizacaoDeValoresDaReferenciaAtual" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_VerifiqueAtualizacaoDeValoresDaReferenciaAtual_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEvento">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEvento" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ConsulteEvento_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEventosPorFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ConsulteEventosPorFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ConsulteEventosPorFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroEventoFixo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoFixo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoFixo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoEventoFixo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoFixo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoFixo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroEventoPorData">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorData" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorData_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoEventoPorData">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorData" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorData_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroEventoPorPrazo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaCadastroEventoPorPrazo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaCadastroEventoPorPrazo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEventosDoFuncionario/ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEventosDoFuncionario_ValideRegrasImpeditivasParaAtualizacaoEventoPorPrazo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeEventosDoFuncionarioImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeEventosDoFuncionario" binding="tns:LGBasicHttp_ServicoDeEventosDoFuncionario">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeeventosdofuncionario" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

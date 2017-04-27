@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeReintegracaoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ValideRegrasImpeditivasParaCadastro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="Reintegracao" nillable="true" type="q1:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroResult" nillable="true" type="q2:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaCadastro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="Reintegracao" nillable="true" type="q3:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaCadastroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasParaCadastroResult" nillable="true" type="q4:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="Reintegracao" nillable="true" type="q5:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoResult" nillable="true" type="q6:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaAtualizacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="Reintegracao" nillable="true" type="q7:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaAtualizacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasParaAtualizacaoResult" nillable="true" type="q8:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaExclusao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:long" />
+            <xsd:element minOccurs="0" name="DataReintegracao" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaExclusaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaExclusaoResult" nillable="true" type="q9:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaExclusao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:long" />
+            <xsd:element minOccurs="0" name="DataReintegracao" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaExclusaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasParaExclusaoResult" nillable="true" type="q10:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Cadastre">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="Reintegracao" nillable="true" type="q11:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="CadastreResult" nillable="true" type="q12:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Atualize">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="Reintegracao" nillable="true" type="q13:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="AtualizeResult" nillable="true" type="q14:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Exclua">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DataReintegracao" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ExcluaResult" nillable="true" type="q15:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Consulte">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DataReintegracao" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ConsulteResult" nillable="true" type="q16:Reintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteLista">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaResult" nillable="true" type="q17:ArrayOfReintegracao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="Reintegracao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoFolhaTipoOutrasDeDestino" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoFolhaTipoRescisaoDeOrigem" nillable="true" type="xsd:int" />
+          <xsd:element name="DataReintegracao" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="DataRetornoEfetivo" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="LeiDeAnistia" nillable="true" type="tns:EnumLeiDeAnistia" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NumeroDoProcesso" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PagamentoEmJuizo" type="xsd:boolean" />
+          <xsd:element name="Tipo" nillable="true" type="tns:EnumTipoReintegracao" />
+          <xsd:element minOccurs="0" name="TransfererirValoresDaRescisao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="LeiDeAnistia_V2" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Reintegracao" nillable="true" type="tns:Reintegracao" />
+      <xsd:simpleType name="EnumLeiDeAnistia">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="LEI_6683_1979" />
+          <xsd:enumeration value="LEI_8632_1993" />
+          <xsd:enumeration value="LEI_8878_1994" />
+          <xsd:enumeration value="LEI_10559_2002" />
+          <xsd:enumeration value="LEI_10790_2003" />
+          <xsd:enumeration value="LEI_11282_2006" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumLeiDeAnistia" nillable="true" type="tns:EnumLeiDeAnistia" />
+      <xsd:simpleType name="EnumTipoReintegracao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="REINTEGRACAO_POR_DETERMINACAO_JUDICIAL">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="REINTEGRACAO_POR_ANISTIA_LEGAL">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="REVERSAO_DE_SERVIDOR_PUBLICO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="RECONDUCAO_DE_SERVIDOR_PUBLICO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="REINCLUSAO_DE_MILITAR">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="OUTROS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoReintegracao" nillable="true" type="tns:EnumTipoReintegracao" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ArrayOfReintegracao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Reintegracao" nillable="true" type="tns:Reintegracao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfReintegracao" nillable="true" type="tns:ArrayOfReintegracao" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers">
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q18:LGContextoAmbiente" />
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="LGAutenticacao" element="q19:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q24:LGContextoAmbiente" />
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGAutenticacao" element="q25:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InputMessage_Headers">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q30:LGContextoAmbiente" />
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="LGAutenticacao" element="q31:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaAtualizacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage_Headers">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q36:LGContextoAmbiente" />
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="LGAutenticacao" element="q37:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaAtualizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaExclusao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InputMessage_Headers">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q42:LGContextoAmbiente" />
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="LGAutenticacao" element="q43:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaExclusaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="detail" element="q47:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaExclusao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InputMessage_Headers">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q48:LGContextoAmbiente" />
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="LGAutenticacao" element="q49:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaExclusaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cadastre" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_InputMessage_Headers">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q54:LGContextoAmbiente" />
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="LGAutenticacao" element="q55:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Cadastre_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_InputMessage">
+    <wsdl:part name="parameters" element="tns:Atualize" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_InputMessage_Headers">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q60:LGContextoAmbiente" />
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="LGAutenticacao" element="q61:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Atualize_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_InputMessage">
+    <wsdl:part name="parameters" element="tns:Exclua" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_InputMessage_Headers">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q66:LGContextoAmbiente" />
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="LGAutenticacao" element="q67:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Exclua_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Consulte" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_InputMessage_Headers">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q72:LGContextoAmbiente" />
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="LGAutenticacao" element="q73:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_Consulte_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="detail" element="q77:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteLista" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_InputMessage_Headers">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q78:LGContextoAmbiente" />
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="LGAutenticacao" element="q79:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeReintegracao_ConsulteLista_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="detail" element="q83:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeReintegracao">
+    <wsdl:documentation>
+      <summary>Serviço responsável por ocorrências de reintegração</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastro">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para cadastro da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastro" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastroResponse" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaCadastro">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras não impeditivas para cadastro da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastro" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastroResponse" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para atualização da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacaoResponse" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaAtualizacao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras não impeditivas para atualização da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacaoResponse" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaExclusao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para exclusão da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusaoResponse" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaExclusao">
+      <wsdl:documentation>
+        <summary>Realiza as validações não impeditivas das regras impeditivas para exclusão da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusaoResponse" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cadastre">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/Cadastre" message="tns:ServicoDeReintegracao_Cadastre_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/CadastreResponse" message="tns:ServicoDeReintegracao_Cadastre_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/CadastreListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_Cadastre_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/CadastreInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_Cadastre_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/CadastreFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_Cadastre_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/CadastreFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_Cadastre_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Atualize">
+      <wsdl:documentation>
+        <summary>Realiza a atualização da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/Atualize" message="tns:ServicoDeReintegracao_Atualize_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/AtualizeResponse" message="tns:ServicoDeReintegracao_Atualize_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/AtualizeInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_Atualize_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/AtualizeListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_Atualize_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/AtualizeFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_Atualize_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/AtualizeFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_Atualize_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Exclua">
+      <wsdl:documentation>
+        <summary>Realiza a exclusão da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/Exclua" message="tns:ServicoDeReintegracao_Exclua_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ExcluaResponse" message="tns:ServicoDeReintegracao_Exclua_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ExcluaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_Exclua_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ExcluaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_Exclua_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ExcluaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_Exclua_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ExcluaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_Exclua_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Consulte">
+      <wsdl:documentation>
+        <summary>Realiza consulta da reintegração</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/Consulte" message="tns:ServicoDeReintegracao_Consulte_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteResponse" message="tns:ServicoDeReintegracao_Consulte_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_Consulte_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_Consulte_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_Consulte_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_Consulte_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLista">
+      <wsdl:documentation>
+        <summary>Realiza consulta das reintegrações</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteLista" message="tns:ServicoDeReintegracao_ConsulteLista_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteListaResponse" message="tns:ServicoDeReintegracao_ConsulteLista_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteListaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeReintegracao_ConsulteLista_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteListaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeReintegracao_ConsulteLista_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteListaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeReintegracao_ConsulteLista_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeReintegracao/ConsulteListaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeReintegracao_ConsulteLista_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeReintegracao" type="tns:ServicoDeReintegracao">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaCadastro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaCadastro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaCadastro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaAtualizacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaAtualizacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaAtualizacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaAtualizacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaExclusao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasImpeditivasParaExclusao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasImpeditivasParaExclusao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaExclusao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ValideRegrasNaoImpeditivasParaExclusao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ValideRegrasNaoImpeditivasParaExclusao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Cadastre">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/Cadastre" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_Cadastre_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_Cadastre_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Atualize">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/Atualize" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_Atualize_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_Atualize_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Exclua">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/Exclua" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_Exclua_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_Exclua_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Consulte">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/Consulte" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_Consulte_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_Consulte_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLista">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeReintegracao/ConsulteLista" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeReintegracao_ConsulteLista_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeReintegracao_ConsulteLista_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeReintegracaoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeReintegracao" binding="tns:LGBasicHttp_ServicoDeReintegracao">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodereintegracao" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

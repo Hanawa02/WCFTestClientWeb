@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeDadosCadastraisTGImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ObtenhaRamosDeAtividades">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaRamosDeAtividadesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaRamosDeAtividadesResult" nillable="true" type="q1:ArrayOfRamoAtividade" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaIdiomas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaIdiomasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaIdiomasResult" nillable="true" type="q2:ArrayOfIdiomas" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaNiveisDeIdiomas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaNiveisDeIdiomasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaNiveisDeIdiomasResult" nillable="true" type="q3:ArrayOfNivelIdioma" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaFormacoes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaFormacoesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaFormacoesResult" nillable="true" type="q4:ArrayOfFormacoes" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaTiposDeFormacoes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaTiposDeFormacoesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaTiposDeFormacoesResult" nillable="true" type="q5:ArrayOfTipoFormacao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaInstituicoes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="UnidadeFederativa" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaInstituicoesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaInstituicoesResult" nillable="true" type="q6:ArrayOfInstituicao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaOutrosCursos">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaOutrosCursosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaOutrosCursosResult" nillable="true" type="q7:ArrayOfOutroCurso" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaModulosAutorizadosPorEmpresa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaModulosAutorizadosPorEmpresaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaModulosAutorizadosPorEmpresaResult" nillable="true" type="q8:ArrayOfEnumSeguroModuloAutorizado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ArrayOfRamoAtividade">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="RamoAtividade" nillable="true" type="tns:RamoAtividade" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfRamoAtividade" nillable="true" type="tns:ArrayOfRamoAtividade" />
+      <xsd:complexType name="RamoAtividade">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RamoAtividade" nillable="true" type="tns:RamoAtividade" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ArrayOfIdiomas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Idiomas" nillable="true" type="tns:Idiomas" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfIdiomas" nillable="true" type="tns:ArrayOfIdiomas" />
+      <xsd:complexType name="Idiomas">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Idiomas" nillable="true" type="tns:Idiomas" />
+      <xsd:complexType name="ArrayOfNivelIdioma">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="NivelIdioma" nillable="true" type="tns:NivelIdioma" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfNivelIdioma" nillable="true" type="tns:ArrayOfNivelIdioma" />
+      <xsd:complexType name="NivelIdioma">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="Ordem" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NivelIdioma" nillable="true" type="tns:NivelIdioma" />
+      <xsd:complexType name="ArrayOfFormacoes">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Formacoes" nillable="true" type="tns:Formacoes" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFormacoes" nillable="true" type="tns:ArrayOfFormacoes" />
+      <xsd:complexType name="Formacoes">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="IdentificacaoConselhoRegional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Formacoes" nillable="true" type="tns:Formacoes" />
+      <xsd:complexType name="ArrayOfTipoFormacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TipoFormacao" nillable="true" type="tns:TipoFormacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfTipoFormacao" nillable="true" type="tns:ArrayOfTipoFormacao" />
+      <xsd:complexType name="TipoFormacao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TipoFormacao" nillable="true" type="tns:TipoFormacao" />
+      <xsd:complexType name="ArrayOfInstituicao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Instituicao" nillable="true" type="tns:Instituicao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInstituicao" nillable="true" type="tns:ArrayOfInstituicao" />
+      <xsd:complexType name="Instituicao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="UnidadeFederativa" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Instituicao" nillable="true" type="tns:Instituicao" />
+      <xsd:complexType name="ArrayOfOutroCurso">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="OutroCurso" nillable="true" type="tns:OutroCurso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfOutroCurso" nillable="true" type="tns:ArrayOfOutroCurso" />
+      <xsd:complexType name="OutroCurso">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OutroCurso" nillable="true" type="tns:OutroCurso" />
+      <xsd:complexType name="ArrayOfEnumSeguroModuloAutorizado">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EnumSeguroModuloAutorizado" nillable="true" type="tns:EnumSeguroModuloAutorizado" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfEnumSeguroModuloAutorizado" nillable="true" type="tns:ArrayOfEnumSeguroModuloAutorizado" />
+      <xsd:complexType name="EnumSeguroModuloAutorizado">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EnumSeguroModuloAutorizado" nillable="true" type="tns:EnumSeguroModuloAutorizado" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaRamosDeAtividades" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InputMessage_Headers">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q9:LGContextoAmbiente" />
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="LGAutenticacao" element="q10:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaRamosDeAtividadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="detail" element="q11:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="detail" element="q12:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaIdiomas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InputMessage_Headers">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q15:LGContextoAmbiente" />
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="LGAutenticacao" element="q16:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaIdiomasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="detail" element="q17:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="detail" element="q18:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaIdiomas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaNiveisDeIdiomas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InputMessage_Headers">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q21:LGContextoAmbiente" />
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="LGAutenticacao" element="q22:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaNiveisDeIdiomasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="detail" element="q24:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaFormacoes" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InputMessage_Headers">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q27:LGContextoAmbiente" />
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="LGAutenticacao" element="q28:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaFormacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="detail" element="q31:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaFormacoes_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaTiposDeFormacoes" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InputMessage_Headers">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q33:LGContextoAmbiente" />
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="LGAutenticacao" element="q34:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaTiposDeFormacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaInstituicoes" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InputMessage_Headers">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q39:LGContextoAmbiente" />
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="LGAutenticacao" element="q40:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaInstituicoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaOutrosCursos" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InputMessage_Headers">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q45:LGContextoAmbiente" />
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="LGAutenticacao" element="q46:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaOutrosCursosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="detail" element="q47:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="detail" element="q48:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaModulosAutorizadosPorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InputMessage_Headers">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q51:LGContextoAmbiente" />
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="LGAutenticacao" element="q52:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaModulosAutorizadosPorEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeDadosCadastraisTG">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção dos dados cadastrais do módulo TG.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ObtenhaRamosDeAtividades">
+      <wsdl:documentation>
+        <summary>Obtém lista de ramos de atividades.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividades" message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividadesResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividadesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividadesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividadesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividadesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaIdiomas">
+      <wsdl:documentation>
+        <summary>Obtém lista de idiomas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomas" message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomasResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaNiveisDeIdiomas">
+      <wsdl:documentation>
+        <summary>Obtém lista de níveis de idiomas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomas" message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomasResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaFormacoes">
+      <wsdl:documentation>
+        <summary>Obtém lista de formações.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoes" message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoesResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaTiposDeFormacoes">
+      <wsdl:documentation>
+        <summary>Obtém lista de tipos de formações.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoes" message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoesResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaInstituicoes">
+      <wsdl:documentation>
+        <summary>Obtém lista de instituições.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoes" message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoesResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoesListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoesInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoesFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoesFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaOutrosCursos">
+      <wsdl:documentation>
+        <summary>Obtém lista de outros cursos.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursos" message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursosResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaModulosAutorizadosPorEmpresa">
+      <wsdl:documentation>
+        <summary>Obtém lista de módulos autorizados por empresa.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresa" message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresaResponse" message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeDadosCadastraisTG" type="tns:ServicoDeDadosCadastraisTG">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenhaRamosDeAtividades">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaRamosDeAtividades" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaRamosDeAtividades_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaIdiomas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaIdiomas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaIdiomas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaNiveisDeIdiomas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaNiveisDeIdiomas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaNiveisDeIdiomas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaFormacoes">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaFormacoes" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaFormacoes_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaTiposDeFormacoes">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaTiposDeFormacoes" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaTiposDeFormacoes_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaInstituicoes">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaInstituicoes" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaInstituicoes_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaOutrosCursos">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaOutrosCursos" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaOutrosCursos_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaModulosAutorizadosPorEmpresa">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeDadosCadastraisTG/ObtenhaModulosAutorizadosPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeDadosCadastraisTG_ObtenhaModulosAutorizadosPorEmpresa_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeDadosCadastraisTGImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeDadosCadastraisTG" binding="tns:LGBasicHttp_ServicoDeDadosCadastraisTG">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodedadoscadastraistg" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

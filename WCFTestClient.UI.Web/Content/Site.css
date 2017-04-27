@@ -1,0 +1,516 @@
+﻿@font-face {
+    font-family: sansa_prolight;
+    src: url(/WCFTestClientWeb/Fonts/SansaPro-Light.otf);
+}
+
+body {    
+    background-color: #f6f6f6;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-repeat: repeat;
+    background-position: left top;        
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+.page
+{
+    margin: auto; 
+}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Faixa Continua Superior
+-----------------------------------------------------------*/
+.faixacontinuasuperior 
+{
+    width: 100%;
+    height: 193px;
+    padding-top: 8px;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.faixacontinuasuperior .bartopo .logo-lg 
+{
+    margin: 20px auto 0 30px;
+    width: 341px;
+    height: 102px;
+    display: inline-block;
+    background: url(http://portaldocliente.lg.com.br/midia/images/logon/logo.png) no-repeat;
+}
+
+.faixacontinuasuperior .bartopo .titulo-aplicacao 
+{
+    height: 150px;
+    width: 150px;
+    background-color: #339AD5;
+    float: left;
+    text-align: center;
+    font-size: 28px;
+    border-radius: 50%;
+    margin-top:13px;
+    color: #fff;
+    padding-top:55px;
+    line-height:27px;
+    font-family: sansa_prolight;
+    font-weight: bold;
+}
+
+.faixacontinuasuperior .bartopo 
+{
+    margin: 0 auto;
+    width: 970px;
+}
+
+/* Menu 
+-----------------------------------------------------------*/
+.menu-container 
+{
+    width: 100%;
+    height: 53px;
+    margin: 0 auto;
+    background: #666;
+    font-size: 12px;
+}
+
+.menu-container .menu 
+{
+    width: 970px;
+    height: 53px;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-top: 8px;
+}
+
+.menu-container .menu .menu-navegacao {
+    z-index: 1;
+    position: absolute;
+    white-space: nowrap;
+    float: left;
+    color: black;
+    font-family: sansa_prolight;
+    line-height: 35px;
+    height: 45px;
+}
+
+.menu-container .menu .menu-navegacao .ul-menu-navegacao 
+{
+    display: block;
+    position: relative;
+    left: 0;
+    float: left;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.menu-container .menu .menu-navegacao .ul-menu-navegacao .item-menu 
+{
+    clear: none;
+    margin: 0 0 0 1px;
+    padding: 0;
+    float: left;
+    position: relative;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style: none;
+    line-height: inherit;
+    
+}
+
+.menu-container .menu .menu-navegacao .ul-menu-navegacao .item-menu a 
+{
+    cursor: pointer;
+    display: block;
+    box-sizing: content-box;
+    position: relative;
+    width: auto;
+    outline: 0;
+    float: left;
+    padding: 2px 5px 5px 5px;
+    border: 0;
+    color: #dedede;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.menu-container .menu .menu-navegacao .ul-menu-navegacao .separador-menu 
+{
+    
+    padding: 8px 2px 8px 2px;
+    width: 5px;
+    height: 34px;
+    margin: 0 0 0 1px;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+
+.menu-container .menu .menu-navegacao .ul-menu-navegacao .separador-menu .item-separador 
+{
+    font-size:22px;
+    background: #555;
+    border: 1px solid #555;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+}
+
+/* Body Geral
+------------------------------------------------------*/
+
+#main
+{
+    margin: 0 auto;
+    width: 970px;
+    color: #555;
+    font-family: sansa_prolight;
+    font-size: 12px;
+}
+
+/* Catalogo
+------------------------------------------------------*/
+
+#principal #home-header 
+{
+    color: #666;
+    font-weight: bold;
+}
+
+#principal #home-opçoes
+
+#principal #home-opçoes .panel-default
+
+#principal #home-opçoes .panel .panel-body 
+{
+    background-color: #ffffff;
+}
+
+#principal #home-opçoes .panel .panel-body .form-group 
+
+#principal #home-opçoes .panel .panel-body .form-group label 
+{
+    font-size: 16px;
+}
+
+#principal > #home-opçoes > .panel .panel-body .botao-solicitar 
+{
+    text-align: center;
+} 
+
+
+
+/* Index
+------------------------------------------------------*/
+.formulario-dinamico 
+{
+    margin-top:25px;
+    background-color: #ffffff;
+    padding: 15px;
+    font-size: 15px;   
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo
+{
+   margin-top:15px;
+   margin-bottom: 10px;
+   border: 2px solid #4c4c4c;
+   padding-right: 15px;
+   border-radius: 8px;
+   padding-left: 15px;
+   overflow: auto;
+   color: #555;
+}
+.formulario-dinamico > .formulario-dinamico-conteudo > .formulario-titulo 
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: -15px;
+    padding-left: 15px;
+    margin-right: -15px;
+    padding-right: 15px;
+    margin-bottom: 8px;
+    color: #dedede;
+    background-color: #666;
+}
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container
+{   
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    padding-left: -10px;
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento-nome 
+{
+    display: inline-block;
+    width: 25%;
+    color: #555;
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento
+{
+    display: inline-block;
+    width: 74%;
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento > input[type="radio"]
+{
+    background: #f1f1f1;
+	border: 1px solid #80addb;
+}
+
+
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento > input[type="text"]
+{
+    border-radius: 8px;
+    border: 1px solid #80addb;
+    background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#c8c8c8),
+		color-stop(0.8, #ffffff),
+		to(#f1f1f1));
+	padding: 2px;
+	width:100%;
+	color: #555;
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento > input[type="date"]
+{
+    border-radius: 8px;
+    border: 1px solid #80addb;
+    background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#c8c8c8),
+		color-stop(0.8, #ffffff),
+		to(#f1f1f1));
+	padding: 2px;
+	width:100%;
+	color: #555;	
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-composto 
+{
+    border: 2px solid #4c4c4c;
+    padding-right: 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    
+}
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento-titulo 
+{
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #555;
+}
+
+
+.formulario-dinamico > .formulario-dinamico-conteudo .elemento-container > .elemento-titulo > .selecao-lista 
+{
+    width: 50px;
+    border-radius: 15px;
+    padding-left: 5px;
+    font-weight: bold;
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#b0cce8),
+		color-stop(0.5, #ffffff),
+		to(#f1f1f1));
+}
+
+.formulario-dinamico .container-botao-adicionar 
+{
+    text-align: center;
+}
+
+.nao-exibir 
+{
+    display: none;
+}
+
+.botao-padrao 
+{
+    font-size: 13px;
+    font-weight: bold;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#eaf4fa),
+		color-stop(0.5, #ffffff),
+		to(#cdcdcd));
+	border-radius: 15px;
+	border: 2px solid #a0a0a0;
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(223,234,246,1);
+	text-shadow:
+		0px 1px 0px 666666;
+	color:#555;
+}
+
+.botao-modal-resultado a
+{
+    text-decoration: none;
+}
+
+.form-perfil 
+{
+    width: 94%;
+    display:inline-block;
+    margin: 0px;
+}
+
+.form-perfil > .form-control 
+{
+    margin: 0px;
+}
+
+.formulario-dinamico > .menu-perfil
+{
+    width:100%;
+    margin: 5px;  
+    margin-top: 0px;
+}
+
+.titulo-perfil 
+{
+    width:5%;
+    display:inline-block;
+    font-size: 14px;
+}
+
+.botao-perfil 
+{
+    display:inline-block;
+}
+
+.menu-botoes 
+{
+    text-align: center;   
+    margin: 5px;
+}
+
+
+
+
+.modal-content
+{
+    border-radius: 10px;
+}
+.modal-dialog
+{
+    width: 70%;    
+}
+
+.modal-header 
+{
+    margin-top: -2px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #555;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #c8c8c8;
+}
+
+.modal-body p
+{
+    text-align: center;
+    color: #555;
+}
+
+#myModal .modal-footer 
+{
+    text-align: center;
+    padding: 5px !important; 
+} 
+
+.modal-body input[type=text]
+{
+    width: 100%;   
+    color: #555;
+    border: 1px solid #80addb;
+}
+
+.endereco-endpoint
+{
+    width:100%;
+    margin: 5px;  
+    margin-top: 0px;
+}
+
+.titulo-endereco-endpoint
+{
+    width:27%;
+    display:inline-block;
+    font-size: 14px;
+}
+
+.input-endereco-endpoint
+{
+    width: 72%;
+    display:inline-block;
+    margin: 0px;
+}
+
+.input-endereco-endpoint input
+{
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    width:100%;
+}
+
+
+button:disabled 
+{
+    color: #ccc;
+}
+
+.modal_body 
+{
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}

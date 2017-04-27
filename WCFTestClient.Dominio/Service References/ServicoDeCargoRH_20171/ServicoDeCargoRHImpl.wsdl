@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeCargoRHImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ConsulteHabilidadesDoCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q1:HabilidadeConhecimentosCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHabilidadesDoCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ConsulteHabilidadesDoCargoResult" nillable="true" type="q2:ArrayOfHabilidadePosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteIdiomasDoCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q3:HabilidadeConhecimentosCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteIdiomasDoCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteIdiomasDoCargoResult" nillable="true" type="q4:ArrayOfIdiomaPosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteFormacoesDoCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q5:HabilidadeConhecimentosCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteFormacoesDoCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ConsulteFormacoesDoCargoResult" nillable="true" type="q6:ArrayOfFormacaoPosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCursosDoCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q7:HabilidadeConhecimentosCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteCursosDoCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ConsulteCursosDoCargoResult" nillable="true" type="q8:ArrayOfCursoPosicaoOuCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDescricoesResumidaEDetalhadaDoCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q9:DescricoesResumidaEDetalhadaDoCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDescricoesResumidaEDetalhadaDoCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDescricoesResumidaEDetalhadaDoCargoResult" nillable="true" type="q10:DescricoesResumidaEDetalhadaDoCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q11:DadosAlteracaoDasDescricoesResumidaEDetalhadaDoCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHResult" nillable="true" type="q12:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q13:DadosAlteracaoDasDescricoesResumidaEDetalhadaDoCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSResult" nillable="true" type="q14:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteVigenciasDoCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q15:VigenciasDoCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteVigenciasDoCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ConsulteVigenciasDoCargoResult" nillable="true" type="q16:ArrayOfVigenciasDoCargoRH" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CrieNovaDataVigenciaParaCargo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="dadosDoCargoRHEntrada" nillable="true" type="q17:NovaVigenciaDoCargoRHEntrada" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CrieNovaDataVigenciaParaCargoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="CrieNovaDataVigenciaParaCargoResult" nillable="true" type="q18:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="HabilidadeConhecimentosCargoRHEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataDeVigencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HabilidadeConhecimentosCargoRHEntrada" nillable="true" type="tns:HabilidadeConhecimentosCargoRHEntrada" />
+      <xsd:simpleType name="EnumTipoDeSalario">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="MENSAL" />
+          <xsd:enumeration value="QUINZENAL" />
+          <xsd:enumeration value="SEMANAL" />
+          <xsd:enumeration value="DIARIO" />
+          <xsd:enumeration value="HORARIO" />
+          <xsd:enumeration value="TAREFA" />
+          <xsd:enumeration value="OUTROS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoDeSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ArrayOfHabilidadePosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="HabilidadePosicaoOuCargoRH" nillable="true" type="tns:HabilidadePosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfHabilidadePosicaoOuCargoRH" nillable="true" type="tns:ArrayOfHabilidadePosicaoOuCargoRH" />
+      <xsd:complexType name="HabilidadePosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaHabilidade" type="xsd:int" />
+          <xsd:element name="CodigoDoGrupoDaHabilidade" type="xsd:int" />
+          <xsd:element name="CodigoDoNivelDaHabilidade" type="xsd:int" />
+          <xsd:element name="DescricaoDaHabilidade" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoGrupoDaHabilidade" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoNivelDaHabilidade" nillable="true" type="xsd:string" />
+          <xsd:element name="OrdemDoNivelDaHabilidade" type="xsd:int" />
+          <xsd:element name="PesoDaHabilidade" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HabilidadePosicaoOuCargoRH" nillable="true" type="tns:HabilidadePosicaoOuCargoRH" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ArrayOfIdiomaPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="IdiomaPosicaoOuCargoRH" nillable="true" type="tns:IdiomaPosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfIdiomaPosicaoOuCargoRH" nillable="true" type="tns:ArrayOfIdiomaPosicaoOuCargoRH" />
+      <xsd:complexType name="IdiomaPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoIdioma" type="xsd:int" />
+          <xsd:element name="CodigoDoNivelDoIdioma" type="xsd:int" />
+          <xsd:element name="DescricaoDoIdioma" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoNivelDoIdioma" nillable="true" type="xsd:string" />
+          <xsd:element name="OrdemDoNivelDoIdioma" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="IdiomaPosicaoOuCargoRH" nillable="true" type="tns:IdiomaPosicaoOuCargoRH" />
+      <xsd:complexType name="ArrayOfFormacaoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="FormacaoPosicaoOuCargoRH" nillable="true" type="tns:FormacaoPosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFormacaoPosicaoOuCargoRH" nillable="true" type="tns:ArrayOfFormacaoPosicaoOuCargoRH" />
+      <xsd:complexType name="FormacaoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaFormacao" type="xsd:int" />
+          <xsd:element name="CodigoDoTipoDeFormacao" type="xsd:int" />
+          <xsd:element name="DescricaoDaFormacao" nillable="true" type="xsd:string" />
+          <xsd:element name="DescricaoDoTipoDeFormacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FormacaoPosicaoOuCargoRH" nillable="true" type="tns:FormacaoPosicaoOuCargoRH" />
+      <xsd:complexType name="ArrayOfCursoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CursoPosicaoOuCargoRH" nillable="true" type="tns:CursoPosicaoOuCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCursoPosicaoOuCargoRH" nillable="true" type="tns:ArrayOfCursoPosicaoOuCargoRH" />
+      <xsd:complexType name="CursoPosicaoOuCargoRH">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoCurso" type="xsd:int" />
+          <xsd:element name="DescricaoDoCurso" nillable="true" type="xsd:string" />
+          <xsd:element name="ValidadeDoCurso" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CursoPosicaoOuCargoRH" nillable="true" type="tns:CursoPosicaoOuCargoRH" />
+      <xsd:complexType name="DescricoesResumidaEDetalhadaDoCargoRHEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataDeVigencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="RetornarCHADoCargo" type="xsd:boolean" />
+          <xsd:element name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DescricoesResumidaEDetalhadaDoCargoRHEntrada" nillable="true" type="tns:DescricoesResumidaEDetalhadaDoCargoRHEntrada" />
+      <xsd:complexType name="DescricoesResumidaEDetalhadaDoCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataDeVigencia" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DescricaoDetalhadaDoCargo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoCargo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoResumidaDoCargo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ListaCursosCargo" nillable="true" type="tns:ArrayOfCursoPosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="ListaFormacoesCargo" nillable="true" type="tns:ArrayOfFormacaoPosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="ListaHabilidadesCargo" nillable="true" type="tns:ArrayOfHabilidadePosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="ListaIdiomasCargo" nillable="true" type="tns:ArrayOfIdiomaPosicaoOuCargoRH" />
+          <xsd:element minOccurs="0" name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DescricoesResumidaEDetalhadaDoCargoRH" nillable="true" type="tns:DescricoesResumidaEDetalhadaDoCargoRH" />
+      <xsd:complexType name="DadosAlteracaoDasDescricoesResumidaEDetalhadaDoCargoRHEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element name="CriarNovaVigencia" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DataDeVigencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DescricaoDetalhada" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoResumida" nillable="true" type="xsd:string" />
+          <xsd:element name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosAlteracaoDasDescricoesResumidaEDetalhadaDoCargoRHEntrada" nillable="true" type="tns:DadosAlteracaoDasDescricoesResumidaEDetalhadaDoCargoRHEntrada" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+      <xsd:complexType name="VigenciasDoCargoRHEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="VigenciasDoCargoRHEntrada" nillable="true" type="tns:VigenciasDoCargoRHEntrada" />
+      <xsd:complexType name="ArrayOfVigenciasDoCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="VigenciasDoCargoRH" nillable="true" type="tns:VigenciasDoCargoRH" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfVigenciasDoCargoRH" nillable="true" type="tns:ArrayOfVigenciasDoCargoRH" />
+      <xsd:complexType name="VigenciasDoCargoRH">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CargoAtual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DataDeVigencia" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="VigenciasDoCargoRH" nillable="true" type="tns:VigenciasDoCargoRH" />
+      <xsd:complexType name="NovaVigenciaDoCargoRHEntrada">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDoCargo" type="xsd:int" />
+          <xsd:element name="NovaDataDeVigencia" type="xsd:dateTime" />
+          <xsd:element name="TipoSalario" nillable="true" type="tns:EnumTipoDeSalario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NovaVigenciaDoCargoRHEntrada" nillable="true" type="tns:NovaVigenciaDoCargoRHEntrada" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHabilidadesDoCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q19:LGContextoAmbiente" />
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="LGAutenticacao" element="q20:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHabilidadesDoCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteHabilidadesDoCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="detail" element="q24:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteIdiomasDoCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q25:LGContextoAmbiente" />
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="LGAutenticacao" element="q26:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteIdiomasDoCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteIdiomasDoCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteFormacoesDoCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q31:LGContextoAmbiente" />
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="LGAutenticacao" element="q32:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteFormacoesDoCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteFormacoesDoCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCursosDoCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q37:LGContextoAmbiente" />
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="LGAutenticacao" element="q38:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteCursosDoCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteCursosDoCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDescricoesResumidaEDetalhadaDoCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q43:LGContextoAmbiente" />
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="LGAutenticacao" element="q44:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDescricoesResumidaEDetalhadaDoCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="detail" element="q47:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="detail" element="q48:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InputMessage_Headers">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q49:LGContextoAmbiente" />
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="LGAutenticacao" element="q50:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InputMessage_Headers">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q55:LGContextoAmbiente" />
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="LGAutenticacao" element="q56:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteVigenciasDoCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q61:LGContextoAmbiente" />
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="LGAutenticacao" element="q62:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteVigenciasDoCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_ConsulteVigenciasDoCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrieNovaDataVigenciaParaCargo" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InputMessage_Headers">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q67:LGContextoAmbiente" />
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="LGAutenticacao" element="q68:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrieNovaDataVigenciaParaCargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeCargoRH">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção do Cargo RH.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ConsulteHabilidadesDoCargo">
+      <wsdl:documentation>
+        <summary>Consulta as habilidades de um cargo em uma determinada vigência.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargo" message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargoResponse" message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteIdiomasDoCargo">
+      <wsdl:documentation>
+        <summary>Consulta os idiomas de um cargo em uma determinada vigência.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargo" message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargoResponse" message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteFormacoesDoCargo">
+      <wsdl:documentation>
+        <summary>Consulta as formações de um cargo em uma determinada vigência..</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargo" message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargoResponse" message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCursosDoCargo">
+      <wsdl:documentation>
+        <summary>Consulta os cursos de um cargo em uma determinada vigência..</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargo" message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargoResponse" message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDescricoesResumidaEDetalhadaDoCargo">
+      <wsdl:documentation>
+        <summary>Consulta as descrições resumida e detalhada de um cargo em uma determinada vigência.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargo" message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargoResponse" message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH">
+      <wsdl:documentation>
+        <summary>Realiza as validações das inconsistências impeditivas da alteração das descrições resumida e detalhada de um cargo.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH" message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHResponse" message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRHFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS">
+      <wsdl:documentation>
+        <summary>Modifica as descrições resumida e detalhada de um cargo, após realizar as validações das inconsistências impeditivas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS" message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSResponse" message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVSFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteVigenciasDoCargo">
+      <wsdl:documentation>
+        <summary>Consulta as datas de vigência de um cargo.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargo" message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargoResponse" message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrieNovaDataVigenciaParaCargo">
+      <wsdl:documentation>
+        <summary>Cria uma nova data de vigência para um cargo, após realizar as validações das inconsistências impeditivas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargo" message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargoResponse" message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeCargoRH" type="tns:ServicoDeCargoRH">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsulteHabilidadesDoCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ConsulteHabilidadesDoCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteHabilidadesDoCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteIdiomasDoCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ConsulteIdiomasDoCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteIdiomasDoCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteFormacoesDoCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ConsulteFormacoesDoCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteFormacoesDoCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteCursosDoCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ConsulteCursosDoCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteCursosDoCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDescricoesResumidaEDetalhadaDoCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ConsulteDescricoesResumidaEDetalhadaDoCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteDescricoesResumidaEDetalhadaDoCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ValideInconsistenciasImpeditivasDeAlteracaoDasDescricoesDoCargoRH_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ModifiqueDescricoesResumidaEDetalhadaDoCargoRHIVS_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteVigenciasDoCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/ConsulteVigenciasDoCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_ConsulteVigenciasDoCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CrieNovaDataVigenciaParaCargo">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeCargoRH/CrieNovaDataVigenciaParaCargo" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeCargoRH_CrieNovaDataVigenciaParaCargo_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeCargoRHImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeCargoRH" binding="tns:LGBasicHttp_ServicoDeCargoRH">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodecargorh" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

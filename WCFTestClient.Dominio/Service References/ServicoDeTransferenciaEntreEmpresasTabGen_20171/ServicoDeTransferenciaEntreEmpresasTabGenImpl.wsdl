@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeTransferenciaEntreEmpresasTabGenImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreTransferenciasEntreEmpresas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="DadosDeTransferenciaEntreEmpresasTabGen" nillable="true" type="q1:DadosDeTransferenciaEntreEmpresasTabGen" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreTransferenciasEntreEmpresasResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidacaoImpeditivaTransferenciaEntreEmpresasTG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="DadosDeTransferenciaEntreEmpresasTabGen" nillable="true" type="q2:DadosDeTransferenciaEntreEmpresasTabGen" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidacaoImpeditivaTransferenciaEntreEmpresasTGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ValidacaoImpeditivaTransferenciaEntreEmpresasTGResult" nillable="true" type="q3:ArrayOfstring" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="DadosDeTransferenciaEntreEmpresasTabGen">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoEmpresaDestino" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoPosicao" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTabelaSalarial" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTabelaSalarialCargoComissionado" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTipoDeSalario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoTipoDeSalarioCargoComissionado" type="xsd:int" />
+          <xsd:element minOccurs="0" name="FaixaSalarial" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FaixaSalarialCargoComissionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Matricula" type="xsd:int" />
+          <xsd:element name="MatriculaDestino" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NivelSalarial" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NivelSalarialCargoComissionado" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Salario" type="xsd:double" />
+          <xsd:element minOccurs="0" name="SalarioCargoComissionado" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosDeTransferenciaEntreEmpresasTabGen" nillable="true" type="tns:DadosDeTransferenciaEntreEmpresasTabGen" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreTransferenciasEntreEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InputMessage_Headers">
+    <wsdl:part xmlns:q4="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q4:LGContextoAmbiente" />
+    <wsdl:part xmlns:q5="lg.com.br/svc/dto" name="LGAutenticacao" element="q5:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreTransferenciasEntreEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q6="lg.com.br/svc/dto" name="detail" element="q6:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="detail" element="q7:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="detail" element="q8:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="detail" element="q9:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidacaoImpeditivaTransferenciaEntreEmpresasTG" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InputMessage_Headers">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q10:LGContextoAmbiente" />
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="LGAutenticacao" element="q11:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidacaoImpeditivaTransferenciaEntreEmpresasTGResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="detail" element="q12:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeTransferenciaEntreEmpresasTabGen">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar açoes de transferências entre empresas do Módulo Tabelas Genéricas.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreTransferenciasEntreEmpresas">
+      <wsdl:documentation>
+        <summary>Realiza a transferência entre empresas de um funcionário no Módulo Tabelas Genéricas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresas" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresasResponse" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidacaoImpeditivaTransferenciaEntreEmpresasTG">
+      <wsdl:documentation>
+        <summary>Valida a regras impeditivas de  transferência entre empresas de um funcionário no Módulo Tabelas Genéricas.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTG" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTGResponse" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTGListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTGInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTGFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTGFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeTransferenciaEntreEmpresasTabGen" type="tns:ServicoDeTransferenciaEntreEmpresasTabGen">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreTransferenciasEntreEmpresas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/CadastreTransferenciasEntreEmpresas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_CadastreTransferenciasEntreEmpresas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacaoImpeditivaTransferenciaEntreEmpresasTG">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeTransferenciaEntreEmpresasTabGen/ValidacaoImpeditivaTransferenciaEntreEmpresasTG" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeTransferenciaEntreEmpresasTabGen_ValidacaoImpeditivaTransferenciaEntreEmpresasTG_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeTransferenciaEntreEmpresasTabGenImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeTransferenciaEntreEmpresasTabGen" binding="tns:LGBasicHttp_ServicoDeTransferenciaEntreEmpresasTabGen">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodetransferenciaentreempresastabgen" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

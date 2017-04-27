@@ -1,0 +1,40 @@
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.csprojResolveAssemblyReference.cache
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Infra.Data.Repository.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Infra.Data.Repository.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.xml
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.SqlServer.xml
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Aplicacao.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.SqlServer.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Infra.Data.Repository.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Dominio.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\WCFTestClient.Infra.Data.Repository.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.xml
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\bin\Debug\EntityFramework.SqlServer.xml
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Aplicacao\obj\Debug\WCFTestClient.Aplicacao.csprojResolveAssemblyReference.cache

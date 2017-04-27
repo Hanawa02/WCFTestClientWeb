@@ -1,0 +1,5 @@
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\bin\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\ResolveAssemblyReference.cache
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Infra.Core.CrossCounting\obj\Debug\WCFTestClient.Infra.Core.CrossCounting.pdb

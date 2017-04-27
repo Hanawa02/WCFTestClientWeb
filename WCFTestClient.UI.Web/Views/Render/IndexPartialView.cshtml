@@ -1,0 +1,90 @@
+﻿@using System.Collections;
+@model WCFWebClient.Dominio.Dominio.CampoObjeto
+
+@foreach (var item in Model.Lista)
+    {
+    //verificar uma forma de extrair essa "regra" daqui.
+    if (item.Tipo != typeof(bool) && item.Tipo.IsPrimitive || item.Tipo == typeof(string) || item.Tipo.IsEnum)
+    {
+        <div class="elemento-container">
+            <div class="elemento-nome">
+                @item.Nome : 
+            </div>
+            <div class="elemento">
+                <input type="text" name="@item.CaminhoGenealogico" value="@item.Valor"/>
+            </div>
+        </div>
+    }
+    else
+    {
+        if (item.Tipo == typeof(bool))
+        {
+        <div class="elemento-container">
+            <div class="elemento-nome">
+                @item.Nome : 
+            </div>
+            <div class="elemento">
+                @if(item.Valor == "true") {
+                    <input type="radio" name="@item.CaminhoGenealogico" value="true" checked placeholder="true"/><label>Sim</label>
+                    
+                    <input type="radio" name="@item.CaminhoGenealogico" value="false" placeholder="false"/><label>Não</label>
+                }
+                else
+                {
+                    if(item.Valor == "false") {
+                        <input type="radio" name="@item.CaminhoGenealogico" value="true" placeholder="true"/><label>Sim</label>
+                    <input type="radio" name="@item.CaminhoGenealogico" value="false" checked placeholder="false"/><label>Não</label>
+                        
+                    }
+                    else
+                    {
+                        <input type="radio" name="@item.CaminhoGenealogico" value="true" placeholder="true"/><label>Sim</label>
+                        <input type="radio" name="@item.CaminhoGenealogico" value="false" placeholder="false"/><label>Não</label>
+                    }
+                }
+            </div>
+        </div>
+        }
+        else
+        {
+            if (item.Tipo == typeof(DateTime))
+            {
+            <div class="elemento-container">
+                <div class="elemento-nome">
+                    @item.Nome : 
+                </div>
+                <div class="elemento">
+                    <input type="date" name="@item.CaminhoGenealogico"  value="@item.Valor"/>
+                </div>
+            </div>
+            }
+            else
+            {
+                if (item.Lista != null)
+                {
+                <div class="elemento-container elemento-composto ">
+            
+                <div class="elemento-titulo">
+                @item.Nome :
+                </div>
+                            
+                @Html.Partial("IndexPartialView", item)
+
+                @if (item.Tipo.GetInterfaces().Contains(typeof(IList)))
+                {
+                <div class="container-botao-adicionar">
+                    <button class="botao-adicionar-item-lista botao-padrao" type="button">Adicionar Item</button>
+                </div>
+                }
+                @if (item.Tipo.GetInterfaces().Contains(typeof(IDictionary)))
+                {
+                <div class="container-botao-adicionar">
+                    <button class="botao-adicionar-item-dicionario botao-padrao" type="button">Adicionar Item</button>
+                </div>   
+                }
+                </div>
+                }
+            }
+        }
+    }
+}

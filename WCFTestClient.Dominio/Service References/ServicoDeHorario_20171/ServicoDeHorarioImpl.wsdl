@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeHorarioImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreHorario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="horarioDeTrabalho" nillable="true" type="q1:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreHorarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Cadastre">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="q2:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeHorario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="horarioDeTrabalho" nillable="true" type="q3:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeHorarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Atualize">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="q4:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaHorario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="horarioDeTrabalho_Exclusao" nillable="true" type="q5:HorarioDeTrabalho_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaHorarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaHorario_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho_Exclusao" nillable="true" type="q6:HorarioDeTrabalho_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaHorario_V2Response">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHorario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoHorario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteHorarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="ConsulteHorarioResult" nillable="true" type="q7:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="q8:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroResult" nillable="true" type="q9:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaCadastro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="q10:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaCadastroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasParaCadastroResult" nillable="true" type="q11:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="q12:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoResult" nillable="true" type="q13:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaAtualizacao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="HorarioDeTrabalho" nillable="true" type="q14:HorarioDeTrabalho" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasNaoImpeditivasParaAtualizacaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasNaoImpeditivasParaAtualizacaoResult" nillable="true" type="q15:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaExclusao">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoHorario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaExclusaoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaExclusaoResult" nillable="true" type="q16:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="HorarioDeTrabalho">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="Descanso" nillable="true" type="xsd:string" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Domingo" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="HorarioRegidoPeloArtigo62CLT" type="xsd:boolean" />
+          <xsd:element name="HorasMensais" type="xsd:double" />
+          <xsd:element name="HorasSemanais" type="xsd:double" />
+          <xsd:element minOccurs="0" name="QuartaFeira" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="QuintaFeira" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="Sabado" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="SegundaFeira" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="SextaFeira" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="TercaFeira" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+          <xsd:element minOccurs="0" name="HorarioComplementar" nillable="true" type="tns:HorarioDeTrabalhoComplementar" />
+          <xsd:element minOccurs="0" name="TipoDeInciso" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HorarioDeTrabalho" nillable="true" type="tns:HorarioDeTrabalho" />
+      <xsd:complexType name="MarcacaoDiariaDoHorario">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="HorarioDeEntradaExtra" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeEntradaPrimeiroIntervalo" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeEntradaRefeicao" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeEntradaSegundoIntervalo" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeSaidaExtra" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeSaidaPrimeiroIntervalo" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeSaidaRefeicao" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="HorarioDeSaidaSegundoIntervalo" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MarcacaoDiariaDoHorario" nillable="true" type="tns:MarcacaoDiariaDoHorario" />
+      <xsd:complexType name="HorarioDeTrabalhoComplementar">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="HorarioComplementarContratual" nillable="true" type="tns:ArrayOfHorarioDeTrabalhoComplementarContratual" />
+          <xsd:element minOccurs="0" name="HorarioComplementarIntervalo" nillable="true" type="tns:ArrayOfHorarioDeTrabalhoComplementarIntervalo" />
+          <xsd:element name="TipoDaJornadaDeTrabalho" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HorarioDeTrabalhoComplementar" nillable="true" type="tns:HorarioDeTrabalhoComplementar" />
+      <xsd:complexType name="ArrayOfHorarioDeTrabalhoComplementarContratual">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="HorarioDeTrabalhoComplementarContratual" nillable="true" type="tns:HorarioDeTrabalhoComplementarContratual" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfHorarioDeTrabalhoComplementarContratual" nillable="true" type="tns:ArrayOfHorarioDeTrabalhoComplementarContratual" />
+      <xsd:complexType name="HorarioDeTrabalhoComplementarContratual">
+        <xsd:sequence>
+          <xsd:element name="DiaDaSemana" type="xsd:int" />
+          <xsd:element name="DuracaoDaJornada" type="xsd:int" />
+          <xsd:element name="Flexivel" type="xsd:boolean" />
+          <xsd:element name="HoraDeEntrada" type="xsd:dateTime" />
+          <xsd:element name="HoraDeSaida" type="xsd:dateTime" />
+          <xsd:element name="SequencialDoDiaDaSemana" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HorarioDeTrabalhoComplementarContratual" nillable="true" type="tns:HorarioDeTrabalhoComplementarContratual" />
+      <xsd:complexType name="ArrayOfHorarioDeTrabalhoComplementarIntervalo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="HorarioDeTrabalhoComplementarIntervalo" nillable="true" type="tns:HorarioDeTrabalhoComplementarIntervalo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfHorarioDeTrabalhoComplementarIntervalo" nillable="true" type="tns:ArrayOfHorarioDeTrabalhoComplementarIntervalo" />
+      <xsd:complexType name="HorarioDeTrabalhoComplementarIntervalo">
+        <xsd:sequence>
+          <xsd:element name="DiaDaSemana" type="xsd:int" />
+          <xsd:element name="DuracaoDoIntervalo" type="xsd:int" />
+          <xsd:element name="HoraDeInicio" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="HoraDeTermino" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="SequencialDoDiaDaSemana" type="xsd:int" />
+          <xsd:element name="SequencialDoIntervalo" type="xsd:int" />
+          <xsd:element name="TipoDeIntervalo" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HorarioDeTrabalhoComplementarIntervalo" nillable="true" type="tns:HorarioDeTrabalhoComplementarIntervalo" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="HorarioDeTrabalho_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HorarioDeTrabalho_Exclusao" nillable="true" type="tns:HorarioDeTrabalho_Exclusao" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreHorario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_InputMessage_Headers">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q17:LGContextoAmbiente" />
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGAutenticacao" element="q18:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_CadastreHorario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cadastre" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_InputMessage_Headers">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q23:LGContextoAmbiente" />
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGAutenticacao" element="q24:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Cadastre_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeHorario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_InputMessage_Headers">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q29:LGContextoAmbiente" />
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="LGAutenticacao" element="q30:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="detail" element="q31:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_AtualizeHorario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_InputMessage">
+    <wsdl:part name="parameters" element="tns:Atualize" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_InputMessage_Headers">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q35:LGContextoAmbiente" />
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGAutenticacao" element="q36:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_Atualize_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaHorario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_InputMessage_Headers">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q41:LGContextoAmbiente" />
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="LGAutenticacao" element="q42:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaHorario_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q47:LGContextoAmbiente" />
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="LGAutenticacao" element="q48:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaHorario_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ExcluaHorario_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHorario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_InputMessage_Headers">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q53:LGContextoAmbiente" />
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="LGAutenticacao" element="q54:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ConsulteHorario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q59:LGContextoAmbiente" />
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="LGAutenticacao" element="q60:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaCadastro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q65:LGContextoAmbiente" />
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="LGAutenticacao" element="q66:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaCadastroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InputMessage_Headers">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q71:LGContextoAmbiente" />
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="LGAutenticacao" element="q72:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="detail" element="q73:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="detail" element="q74:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaAtualizacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage_Headers">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q77:LGContextoAmbiente" />
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="LGAutenticacao" element="q78:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasNaoImpeditivasParaAtualizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="detail" element="q79:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="detail" element="q80:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaExclusao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InputMessage_Headers">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q83:LGContextoAmbiente" />
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="LGAutenticacao" element="q84:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaExclusaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="detail" element="q85:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="detail" element="q86:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeHorario">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção de horário.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreHorario">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de horário de trabalho.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreHorario" message="tns:ServicoDeHorario_CadastreHorario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreHorarioResponse" message="tns:ServicoDeHorario_CadastreHorario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreHorarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_CadastreHorario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreHorarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_CadastreHorario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreHorarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_CadastreHorario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreHorarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_CadastreHorario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cadastre">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de horário de trabalho e horário complementar.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/Cadastre" message="tns:ServicoDeHorario_Cadastre_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreResponse" message="tns:ServicoDeHorario_Cadastre_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_Cadastre_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_Cadastre_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_Cadastre_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/CadastreFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_Cadastre_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeHorario">
+      <wsdl:documentation>
+        <summary>Operação de atualização de horário de trabalho.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeHorario" message="tns:ServicoDeHorario_AtualizeHorario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeHorarioResponse" message="tns:ServicoDeHorario_AtualizeHorario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeHorarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_AtualizeHorario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeHorarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_AtualizeHorario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeHorarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_AtualizeHorario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeHorarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_AtualizeHorario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Atualize">
+      <wsdl:documentation>
+        <summary>Operação de atualização de horário de trabalho.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/Atualize" message="tns:ServicoDeHorario_Atualize_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeResponse" message="tns:ServicoDeHorario_Atualize_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_Atualize_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_Atualize_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_Atualize_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/AtualizeFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_Atualize_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaHorario">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de horário de trabalho.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario" message="tns:ServicoDeHorario_ExcluaHorario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorarioResponse" message="tns:ServicoDeHorario_ExcluaHorario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ExcluaHorario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ExcluaHorario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ExcluaHorario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ExcluaHorario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaHorario_V2">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de horário de trabalho e horário complementar.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2" message="tns:ServicoDeHorario_ExcluaHorario_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2Response" message="tns:ServicoDeHorario_ExcluaHorario_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ExcluaHorario_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ExcluaHorario_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ExcluaHorario_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ExcluaHorario_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteHorario">
+      <wsdl:documentation>
+        <summary>Operação de consulta de horário de trabalho.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ConsulteHorario" message="tns:ServicoDeHorario_ConsulteHorario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ConsulteHorarioResponse" message="tns:ServicoDeHorario_ConsulteHorario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ConsulteHorarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ConsulteHorario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ConsulteHorarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ConsulteHorario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ConsulteHorarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ConsulteHorario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ConsulteHorarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ConsulteHorario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastro">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para o cadastro do Horário Complementar, Horário Complementar - Contratual e Horário Complementar - Intevalo.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastro" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastroResponse" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaCadastro">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras não impeditivas para o cadastro do Horário Complementar - Intevalo.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastro" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastroResponse" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para a atualização do Horário Complementar, Horário Complementar - Contratual e Horário Complementar - Intevalo.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacaoResponse" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaAtualizacao">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras não impeditivas para a atualização do Horário Complementar - Intevalo.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacao" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacaoResponse" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaExclusao">
+      <wsdl:documentation>
+        <summary>Operação de valide regras impeditivas para exclusão de horário de trabalho.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusaoResponse" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusaoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusaoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusaoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusaoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeHorario" type="tns:ServicoDeHorario">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreHorario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/CadastreHorario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_CadastreHorario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_CadastreHorario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Cadastre">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/Cadastre" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_Cadastre_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_Cadastre_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeHorario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/AtualizeHorario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_AtualizeHorario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_AtualizeHorario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Atualize">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/Atualize" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_Atualize_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_Atualize_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaHorario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ExcluaHorario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ExcluaHorario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ExcluaHorario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaHorario_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ExcluaHorario_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ExcluaHorario_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ExcluaHorario_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteHorario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ConsulteHorario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ConsulteHorario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ConsulteHorario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaCadastro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaCadastro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaCadastro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaCadastro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaCadastro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaAtualizacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaAtualizacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasNaoImpeditivasParaAtualizacao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ValideRegrasNaoImpeditivasParaAtualizacao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasNaoImpeditivasParaAtualizacao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaExclusao">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeHorario/ValideRegrasImpeditivasParaExclusao" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeHorario_ValideRegrasImpeditivasParaExclusao_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeHorarioImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeHorario" binding="tns:LGBasicHttp_ServicoDeHorario">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodehorario" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeEmpresaImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreEmpresa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="Empresa" nillable="true" type="q1:Empresa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreEmpresaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEmpresa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="Empresa" nillable="true" type="q2:Empresa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeEmpresaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaEmpresa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="Empresa" nillable="true" type="q3:Empresa_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaEmpresaResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExisteEmpresa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaAutenticacao" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExisteEmpresaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ExisteEmpresaResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEmpresa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaAutenticacao" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEmpresaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteEmpresaResult" nillable="true" type="q4:Empresa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEmpresas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaAutenticacao" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteEmpresasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ConsulteEmpresasResult" nillable="true" type="q5:ArrayOfEmpresa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="Empresa">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoEmpresaRelacionamentoAutonomos" nillable="true" type="xsd:int" />
+          <xsd:element name="DataReferencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="IndicadorEmpresaCadastramentoAutonomos" type="xsd:boolean" />
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeFantasia" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NumeroConvenioCAGED" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NumeroFuncionarios" type="xsd:int" />
+          <xsd:element minOccurs="0" name="RecolhimentoCentralizado" nillable="true" type="xsd:boolean" />
+          <xsd:element name="TipoRecolhimento" nillable="true" type="tns:EnumTipoRecolhimentoFGTS" />
+          <xsd:element name="UtilizaTabelaSalarios" type="xsd:boolean" />
+          <xsd:element name="UtilizaTabelasProprias" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Empresa" nillable="true" type="tns:Empresa" />
+      <xsd:simpleType name="EnumTipoRecolhimentoFGTS">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="UNIDADE_UNICA" />
+          <xsd:enumeration value="POR_MATRIZ_FILIAL" />
+          <xsd:enumeration value="MULTIPLAS_EMPRESAS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoRecolhimentoFGTS" nillable="true" type="tns:EnumTipoRecolhimentoFGTS" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="Empresa_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Empresa_Exclusao" nillable="true" type="tns:Empresa_Exclusao" />
+      <xsd:complexType name="ArrayOfEmpresa">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Empresa" nillable="true" type="tns:Empresa" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfEmpresa" nillable="true" type="tns:ArrayOfEmpresa" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_InputMessage_Headers">
+    <wsdl:part xmlns:q6="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q6:LGContextoAmbiente" />
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="LGAutenticacao" element="q7:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="detail" element="q8:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="detail" element="q9:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="detail" element="q10:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_CadastreEmpresa_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="detail" element="q11:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_InputMessage_Headers">
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q12:LGContextoAmbiente" />
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="LGAutenticacao" element="q13:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="detail" element="q16:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_AtualizeEmpresa_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="detail" element="q17:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_InputMessage_Headers">
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q18:LGContextoAmbiente" />
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="LGAutenticacao" element="q19:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExcluaEmpresa_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_InputMessage_Headers">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q24:LGContextoAmbiente" />
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGAutenticacao" element="q25:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ExisteEmpresa_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_InputMessage_Headers">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q30:LGContextoAmbiente" />
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="LGAutenticacao" element="q31:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresa_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_InputMessage_Headers">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q36:LGContextoAmbiente" />
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="LGAutenticacao" element="q37:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeEmpresa_ConsulteEmpresas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeEmpresa">
+    <wsdl:documentation>
+      <summary>Serviço responsável por cadastrar e consultar</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreEmpresa">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de uma empresa</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresa" message="tns:ServicoDeEmpresa_CadastreEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresaResponse" message="tns:ServicoDeEmpresa_CadastreEmpresa_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEmpresa_CadastreEmpresa_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEmpresa_CadastreEmpresa_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEmpresa_CadastreEmpresa_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEmpresa_CadastreEmpresa_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEmpresa">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de uma empresa</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresa" message="tns:ServicoDeEmpresa_AtualizeEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresaResponse" message="tns:ServicoDeEmpresa_AtualizeEmpresa_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEmpresa_AtualizeEmpresa_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEmpresa_AtualizeEmpresa_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEmpresa_AtualizeEmpresa_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEmpresa_AtualizeEmpresa_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaEmpresa">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de uma empresa</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresa" message="tns:ServicoDeEmpresa_ExcluaEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresaResponse" message="tns:ServicoDeEmpresa_ExcluaEmpresa_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEmpresa_ExcluaEmpresa_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEmpresa_ExcluaEmpresa_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEmpresa_ExcluaEmpresa_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEmpresa_ExcluaEmpresa_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteEmpresa">
+      <wsdl:documentation>
+        <summary>Verifica se uma empresa existe</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresa" message="tns:ServicoDeEmpresa_ExisteEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresaResponse" message="tns:ServicoDeEmpresa_ExisteEmpresa_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEmpresa_ExisteEmpresa_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEmpresa_ExisteEmpresa_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEmpresa_ExisteEmpresa_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEmpresa_ExisteEmpresa_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEmpresa">
+      <wsdl:documentation>
+        <summary>Operação de consulta de empresa</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresa" message="tns:ServicoDeEmpresa_ConsulteEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresaResponse" message="tns:ServicoDeEmpresa_ConsulteEmpresa_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEmpresa_ConsulteEmpresa_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEmpresa_ConsulteEmpresa_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEmpresa_ConsulteEmpresa_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEmpresa_ConsulteEmpresa_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEmpresas">
+      <wsdl:documentation>
+        <summary>Operação consulta empresas cadastradas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresas" message="tns:ServicoDeEmpresa_ConsulteEmpresas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresasResponse" message="tns:ServicoDeEmpresa_ConsulteEmpresas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeEmpresa_ConsulteEmpresas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeEmpresa_ConsulteEmpresas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeEmpresa_ConsulteEmpresas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeEmpresa_ConsulteEmpresas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeEmpresa" type="tns:ServicoDeEmpresa">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreEmpresa">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEmpresa/CadastreEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEmpresa_CadastreEmpresa_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEmpresa_CadastreEmpresa_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeEmpresa">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEmpresa/AtualizeEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEmpresa_AtualizeEmpresa_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEmpresa_AtualizeEmpresa_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaEmpresa">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEmpresa/ExcluaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEmpresa_ExcluaEmpresa_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEmpresa_ExcluaEmpresa_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteEmpresa">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEmpresa/ExisteEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEmpresa_ExisteEmpresa_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEmpresa_ExisteEmpresa_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEmpresa">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEmpresa_ConsulteEmpresa_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEmpresa_ConsulteEmpresa_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteEmpresas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeEmpresa/ConsulteEmpresas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeEmpresa_ConsulteEmpresas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeEmpresa_ConsulteEmpresas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeEmpresaImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeEmpresa" binding="tns:LGBasicHttp_ServicoDeEmpresa">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeempresa" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

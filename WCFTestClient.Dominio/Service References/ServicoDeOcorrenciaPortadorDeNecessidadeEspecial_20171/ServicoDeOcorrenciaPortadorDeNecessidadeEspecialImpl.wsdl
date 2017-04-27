@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecialImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="InsiraOcorrenciaDePortadorDeNecessidadeEspecial">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="DadosPNE" nillable="true" type="q1:DadosOcorrenciaDePortadorDeNecessidadeEspecial" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraOcorrenciaDePortadorDeNecessidadeEspecialResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaOcorrenciaDePortadorDeNecessidadeEspecial">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="DadosExclusaoPNE" nillable="true" type="q2:DadosOcorrenciaDePortadorDeNecessidadeEspecial_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaOcorrenciaDePortadorDeNecessidadeEspecialResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOcorrenciaDePortadorDeNecessidadeEspecial">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoDaEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DataInicioOcorrencia" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteOcorrenciaDePortadorDeNecessidadeEspecialResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ConsulteOcorrenciaDePortadorDeNecessidadeEspecialResult" nillable="true" type="q3:DadosOcorrenciaDePortadorDeNecessidadeEspecial" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="DadosOcorrenciaDePortadorDeNecessidadeEspecial">
+        <xsd:sequence>
+          <xsd:element name="ClassificacaoNecessidadeEspecial" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="DataDeInicioDaOcorrencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element name="TipoNecessidadeEspecial" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+          <xsd:element minOccurs="0" name="NecessidadeEspecialMultipla" nillable="true" type="tns:DadosNecessidadeMultipla" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosOcorrenciaDePortadorDeNecessidadeEspecial" nillable="true" type="tns:DadosOcorrenciaDePortadorDeNecessidadeEspecial" />
+      <xsd:simpleType name="EnumTipoNecessidadeEspecial">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="FISICA" />
+          <xsd:enumeration value="AUDITIVA" />
+          <xsd:enumeration value="VISUAL" />
+          <xsd:enumeration value="MENTAL" />
+          <xsd:enumeration value="MULTIPLA" />
+          <xsd:enumeration value="REABILITADO" />
+          <xsd:enumeration value="INTELECTUAL" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoNecessidadeEspecial" nillable="true" type="tns:EnumTipoNecessidadeEspecial" />
+      <xsd:complexType name="DadosNecessidadeMultipla">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Auditiva" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Fisico" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Mental" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Reabilitado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Visual" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Intelectual" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosNecessidadeMultipla" nillable="true" type="tns:DadosNecessidadeMultipla" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="DadosOcorrenciaDePortadorDeNecessidadeEspecial_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="DataDeInicioDaOcorrencia" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DadosOcorrenciaDePortadorDeNecessidadeEspecial_Exclusao" nillable="true" type="tns:DadosOcorrenciaDePortadorDeNecessidadeEspecial_Exclusao" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraOcorrenciaDePortadorDeNecessidadeEspecial" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers">
+    <wsdl:part xmlns:q4="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q4:LGContextoAmbiente" />
+    <wsdl:part xmlns:q5="lg.com.br/svc/dto" name="LGAutenticacao" element="q5:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraOcorrenciaDePortadorDeNecessidadeEspecialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q6="lg.com.br/svc/dto" name="detail" element="q6:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="detail" element="q7:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="detail" element="q8:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="detail" element="q9:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaOcorrenciaDePortadorDeNecessidadeEspecial" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q10:LGContextoAmbiente" />
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="LGAutenticacao" element="q11:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaOcorrenciaDePortadorDeNecessidadeEspecialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="detail" element="q12:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOcorrenciaDePortadorDeNecessidadeEspecial" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q16:LGContextoAmbiente" />
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="LGAutenticacao" element="q17:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteOcorrenciaDePortadorDeNecessidadeEspecialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="detail" element="q18:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecial">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar a manutenção de ocorrências de portador de necessidade especial.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="InsiraOcorrenciaDePortadorDeNecessidadeEspecial">
+      <wsdl:documentation>
+        <summary>Inclusão de ocorrência de portador de necessidade especial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecial" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecialResponse" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecialListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecialInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecialFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecialFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaOcorrenciaDePortadorDeNecessidadeEspecial">
+      <wsdl:documentation>
+        <summary>Exclusão de ocorrência de portador de necessidade especial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecial" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecialResponse" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecialListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecialInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecialFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecialFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOcorrenciaDePortadorDeNecessidadeEspecial">
+      <wsdl:documentation>
+        <summary>Consulta a ocorrência de portador de necessidade especial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecial" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecialResponse" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecialInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecialListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecialFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecialFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeOcorrenciaPortadorDeNecessidadeEspecial" type="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsiraOcorrenciaDePortadorDeNecessidadeEspecial">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/InsiraOcorrenciaDePortadorDeNecessidadeEspecial" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_InsiraOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaOcorrenciaDePortadorDeNecessidadeEspecial">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ExcluaOcorrenciaDePortadorDeNecessidadeEspecial" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ExcluaOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteOcorrenciaDePortadorDeNecessidadeEspecial">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeOcorrenciaPortadorDeNecessidadeEspecial/ConsulteOcorrenciaDePortadorDeNecessidadeEspecial" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_ConsulteOcorrenciaDePortadorDeNecessidadeEspecial_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeOcorrenciaPortadorDeNecessidadeEspecialImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeOcorrenciaPortadorDeNecessidadeEspecial" binding="tns:LGBasicHttp_ServicoDeOcorrenciaPortadorDeNecessidadeEspecial">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeocorrenciaportadordenecessidadeespecial" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

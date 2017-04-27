@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeAfastamentoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ConsulteDadosUltimaOcorrenciaDeAfastamento">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ObjetoParametro" nillable="true" type="q1:ParametroAfastamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosUltimaOcorrenciaDeAfastamentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDadosUltimaOcorrenciaDeAfastamentoResult" nillable="true" type="q2:Afastamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosUltimaOcorrenciaDeAfastamento_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="ObjetoParametro" nillable="true" type="q3:ParametroAfastamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteDadosUltimaOcorrenciaDeAfastamento_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteDadosUltimaOcorrenciaDeAfastamento_V2Result" nillable="true" type="q4:Afastamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeMotivosDeAfastamento">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeMotivosDeAfastamentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeMotivosDeAfastamentoResult" nillable="true" type="q5:ArrayOfMotivoAfastamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteLista">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaResult" nillable="true" type="q6:ArrayOfAfastamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="ParametroAfastamento">
+        <xsd:sequence>
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="DataConsulta" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametroAfastamento" nillable="true" type="tns:ParametroAfastamento" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="Afastamento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AcidenteDeTrajeto" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CID" nillable="true" type="tns:CID" />
+          <xsd:element name="CodigoEmpresa" type="xsd:int" />
+          <xsd:element name="DataDeInicioDoAfastamento" type="xsd:dateTime" />
+          <xsd:element name="DataDeRetornoDoAfastamento" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DiasDeAfastamento" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DiasDeAuxilioDoenca" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DoencaRelacionadaAoTrabalho" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IndicadorProrrogacaoReferenteAoProgramaEmpresaCidada" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IndicadorSemPrevisaoRetorno" nillable="true" type="xsd:string" />
+          <xsd:element name="MatriculaFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Situacao" nillable="true" type="tns:Situacao" />
+          <xsd:element minOccurs="0" name="SituacaoAtualFuncionario" nillable="true" type="tns:Situacao" />
+          <xsd:element name="TipoDeAfastamento" nillable="true" type="tns:EnumSeguroTipoAfastamento" />
+          <xsd:element minOccurs="0" name="Cessionario" nillable="true" type="tns:Cessionario" />
+          <xsd:element minOccurs="0" name="DataAlteracaoMotivo" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Emitente" nillable="true" type="tns:Emitente" />
+          <xsd:element minOccurs="0" name="IndicadorEfeitoRetroativo" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Motivo" nillable="true" type="tns:EnumMotivosDeAfastamentos" />
+          <xsd:element minOccurs="0" name="Sindicato" nillable="true" type="tns:CessionarioSindicato" />
+          <xsd:element minOccurs="0" name="TipoAcidenteTransito" nillable="true" type="tns:EnumTiposAcidenteDeTransito" />
+          <xsd:element minOccurs="0" name="MotivoAfastamento" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoAlteracaoMotivo" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="NumeroProcessoJudicial" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Afastamento" nillable="true" type="tns:Afastamento" />
+      <xsd:complexType name="CID">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoConsulta" nillable="true" type="xsd:string" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CID" nillable="true" type="tns:CID" />
+      <xsd:complexType name="Situacao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="TipoSituacao" nillable="true" type="tns:EnumTipoSituacao" />
+          <xsd:element name="DescricaoSituacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Situacao" nillable="true" type="tns:Situacao" />
+      <xsd:simpleType name="EnumTipoSituacao">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ATIVIDADE_NORMAL" />
+          <xsd:enumeration value="FERIAS" />
+          <xsd:enumeration value="AFASTAMENTO" />
+          <xsd:enumeration value="RESCISAO" />
+          <xsd:enumeration value="RECESSO" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTipoSituacao" nillable="true" type="tns:EnumTipoSituacao" />
+      <xsd:complexType name="EnumSeguroTipoAfastamento">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EnumSeguroTipoAfastamento" nillable="true" type="tns:EnumSeguroTipoAfastamento" />
+      <xsd:complexType name="Cessionario">
+        <xsd:sequence>
+          <xsd:element name="CNPJ" nillable="true" type="xsd:string" />
+          <xsd:element name="Onus" nillable="true" type="tns:EnumOnusCessionario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Cessionario" nillable="true" type="tns:Cessionario" />
+      <xsd:simpleType name="EnumOnusCessionario">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="CEDENTE">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="CESSIONARIO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="CEDENTE_E_CESSIONARIO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumOnusCessionario" nillable="true" type="tns:EnumOnusCessionario" />
+      <xsd:complexType name="Emitente">
+        <xsd:sequence>
+          <xsd:element name="Nome" nillable="true" type="xsd:string" />
+          <xsd:element name="OrgaoDeClasse" nillable="true" type="tns:OrgaoDeClasse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Emitente" nillable="true" type="tns:Emitente" />
+      <xsd:complexType name="OrgaoDeClasse">
+        <xsd:sequence>
+          <xsd:element name="Inscricao" nillable="true" type="xsd:string" />
+          <xsd:element name="UF" nillable="true" type="tns:EnumUF" />
+          <xsd:element name="OrgaoEmissor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DataEmissao" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataValidade" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="TipoOrgaoClasse" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OrgaoDeClasse" nillable="true" type="tns:OrgaoDeClasse" />
+      <xsd:simpleType name="EnumUF">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ACRE" />
+          <xsd:enumeration value="ALAGOAS" />
+          <xsd:enumeration value="AMAZONAS" />
+          <xsd:enumeration value="AMAPA" />
+          <xsd:enumeration value="BAHIA" />
+          <xsd:enumeration value="CEARA" />
+          <xsd:enumeration value="DISTRITO_FEDERAL" />
+          <xsd:enumeration value="ESPIRITO_SANTO" />
+          <xsd:enumeration value="GOIAS" />
+          <xsd:enumeration value="MARANHAO" />
+          <xsd:enumeration value="MINAS_GERAIS" />
+          <xsd:enumeration value="MATO_GROSSO_DO_SUL" />
+          <xsd:enumeration value="MATO_GROSSO" />
+          <xsd:enumeration value="PARA" />
+          <xsd:enumeration value="PARAIBA" />
+          <xsd:enumeration value="PERNAMBUCO" />
+          <xsd:enumeration value="PIAUI" />
+          <xsd:enumeration value="PARANA" />
+          <xsd:enumeration value="RIO_DE_JANEIRO" />
+          <xsd:enumeration value="RIO_GRANDE_DO_NORTE" />
+          <xsd:enumeration value="RONDONIA" />
+          <xsd:enumeration value="RORAIMA" />
+          <xsd:enumeration value="RIO_GRANDE_DO_SUL" />
+          <xsd:enumeration value="SANTA_CATARINA" />
+          <xsd:enumeration value="SERGIPE" />
+          <xsd:enumeration value="SAO_PAULO" />
+          <xsd:enumeration value="TOCANTINS" />
+          <xsd:enumeration value="OUTROS" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumUF" nillable="true" type="tns:EnumUF" />
+      <xsd:simpleType name="EnumMotivosDeAfastamentos">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ESOCIAL_ACIDENTE_TRABALHO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_NOVO_MSM_ACID_TRABALHO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_DOENCA">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_NOVO_MSM_DOENCA_60_DIAS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_LICENCA_PATERNIDADE">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_LICENCA_MATERNIDADE_120_DIAS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_LICENCA_MATERNIDADE_ATE_180_DIAS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_ABORTO_NAO_CRIMINOSO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_PRESTACAO_SERVICO_MILITAR">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_EXERCICIO_MANDATO_SINDICAL">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_LICENCA_VENCIMENTOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_EXERCICIO_MANDATO_ELEITORAL">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_PARTICIPACAO_CURSO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_CESSAO_TRABALHADOR">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_CARCERE">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ESOCIAL_OUTROS_MOTIVOS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">99</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumMotivosDeAfastamentos" nillable="true" type="tns:EnumMotivosDeAfastamentos" />
+      <xsd:complexType name="CessionarioSindicato">
+        <xsd:sequence>
+          <xsd:element name="CNPJ" nillable="true" type="xsd:string" />
+          <xsd:element name="Onus" nillable="true" type="tns:EnumOnusSindical" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CessionarioSindicato" nillable="true" type="tns:CessionarioSindicato" />
+      <xsd:simpleType name="EnumOnusSindical">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="EMPREGADOR">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SINDICATO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="DIFERENCA_SALARIAL_SINDICATO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumOnusSindical" nillable="true" type="tns:EnumOnusSindical" />
+      <xsd:simpleType name="EnumTiposAcidenteDeTransito">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="ATROPELAMENTO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="COLISAO">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="OUTROS">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="EnumTiposAcidenteDeTransito" nillable="true" type="tns:EnumTiposAcidenteDeTransito" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ArrayOfMotivoAfastamento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="MotivoAfastamento" nillable="true" type="tns:MotivoAfastamento" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfMotivoAfastamento" nillable="true" type="tns:ArrayOfMotivoAfastamento" />
+      <xsd:complexType name="MotivoAfastamento">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RetornoCodigoEDescricaoGenericoint">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="MotivoAfastamento" nillable="true" type="tns:MotivoAfastamento" />
+      <xsd:complexType name="RetornoCodigoEDescricaoGenericoint">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="RetornoCodigoEDescricaoGenerico{0}" Namespace="lg.com.br/svc/dto" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RetornoCodigoEDescricaoGenericoint" nillable="true" type="tns:RetornoCodigoEDescricaoGenericoint" />
+      <xsd:complexType name="ArrayOfAfastamento">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Afastamento" nillable="true" type="tns:Afastamento" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfAfastamento" nillable="true" type="tns:ArrayOfAfastamento" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosUltimaOcorrenciaDeAfastamento" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InputMessage_Headers">
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q7:LGContextoAmbiente" />
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="LGAutenticacao" element="q8:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosUltimaOcorrenciaDeAfastamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="detail" element="q9:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="detail" element="q10:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="detail" element="q11:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="detail" element="q12:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosUltimaOcorrenciaDeAfastamento_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q13:LGContextoAmbiente" />
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="LGAutenticacao" element="q14:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteDadosUltimaOcorrenciaDeAfastamento_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="detail" element="q16:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="detail" element="q17:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="detail" element="q18:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeMotivosDeAfastamento" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InputMessage_Headers">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q19:LGContextoAmbiente" />
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="LGAutenticacao" element="q20:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeMotivosDeAfastamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="detail" element="q24:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteLista" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_InputMessage_Headers">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q25:LGContextoAmbiente" />
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="LGAutenticacao" element="q26:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAfastamento_ConsulteLista_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeAfastamento">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela consulta da ultima ocorrencia de afastamento.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ConsulteDadosUltimaOcorrenciaDeAfastamento">
+      <wsdl:documentation>
+        <summary>Consulta dados da ultima ocorrencia de afastamento.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamentoResponse" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamentoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamentoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamentoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamentoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosUltimaOcorrenciaDeAfastamento_V2">
+      <wsdl:documentation>
+        <summary>Consulta dados da ultima ocorrencia de afastamento.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2Response" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeMotivosDeAfastamento">
+      <wsdl:documentation>
+        <summary>Obtém a lista de motivos de afastamento do funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamento" message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamentoResponse" message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamentoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamentoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamentoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamentoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLista">
+      <wsdl:documentation>
+        <summary>Realiza consulta de todos os afastamentos do funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteLista" message="tns:ServicoDeAfastamento_ConsulteLista_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaResponse" message="tns:ServicoDeAfastamento_ConsulteLista_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAfastamento_ConsulteLista_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAfastamento_ConsulteLista_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAfastamento_ConsulteLista_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAfastamento_ConsulteLista_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeAfastamento" type="tns:ServicoDeAfastamento">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsulteDadosUltimaOcorrenciaDeAfastamento">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteDadosUltimaOcorrenciaDeAfastamento_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAfastamento/ConsulteDadosUltimaOcorrenciaDeAfastamento_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteDadosUltimaOcorrenciaDeAfastamento_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeMotivosDeAfastamento">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAfastamento/ConsulteListaDeMotivosDeAfastamento" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteListaDeMotivosDeAfastamento_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteLista">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAfastamento/ConsulteLista" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteLista_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAfastamento_ConsulteLista_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeAfastamentoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeAfastamento" binding="tns:LGBasicHttp_ServicoDeAfastamento">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeafastamento" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

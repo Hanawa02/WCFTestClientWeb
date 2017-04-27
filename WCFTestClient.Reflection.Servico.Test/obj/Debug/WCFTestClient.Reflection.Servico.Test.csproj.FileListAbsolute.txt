@@ -1,0 +1,10 @@
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\bin\Debug\WCFTestClient.Reflection.Servico.Test.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\bin\Debug\WCFTestClient.Reflection.Servico.Test.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\obj\Debug\WCFTestClient.Reflection.Servico.Test.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\obj\Debug\WCFTestClient.Reflection.Servico.Test.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\bin\Debug\WCFTestClient.Reflection.Servico.Test.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\bin\Debug\WCFTestClient.Reflection.Servico.Test.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\obj\Debug\WCFTestClient.Reflection.Servico.Test.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\obj\Debug\WCFTestClient.Reflection.Servico.Test.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Reflection.Servico.Test\obj\Debug\WCFTestClient.Reflection.Servico.Test.csprojResolveAssemblyReference.cache

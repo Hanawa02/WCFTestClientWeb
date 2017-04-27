@@ -1,0 +1,28 @@
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.pdb
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.dll
+C:\Users\laura.melo\Documents\Visual Studio 2010\Projects\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.pdb
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.csprojResolveAssemblyReference.cache
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.dll
+D:\LG_Dev\Equipe Calculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Domain.Test.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\bin\Debug\WCFTestClient.Dominio.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.dll
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.pdb
+D:\EquipeFPWCalculo\WCFTestClient\WCFTestClient.Domain.Test\obj\Debug\WCFTestClient.Domain.Test.csprojResolveAssemblyReference.cache

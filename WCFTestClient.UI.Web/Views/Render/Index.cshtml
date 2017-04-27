@@ -1,0 +1,557 @@
+﻿@using System.Collections;
+
+@model WCFWebClient.Dominio.Dominio.CampoObjeto
+          
+@{string nomeMetodo = @ViewBag.NomeMetodo;}
+@{string nomeInterface = @ViewBag.NomeInterface;}
+@{List<WCFWebClient.Dominio.Data.Perfil> listaPerfis = @ViewBag.ListaPerfis;}
+
+<form id="formulario-dinamico" class="formulario-dinamico" method="POST" action="@Url.Action("InvocarServico")">
+    @Html.Hidden("nome-metodo", nomeMetodo)
+    @Html.Hidden("nome-interface", nomeInterface)
+    
+    <div id="ModalProcessamento" class="modal fade" role="dialog" show="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title">Invocando Serviço</p>
+                </div>
+                <div class="modal-body" style="text-align:center">
+                    <img src="../WCFTestClientWeb/Content/aguarde.gif" alt="aguarde gif" width="25px" height="25px"/>
+                    <p>Aguarde...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Select Perfil-->
+    <div class="endereco-endpoint">
+        <div class="titulo-endereco-endpoint">Digite a máquina para execução do serviço:</div>
+        <div class="input-endereco-endpoint"><input type="text" id="endpoint-servico" name="endpoint-servico" value="@System.Environment.MachineName"></div>
+    </div>
+    <div class="menu-perfil">
+        <div class="titulo-perfil">Perfil:</div>
+        <div class="form-perfil">
+        <select name="perfil" id="perfil" class="form-control">
+            <option value=""></option>
+            @foreach (var perfil in listaPerfis)
+            {
+                <option value="@perfil.PerfilId">@perfil.Descricao</option>
+            }
+        </select>
+        </div>
+    </div>
+    <!--Botoes Menu-->
+    <div class="menu-botoes">
+        <div class="botao-perfil"><button id="limparTodosOsCampos" type="button" class="botao-padrao">Limpar Campos</button></div>
+        <div class="botao-perfil"><button id="formulario-dinamico-salvar" type="button" class="botao-padrao">Salvar Perfil</button></div>
+        <div class="botao-perfil"><button id="formulario-dinamico-deletar" type="button" class="botao-padrao" disabled>Deletar Perfil</button></div>
+        <div class="botao-perfil"><button id="formulario-dinamico-invocar" type="button" class="botao-padrao">Invocar Serviço</button></div>
+    </div>
+
+    <!--Formulario-->
+    <div class="formulario-dinamico-conteudo">
+        <div class="formulario-titulo">@Model.Nome</div>
+
+<!--verificar uma forma de extrair essa "regra" daqui.-->
+@if (Model.Tipo != typeof(bool) && Model.Tipo.IsPrimitive || Model.Tipo == typeof(string) || Model.Tipo.IsEnum)
+{
+    <div class="elemento-container">
+        <div class="elemento-nome">
+            @Model.Nome : 
+        </div>
+        <div class="elemento">
+            <input type="text" name="@Model.CaminhoGenealogico" value="@Model.Valor"/>
+        </div>
+    </div>
+}
+else
+{
+    if (Model.Tipo == typeof(bool))
+    {
+    <div class="elemento-container">
+        <div class="elemento-nome">
+            @Model.Nome : 
+        </div>
+        <div class="elemento">
+            <input type="radio" name="@Model.CaminhoGenealogico" value="true"/><label>Sim</label>
+            <input type="radio" name="@Model.CaminhoGenealogico" value="false"/><label>Não</label>
+        </div>
+    </div>
+    }
+    else
+    {
+        if (Model.Tipo == typeof(DateTime))
+        {
+        <div class="elemento-container">
+            <div class="elemento-nome">
+                @Model.Nome : 
+            </div>
+            <div class="elemento">
+                <input type="date" name="@Model.CaminhoGenealogico"  value="@Model.Valor"/>
+            </div>
+        </div>
+        }
+        else
+        {
+            if (Model.Lista != null)
+            {                
+            @Html.Partial("IndexPartialView", Model)
+
+            if (Model.Tipo.GetInterfaces().Contains(typeof(IList)))
+            {
+            <div class="container-botao-adicionar">
+                <button class="botao-adicionar-item-lista botao-padrao" type="button">Adicionar Item</button>
+            </div>
+            }
+                
+            <!--if (item.Tipo.GetInterfaces().Contains(typeof(IDictionary)))
+            {
+            <div class="container-botao-adicionar">
+                <button class="botao-adicionar-item-dicionario botao-padrao" type="button">Adicionar Item</button>
+            </div>   
+            }-->
+            }
+        }
+    }
+}
+</div>
+</form>
+   
+<script>
+    $(function () {
+        $("#limparTodosOsCampos").click(function () {
+            $("input[type=text],input[type=date]").each(function () {
+                if (this.name != "nome-metodo" && this.name != "nome-interface" && this.name != "descricao-perfil" && this.name != "endpoint-servico") {
+                    this.value = "";
+                }
+            });
+
+            $("input[type=radio]").each(function () {
+                this.checked = false;
+            });
+
+            document.getElementById("formulario-dinamico-deletar").disabled = true;
+
+            document.getElementById("perfil").selectedIndex = 0;
+        });
+
+        // Preenche o formulario de acordo com o perfil
+        $("#perfil").change(function () {
+            var inputsFormulario = $('#formulario-dinamico').find('input');
+            $.getJSON('@Url.Action("SelecionaPerfil")', { idPerfil: $("#perfil").val(), nomeInterface: $("#nome-interface").val(), nomeMetodo: $("#nome-metodo").val() }, function (data) {
+                $.each(inputsFormulario, function (j, input) {
+                    if (input.name != "nome-metodo" && input.name != "nome-interface" && input.name != "descricao-perfil" && input.name != "endpoint-servico") {
+
+                        if (input.type == "radio") {
+                            input.checked = false;
+                        } else {
+                            input.value = "";
+                        }
+
+                        if (data != "") {
+                            document.getElementById("formulario-dinamico-deletar").disabled = false;
+                            $.each(data, function (i, item) {
+                                if (input.name == item.Campo) {
+                                    if (input.type == "radio") {
+                                        if (input.placeholder == item.Valor) {
+                                            input.checked = true;
+                                        }
+
+                                    } else {
+                                        input.value = item.Valor;
+                                    }
+                                }
+                            });
+                        } else {
+                            document.getElementById("formulario-dinamico-deletar").disabled = true;
+                        }
+                    }
+                });
+            });
+        });
+
+        $('#formulario-dinamico-deletar').click(function () {
+            $('#ModalProcessamento').modal();
+            var modalConfirmacao = '<div id="ModalConfirmacao" class="modal fade" role="dialog">';
+            modalConfirmacao += '<div class="modal-dialog">';
+            modalConfirmacao += '<div class="modal-content">';
+            modalConfirmacao += '<div class="modal-header">';
+            modalConfirmacao += '<p class="modal-title">Deletar Perfil de Parâmetros?</p>';
+            modalConfirmacao += '</div>';
+            modalConfirmacao += '<div class="modal-footer">';
+            modalConfirmacao += '<div class="botao-perfil"><button id="deletar-perfil-sim" type="button" class="botao-padrao">Sim</button></div>';
+            modalConfirmacao += '<div class="botao-perfil"><button id="deletar-perfil-nao" type="button" class="botao-padrao">Não</button></div>';
+            modalConfirmacao += '</div>';
+            modalConfirmacao += '</div>';
+            modalConfirmacao += '</div>';
+            modalConfirmacao += '</div>';
+            $('#formulario-dinamico').append(modalConfirmacao);
+            $('#ModalProcessamento').modal('hide');
+            $('#deletar-perfil-sim').click(function () {
+                $('#ModalProcessamento').modal();
+                $.getJSON('@Url.Action("DeletarPerfil")', { idPerfil: $("#perfil").val() }, function (data) {
+                    $('#myModal').remove();
+
+                    // Exibe o resultado do salvar através de um outro modal
+                    var modalResultado = '<div id="myModal" class="modal fade" role="dialog">';
+                    modalResultado += '<div class="modal-dialog">';
+                    modalResultado += '<div class="modal-content">';
+                    modalResultado += '<div class="modal-header">';
+                    if (data == "") {
+                        modalResultado += '<p class="modal-title">Resultado Desconhecido!</p>';
+                    } else {
+                        modalResultado += '<p class="modal-title">Resultado da solicitação do serviço: ' + data.TipoDoReultado + '</p>';
+                    }
+                    modalResultado += '</div>';
+                    modalResultado += '<div class="modal-body">';
+                    if (data == "") {
+                        modalResultado += '<p>Houve um problema desconhecido ao tentar deletar o perfil!</p>';
+                    } else {
+                        modalResultado += '<ul>';
+                        $.each(data.Mensagens, function () {
+                            //Essas variáveis foram criadas devido um bug ao comparar/adicionar "</ul">
+                            var ulString = "</ul>";
+
+                            if (this != "\n" && this != ulString) {
+                                modalResultado += '<li>';
+                                modalResultado += this;
+                                modalResultado += '</li>';
+                            } else {
+                                if (this == ul) {
+                                    modalResultado += this;
+                                } else {
+                                    modalResultado += '<br>';
+                                }
+                            }
+                        });
+                        modalResultado += '</ul>';
+                    }
+                    modalResultado += '</div>';
+                    modalResultado += '<div class="modal-footer">';
+                    modalResultado += '<button type="button" id="dismiss-modal-deleta-perfil" class="btn btn-default botao-padrao botao-modal-resultado" data-dismiss="modal">Voltar</button>';
+                    modalResultado += '</div>';
+                    modalResultado += '</div>';
+                    modalResultado += '</div>';
+                    modalResultado += '</div>';
+                    $('#formulario-dinamico').append(modalResultado);
+                    $('#ModalProcessamento').modal('hide');
+                    $('#myModal').modal('show');
+                    $('#dismiss-modal-deleta-perfil').click(function () {
+                        AtualizaPerfis();
+
+                        $('#ModalConfirmacao').modal('hide');
+                    });
+                });
+            });
+
+            $('#deletar-perfil-nao').click(function () {
+                $('#ModalConfirmacao').modal('show');
+                $('#ModalConfirmacao').remove();
+            });
+            $('#ModalConfirmacao').modal('show');            
+        });
+
+        
+
+        // Inicia o processeo de salvar um perfil, criando um modal para inserção da descriçao do perfil
+        $('#formulario-dinamico-salvar').click(function () {
+            $('#myModalPerfil').remove();
+
+            // Criação do modal
+            var modalResultado = '<div id="myModalPerfil" class="modal fade" role="dialog">';
+            modalResultado += '<div class="modal-dialog">';
+            modalResultado += '<div class="modal-content">';
+            modalResultado += '<div class="modal-header">';
+            modalResultado += '<p class="modal-title">Salvar Perfil de Parâmetros</p>';
+            modalResultado += '</div>';
+            modalResultado += '<div class="modal-body">';
+            modalResultado += '<p>Descrição do Perfil: </p>';
+            modalResultado += '<input type="text" id="descricao-perfil-modal" name="descricao-perfil-modal" value="">';
+            modalResultado += '</div>';
+            modalResultado += '<div class="modal-footer">';
+            modalResultado += '<button id="salvar-perfil" type="button" class="botao-padrao">Salvar Perfil</button>';
+            modalResultado += '<button id="sair-modal" type="button" class="btn btn-default botao-padrao botao-modal-resultado" data-dismiss="modal">Cancelar</button>';
+            modalResultado += '</div>';
+            modalResultado += '</div>';
+            modalResultado += '</div>';
+            modalResultado += '</div>';
+            $('#formulario-dinamico').append(modalResultado);
+            $('#myModalPerfil').modal('show');
+
+
+            // Salva o perfil
+            $('#salvar-perfil').click(function () {
+                console.log("Entrou no salva perfil");
+                var descricao = $("input[name=descricao-perfil-modal]").val();
+
+                $("input[name=descricao-perfil-modal]").remove();
+                $("input[name=descricao-perfil]").remove();
+
+                $('#nome-interface').append('<input id="descricao-perfil" name="descricao-perfil" type="hidden" value="' + descricao + '">');
+
+                // Invoca a ação de salvar perfil do controller
+                $.post("SalvarPerfil", $('#formulario-dinamico').serialize(), function (data) {
+                    $('#myModal').remove();
+
+                    // Exibe o resultado do salvar através de um outro modal
+                    var modalResultado = '<div id="myModal" class="modal fade" role="dialog">';
+                    modalResultado += '<div class="modal-dialog">';
+                    modalResultado += '<div class="modal-content">';
+                    modalResultado += '<div class="modal-header">';
+                    if (data == "") {
+                        modalResultado += '<p class="modal-title">Resultado Desconhecido!</p>';
+                    } else {
+                        modalResultado += '<p class="modal-title">Resultado da solicitação do serviço: ' + data.TipoDoReultado + '</p>';
+                    }
+                    modalResultado += '</div>';
+                    modalResultado += '<div class="modal-body">';
+                    if (data == "") {
+                        modalResultado += '<p>Houve um problema desconhecido ao tentar salvar o perfil!</p>';
+                    } else {
+                        modalResultado += '<ul>';
+                        $.each(data.Mensagens, function () {
+                            //Essas variáveis foram criadas devido um bug ao comparar/adicionar "</ul">
+                            var ulString = "</ul>";
+
+                            if (this != "\n" && this != ulString) {
+                                modalResultado += '<li>';
+                                modalResultado += this;
+                                modalResultado += '</li>';
+                            } else {
+                                if (this == ul) {
+                                    modalResultado += this;
+                                } else {
+                                    modalResultado += '<br>';
+                                }
+                            }
+                        });
+                        modalResultado += '</ul>';
+                    }
+                    modalResultado += '</div>';
+                    modalResultado += '<div class="modal-footer">';
+                    modalResultado += '<button type="button" id="dismiss-modal-salva-perfil" class="btn btn-default botao-padrao botao-modal-resultado" data-dismiss="modal">Voltar</button>';
+                    modalResultado += '</div>';
+                    modalResultado += '</div>';
+                    modalResultado += '</div>';
+                    modalResultado += '</div>';
+                    $('#formulario-dinamico').append(modalResultado);
+                    $('#myModal').modal('show');
+                    $('#dismiss-modal-salva-perfil').click(function () {
+                        AtualizaPerfis();
+
+                        $('#myModalPerfil').modal('hide');
+                    });
+                });
+            });
+        });
+
+        function AtualizaPerfis() {
+            $.getJSON('@Url.Action("AtualizaListaDePerfil")', { nomeInterface: $("#nome-interface").val(), nomeMetodo: $("#nome-metodo").val() }, function (data) {
+                var opcoes = $('#perfil').find('option');
+
+                var select = document.getElementById('perfil');
+
+                var opcaoEmBranco = document.createElement('option');
+
+                select.appendChild(opcaoEmBranco);
+
+                $.each(opcoes, function (i, opcao) {
+                    opcao.remove();
+                });
+
+                $.each(data, function (j, perfil) {
+                    var opcaoPerfil = document.createElement('option');
+                    opcaoPerfil.value = perfil.PerfilId;
+                    opcaoPerfil.innerHTML = perfil.Descricao
+                    select.appendChild(opcaoPerfil);
+                });
+            });
+        }
+
+        // Invoca o serviço
+        $('#formulario-dinamico-invocar').click(function () {
+            $('#ModalProcessamento').modal();
+            $.post("InvocarServico", $('#formulario-dinamico').serialize(), function (data) {
+                $('#myModal').remove();
+                var modalResultado = '<div id="myModal" class="modal fade" role="dialog">';
+                modalResultado += '<div class="modal-dialog">';
+                modalResultado += '<div class="modal-content">';
+                modalResultado += '<div class="modal-header">';
+                if (data == "") {
+                    modalResultado += '<p class="modal-title">Resultado Desconhecido!</p>';
+                } else {
+                    modalResultado += '<p class="modal-title">Resultado da solicitação do serviço: ' + data.TipoDoReultado + '.</p>';
+                }
+                modalResultado += '</div>';
+                modalResultado += '<div class="modal-body modal_body">';
+                if (data == "") {
+                    modalResultado += '<p>Houve um problema desconhecido ao executar o serviço!</p>';
+                } else {
+                    modalResultado += '<ul>';
+                    $.each(data.Mensagens, function () {
+                        if (this != "\n" && this != "</ul>") {
+                            modalResultado += '<li>';
+                            modalResultado += this;
+                            modalResultado += '</li>';
+                        } else {
+                            if (this == "</ul>") {
+                                modalResultado += this;
+                            } else {
+                                modalResultado += '<br>';
+                            }
+                        }
+                    });
+                    modalResultado += '</ul>';
+                }
+                modalResultado += '</div>';
+                modalResultado += '<div class="modal-footer">';
+                if (data == "") {
+                    modalResultado += '<button class="btn btn-default botao-padrao botao-modal-resultado"><a href="/">Catalogo</a></button>';
+                } else {
+                    modalResultado += '<button type="button" class="btn btn-default botao-padrao botao-modal-resultado" data-dismiss="modal">Voltar</button>';
+                }
+                modalResultado += '</div>';
+                modalResultado += '</div>';
+                modalResultado += '</div>';
+                modalResultado += '</div>';
+                $('#formulario-dinamico').append(modalResultado);
+                $('#ModalProcessamento').modal('hide');
+                $('#myModal').modal('show');
+            });
+        });
+
+        $('.botao-adicionar-item-lista').click(function () {
+            var elemento_primogenito = $(this).parent().parent().find('.elemento-container').first();
+
+            var elemento = $(elemento_primogenito).clone(true);
+
+            elemento.addClass("elemento-passivo-de-exclusao");
+
+            var botao = $(this).parent();
+
+            var elementos_a_remover = $(elemento).find('.elemento-passivo-de-exclusao');
+
+            var nome_base_generico = $(elemento_primogenito).prev().get(0).innerHTML;
+
+            var nome_base = nome_base_generico.replace(" :", "");
+
+            nome_base = nome_base.replace(/\n/g, "");
+
+            nome_base = nome_base.replace(/ /g, "");
+
+            console.log(nome_base);
+
+            var inputs = elemento.find('input');
+
+            inputs.each(function () {
+                var nome_Input = $(this).attr("name");
+
+                var posicao_contador = nome_Input.lastIndexOf(nome_base + "|Item") + (nome_base + "|Item").length;
+
+                var nome_contador = nome_Input.substring(0, (posicao_contador));
+
+                var contador = $(elemento_primogenito).parent().children().length - 2;
+
+                var nome_elemento = nome_Input.substring(0, (posicao_contador)) + contador + nome_Input.substring(posicao_contador, nome_Input.length);
+
+                $(this).attr("name", nome_elemento);
+            });
+
+            var elementosLimpar = $(elemento).find("input[type=text],input[type=date]");
+            elementosLimpar.each(function () {
+                if (this.name != "nome-metodo" && this.name != "nome-interface" && this.name != "descricao-perfil" && this.name != "endpoint-servico") {
+                    this.value = "";
+                }
+            });
+
+
+            $(elemento).find("input[type=radio]").each(function () {
+                this.checked = false;
+            });
+
+
+            botao.before(elemento);
+
+            elementos_a_remover.each(function () {
+                $(this).remove();
+            });
+        });
+
+        $('.botao-adicionar-item-dicionario').click(function () {
+            var elemento_primogenito_key = $(this).parent().parent().children().get(1);
+
+            var elemento_primogenito_value = $(this).parent().parent().children().get(2);
+
+            var elemento_key = $(elemento_primogenito_key).clone(true);
+
+            var elemento_value = $(elemento_primogenito_value).clone(true);
+
+            elemento_key.addClass("elemento-passivo-de-exclusao");
+
+            elemento_value.addClass("elemento-passivo-de-exclusao");
+
+            var botao = $(this).parent();
+
+            var elementos_key_a_remover = $(elemento_key).find('.elemento-passivo-de-exclusao');
+
+            var elementos_value_a_remover = $(elemento_value).find('.elemento-passivo-de-exclusao');
+
+            var nome_base_generico = $(elemento_primogenito_key).prev().get(0).innerHTML;
+
+            var nome_base = nome_base_generico.replace(" :", "");
+
+            nome_base = nome_base.replace(/\n/g, "");
+
+            nome_base = nome_base.replace(/ /g, "");
+
+            console.log(nome_base);
+
+            var inputs_key = elemento_key.find('input');
+
+            inputs_key.each(function () {
+                var nome_Input_key = $(this).attr("name");
+
+                var posicao_contador_key = nome_Input_key.lastIndexOf(nome_base + "|Item") + (nome_base + "|Item").length;
+
+                var nome_contador_key = nome_Input_key.substring(0, (posicao_contador_key));
+
+                var contador_key = $(elemento_primogenito_key).parent().children().length / 2 - 1;
+
+                var nome_elemento_key = nome_Input_key.substring(0, (posicao_contador_key)) + contador_key + nome_Input_key.substring(posicao_contador_key, nome_Input_key.length);
+
+                $(this).attr("name", nome_elemento_key);
+            });
+
+            var inputs_value = elemento_value.find('input');
+
+            inputs_value.each(function () {
+                var nome_Input_value = $(this).attr("name");
+
+                var posicao_contador_value = nome_Input_value.lastIndexOf(nome_base + "|Item") + (nome_base + "|Item").length;
+
+                var nome_contador_value = nome_Input_value.substring(0, (posicao_contador_value));
+
+                var contador_value = $(elemento_primogenito_value).parent().children().length / 2 - 1;
+
+                var nome_elemento_value = nome_Input_value.substring(0, (posicao_contador_value)) + contador_value + nome_Input_value.substring(posicao_contador_value, nome_Input_value.length);
+
+                $(this).attr("name", nome_elemento_value);
+            });
+
+            $(elemento_key).find("input[type=text]").val('');
+            $(elemento_value).find("input[type=text]").val('');
+
+            botao.before(elemento_key);
+            botao.before(elemento_value);
+
+            elementos_key_a_remover.each(function () {
+                $(this).remove();
+            });
+
+            elementos_value_a_remover.each(function () {
+                $(this).remove();
+            });
+        });
+    }); 
+</script>

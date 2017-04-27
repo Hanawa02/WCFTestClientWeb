@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeBancoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreBanco">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaParaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="banco" nillable="true" type="q1:Banco" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreBancoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeBanco">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaParaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="banco" nillable="true" type="q2:Banco" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeBancoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaBanco">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaParaAutenticacao" type="xsd:int" />
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="BancoExclusao" nillable="true" type="q3:Banco_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaBancoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExisteBanco">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresaParaAutenticacao" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoBanco" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExisteBancoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ExisteBancoResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeBancos">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteListaDeBancosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="ConsulteListaDeBancosResult" nillable="true" type="q4:ArrayOfBanco" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="Banco">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Banco" nillable="true" type="tns:Banco" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="Banco_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Banco_Exclusao" nillable="true" type="tns:Banco_Exclusao" />
+      <xsd:complexType name="ArrayOfBanco">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Banco" nillable="true" type="tns:Banco" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfBanco" nillable="true" type="tns:ArrayOfBanco" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreBanco" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_InputMessage_Headers">
+    <wsdl:part xmlns:q5="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q5:LGContextoAmbiente" />
+    <wsdl:part xmlns:q6="lg.com.br/svc/dto" name="LGAutenticacao" element="q6:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q7="lg.com.br/svc/dto" name="detail" element="q7:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q8="lg.com.br/svc/dto" name="detail" element="q8:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q9="lg.com.br/svc/dto" name="detail" element="q9:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_CadastreBanco_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q10="lg.com.br/svc/dto" name="detail" element="q10:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeBanco" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_InputMessage_Headers">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q11:LGContextoAmbiente" />
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="LGAutenticacao" element="q12:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_AtualizeBanco_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="detail" element="q16:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaBanco" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_InputMessage_Headers">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q17:LGContextoAmbiente" />
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGAutenticacao" element="q18:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExcluaBanco_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteBanco" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_InputMessage_Headers">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q23:LGContextoAmbiente" />
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGAutenticacao" element="q24:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ExisteBanco_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeBancos" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_InputMessage_Headers">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q29:LGContextoAmbiente" />
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="LGAutenticacao" element="q30:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteListaDeBancosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="detail" element="q31:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeBanco_ConsulteListaDeBancos_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeBanco">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção de Banco.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreBanco">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de banco.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeBanco/CadastreBanco" message="tns:ServicoDeBanco_CadastreBanco_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeBanco/CadastreBancoResponse" message="tns:ServicoDeBanco_CadastreBanco_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/CadastreBancoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeBanco_CadastreBanco_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/CadastreBancoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeBanco_CadastreBanco_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/CadastreBancoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeBanco_CadastreBanco_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/CadastreBancoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeBanco_CadastreBanco_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeBanco">
+      <wsdl:documentation>
+        <summary>Operação de atualização de banco.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeBanco/AtualizeBanco" message="tns:ServicoDeBanco_AtualizeBanco_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeBanco/AtualizeBancoResponse" message="tns:ServicoDeBanco_AtualizeBanco_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/AtualizeBancoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeBanco_AtualizeBanco_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/AtualizeBancoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeBanco_AtualizeBanco_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/AtualizeBancoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeBanco_AtualizeBanco_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/AtualizeBancoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeBanco_AtualizeBanco_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaBanco">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de banco.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExcluaBanco" message="tns:ServicoDeBanco_ExcluaBanco_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExcluaBancoResponse" message="tns:ServicoDeBanco_ExcluaBanco_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExcluaBancoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeBanco_ExcluaBanco_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExcluaBancoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeBanco_ExcluaBanco_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExcluaBancoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeBanco_ExcluaBanco_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExcluaBancoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeBanco_ExcluaBanco_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteBanco">
+      <wsdl:documentation>
+        <summary>Verifica se um banco já existe.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExisteBanco" message="tns:ServicoDeBanco_ExisteBanco_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExisteBancoResponse" message="tns:ServicoDeBanco_ExisteBanco_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExisteBancoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeBanco_ExisteBanco_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExisteBancoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeBanco_ExisteBanco_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExisteBancoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeBanco_ExisteBanco_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ExisteBancoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeBanco_ExisteBanco_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeBancos">
+      <wsdl:documentation>
+        <summary>Obtem lista de todos os bacos cadastrados.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancos" message="tns:ServicoDeBanco_ConsulteListaDeBancos_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancosResponse" message="tns:ServicoDeBanco_ConsulteListaDeBancos_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeBanco_ConsulteListaDeBancos_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeBanco_ConsulteListaDeBancos_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeBanco_ConsulteListaDeBancos_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeBanco_ConsulteListaDeBancos_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeBanco" type="tns:ServicoDeBanco">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreBanco">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeBanco/CadastreBanco" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeBanco_CadastreBanco_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeBanco_CadastreBanco_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeBanco">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeBanco/AtualizeBanco" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeBanco_AtualizeBanco_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeBanco_AtualizeBanco_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaBanco">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeBanco/ExcluaBanco" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeBanco_ExcluaBanco_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeBanco_ExcluaBanco_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteBanco">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeBanco/ExisteBanco" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeBanco_ExisteBanco_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeBanco_ExisteBanco_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsulteListaDeBancos">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeBanco/ConsulteListaDeBancos" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeBanco_ConsulteListaDeBancos_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeBanco_ConsulteListaDeBancos_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeBancoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeBanco" binding="tns:LGBasicHttp_ServicoDeBanco">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodebanco" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

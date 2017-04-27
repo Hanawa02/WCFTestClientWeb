@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeParametrizacaoValeTransporteFuncionarioImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="ConsulteParametrizacaoDeValeTransportePorFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsulteParametrizacaoDeValeTransportePorFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="ConsulteParametrizacaoDeValeTransportePorFuncionarioResult" nillable="true" type="q1:ParametrizacaoDeValeTransportePorFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreParametrizacaoDeValeTransportePorFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="Parametrizacao" nillable="true" type="q2:ParametrizacaoDeValeTransportePorFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreParametrizacaoDeValeTransportePorFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeParametrizacaoDeValeTransportePorFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="Parametrizacao" nillable="true" type="q3:ParametrizacaoDeValeTransportePorFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeParametrizacaoDeValeTransportePorFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaParametrizacaoDeValeTransportePorFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="Parametrizacao" nillable="true" type="q4:ParametrizacaoDeValeTransportePorFuncionario_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaParametrizacaoDeValeTransportePorFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaLinhasPorFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoLinha" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="DescricaoLinha" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaLinhasPorFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaLinhasPorFuncionarioResult" nillable="true" type="q5:ArrayOfLinhaDeTransporte" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaEscalas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoEscala" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DescricaoEscala" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaEscalasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaEscalasResult" nillable="true" type="q6:ArrayOfEscalaValeTransporte" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaUnidadesDeEntrega">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DescricaoUnidadeEntrega" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaUnidadesDeEntregaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaUnidadesDeEntregaResult" nillable="true" type="q7:ArrayOfUnidadeEntregaValeTransporte" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaCalendarios">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DescricaoCalendario" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaCalendariosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaCalendariosResult" nillable="true" type="q8:ArrayOfCalendarioValeTransporte" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaFornecedores">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="DescricaoFornecedor" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenhaFornecedoresResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="ObtenhaFornecedoresResult" nillable="true" type="q9:ArrayOfFornecedorValeTransporte" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDaLinhaDeTransporte">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CodigoEmpresa" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoLinha" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="MatriculaFuncionario" type="xsd:double" />
+            <xsd:element minOccurs="0" name="QuantidadeValesDia" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInconsistenciasImpeditivasDaLinhaDeTransporteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ValideInconsistenciasImpeditivasDaLinhaDeTransporteResult" nillable="true" type="q10:ArrayOfstring" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ParametrizacaoDeValeTransportePorFuncionario">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresaDoFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaEscala" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDaUnidadeDeEntrega" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCalendario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoCartao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CodigoDoFornecedor" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DataInicioEscala" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DataOpcaoValeTransporte" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="IndicadorCancelaParametrizacao" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorDescontarAfastamento" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorDescontarFalta" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorDescontarFeriado" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorDescontarFerias" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorDescontarRecessoEstagiario" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorGeraDesconto" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorGeraParteEmpresa" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorGeraProventos" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorIgnorarAssociacaoDeFornecedorDaConfiguracaoDoModulo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorIgnorarCalendarioDaConfiguracaoDoModulo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorIgnorarEscalaDoFuncionarioNaCompra" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IndicadorIgnorarUnidadeDeEntregaDaConfiguracaoDoModulo" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ListaDeLinhasDeTransporte" nillable="true" type="tns:ArrayOfLinhaDeTransporte" />
+          <xsd:element minOccurs="0" name="ListaDeLinhasDeTransporteAdicionais" nillable="true" type="tns:ArrayOfLinhaDeTransporteAdicional" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDeDiasDeValesExtras" type="xsd:int" />
+          <xsd:element minOccurs="0" name="QuantidadeDeDiasUteisMensais" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametrizacaoDeValeTransportePorFuncionario" nillable="true" type="tns:ParametrizacaoDeValeTransportePorFuncionario" />
+      <xsd:complexType name="ArrayOfLinhaDeTransporte">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="LinhaDeTransporte" nillable="true" type="tns:LinhaDeTransporte" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfLinhaDeTransporte" nillable="true" type="tns:ArrayOfLinhaDeTransporte" />
+      <xsd:complexType name="LinhaDeTransporte">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaLinhaDeTransporte" nillable="true" type="xsd:string" />
+          <xsd:element name="QuantidadeDeValesPorDias" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ValorDaTarifa" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LinhaDeTransporte" nillable="true" type="tns:LinhaDeTransporte" />
+      <xsd:complexType name="ArrayOfLinhaDeTransporteAdicional">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="LinhaDeTransporteAdicional" nillable="true" type="tns:LinhaDeTransporteAdicional" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfLinhaDeTransporteAdicional" nillable="true" type="tns:ArrayOfLinhaDeTransporteAdicional" />
+      <xsd:complexType name="LinhaDeTransporteAdicional">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEscala" type="xsd:int" />
+          <xsd:element name="CodigoDaLinhaDeTransporte" nillable="true" type="xsd:string" />
+          <xsd:element name="IndicadorDeEscala" type="xsd:boolean" />
+          <xsd:element name="IndicadorQtdeFixaDeValeTransporte" type="xsd:boolean" />
+          <xsd:element name="QuantidadeDeValesPorDias" type="xsd:int" />
+          <xsd:element name="QuantidadeFixaDeValeTransporte" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LinhaDeTransporteAdicional" nillable="true" type="tns:LinhaDeTransporteAdicional" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ParametrizacaoDeValeTransportePorFuncionario_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresaDoFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="IndicadorEstornarComprasDeVales" type="xsd:boolean" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParametrizacaoDeValeTransportePorFuncionario_Exclusao" nillable="true" type="tns:ParametrizacaoDeValeTransportePorFuncionario_Exclusao" />
+      <xsd:complexType name="ArrayOfEscalaValeTransporte">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EscalaValeTransporte" nillable="true" type="tns:EscalaValeTransporte" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfEscalaValeTransporte" nillable="true" type="tns:ArrayOfEscalaValeTransporte" />
+      <xsd:complexType name="EscalaValeTransporte">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EscalaValeTransporte" nillable="true" type="tns:EscalaValeTransporte" />
+      <xsd:complexType name="ArrayOfUnidadeEntregaValeTransporte">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="UnidadeEntregaValeTransporte" nillable="true" type="tns:UnidadeEntregaValeTransporte" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfUnidadeEntregaValeTransporte" nillable="true" type="tns:ArrayOfUnidadeEntregaValeTransporte" />
+      <xsd:complexType name="UnidadeEntregaValeTransporte">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UnidadeEntregaValeTransporte" nillable="true" type="tns:UnidadeEntregaValeTransporte" />
+      <xsd:complexType name="ArrayOfCalendarioValeTransporte">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CalendarioValeTransporte" nillable="true" type="tns:CalendarioValeTransporte" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfCalendarioValeTransporte" nillable="true" type="tns:ArrayOfCalendarioValeTransporte" />
+      <xsd:complexType name="CalendarioValeTransporte">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CalendarioValeTransporte" nillable="true" type="tns:CalendarioValeTransporte" />
+      <xsd:complexType name="ArrayOfFornecedorValeTransporte">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="FornecedorValeTransporte" nillable="true" type="tns:FornecedorValeTransporte" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfFornecedorValeTransporte" nillable="true" type="tns:ArrayOfFornecedorValeTransporte" />
+      <xsd:complexType name="FornecedorValeTransporte">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FornecedorValeTransporte" nillable="true" type="tns:FornecedorValeTransporte" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParametrizacaoDeValeTransportePorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q11="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q11:LGContextoAmbiente" />
+    <wsdl:part xmlns:q12="lg.com.br/svc/dto" name="LGAutenticacao" element="q12:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsulteParametrizacaoDeValeTransportePorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q13="lg.com.br/svc/dto" name="detail" element="q13:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q14="lg.com.br/svc/dto" name="detail" element="q14:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q15="lg.com.br/svc/dto" name="detail" element="q15:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q16="lg.com.br/svc/dto" name="detail" element="q16:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreParametrizacaoDeValeTransportePorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q17="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q17:LGContextoAmbiente" />
+    <wsdl:part xmlns:q18="lg.com.br/svc/dto" name="LGAutenticacao" element="q18:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreParametrizacaoDeValeTransportePorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="detail" element="q19:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="detail" element="q20:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeParametrizacaoDeValeTransportePorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q23:LGContextoAmbiente" />
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="LGAutenticacao" element="q24:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeParametrizacaoDeValeTransportePorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="detail" element="q25:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="detail" element="q26:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaParametrizacaoDeValeTransportePorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q29:LGContextoAmbiente" />
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="LGAutenticacao" element="q30:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaParametrizacaoDeValeTransportePorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="detail" element="q31:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="detail" element="q32:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaLinhasPorFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q35:LGContextoAmbiente" />
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="LGAutenticacao" element="q36:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaLinhasPorFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="detail" element="q37:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="detail" element="q38:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaEscalas" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InputMessage_Headers">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q41:LGContextoAmbiente" />
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="LGAutenticacao" element="q42:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaEscalasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="detail" element="q43:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="detail" element="q44:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaUnidadesDeEntrega" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InputMessage_Headers">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q47:LGContextoAmbiente" />
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="LGAutenticacao" element="q48:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaUnidadesDeEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="detail" element="q49:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="detail" element="q50:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaCalendarios" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InputMessage_Headers">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q53:LGContextoAmbiente" />
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="LGAutenticacao" element="q54:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaCalendariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="detail" element="q55:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="detail" element="q56:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaFornecedores" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InputMessage_Headers">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q59:LGContextoAmbiente" />
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="LGAutenticacao" element="q60:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenhaFornecedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="detail" element="q61:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="detail" element="q62:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDaLinhaDeTransporte" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InputMessage_Headers">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q65:LGContextoAmbiente" />
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="LGAutenticacao" element="q66:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInconsistenciasImpeditivasDaLinhaDeTransporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="detail" element="q67:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="detail" element="q68:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeParametrizacaoValeTransporteFuncionario">
+    <wsdl:documentation>
+      <summary>Serviço de parametrização de vale transporte por funcionário.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="ConsulteParametrizacaoDeValeTransportePorFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um item de tabela salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionario" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionarioResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreParametrizacaoDeValeTransportePorFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza o cadastro de um item de tabela salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionario" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionarioResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeParametrizacaoDeValeTransportePorFuncionario">
+      <wsdl:documentation>
+        <summary>Atualiza os dados de um item de tabela salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionario" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionarioResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaParametrizacaoDeValeTransportePorFuncionario">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de um item de tabela salarial</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionario" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionarioResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaLinhasPorFuncionario">
+      <wsdl:documentation>
+        <summary>Obtem as linhas de transportes por funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionario" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionarioResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaEscalas">
+      <wsdl:documentation>
+        <summary>Obtem as escalas de horários de trabalho</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalas" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalasResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalasListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalasInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalasFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalasFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaUnidadesDeEntrega">
+      <wsdl:documentation>
+        <summary>Obtem as unidades de entregas</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntrega" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntregaResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntregaInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntregaListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntregaFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntregaFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaCalendarios">
+      <wsdl:documentation>
+        <summary>Obtem os calendários</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendarios" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendariosResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendariosInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendariosListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendariosFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendariosFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaFornecedores">
+      <wsdl:documentation>
+        <summary>Obtem os fornecedores de vales transportes</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedores" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedoresResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedoresListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedoresInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedoresFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedoresFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDaLinhaDeTransporte">
+      <wsdl:documentation>
+        <summary>Valida as inconsistências impeditivas para solicitação de uma linha de transporte</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporte" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporteResponse" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporteInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporteListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporteFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporteFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeParametrizacaoValeTransporteFuncionario" type="tns:ServicoDeParametrizacaoValeTransporteFuncionario">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsulteParametrizacaoDeValeTransportePorFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ConsulteParametrizacaoDeValeTransportePorFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ConsulteParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreParametrizacaoDeValeTransportePorFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/CadastreParametrizacaoDeValeTransportePorFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_CadastreParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeParametrizacaoDeValeTransportePorFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/AtualizeParametrizacaoDeValeTransportePorFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_AtualizeParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaParametrizacaoDeValeTransportePorFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ExcluaParametrizacaoDeValeTransportePorFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ExcluaParametrizacaoDeValeTransportePorFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaLinhasPorFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaLinhasPorFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaLinhasPorFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaEscalas">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaEscalas" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaEscalas_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaUnidadesDeEntrega">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaUnidadesDeEntrega" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaUnidadesDeEntrega_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaCalendarios">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaCalendarios" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaCalendarios_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenhaFornecedores">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ObtenhaFornecedores" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ObtenhaFornecedores_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInconsistenciasImpeditivasDaLinhaDeTransporte">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeParametrizacaoValeTransporteFuncionario/ValideInconsistenciasImpeditivasDaLinhaDeTransporte" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeParametrizacaoValeTransporteFuncionario_ValideInconsistenciasImpeditivasDaLinhaDeTransporte_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeParametrizacaoValeTransporteFuncionarioImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeParametrizacaoValeTransporteFuncionario" binding="tns:LGBasicHttp_ServicoDeParametrizacaoValeTransporteFuncionario">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeparametrizacaovaletransportefuncionario" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

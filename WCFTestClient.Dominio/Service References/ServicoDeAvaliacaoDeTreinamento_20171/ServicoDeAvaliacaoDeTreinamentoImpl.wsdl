@@ -1,0 +1,1680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeAvaliacaoDeTreinamentoImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="Funcionario" nillable="true" type="q1:AvaliacaoDeTreinamentoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="Funcionario" nillable="true" type="q2:AvaliacaoDeTreinamentoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="Funcionario" nillable="true" type="q3:AvaliacaoDeTreinamentoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="Funcionario" nillable="true" type="q4:AvaliacaoDeTreinamentoDoFuncionario" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="Funcionario" nillable="true" type="q5:ParticipanteFuncionarioConsultaAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="ConsultaAvaliacaoDeTreinamentoDoFuncionarioResult" nillable="true" type="q6:AvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="Convidado" nillable="true" type="q7:AvaliacaoDeTreinamentoDoConvidado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="Convidado" nillable="true" type="q8:AvaliacaoDeTreinamentoDoConvidado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="Convidado" nillable="true" type="q9:AvaliacaoDeTreinamentoDoConvidado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="Convidado" nillable="true" type="q10:AvaliacaoDeTreinamentoDoConvidado" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoConvidado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="Convidado" nillable="true" type="q11:ParticipanteConvidadoConsultaAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoConvidadoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="ConsultaAvaliacaoDeTreinamentoDoConvidadoResult" nillable="true" type="q12:AvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="Candidato" nillable="true" type="q13:AvaliacaoDeTreinamentoDoCandidato" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="Candidato" nillable="true" type="q14:AvaliacaoDeTreinamentoDoCandidato" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="Candidato" nillable="true" type="q15:AvaliacaoDeTreinamentoDoCandidato" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="Candidato" nillable="true" type="q16:AvaliacaoDeTreinamentoDoCandidato" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoCandidato">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="Candidato" nillable="true" type="q17:ParticipanteCandidatoConsultaAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoCandidatoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="lg.com.br/svc/dto" minOccurs="0" name="ConsultaAvaliacaoDeTreinamentoDoCandidatoResult" nillable="true" type="q18:AvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="lg.com.br/svc/dto" minOccurs="0" name="Terceiro" nillable="true" type="q19:ParticipanteTerceiroAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsiraAvaliacaoDeTreinamentoDoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="lg.com.br/svc/dto" minOccurs="0" name="Terceiro" nillable="true" type="q20:ParticipanteTerceiroAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AltereAvaliacaoDeTreinamentoDoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="lg.com.br/svc/dto" minOccurs="0" name="Terceiro" nillable="true" type="q21:ParticipanteTerceiroAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="lg.com.br/svc/dto" minOccurs="0" name="Terceiro" nillable="true" type="q22:ParticipanteTerceiroAvaliacaoDeTreinamento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoTerceiro">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="lg.com.br/svc/dto" minOccurs="0" name="Terceiro" nillable="true" type="q23:ParticipanteTerceiroAvaliacaoDeTreinamentoBasico" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultaAvaliacaoDeTreinamentoDoTerceiroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="lg.com.br/svc/dto" minOccurs="0" name="ConsultaAvaliacaoDeTreinamentoDoTerceiroResult" nillable="true" type="q24:AvaliacaoDeTreinamentoDoTerceiro" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="AvaliacaoDeTreinamentoDoFuncionario">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresaDoFuncionario" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="ListaDeItensDaAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacao" />
+          <xsd:element name="MatriculaDoFuncionario" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvaliacaoDeTreinamentoDoFuncionario" nillable="true" type="tns:AvaliacaoDeTreinamentoDoFuncionario" />
+      <xsd:complexType name="Curso">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+      <xsd:complexType name="ArrayOfItemAvaliacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ItemAvaliacao" nillable="true" type="tns:ItemAvaliacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfItemAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacao" />
+      <xsd:complexType name="ItemAvaliacao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoNivel" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ListaSubItensAvaliacao" nillable="true" type="tns:ArrayOfSubItemAvaliacao" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ItemAvaliacao" nillable="true" type="tns:ItemAvaliacao" />
+      <xsd:complexType name="ArrayOfSubItemAvaliacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SubItemAvaliacao" nillable="true" type="tns:SubItemAvaliacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfSubItemAvaliacao" nillable="true" type="tns:ArrayOfSubItemAvaliacao" />
+      <xsd:complexType name="SubItemAvaliacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CodigoDoNivel" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SubItemAvaliacao" nillable="true" type="tns:SubItemAvaliacao" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="ParticipanteFuncionarioConsultaAvaliacaoDeTreinamento">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="Matricula" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteFuncionarioConsultaAvaliacaoDeTreinamento" nillable="true" type="tns:ParticipanteFuncionarioConsultaAvaliacaoDeTreinamento" />
+      <xsd:complexType name="AvaliacaoDeTreinamento">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresaDoCurso" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresaDoParticipante" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="CodigoDoCurso" type="xsd:int" />
+          <xsd:element name="CodigoDoParticipante" nillable="true" type="xsd:string" />
+          <xsd:element name="ListaDeItensDaAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacaoApresentacao" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvaliacaoDeTreinamento" nillable="true" type="tns:AvaliacaoDeTreinamento" />
+      <xsd:complexType name="ArrayOfItemAvaliacaoApresentacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ItemAvaliacaoApresentacao" nillable="true" type="tns:ItemAvaliacaoApresentacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfItemAvaliacaoApresentacao" nillable="true" type="tns:ArrayOfItemAvaliacaoApresentacao" />
+      <xsd:complexType name="ItemAvaliacaoApresentacao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="ListaSubItens" nillable="true" type="tns:ArrayOfSubItensAvaliacaoApresentacao" />
+          <xsd:element name="Nivel" nillable="true" type="tns:NivelDaAvaliacaoTreinamento" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ItemAvaliacaoApresentacao" nillable="true" type="tns:ItemAvaliacaoApresentacao" />
+      <xsd:complexType name="ArrayOfSubItensAvaliacaoApresentacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SubItensAvaliacaoApresentacao" nillable="true" type="tns:SubItensAvaliacaoApresentacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfSubItensAvaliacaoApresentacao" nillable="true" type="tns:ArrayOfSubItensAvaliacaoApresentacao" />
+      <xsd:complexType name="SubItensAvaliacaoApresentacao">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Descricao" nillable="true" type="xsd:string" />
+          <xsd:element name="Nivel" nillable="true" type="tns:NivelDaAvaliacaoTreinamento" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SubItensAvaliacaoApresentacao" nillable="true" type="tns:SubItensAvaliacaoApresentacao" />
+      <xsd:complexType name="NivelDaAvaliacaoTreinamento">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="Descricao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NivelDaAvaliacaoTreinamento" nillable="true" type="tns:NivelDaAvaliacaoTreinamento" />
+      <xsd:complexType name="AvaliacaoDeTreinamentoDoConvidado">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresaDoConvidado" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="CodigoDoConvidado" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="ListaDeItensDaAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacao" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvaliacaoDeTreinamentoDoConvidado" nillable="true" type="tns:AvaliacaoDeTreinamentoDoConvidado" />
+      <xsd:complexType name="ParticipanteConvidadoConsultaAvaliacaoDeTreinamento">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteConvidadoConsultaAvaliacaoDeTreinamento" nillable="true" type="tns:ParticipanteConvidadoConsultaAvaliacaoDeTreinamento" />
+      <xsd:complexType name="AvaliacaoDeTreinamentoDoCandidato">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresaDoCandidato" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="CodigoDoCandidato" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="ListaDeItensDaAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacao" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvaliacaoDeTreinamentoDoCandidato" nillable="true" type="tns:AvaliacaoDeTreinamentoDoCandidato" />
+      <xsd:complexType name="ParticipanteCandidatoConsultaAvaliacaoDeTreinamento">
+        <xsd:sequence>
+          <xsd:element name="Codigo" type="xsd:int" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteCandidatoConsultaAvaliacaoDeTreinamento" nillable="true" type="tns:ParticipanteCandidatoConsultaAvaliacaoDeTreinamento" />
+      <xsd:complexType name="ParticipanteTerceiroAvaliacaoDeTreinamento">
+        <xsd:sequence>
+          <xsd:element name="CPF" type="xsd:double" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="ListaDeItensDaAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacao" />
+          <xsd:element name="NumeroDoContrato" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteTerceiroAvaliacaoDeTreinamento" nillable="true" type="tns:ParticipanteTerceiroAvaliacaoDeTreinamento" />
+      <xsd:complexType name="ParticipanteTerceiroAvaliacaoDeTreinamentoBasico">
+        <xsd:sequence>
+          <xsd:element name="CPF" type="xsd:double" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="Curso" nillable="true" type="tns:Curso" />
+          <xsd:element name="NumeroDoContrato" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ParticipanteTerceiroAvaliacaoDeTreinamentoBasico" nillable="true" type="tns:ParticipanteTerceiroAvaliacaoDeTreinamentoBasico" />
+      <xsd:complexType name="AvaliacaoDeTreinamentoDoTerceiro">
+        <xsd:sequence>
+          <xsd:element name="CPFDoTerceiro" type="xsd:double" />
+          <xsd:element name="CodigoDaEmpresaDoCurso" type="xsd:int" />
+          <xsd:element name="CodigoDaTurma" type="xsd:int" />
+          <xsd:element name="CodigoDoCurso" type="xsd:int" />
+          <xsd:element name="ListaDeItensDaAvaliacao" nillable="true" type="tns:ArrayOfItemAvaliacaoApresentacao" />
+          <xsd:element minOccurs="0" name="NumeroDoContratoDoTerceiro" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AvaliacaoDeTreinamentoDoTerceiro" nillable="true" type="tns:AvaliacaoDeTreinamentoDoTerceiro" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q25:LGContextoAmbiente" />
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="LGAutenticacao" element="q26:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q31:LGContextoAmbiente" />
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="LGAutenticacao" element="q32:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q37:LGContextoAmbiente" />
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="LGAutenticacao" element="q38:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q43:LGContextoAmbiente" />
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="LGAutenticacao" element="q44:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="detail" element="q47:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="detail" element="q48:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q49:LGContextoAmbiente" />
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="LGAutenticacao" element="q50:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q55:LGContextoAmbiente" />
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="LGAutenticacao" element="q56:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q61:LGContextoAmbiente" />
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="LGAutenticacao" element="q62:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q67:LGContextoAmbiente" />
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="LGAutenticacao" element="q68:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q73:LGContextoAmbiente" />
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="LGAutenticacao" element="q74:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="detail" element="q77:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="detail" element="q78:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoConvidado" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q79:LGContextoAmbiente" />
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="LGAutenticacao" element="q80:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoConvidadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="detail" element="q83:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="detail" element="q84:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q85:LGContextoAmbiente" />
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="LGAutenticacao" element="q86:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="detail" element="q89:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="detail" element="q90:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q91:LGContextoAmbiente" />
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="LGAutenticacao" element="q92:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="detail" element="q94:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="detail" element="q95:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="detail" element="q96:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q97="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q97:LGContextoAmbiente" />
+    <wsdl:part xmlns:q98="lg.com.br/svc/dto" name="LGAutenticacao" element="q98:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q99="lg.com.br/svc/dto" name="detail" element="q99:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q100="lg.com.br/svc/dto" name="detail" element="q100:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q101="lg.com.br/svc/dto" name="detail" element="q101:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q102="lg.com.br/svc/dto" name="detail" element="q102:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q103="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q103:LGContextoAmbiente" />
+    <wsdl:part xmlns:q104="lg.com.br/svc/dto" name="LGAutenticacao" element="q104:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q105="lg.com.br/svc/dto" name="detail" element="q105:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q106="lg.com.br/svc/dto" name="detail" element="q106:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q107="lg.com.br/svc/dto" name="detail" element="q107:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q108="lg.com.br/svc/dto" name="detail" element="q108:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers">
+    <wsdl:part xmlns:q109="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q109:LGContextoAmbiente" />
+    <wsdl:part xmlns:q110="lg.com.br/svc/dto" name="LGAutenticacao" element="q110:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q111="lg.com.br/svc/dto" name="detail" element="q111:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q112="lg.com.br/svc/dto" name="detail" element="q112:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q113="lg.com.br/svc/dto" name="detail" element="q113:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q114="lg.com.br/svc/dto" name="detail" element="q114:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q115="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q115:LGContextoAmbiente" />
+    <wsdl:part xmlns:q116="lg.com.br/svc/dto" name="LGAutenticacao" element="q116:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsiraAvaliacaoDeTreinamentoDoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q117="lg.com.br/svc/dto" name="detail" element="q117:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q118="lg.com.br/svc/dto" name="detail" element="q118:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q119="lg.com.br/svc/dto" name="detail" element="q119:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q120="lg.com.br/svc/dto" name="detail" element="q120:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q121="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q121:LGContextoAmbiente" />
+    <wsdl:part xmlns:q122="lg.com.br/svc/dto" name="LGAutenticacao" element="q122:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltereAvaliacaoDeTreinamentoDoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q123="lg.com.br/svc/dto" name="detail" element="q123:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q124="lg.com.br/svc/dto" name="detail" element="q124:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q125="lg.com.br/svc/dto" name="detail" element="q125:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q126="lg.com.br/svc/dto" name="detail" element="q126:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q127="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q127:LGContextoAmbiente" />
+    <wsdl:part xmlns:q128="lg.com.br/svc/dto" name="LGAutenticacao" element="q128:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q129="lg.com.br/svc/dto" name="detail" element="q129:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q130="lg.com.br/svc/dto" name="detail" element="q130:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q131="lg.com.br/svc/dto" name="detail" element="q131:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q132="lg.com.br/svc/dto" name="detail" element="q132:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q133="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q133:LGContextoAmbiente" />
+    <wsdl:part xmlns:q134="lg.com.br/svc/dto" name="LGAutenticacao" element="q134:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q135="lg.com.br/svc/dto" name="detail" element="q135:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q136="lg.com.br/svc/dto" name="detail" element="q136:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q137="lg.com.br/svc/dto" name="detail" element="q137:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q138="lg.com.br/svc/dto" name="detail" element="q138:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoTerceiro" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers">
+    <wsdl:part xmlns:q139="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q139:LGContextoAmbiente" />
+    <wsdl:part xmlns:q140="lg.com.br/svc/dto" name="LGAutenticacao" element="q140:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaAvaliacaoDeTreinamentoDoTerceiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q141="lg.com.br/svc/dto" name="detail" element="q141:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q142="lg.com.br/svc/dto" name="detail" element="q142:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q143="lg.com.br/svc/dto" name="detail" element="q143:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q144="lg.com.br/svc/dto" name="detail" element="q144:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeAvaliacaoDeTreinamento">
+    <wsdl:documentation>
+      <summary>Serviço responsável por realizar as avaliações de Treinamento</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Insere a avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionario" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionarioResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Altera a avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionario" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionarioResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Valida a inclusão da avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Valida a Alteração da avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoFuncionario">
+      <wsdl:documentation>
+        <summary>Consulta a Avaliação de Treinamento do Funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionario" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionarioResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoConvidado">
+      <wsdl:documentation>
+        <summary>Insere a Avaliação de Treinamento do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidado" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidadoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoConvidado">
+      <wsdl:documentation>
+        <summary>Altera a Avaliação de Treinamento do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidado" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidadoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado">
+      <wsdl:documentation>
+        <summary>Valida a inclusão da Avaliação de Treinamento do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado">
+      <wsdl:documentation>
+        <summary>Valida a alteração da Avaliação de Treinamento do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoConvidado">
+      <wsdl:documentation>
+        <summary>Consulta a Avaliação de Treinamento do Convidado</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidado" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidadoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidadoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidadoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidadoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidadoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoCandidato">
+      <wsdl:documentation>
+        <summary>Insere a Avaliação de Treinamento do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidato" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidatoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoCandidato">
+      <wsdl:documentation>
+        <summary>Altera a Avaliação de Treinamento do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidato" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidatoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato">
+      <wsdl:documentation>
+        <summary>Valida a inclusão da Avaliação de Treinamento do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato">
+      <wsdl:documentation>
+        <summary>Valida a alteração da Avaliação de Treinamento do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoCandidato">
+      <wsdl:documentation>
+        <summary>Consulta a Avaliação de Treinamento do Candidato</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidato" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidatoResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidatoInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidatoListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidatoFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidatoFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoTerceiro">
+      <wsdl:documentation>
+        <summary>Insere a avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiro" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiroResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoTerceiro">
+      <wsdl:documentation>
+        <summary>Altera a avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiro" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiroResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro">
+      <wsdl:documentation>
+        <summary>Valida a inclusão da avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro">
+      <wsdl:documentation>
+        <summary>Valida a Alteração da avaliacao de Treinamento do Funcionario</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoTerceiro">
+      <wsdl:documentation>
+        <summary>Consulta a Avaliação de Treinamento do Funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiro" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiroResponse" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiroListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiroInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiroFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiroFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeAvaliacaoDeTreinamento" type="tns:ServicoDeAvaliacaoDeTreinamento">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoConvidado">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoConvidado" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoConvidado_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoCandidato">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoCandidato" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoCandidato_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsiraAvaliacaoDeTreinamentoDoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/InsiraAvaliacaoDeTreinamentoDoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_InsiraAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltereAvaliacaoDeTreinamentoDoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/AltereAvaliacaoDeTreinamentoDoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_AltereAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideInclusaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ValideAlteracaoDeAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAvaliacaoDeTreinamentoDoTerceiro">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeAvaliacaoDeTreinamento/ConsultaAvaliacaoDeTreinamentoDoTerceiro" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeAvaliacaoDeTreinamento_ConsultaAvaliacaoDeTreinamentoDoTerceiro_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeAvaliacaoDeTreinamentoImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeAvaliacaoDeTreinamento" binding="tns:LGBasicHttp_ServicoDeAvaliacaoDeTreinamento">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodeavaliacaodetreinamento" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

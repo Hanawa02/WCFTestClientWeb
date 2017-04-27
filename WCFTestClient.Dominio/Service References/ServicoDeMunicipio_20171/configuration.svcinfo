@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.CustomBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;LGBasicHttp_ServicoDeMunicipio&quot;&gt;&lt;httpTransport /&gt;&lt;textMessageEncoding messageVersion=&quot;Soap12&quot; /&gt;&lt;/Data&gt;" bindingType="customBinding" name="LGBasicHttp_ServicoDeMunicipio" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://pc-1477:1008/lg.com.br/svc/servicodemunicipio&quot; binding=&quot;customBinding&quot; bindingConfiguration=&quot;LGBasicHttp_ServicoDeMunicipio&quot; contract=&quot;ServicoDeMunicipio_20171.ServicoDeMunicipio&quot; name=&quot;LGBasicHttp_ServicoDeMunicipio&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://pc-1477:1008/lg.com.br/svc/servicodemunicipio&quot; binding=&quot;customBinding&quot; bindingConfiguration=&quot;LGBasicHttp_ServicoDeMunicipio&quot; contract=&quot;ServicoDeMunicipio_20171.ServicoDeMunicipio&quot; name=&quot;LGBasicHttp_ServicoDeMunicipio&quot; /&gt;" contractName="ServicoDeMunicipio_20171.ServicoDeMunicipio" name="LGBasicHttp_ServicoDeMunicipio" />
+  </endpoints>
+</configurationSnapshot>

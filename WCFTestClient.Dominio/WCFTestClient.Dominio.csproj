@@ -1,0 +1,1278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{094C6887-AA15-4CBA-AAB2-2622961A6B9D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WCFTestClient.Dominio</RootNamespace>
+    <AssemblyName>WCFTestClient.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Parametro.cs" />
+    <Compile Include="Data\Perfil.cs" />
+    <Compile Include="Dominio\ManipuladorDeParametrosDoFormulario.cs" />
+    <Compile Include="Dominio\ParametroSimples.cs" />
+    <Compile Include="Dominio\Resultado.cs" />
+    <Compile Include="Dominio\InvocadorDeServico.cs" />
+    <Compile Include="Service References\ServicoDeAdmissaoPreliminar_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeAfastamento_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeAgenciaBancaria_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeAgenteDeIntegracao_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeAvisoPrevio_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeBanco_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCalendario_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCandidato_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCargoRH_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCargo_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCBO_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCentroDeCusto_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeConfiguracaoFpw_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeCurso_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeDadosCadastraisTG_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeDadosCadastrais_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeDependente_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeEmpresa_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeEventosDoFuncionario_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeFerias_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeFuncionario_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeGrupoHierarquico_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeHorario_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeInstituicaoDeEnsino_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeLotacao_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeMovimentacaoTabGen_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeMovimentacao_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeMunicipio_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDePaisFpw_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeParametrizacaoValeTransporteFuncionario_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDePosicao_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeReintegracao_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeSindicato_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeSituacao_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeTabelaAuxiliar_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeTabelaSalarial_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeTipoDeLogradouro_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeTransferenciaEntreEmpresasTabGen_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeTransferenciaEntreEmpresas_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeTurmas_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoDeValorDeAtributoAdicional_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoFaixaDeEncargos_20171\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CampoObjetoService.cs" />
+    <Compile Include="Dominio\ExtratorDeInformacaoDeAssembly.cs" />
+    <Compile Include="Services\ExtratorDeInformacaoDeAssemblyService.cs" />
+    <Compile Include="Services\InvocadorDeServicoService.cs" />
+    <Compile Include="Services\ReflectionUtilService.cs" />
+    <Compile Include="Dominio\CampoObjeto.cs" />
+    <Compile Include="Dominio\ReflectionUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contratos\Repository\" />
+    <Folder Include="Contratos\Service\" />
+    <Folder Include="SharedKernel\" />
+    <Folder Include="SSO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\ServicoDeAdmissaoPreliminar_20171\ServicoDeAdmissaoPreliminarImpl.wsdl" />
+    <None Include="Service References\ServicoDeAdmissaoPreliminar_20171\WCFTestClient.Dominio.ServicoDeAdmissaoPreliminar_20171.AdmissaoPreliminar.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAdmissaoPreliminar_20171\WCFTestClient.Dominio.ServicoDeAdmissaoPreliminar_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAfastamento_20171\ServicoDeAfastamentoImpl.wsdl" />
+    <None Include="Service References\ServicoDeAfastamento_20171\WCFTestClient.Dominio.ServicoDeAfastamento_20171.Afastamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAfastamento_20171\WCFTestClient.Dominio.ServicoDeAfastamento_20171.MotivoAfastamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAgenciaBancaria_20171\ServicoDeAgenciaBancariaImpl.wsdl" />
+    <None Include="Service References\ServicoDeAgenciaBancaria_20171\WCFTestClient.Dominio.ServicoDeAgenciaBancaria_20171.Agencia.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAgenteDeIntegracao_20171\ServicoDeAgenteDeIntegracaoImpl.wsdl" />
+    <None Include="Service References\ServicoDeAgenteDeIntegracao_20171\WCFTestClient.Dominio.ServicoDeAgenteDeIntegracao_20171.AgenteDeIntegracaoConsulta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAgenteDeIntegracao_20171\WCFTestClient.Dominio.ServicoDeAgenteDeIntegracao_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\ServicoDeAvaliacaoDeTreinamentoImpl.wsdl" />
+    <None Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\WCFTestClient.Dominio.ServicoDeAvaliacaoDeTreinamento_20171.AvaliacaoDeTreinamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\WCFTestClient.Dominio.ServicoDeAvaliacaoDeTreinamento_20171.AvaliacaoDeTreinamentoDoTerceiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\ServicoDeAvisoPrevioImpl.wsdl" />
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\WCFTestClient.Dominio.ServicoDeAvisoPrevio_20171.AvisoPrevioConsulta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\WCFTestClient.Dominio.ServicoDeAvisoPrevio_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\WCFTestClient.Dominio.ServicoDeAvisoPrevio_20171.TipoAvisoPrevio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeBanco_20171\ServicoDeBancoImpl.wsdl" />
+    <None Include="Service References\ServicoDeBanco_20171\WCFTestClient.Dominio.ServicoDeBanco_20171.Banco.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCalendario_20171\ServicoDeCalendarioImpl.wsdl" />
+    <None Include="Service References\ServicoDeCalendario_20171\WCFTestClient.Dominio.ServicoDeCalendario_20171.Calendario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCandidato_20171\ServicoDeCandidatoImpl.wsdl" />
+    <None Include="Service References\ServicoDeCandidato_20171\WCFTestClient.Dominio.ServicoDeCandidato_20171.Candidato.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCandidato_20171\WCFTestClient.Dominio.ServicoDeCandidato_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\ServicoDeCargoRHImpl.wsdl" />
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.CursoPosicaoOuCargoRH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.DescricoesResumidaEDetalhadaDoCargoRH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.FormacaoPosicaoOuCargoRH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.HabilidadePosicaoOuCargoRH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.IdiomaPosicaoOuCargoRH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargoRH_20171\WCFTestClient.Dominio.ServicoDeCargoRH_20171.VigenciasDoCargoRH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCargo_20171\ServicoDeCargoImpl.wsdl" />
+    <None Include="Service References\ServicoDeCargo_20171\WCFTestClient.Dominio.ServicoDeCargo_20171.RetornoCodigoEDescricaoGenericoint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCBO_20171\ServicoDeCBOImpl.wsdl" />
+    <None Include="Service References\ServicoDeCentroDeCusto_20171\ServicoDeCentroDeCustoImpl.wsdl" />
+    <None Include="Service References\ServicoDeCentroDeCusto_20171\WCFTestClient.Dominio.ServicoDeCentroDeCusto_20171.RetornoCodigoEDescricaoGenericostring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeConfiguracaoFpw_20171\ServicoDeConfiguracaoFpwImpl.wsdl" />
+    <None Include="Service References\ServicoDeConfiguracaoFpw_20171\WCFTestClient.Dominio.ServicoDeConfiguracaoFpw_20171.ConfiguracoesDeSistema.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\ServicoDeConfiguracoesCargosESalariosImpl.wsdl" />
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\WCFTestClient.Dominio.ServicoDeConfiguracoesCargosESalarios_20171.ConfiguracaoDaLinhaEColunaDasTabelasSalariais.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\WCFTestClient.Dominio.ServicoDeConfiguracoesCargosESalarios_20171.ConfiguracoesDeAssociacoesDeTabelasSalariaisComEntidades.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\WCFTestClient.Dominio.ServicoDeConfiguracoesCargosESalarios_20171.ConfiguracoesDePosicao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCurso_20171\ServicoDeCursoImpl.wsdl" />
+    <None Include="Service References\ServicoDeCurso_20171\WCFTestClient.Dominio.ServicoDeCurso_20171.CursoConsulta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeCurso_20171\WCFTestClient.Dominio.ServicoDeCurso_20171.DadosCurso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\ServicoDeDadosCadastraisTGImpl.wsdl" />
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.EnumSeguroModuloAutorizado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.Formacoes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.Idiomas.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.Instituicao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.NivelIdioma.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.OutroCurso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.RamoAtividade.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\WCFTestClient.Dominio.ServicoDeDadosCadastraisTG_20171.TipoFormacao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\ServicoDeDadosCadastraisImpl.wsdl" />
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.Categoria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.CategoriaDeCNH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.ClassificacaoTrabalhadorEstrangeiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.EnumSeguroUnidadeFederativa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.EstadoCivil.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.GrauDeInstrucao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.GrauDeParentesco.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.IndicadorDeProvimento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.NivelEstagio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.RegimeTrabalhista.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.TipoAdmissaoEsocial.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.TipoDeProvimento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.TipoInclusao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\WCFTestClient.Dominio.ServicoDeDadosCadastrais_20171.TipoPlanoSegregacao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDependente_20171\ServicoDeDependenteImpl.wsdl" />
+    <None Include="Service References\ServicoDeDependente_20171\WCFTestClient.Dominio.ServicoDeDependente_20171.Dependente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeDependente_20171\WCFTestClient.Dominio.ServicoDeDependente_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeEmpresa_20171\ServicoDeEmpresaImpl.wsdl" />
+    <None Include="Service References\ServicoDeEmpresa_20171\WCFTestClient.Dominio.ServicoDeEmpresa_20171.Empresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\ServicoDeEventosDoFuncionarioImpl.wsdl" />
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\WCFTestClient.Dominio.ServicoDeEventosDoFuncionario_20171.DadosEvento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\WCFTestClient.Dominio.ServicoDeEventosDoFuncionario_20171.EventoRetorno.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\WCFTestClient.Dominio.ServicoDeEventosDoFuncionario_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeFerias_20171\ServicoDeFeriasImp.wsdl" />
+    <None Include="Service References\ServicoDeFerias_20171\WCFTestClient.Dominio.ServicoDeFerias_20171.Ferias.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeFerias_20171\WCFTestClient.Dominio.ServicoDeFerias_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeFuncionario_20171\ServicoDeFuncionarioImpl.wsdl" />
+    <None Include="Service References\ServicoDeFuncionario_20171\WCFTestClient.Dominio.ServicoDeFuncionario_20171.Ferias.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeFuncionario_20171\WCFTestClient.Dominio.ServicoDeFuncionario_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\ServicoDeGrupoHierarquicoImpl.wsdl" />
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\WCFTestClient.Dominio.ServicoDeGrupoHierarquico_20171.GrupoHierarquico.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\WCFTestClient.Dominio.ServicoDeGrupoHierarquico_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\WCFTestClient.Dominio.ServicoDeGrupoHierarquico_20171.RetornoCodigoEDescricaoGenericostring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeHorario_20171\ServicoDeHorarioImpl.wsdl" />
+    <None Include="Service References\ServicoDeHorario_20171\WCFTestClient.Dominio.ServicoDeHorario_20171.HorarioDeTrabalho.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeHorario_20171\WCFTestClient.Dominio.ServicoDeHorario_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeInstituicaoDeEnsino_20171\ServicoDeInstituicaoDeEnsinoImpl.wsdl" />
+    <None Include="Service References\ServicoDeInstituicaoDeEnsino_20171\WCFTestClient.Dominio.ServicoDeInstituicaoDeEnsino_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeInstituicaoDeEnsino_20171\WCFTestClient.Dominio.ServicoDeInstituicaoDeEnsino_20171.InstituicaoDeEnsinoConsulta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\ServicoDeItemAtributoAdicionalTipoTabelaImpl.wsdl" />
+    <None Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\WCFTestClient.Dominio.ServicoDeItemAtributoAdicionalTipoTabela_20171.ItemAtributoAdicionalTipoTabela.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\ServicoDeLotacaoImpl.wsdl" />
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.IndicativoDaContratacaoDeAprendiz.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.IndicativoDaContratacaoPessoaComDeficiencia.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.Lotacao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.LotacaoClassificacao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.RetornoCodigoEDescricaoGenericolong.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeLotacao_20171\WCFTestClient.Dominio.ServicoDeLotacao_20171.TipoDeRegistroDePontoParaEstabelecimento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\ServicoDeMovimentacaoTabGenImpl.wsdl" />
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.CargoParaCadastrarFuncionarios.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.CentroDeCusto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.DadosDaInconsistenciaDaMovimentacao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.DadosDoFuncionario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.EnquadramentoDoFuncionario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.FuncionarioEstaEmExcecaoSalarial.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.NecessidadeEspecial.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.NivelSalarial.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.NivelSalarialFPW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.PosicaoEEntidadesParaCadastrarFuncionarios.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.RetornoCodigoEDescricaoGenericoint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.RetornoCodigoEDescricaoGenericolong.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.RetornoCodigoEDescricaoGenericostring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\WCFTestClient.Dominio.ServicoDeMovimentacaoTabGen_20171.TabelaSalarialParaCadastrarFuncionarios.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacao_20171\ServicoDeMovimentacaoImp.wsdl" />
+    <None Include="Service References\ServicoDeMovimentacao_20171\WCFTestClient.Dominio.ServicoDeMovimentacao_20171.DadosCadastroRescisao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacao_20171\WCFTestClient.Dominio.ServicoDeMovimentacao_20171.DadosEstabilidade.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMovimentacao_20171\WCFTestClient.Dominio.ServicoDeMovimentacao_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeMunicipio_20171\ServicoDeMunicipioImpl.wsdl" />
+    <None Include="Service References\ServicoDeMunicipio_20171\WCFTestClient.Dominio.ServicoDeMunicipio_20171.Municipio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\ServicoDeOcorrenciaDeRecessoImpl.wsdl" />
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\WCFTestClient.Dominio.ServicoDeOcorrenciaDeRecesso_20171.DadosRecessoParaCadastro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\WCFTestClient.Dominio.ServicoDeOcorrenciaDeRecesso_20171.InconsistenciaComCampo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\WCFTestClient.Dominio.ServicoDeOcorrenciaDeRecesso_20171.InformacoesDaOcorRecesso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\WCFTestClient.Dominio.ServicoDeOcorrenciaDeRecesso_20171.PeriodoAquisitivoEFruicao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\WCFTestClient.Dominio.ServicoDeOcorrenciaDeRecesso_20171.PeriodoDeGozo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_20171\ServicoDeOcorrenciaPortadorDeNecessidadeEspecialImpl.wsdl" />
+    <None Include="Service References\ServicoDePaisFpw_20171\ServicoDePaisFpwImpl.wsdl" />
+    <None Include="Service References\ServicoDeParametrizacaoValeTransporteFuncionario_20171\ServicoDeParametrizacaoValeTransporteFuncionarioImpl.wsdl" />
+    <None Include="Service References\ServicoDePosicao_20171\ServicoDePosicaoImpl.wsdl" />
+    <None Include="Service References\ServicoDeReintegracao_20171\ServicoDeReintegracaoImpl.wsdl" />
+    <None Include="Service References\ServicoDeSindicato_20171\ServicoDeSindicatoImpl.wsdl" />
+    <None Include="Service References\ServicoDeSituacao_20171\ServicoDeSituacaoImpl.wsdl" />
+    <None Include="Service References\ServicoDeTabelaAuxiliar_20171\ServicoDeTabelaAuxiliarImpl.wsdl" />
+    <None Include="Service References\ServicoDeTabelaSalarial_20171\SevicoDeTabelaSalarialImpl.wsdl" />
+    <None Include="Service References\ServicoDeTipoDeLogradouro_20171\ServicoDeTipoDeLogradouroImpl.wsdl" />
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresasTabGen_20171\ServicoDeTransferenciaEntreEmpresasTabGenImpl.wsdl" />
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresas_20171\ServicoDeTransferenciaEntreEmpresasImpl.wsdl" />
+    <None Include="Service References\ServicoDeTurmas_20171\ServicoDeTurmaImpl.wsdl" />
+    <None Include="Service References\ServicoDeValorDeAtributoAdicional_20171\ServicoDeValorDeAtributoAdicionalImpl.wsdl" />
+    <None Include="Service References\ServicoFaixaDeEncargos_20171\ServicoDeFaixaDeEncargosImpl.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicoDeAdmissaoPreliminar_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeAfastamento_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeAgenciaBancaria_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeAgenteDeIntegracao_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeAvisoPrevio_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeBanco_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCalendario_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCandidato_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCargoRH_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCargo_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCBO_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCentroDeCusto_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeConfiguracaoFpw_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeCurso_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeDadosCadastraisTG_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeDadosCadastrais_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeDependente_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeEmpresa_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeEventosDoFuncionario_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeFerias_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeFuncionario_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeGrupoHierarquico_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeHorario_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeInstituicaoDeEnsino_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeLotacao_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeMovimentacaoTabGen_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeMovimentacao_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeMunicipio_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDePaisFpw_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeParametrizacaoValeTransporteFuncionario_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDePosicao_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeReintegracao_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeSindicato_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeSituacao_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeTabelaAuxiliar_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeTabelaSalarial_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeTipoDeLogradouro_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeTransferenciaEntreEmpresasTabGen_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeTransferenciaEntreEmpresas_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeTurmas_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoDeValorDeAtributoAdicional_20171\" />
+    <WCFMetadataStorage Include="Service References\ServicoFaixaDeEncargos_20171\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAdmissaoPreliminar_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAdmissaoPreliminar_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAdmissaoPreliminar_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAfastamento_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAfastamento_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAfastamento_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAgenciaBancaria_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAgenciaBancaria_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAgenciaBancaria_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAgenteDeIntegracao_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAgenteDeIntegracao_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAgenteDeIntegracao_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAvaliacaoDeTreinamento_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeAvisoPrevio_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeBanco_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeBanco_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeBanco_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCalendario_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCalendario_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCalendario_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCandidato_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCandidato_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCandidato_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCargo_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCargo_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCargo_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCargoRH_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCargoRH_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCargoRH_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCBO_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCBO_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCBO_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCentroDeCusto_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCentroDeCusto_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCentroDeCusto_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeConfiguracaoFpw_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeConfiguracaoFpw_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeConfiguracaoFpw_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeConfiguracoesCargosESalarios_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCurso_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCurso_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeCurso_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDadosCadastrais_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDadosCadastraisTG_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDependente_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDependente_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeDependente_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeEmpresa_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeEmpresa_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeEmpresa_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeEventosDoFuncionario_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeFerias_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeFerias_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeFerias_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeFuncionario_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeFuncionario_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeFuncionario_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeGrupoHierarquico_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeHorario_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeHorario_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeHorario_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeInstituicaoDeEnsino_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeInstituicaoDeEnsino_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeInstituicaoDeEnsino_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeItemAtributoAdicionalTipoTabela_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeLotacao_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeLotacao_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeLotacao_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMovimentacao_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMovimentacao_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMovimentacao_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMovimentacaoTabGen_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMunicipio_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMunicipio_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeMunicipio_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeOcorrenciaDeRecesso_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeOcorrenciaPortadorDeNecessidadeEspecial_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDePaisFpw_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDePaisFpw_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDePaisFpw_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeParametrizacaoValeTransporteFuncionario_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeParametrizacaoValeTransporteFuncionario_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeParametrizacaoValeTransporteFuncionario_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDePosicao_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDePosicao_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDePosicao_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeReintegracao_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeReintegracao_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeReintegracao_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeSindicato_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeSindicato_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeSindicato_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeSituacao_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeSituacao_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeSituacao_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTabelaAuxiliar_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTabelaAuxiliar_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTabelaAuxiliar_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTabelaSalarial_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTabelaSalarial_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTabelaSalarial_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTipoDeLogradouro_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTipoDeLogradouro_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTipoDeLogradouro_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresas_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresas_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresas_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresasTabGen_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresasTabGen_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTransferenciaEntreEmpresasTabGen_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTurmas_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTurmas_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeTurmas_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeValorDeAtributoAdicional_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeValorDeAtributoAdicional_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoDeValorDeAtributoAdicional_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoFaixaDeEncargos_20171\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoFaixaDeEncargos_20171\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoFaixaDeEncargos_20171\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="lg.com.br/svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoDeValorDeAtributoAdicionalImpl" targetNamespace="lg.com.br/svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="lg.com.br/svc">
+      <xsd:element name="CadastreValorDeAtributoAdicionalParaFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q1="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q1:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreValorDeAtributoAdicionalParaFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreValorDeAtributoAdicionalParaFuncionario_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q2="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q2:AtributosAdicionais" />
+            <xsd:element minOccurs="0" name="DataVigencia" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="CodigoMotivo" type="xsd:int" />
+            <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreValorDeAtributoAdicionalParaFuncionario_V2Response">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeValorDeAtributoAdicionalParaFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q3="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q3:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeValorDeAtributoAdicionalParaFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeValorDeAtributoAdicionalParaFuncionario_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q4="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q4:AtributosAdicionais" />
+            <xsd:element minOccurs="0" name="DataVigencia" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="CodigoMotivo" type="xsd:int" />
+            <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeValorDeAtributoAdicionalParaFuncionario_V2Response">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaValorDeAtributoAdicionalParaFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q5="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q5:AtributosAdicionais_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaValorDeAtributoAdicionalParaFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaValorDeAtributoAdicionalParaFuncionario_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q6="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q6:AtributosAdicionais_Exclusao" />
+            <xsd:element minOccurs="0" name="DataVigencia" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="CodigoMotivo" type="xsd:int" />
+            <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaValorDeAtributoAdicionalParaFuncionario_V2Response">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreValorDeAtributoAdicionalParaDependente">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDoDependente" type="xsd:int" />
+            <xsd:element xmlns:q7="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q7:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CadastreValorDeAtributoAdicionalParaDependenteResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeValorDeAtributoAdicionalParaDependente">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDoDependente" type="xsd:int" />
+            <xsd:element xmlns:q8="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q8:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AtualizeValorDeAtributoAdicionalParaDependenteResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaValorDeAtributoAdicionalParaDependente">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element minOccurs="0" name="CodigoDoDependente" type="xsd:int" />
+            <xsd:element xmlns:q9="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q9:AtributosAdicionais_Exclusao" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExcluaValorDeAtributoAdicionalParaDependenteResponse">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q10="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q10:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioResult" nillable="true" type="q11:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q12="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q12:AtributosAdicionais" />
+            <xsd:element minOccurs="0" name="DataVigencia" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="CodigoMotivo" type="xsd:int" />
+            <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2Result" nillable="true" type="q13:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q14="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q14:AtributosAdicionais" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioResult" nillable="true" type="q15:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="MatriculaDoFuncionario" type="xsd:int" />
+            <xsd:element xmlns:q16="lg.com.br/svc/dto" minOccurs="0" name="AtributosAdicionais" nillable="true" type="q16:AtributosAdicionais" />
+            <xsd:element minOccurs="0" name="DataVigencia" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="CodigoMotivo" type="xsd:int" />
+            <xsd:element minOccurs="0" name="Observacao" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="lg.com.br/svc/dto" minOccurs="0" name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2Result" nillable="true" type="q17:ArrayOfInconsistenciaComCampo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="lg.com.br/svc/dto" elementFormDefault="qualified" targetNamespace="lg.com.br/svc/dto">
+      <xsd:complexType name="AtributosAdicionais">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoBooleano" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalBooleano" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoCaractere" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalCaractere" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoData" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalData" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoDecimal" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalDecimal" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoNumerico" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalNumerico" />
+          <xsd:element minOccurs="0" name="AtributosAdicionaisDoTipoTabela" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalTabela" />
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AtributosAdicionais" nillable="true" type="tns:AtributosAdicionais" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalBooleano">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalBooleano" nillable="true" type="tns:ValorDeAtributoAdicionalBooleano" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalBooleano" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalBooleano" />
+      <xsd:complexType name="ValorDeAtributoAdicionalBooleano">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalBooleano" nillable="true" type="tns:ValorDeAtributoAdicionalBooleano" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalCaractere">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalCaractere" nillable="true" type="tns:ValorDeAtributoAdicionalCaractere" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalCaractere" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalCaractere" />
+      <xsd:complexType name="ValorDeAtributoAdicionalCaractere">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalCaractere" nillable="true" type="tns:ValorDeAtributoAdicionalCaractere" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalData" nillable="true" type="tns:ValorDeAtributoAdicionalData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalData" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalData" />
+      <xsd:complexType name="ValorDeAtributoAdicionalData">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalData" nillable="true" type="tns:ValorDeAtributoAdicionalData" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalDecimal">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalDecimal" nillable="true" type="tns:ValorDeAtributoAdicionalDecimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalDecimal" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalDecimal" />
+      <xsd:complexType name="ValorDeAtributoAdicionalDecimal">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalDecimal" nillable="true" type="tns:ValorDeAtributoAdicionalDecimal" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalNumerico">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalNumerico" nillable="true" type="tns:ValorDeAtributoAdicionalNumerico" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalNumerico" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalNumerico" />
+      <xsd:complexType name="ValorDeAtributoAdicionalNumerico">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="Valor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalNumerico" nillable="true" type="tns:ValorDeAtributoAdicionalNumerico" />
+      <xsd:complexType name="ArrayOfValorDeAtributoAdicionalTabela">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValorDeAtributoAdicionalTabela" nillable="true" type="tns:ValorDeAtributoAdicionalTabela" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfValorDeAtributoAdicionalTabela" nillable="true" type="tns:ArrayOfValorDeAtributoAdicionalTabela" />
+      <xsd:complexType name="ValorDeAtributoAdicionalTabela">
+        <xsd:sequence>
+          <xsd:element name="CodigoDoAtributoAdicional" type="xsd:int" />
+          <xsd:element name="CodigoDoElementoDaTabela" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="DescricaoDoAtributoAdicional" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ValorDeAtributoAdicionalTabela" nillable="true" type="tns:ValorDeAtributoAdicionalTabela" />
+      <xsd:complexType name="LGContextoAmbiente">
+        <xsd:sequence>
+          <xsd:element name="Ambiente" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EnderecoHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FuncaoEmExecucao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdTenant" type="xsd:long" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAuditoria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutenticacao_v2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdentificadorDeAutorizacao" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeHost" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ChaveContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NomeContaArmazenamentoTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGContextoAmbiente" nillable="true" type="tns:LGContextoAmbiente" />
+      <xsd:complexType name="LGAutenticacao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TokenSessao" nillable="true" type="tns:LGTokenSessao" />
+          <xsd:element minOccurs="0" name="TokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGAutenticacao" nillable="true" type="tns:LGAutenticacao" />
+      <xsd:complexType name="LGTokenSessao">
+        <xsd:sequence>
+          <xsd:element name="IdGerenciadorToken" nillable="true" type="xsd:string" />
+          <xsd:element name="IdSessao" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenSessao" nillable="true" type="tns:LGTokenSessao" />
+      <xsd:complexType name="LGTokenUsuario">
+        <xsd:sequence>
+          <xsd:element name="Senha" nillable="true" type="xsd:string" />
+          <xsd:element name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GuidTenant" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LGTokenUsuario" nillable="true" type="tns:LGTokenUsuario" />
+      <xsd:complexType name="ListaDeInconsistencias">
+        <xsd:sequence>
+          <xsd:element name="Inconsistencias" nillable="true" type="tns:ArrayOfInconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ListaDeInconsistencias" nillable="true" type="tns:ListaDeInconsistencias" />
+      <xsd:complexType name="ArrayOfInconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistencia" nillable="true" type="tns:ArrayOfInconsistencia" />
+      <xsd:complexType name="Inconsistencia">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AtributoRelacionado" nillable="true" type="xsd:string" />
+          <xsd:element name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Inconsistencia" nillable="true" type="tns:Inconsistencia" />
+      <xsd:complexType name="FalhaInternaDeExecucao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Identificador" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaInternaDeExecucao" nillable="true" type="tns:FalhaInternaDeExecucao" />
+      <xsd:complexType name="FalhaDePermissao">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FalhaDePermissao" nillable="true" type="tns:FalhaDePermissao" />
+      <xsd:complexType name="AtributosAdicionais_Exclusao">
+        <xsd:sequence>
+          <xsd:element name="CodigoDaEmpresa" type="xsd:int" />
+          <xsd:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CodigosAtributosAdicionais" nillable="true" type="q18:ArrayOfint" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AtributosAdicionais_Exclusao" nillable="true" type="tns:AtributosAdicionais_Exclusao" />
+      <xsd:complexType name="ArrayOfInconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfInconsistenciaComCampo" nillable="true" type="tns:ArrayOfInconsistenciaComCampo" />
+      <xsd:complexType name="InconsistenciaComCampo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Mensagem" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PropriedadeValidada" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InconsistenciaComCampo" nillable="true" type="tns:InconsistenciaComCampo" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOfint">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="int" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreValorDeAtributoAdicionalParaFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q19="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q19:LGContextoAmbiente" />
+    <wsdl:part xmlns:q20="lg.com.br/svc/dto" name="LGAutenticacao" element="q20:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreValorDeAtributoAdicionalParaFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q21="lg.com.br/svc/dto" name="detail" element="q21:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q22="lg.com.br/svc/dto" name="detail" element="q22:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q23="lg.com.br/svc/dto" name="detail" element="q23:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q24="lg.com.br/svc/dto" name="detail" element="q24:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreValorDeAtributoAdicionalParaFuncionario_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q25="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q25:LGContextoAmbiente" />
+    <wsdl:part xmlns:q26="lg.com.br/svc/dto" name="LGAutenticacao" element="q26:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreValorDeAtributoAdicionalParaFuncionario_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q27="lg.com.br/svc/dto" name="detail" element="q27:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q28="lg.com.br/svc/dto" name="detail" element="q28:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q29="lg.com.br/svc/dto" name="detail" element="q29:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q30="lg.com.br/svc/dto" name="detail" element="q30:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeValorDeAtributoAdicionalParaFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q31="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q31:LGContextoAmbiente" />
+    <wsdl:part xmlns:q32="lg.com.br/svc/dto" name="LGAutenticacao" element="q32:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeValorDeAtributoAdicionalParaFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q33="lg.com.br/svc/dto" name="detail" element="q33:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q34="lg.com.br/svc/dto" name="detail" element="q34:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q35="lg.com.br/svc/dto" name="detail" element="q35:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q36="lg.com.br/svc/dto" name="detail" element="q36:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeValorDeAtributoAdicionalParaFuncionario_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q37="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q37:LGContextoAmbiente" />
+    <wsdl:part xmlns:q38="lg.com.br/svc/dto" name="LGAutenticacao" element="q38:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeValorDeAtributoAdicionalParaFuncionario_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q39="lg.com.br/svc/dto" name="detail" element="q39:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q40="lg.com.br/svc/dto" name="detail" element="q40:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q41="lg.com.br/svc/dto" name="detail" element="q41:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q42="lg.com.br/svc/dto" name="detail" element="q42:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaValorDeAtributoAdicionalParaFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q43="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q43:LGContextoAmbiente" />
+    <wsdl:part xmlns:q44="lg.com.br/svc/dto" name="LGAutenticacao" element="q44:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaValorDeAtributoAdicionalParaFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q45="lg.com.br/svc/dto" name="detail" element="q45:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q46="lg.com.br/svc/dto" name="detail" element="q46:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q47="lg.com.br/svc/dto" name="detail" element="q47:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q48="lg.com.br/svc/dto" name="detail" element="q48:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaValorDeAtributoAdicionalParaFuncionario_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q49="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q49:LGContextoAmbiente" />
+    <wsdl:part xmlns:q50="lg.com.br/svc/dto" name="LGAutenticacao" element="q50:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaValorDeAtributoAdicionalParaFuncionario_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q51="lg.com.br/svc/dto" name="detail" element="q51:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q52="lg.com.br/svc/dto" name="detail" element="q52:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q53="lg.com.br/svc/dto" name="detail" element="q53:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q54="lg.com.br/svc/dto" name="detail" element="q54:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreValorDeAtributoAdicionalParaDependente" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InputMessage_Headers">
+    <wsdl:part xmlns:q55="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q55:LGContextoAmbiente" />
+    <wsdl:part xmlns:q56="lg.com.br/svc/dto" name="LGAutenticacao" element="q56:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastreValorDeAtributoAdicionalParaDependenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q57="lg.com.br/svc/dto" name="detail" element="q57:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q58="lg.com.br/svc/dto" name="detail" element="q58:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q59="lg.com.br/svc/dto" name="detail" element="q59:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q60="lg.com.br/svc/dto" name="detail" element="q60:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeValorDeAtributoAdicionalParaDependente" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InputMessage_Headers">
+    <wsdl:part xmlns:q61="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q61:LGContextoAmbiente" />
+    <wsdl:part xmlns:q62="lg.com.br/svc/dto" name="LGAutenticacao" element="q62:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizeValorDeAtributoAdicionalParaDependenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q63="lg.com.br/svc/dto" name="detail" element="q63:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q64="lg.com.br/svc/dto" name="detail" element="q64:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q65="lg.com.br/svc/dto" name="detail" element="q65:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q66="lg.com.br/svc/dto" name="detail" element="q66:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaValorDeAtributoAdicionalParaDependente" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InputMessage_Headers">
+    <wsdl:part xmlns:q67="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q67:LGContextoAmbiente" />
+    <wsdl:part xmlns:q68="lg.com.br/svc/dto" name="LGAutenticacao" element="q68:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluaValorDeAtributoAdicionalParaDependenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q69="lg.com.br/svc/dto" name="detail" element="q69:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q70="lg.com.br/svc/dto" name="detail" element="q70:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q71="lg.com.br/svc/dto" name="detail" element="q71:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q72="lg.com.br/svc/dto" name="detail" element="q72:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q73="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q73:LGContextoAmbiente" />
+    <wsdl:part xmlns:q74="lg.com.br/svc/dto" name="LGAutenticacao" element="q74:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q75="lg.com.br/svc/dto" name="detail" element="q75:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q76="lg.com.br/svc/dto" name="detail" element="q76:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q77="lg.com.br/svc/dto" name="detail" element="q77:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q78="lg.com.br/svc/dto" name="detail" element="q78:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q79="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q79:LGContextoAmbiente" />
+    <wsdl:part xmlns:q80="lg.com.br/svc/dto" name="LGAutenticacao" element="q80:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q81="lg.com.br/svc/dto" name="detail" element="q81:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q82="lg.com.br/svc/dto" name="detail" element="q82:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q83="lg.com.br/svc/dto" name="detail" element="q83:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q84="lg.com.br/svc/dto" name="detail" element="q84:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers">
+    <wsdl:part xmlns:q85="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q85:LGContextoAmbiente" />
+    <wsdl:part xmlns:q86="lg.com.br/svc/dto" name="LGAutenticacao" element="q86:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q87="lg.com.br/svc/dto" name="detail" element="q87:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q88="lg.com.br/svc/dto" name="detail" element="q88:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q89="lg.com.br/svc/dto" name="detail" element="q89:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q90="lg.com.br/svc/dto" name="detail" element="q90:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers">
+    <wsdl:part xmlns:q91="lg.com.br/svc/dto" name="LGContextoAmbiente" element="q91:LGContextoAmbiente" />
+    <wsdl:part xmlns:q92="lg.com.br/svc/dto" name="LGAutenticacao" element="q92:LGAutenticacao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage">
+    <wsdl:part xmlns:q93="lg.com.br/svc/dto" name="detail" element="q93:ListaDeInconsistencias" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage">
+    <wsdl:part xmlns:q94="lg.com.br/svc/dto" name="detail" element="q94:Inconsistencia" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage">
+    <wsdl:part xmlns:q95="lg.com.br/svc/dto" name="detail" element="q95:FalhaInternaDeExecucao" />
+  </wsdl:message>
+  <wsdl:message name="ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage">
+    <wsdl:part xmlns:q96="lg.com.br/svc/dto" name="detail" element="q96:FalhaDePermissao" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoDeValorDeAtributoAdicional">
+    <wsdl:documentation>
+      <summary>Serviço responsável pela manutenção de valor de atributo adicional.</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CadastreValorDeAtributoAdicionalParaFuncionario">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de valor de atributo adicional para funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionarioResponse" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreValorDeAtributoAdicionalParaFuncionario_V2">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de valor de atributo adicional para funcionário - Versão 2.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2Response" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeValorDeAtributoAdicionalParaFuncionario">
+      <wsdl:documentation>
+        <summary>Operação de atualização de valor de atributo adicional para funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionarioResponse" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeValorDeAtributoAdicionalParaFuncionario_V2">
+      <wsdl:documentation>
+        <summary>Operação de atualização de valor de atributo adicional para funcionário - Versão 2.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2Response" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaValorDeAtributoAdicionalParaFuncionario">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de valor de atributo adicional para funcionário.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionarioResponse" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaValorDeAtributoAdicionalParaFuncionario_V2">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de valor de atributo adicional para funcionário - Versão 2.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2Response" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastreValorDeAtributoAdicionalParaDependente">
+      <wsdl:documentation>
+        <summary>Operação de cadastro de valor de atributo adicional para dependente.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependente" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependenteResponse" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependenteListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependenteInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependenteFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependenteFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeValorDeAtributoAdicionalParaDependente">
+      <wsdl:documentation>
+        <summary>Operação de atualização de valor de atributo adicional para dependente.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependente" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependenteResponse" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependenteInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependenteListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependenteFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependenteFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaValorDeAtributoAdicionalParaDependente">
+      <wsdl:documentation>
+        <summary>Operação de exclusão de valor de atributo adicional para dependente.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependente" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependenteResponse" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependenteListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependenteInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependenteFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependenteFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para o cadastro de valores de atributos adicionais para um do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioResponse" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para o cadastro de valores de atributos adicionais para um do funcionário - Versão 2</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2Response" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para a atualização de valores de atributos adicionais para um do funcionário</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioResponse" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioInconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioFalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionarioFalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2">
+      <wsdl:documentation>
+        <summary>Realiza as validações das regras impeditivas para a atualização de valores de atributos adicionais para um do funcionário - Versão 2</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InputMessage" />
+      <wsdl:output wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2Response" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2ListaDeInconsistenciasFault" name="ListaDeInconsistenciasFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_ListaDeInconsistenciasFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2InconsistenciaFault" name="InconsistenciaFault" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InconsistenciaFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2FalhaInternaDeExecucaoFault" name="FalhaInternaDeExecucao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_FalhaInternaDeExecucao_FaultMessage" />
+      <wsdl:fault wsaw:Action="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2FalhaDePermissaoFault" name="FalhaDePermissao" message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_FalhaDePermissao_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LGBasicHttp_ServicoDeValorDeAtributoAdicional" type="tns:ServicoDeValorDeAtributoAdicional">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CadastreValorDeAtributoAdicionalParaFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreValorDeAtributoAdicionalParaFuncionario_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaFuncionario_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeValorDeAtributoAdicionalParaFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeValorDeAtributoAdicionalParaFuncionario_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaFuncionario_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaValorDeAtributoAdicionalParaFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaValorDeAtributoAdicionalParaFuncionario_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaFuncionario_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CadastreValorDeAtributoAdicionalParaDependente">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/CadastreValorDeAtributoAdicionalParaDependente" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_CadastreValorDeAtributoAdicionalParaDependente_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizeValorDeAtributoAdicionalParaDependente">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/AtualizeValorDeAtributoAdicionalParaDependente" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_AtualizeValorDeAtributoAdicionalParaDependente_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluaValorDeAtributoAdicionalParaDependente">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ExcluaValorDeAtributoAdicionalParaDependente" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ExcluaValorDeAtributoAdicionalParaDependente_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaCadastroValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2">
+      <soap12:operation soapAction="lg.com.br/svc/ServicoDeValorDeAtributoAdicional/ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2" style="document" />
+      <wsdl:input>
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGContextoAmbiente" use="literal" />
+        <soap12:header message="tns:ServicoDeValorDeAtributoAdicional_ValideRegrasImpeditivasParaAtualizacaoValorDeAtributoAdicionalParaFuncionario_V2_InputMessage_Headers" part="LGAutenticacao" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ListaDeInconsistenciasFault">
+        <soap12:fault use="literal" name="ListaDeInconsistenciasFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InconsistenciaFault">
+        <soap12:fault use="literal" name="InconsistenciaFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaInternaDeExecucao">
+        <soap12:fault use="literal" name="FalhaInternaDeExecucao" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="FalhaDePermissao">
+        <soap12:fault use="literal" name="FalhaDePermissao" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoDeValorDeAtributoAdicionalImpl">
+    <wsdl:port name="LGBasicHttp_ServicoDeValorDeAtributoAdicional" binding="tns:LGBasicHttp_ServicoDeValorDeAtributoAdicional">
+      <soap12:address location="http://pc-1477:1008/lg.com.br/svc/servicodevalordeatributoadicional" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
